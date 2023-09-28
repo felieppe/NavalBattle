@@ -7,7 +7,7 @@
 using System;
 using ClassLibrary;
 
-namespace ConsoleApplication
+namespace NavalBattle
 {
     /// <summary>
     /// Programa de consola de demostración.
@@ -19,9 +19,7 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            // None
         }
     }
 }
