@@ -16,9 +16,6 @@ namespace NavalBattle
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main()
-        {
-            // None
-        }
+        public static void Main() { }
     }
 }
