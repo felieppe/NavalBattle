@@ -5,8 +5,9 @@
 //--------------------------------------------------------------------------------
 
 using System;
+//using ClassLibrary;
 
-namespace NavalBattle
+namespace ConsoleApplication
 {
     /// <summary>
     /// Programa de consola de demostración.
@@ -16,6 +17,6 @@ namespace NavalBattle
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main() { }
+        public static void Main() {}
     }
 }
