@@ -9,5 +9,9 @@ namespace Library
     {
         public string Id {get; set;}
         public Player() {}
+
+        public void SetId(string id) {
+            if (string.isNullOrEmpty(id)) { this.Id = id; }
+        }
     }
 }
