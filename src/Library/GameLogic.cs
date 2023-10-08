@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 
@@ -83,6 +82,16 @@ namespace BattleShip
                     this.shipCellList.RemoveAt(0); /* Eliminar el barco si ya no quedan celdas */
                 }
             }
+        }
+
+        public object GetShipCellList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetBoard()
+        {
+            throw new NotImplementedException();
         }
     }
 }
