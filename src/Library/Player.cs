@@ -15,5 +15,9 @@ namespace Library
         public void SetId(string id) {
             if (!string.IsNullOrEmpty(id)) { this.Id = id; }
         }
+
+        public string GetId() {
+            return this.Id;
+        }
     }
 }
