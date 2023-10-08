@@ -9,5 +9,20 @@
             Prueba de la clase <see cref="T:Library.Player"/>.
             </summary>
         </member>
+        <member name="F:Tests.PlayerTests.player">
+            <summary>
+            El jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.Setup">
+            <summary>
+            Crea un jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetIdTest">
+            <summary>
+            Prueba que SetId() establezca de forma correcta el Id al Player.
+            </summary>
+        </member>
     </members>
 </doc>
