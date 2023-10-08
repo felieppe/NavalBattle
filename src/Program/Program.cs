@@ -6,7 +6,6 @@
 
 using System;
 using Library;
-//using ClassLibrary;
 
 namespace NavalBattle
 {
