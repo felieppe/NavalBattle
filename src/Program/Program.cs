@@ -5,9 +5,10 @@
 //--------------------------------------------------------------------------------
 
 using System;
+using Library;
 //using ClassLibrary;
 
-namespace ConsoleApplication
+namespace NavalBattle
 {
     /// <summary>
     /// Programa de consola de demostración.
