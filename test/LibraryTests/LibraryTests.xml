@@ -4,6 +4,16 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:Tests.BoardTests">
+            <summary>
+            Prueba de la clase <see cref="T:BattleShip.Board"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.BoardTests.board">
+            <summary>
+            El Board para probar.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
@@ -19,9 +29,9 @@
             Crea un Game y dos players para probar.
             </summary>
         </member>
-        <member name="M:Tests.GameTests.AddPlayersTest">
+        <member name="M:Tests.GameTests.InitGameTest">
             <summary>
-            Prueba el sistema de agregar jugadores a UserManager.
+            Prueba la clase Game y sí añade de forma correcta a los jugadores.
             </summary>
         </member>
         <member name="T:Tests.PlayerTests">
@@ -42,6 +52,11 @@
         <member name="M:Tests.PlayerTests.SetIdTest">
             <summary>
             Prueba que SetId() establezca de forma correcta el Id al Player.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetUsernameTest">
+            <summary>
+            Prueba que SetUsername() establezca de forma correcta el Username al Player.
             </summary>
         </member>
         <member name="T:Tests.UserManagerTests">

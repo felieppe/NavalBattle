@@ -4,5 +4,50 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:BattleShip.Board">
+            <summary>
+            Clase Board.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Board.#ctor(System.Char[][],BattleShip.BoardSize)">
+            <summary>
+            Constructor de la clase Board.
+            </summary>
+            <param name="boards"></param>
+            <param name="boardSize"></param>
+        </member>
+        <member name="M:BattleShip.Board.SetBoard(System.Char[][],BattleShip.BoardSize)">
+            <summary>
+            Set de la clase Board.
+            </summary>
+            <param name="boards"></param>
+            <param name="boardSize"></param>
+        </member>
+        <member name="M:BattleShip.Board.GetBoard">
+            <summary>
+            Get de la clase Board.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BattleShip.BoardSize">
+            <summary>
+            Clase para establecer las dimensiones del tablero.
+            </summary>
+        </member>
+        <member name="P:BattleShip.BoardSize.Rows">
+            <summary>
+            Filas del tablero.
+            </summary> <summary>
+            Columnas del tablero.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:BattleShip.BoardSize.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Dimensiones del tablero.
+            </summary>
+            <param name="rows"></param>
+            <param name="columns"></param>
+        </member>
     </members>
 </doc>
