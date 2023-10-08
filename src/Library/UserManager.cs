@@ -8,6 +8,7 @@ namespace Library
     public class UserManager
     {
         private List<Player> Players = new List<Player>();
+        private List<Player> InGamePlayers = new List<Player>();
 
         public UserManager() {}
 
