@@ -12,10 +12,10 @@ namespace Library
 
         public UserManager() {}
 
-        public void AddUser(Player player) {
+        public void AddPlayer(Player player) {
             this.Players.Add(player);
         }
-        public void RemoveUser(Player player) {
+        public void RemovePlayer(Player player) {
             this.Players.Remove(player);
         }
 
