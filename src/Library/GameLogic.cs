@@ -54,16 +54,16 @@ namespace BattleShip
 
         private void InitializeBoard()
         {
-            this.board = new char[this.boardSize.Rows],[this.boardSize.Columns];
+            this.board = new char[this.boardSize.Rows][];
             for (int i = 0; i < this.boardSize.Rows; i++)
             {
+                this.board[i] = new char[this.boardSize.Columns];
                 for (int j = 0; j < this.boardSize.Columns; j++)
                 {
                     this.board[i][j] = 'O'; /* O representa celdas vacías */
                 }
             }
         }
-
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
