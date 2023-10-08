@@ -64,6 +64,7 @@ namespace BattleShip
                 }
             }
         }
+
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
