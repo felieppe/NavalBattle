@@ -16,6 +16,11 @@
             <param name="boards"></param>
             <param name="boardSize"></param>
         </member>
+        <member name="M:BattleShip.Board.InitializeBoard">
+            <summary>
+            Inicializar la matriz del tablero con etiquetas de fila y columna.
+            </summary>
+        </member>
         <member name="M:BattleShip.Board.SetBoard(System.Char[][],BattleShip.BoardSize)">
             <summary>
             Set de la clase Board.
