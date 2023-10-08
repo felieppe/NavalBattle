@@ -7,7 +7,7 @@ namespace Library
 {
     public class Player
     {
-        public string Id {get; set;}
+        private string Id {get; set;}
         public Player(string id) {
             this.Id = id;
         }
