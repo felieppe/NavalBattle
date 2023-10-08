@@ -17,11 +17,6 @@ namespace ConsoleApplication
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main()
-        {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
-        }
+        public static void Main() {}
     }
 }
