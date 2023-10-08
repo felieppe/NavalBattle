@@ -35,5 +35,19 @@ namespace Tests
 
             Assert.True(newId.Equals(player.GetId()));
         }
+
+        /// <summary>
+        /// Prueba que SetUsername() establezca de forma correcta el Username al Player.
+        /// </summary>
+        [Test]
+        public void SetUsernameTest()
+        {
+            Assert.NotNull(this.player);
+
+            string newUsername = "Alfred000";
+            this.player.SetUsername(newUsername);
+
+            Assert.True(newUsername.Equals(player.GetUsername()));
+        }
     }
 }
