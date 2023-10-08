@@ -11,7 +11,7 @@ namespace Library
         public Player() {}
 
         public void SetId(string id) {
-            if (string.isNullOrEmpty(id)) { this.Id = id; }
+            if (string.IsNullOrEmpty(id)) { this.Id = id; }
         }
     }
 }
