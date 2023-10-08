@@ -7,12 +7,15 @@ namespace Library
 {
     public class Game
     {
-        private Player Player1 {get; set;}
-        private Player Player2 {get; set;}
+        private List<Player> Players = new List<Player>();
 
         public Game(Player p1, Player p2) {
-            this.Player1 = p1;
-            this.Player2 = p2;
+            Players.Add(p1);
+            Players.Add(p2);
+        }
+
+        public List<Player> GetPlayers() {
+            return this.Players;
         }
     }
 }
