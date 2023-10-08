@@ -14,5 +14,8 @@ namespace Library
         public void AddUser(Player player) {
             this.Players.Add(player);
         }
+        public void RemoveUser(Player player) {
+            this.Players.Remove(player);
+        }
     }
 }
