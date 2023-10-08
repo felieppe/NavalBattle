@@ -4,6 +4,26 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:Tests.GameTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Game"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.GameTests.game">
+            <summary>
+            El Game y los Players para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.GameTests.Setup">
+            <summary>
+            Crea un Game y dos players para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.GameTests.AddPlayersTest">
+            <summary>
+            Prueba el sistema de agregar jugadores a UserManager.
+            </summary>
+        </member>
         <member name="T:Tests.PlayerTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.
