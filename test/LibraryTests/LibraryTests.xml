@@ -49,5 +49,10 @@
             Prueba el sistema de crear un nuevo juego.
             </summary>
         </member>
+        <member name="M:Tests.UserManagerTests.InGamePlayersTest">
+            <summary>
+            Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
+            </summary>
+        </member>
     </members>
 </doc>

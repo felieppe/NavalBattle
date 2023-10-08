@@ -72,5 +72,31 @@ namespace Tests
                 Assert.True(expectedPlayers.Contains(p));
             }
         }
+
+        /// <summary>
+        /// Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
+        /// </summary>
+        [Test]
+        public void InGamePlayersTest()
+        {
+            Assert.NotNull(this.um);
+
+            Player player = new Player("86f5a46e-6606-11ee-8c99-0242ac120002");
+            Player player2 = new Player("8af786ea-6606-11ee-8c99-0242ac120002");
+
+            List<Player> expectedInGamePlayers = new List<Player>();
+            expectedInGamePlayers.Add(player);
+            expectedInGamePlayers.Add(player2);
+
+            this.um.AddPlayer(player);
+            this.um.AddPlayer(player2);
+
+            Game game = this.um.NewGame();
+
+            List<Player> inGamePlayersList = this.um.GetInGamePlayers();
+            foreach (Player p in inGamePlayersList) {
+                Assert.True(expectedInGamePlayers.Contains(p));
+            }
+        }
     }
 }
