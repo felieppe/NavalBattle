@@ -24,5 +24,25 @@
             Prueba que SetId() establezca de forma correcta el Id al Player.
             </summary>
         </member>
+        <member name="T:Tests.UserManagerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.UserManagerTests.um">
+            <summary>
+            El UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.Setup">
+            <summary>
+            Crea un UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.AddPlayersTest">
+            <summary>
+            Prueba el sistema de agregar jugadores a UserManager.
+            </summary>
+        </member>
     </members>
 </doc>
