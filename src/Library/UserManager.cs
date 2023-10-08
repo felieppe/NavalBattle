@@ -15,6 +15,7 @@ namespace Library
         public void AddPlayer(Player player) {
             this.Players.Add(player);
         }
+
         public void RemovePlayer(Player player) {
             this.Players.Remove(player);
         }
@@ -28,24 +29,24 @@ namespace Library
         public Game NewGame() {
             if (!(this.Players.Count > 1)) { return null; }
 
-            List<Player> AvailablePlayers = Players.Except(InGamePlayers).ToList();
-            if (!(AvailablePlayers.Count > 1)) { return null; }
+            List<Player> availablePlayers = this.Players.Except(this.InGamePlayers).ToList();
+            if (!(availablePlayers.Count > 1)) { return null; }
 
             Random rnd = new Random();
             int pIndex = 0, pIndex2 = 0;
             bool ready = false;
             while (!ready) {
-                pIndex = rnd.Next(AvailablePlayers.Count);
-                pIndex2 = rnd.Next(AvailablePlayers.Count);
+                pIndex = rnd.Next(availablePlayers.Count);
+                pIndex2 = rnd.Next(availablePlayers.Count);
 
                 if (pIndex != pIndex2) { ready = true; }
             }
 
-            Player player1 = AvailablePlayers[pIndex];
-            Player player2 = AvailablePlayers[pIndex2];
+            Player player1 = availablePlayers[pIndex];
+            Player player2 = availablePlayers[pIndex2];
             Game game = new Game(player1, player2);
 
-            AddInGamePlayers(game);
+            this.AddInGamePlayers(game);
 
             return game;
         }
@@ -53,6 +54,7 @@ namespace Library
         public List<Player> GetPlayers() {
             return this.Players;
         }
+
         public List<Player> GetInGamePlayers() {
             return this.InGamePlayers;
         }
