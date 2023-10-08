@@ -7,7 +7,7 @@ namespace Library
 {
     public class UserManager
     {
-        public List<string> Players = new List<string>();
+        public List<Player> Players = new List<Player>();
 
         public UserManager() {}
 
