@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Player : IPlayer
+    public class Player
     {
         public string Id {get; set;}
         public Player(string id) {
