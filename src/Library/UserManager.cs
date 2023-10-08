@@ -18,5 +18,9 @@ namespace Library
         public void RemoveUser(Player player) {
             this.Players.Remove(player);
         }
+
+        public List<Player> GetPlayers() {
+            return this.Players;
+        }
     }
 }
