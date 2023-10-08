@@ -3,11 +3,11 @@ namespace BattleShip
     public class Ship
     {
         public string Name { get; set; }
-        public int Size { get; set; }
-        public Ship(string name, int size)
+        public int Lenght { get; set; }
+        public Ship(string name, int lenght)
         {
             this.Name = name;
-            this.Size = size;
+            this.Lenght = lenght;
         }
     }
 }
