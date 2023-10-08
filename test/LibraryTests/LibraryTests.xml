@@ -4,29 +4,74 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.TrainTests">
+        <member name="T:Tests.GameTests">
             <summary>
-            Prueba de la clase <see cref="T:ClassLibrary.Train"/>.
+            Prueba de la clase <see cref="T:Library.Game"/>.
             </summary>
         </member>
-        <member name="F:Tests.TrainTests.train">
+        <member name="F:Tests.GameTests.game">
             <summary>
-            El tren para probar.
+            El Game y los Players para probar.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.Setup">
+        <member name="M:Tests.GameTests.Setup">
             <summary>
-            Crea un tren para probar.
+            Crea un Game y dos players para probar.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.StartTrainTest">
+        <member name="M:Tests.GameTests.AddPlayersTest">
             <summary>
-            Prueba que el tren arranque.
+            Prueba el sistema de agregar jugadores a UserManager.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.StopTrainTest">
+        <member name="T:Tests.PlayerTests">
             <summary>
-            Prueba que el tren se detenga.
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.PlayerTests.player">
+            <summary>
+            El jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.Setup">
+            <summary>
+            Crea un jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetIdTest">
+            <summary>
+            Prueba que SetId() establezca de forma correcta el Id al Player.
+            </summary>
+        </member>
+        <member name="T:Tests.UserManagerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.UserManagerTests.um">
+            <summary>
+            El UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.Setup">
+            <summary>
+            Crea un UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.AddPlayersTest">
+            <summary>
+            Prueba el sistema de agregar jugadores a UserManager.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.NewGameTest">
+            <summary>
+            Prueba el sistema de crear un nuevo juego.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.InGamePlayersTest">
+            <summary>
+            Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
             </summary>
         </member>
     </members>
