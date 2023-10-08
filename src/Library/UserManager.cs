@@ -7,6 +7,12 @@ namespace Library
 {
     public class UserManager
     {
+        public List<string> Players = new List<string>();
+
         public UserManager() {}
+
+        public void AddUser(Player player) {
+            this.Players.Add(player);
+        }
     }
 }
