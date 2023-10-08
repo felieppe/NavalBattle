@@ -44,5 +44,10 @@
             Prueba el sistema de agregar jugadores a UserManager.
             </summary>
         </member>
+        <member name="M:Tests.UserManagerTests.NewGameTest">
+            <summary>
+            Prueba el sistema de crear un nuevo juego.
+            </summary>
+        </member>
     </members>
 </doc>
