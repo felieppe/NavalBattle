@@ -22,5 +22,8 @@ namespace Library
         public List<Player> GetPlayers() {
             return this.Players;
         }
+        public List<Player> GetInGamePlayers() {
+            return this.InGamePlayers;
+        }
     }
 }
