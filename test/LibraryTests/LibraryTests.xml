@@ -69,6 +69,31 @@
             Prueba de la clase <see cref="T:Library.Game"/>.
             </summary>
         </member>
+        <member name="T:Tests.ShipTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.ShipTests.sub">
+            <summary>
+            Un tipo de nave para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.Setup">
+            <summary>
+            Crea un jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.InterfaceCastTest">
+            <summary>
+            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.SetSunkenTest">
+            <summary>
+            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            </summary>
+        </member>
         <member name="T:Tests.UserManagerTests">
             <summary>
             Prueba de la clase <see cref="T:Library.UserManager"/>.
