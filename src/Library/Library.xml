@@ -189,7 +189,7 @@
             Class Printer.
             </summary>
         </member>
-        <member name="M:Library.Printer.#ctor(Library.Board,System.Int32,System.Int32)">
+        <member name="M:Library.Printer.#ctor(Library.Board)">
             <summary>
             Constructor.
             </summary>

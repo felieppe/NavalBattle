@@ -10,8 +10,8 @@ namespace Library
     /// </summary>
     public class Board
     {
-        private char[][] boards;
         private BoardSize boardSize;
+        private char[][] boards;
 
         /// <summary>
         /// Constructor de la clase Board.
@@ -79,9 +79,13 @@ namespace Library
             return this.boards; // Devuelve el tablero.
         }
 
-        internal bool GetCell(int x, int y)
+/// <summary>
+/// Devuelve tamaño del tablero.
+/// </summary>
+/// <returns></returns>
+        public BoardSize GetBoardSize()
         {
-            throw new NotImplementedException();
+            return this.boardSize;
         }
     }
 }

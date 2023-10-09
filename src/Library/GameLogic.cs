@@ -20,18 +20,6 @@ namespace Library
             this.InitializeShipCellList(totalShips);
         }
 
-        public void DisplayBoard() // Va en printer
-        {
-            for (int i = 0; i < this.boardSize.Rows; i++)
-            {
-                for (int j = 0; j < this.boardSize.Columns; j++)
-                {
-                    Console.Write(this.board[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
         /// <summary>
         /// Verifica el ataque.
         /// </summary>
