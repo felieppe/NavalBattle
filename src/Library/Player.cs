@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="Player.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,53 +18,67 @@ namespace Library
         /// <summary>
         /// Id del jugador.
         /// </summary>
-        /// <value>Id del jugador</value>
-        private string Id {get; set;}
+        /// <value> Player's Id. </value>
+        private string Id { get; set; }
+
         /// <summary>
-        /// Nombre de usuario del jugador
+        /// Nombre de usuario del jugador.
         /// </summary>
-        /// <value>Username del jugador</value>
-        private string Username {get; set;}
-        
+        /// <value>Username del jugador.</value>
+        private string Username { get; set; }
+
         /// <summary>
-        /// Constructor de la clase Game.
+        /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        /// <param name="id"></param>
-        public Player(string id) {
+        /// <param name="id"> Player's Id. </param>
+        public Player(string id)
+        {
             this.Id = id;
         }
 
         /// <summary>
         /// Establece el ID del jugador.
         /// </summary>
-        /// <param name="id"></param>
-        public void SetId(string id) {
-            if (!string.IsNullOrEmpty(id)) { this.Id = id; }
-        }
-        /// <summary>
-        /// Establece el username del jugador.
-        /// </summary>
-        /// <param name="username"></param>
-        public void SetUsername(string username) {
-            if (!string.IsNullOrEmpty(username)) { this.Username = username; }
+        /// <param name="id"> Player's Id. </param>
+        public void SetId(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                this.Id = id;
+            }
         }
 
         /// <summary>
-        /// Obtiene el ID del jugador
+        /// Establece el username del jugador.
+        /// </summary>
+        /// <param name="username"> Player's username. </param>
+        public void SetUsername(string username)
+        {
+            if (!string.IsNullOrEmpty(username))
+            {
+                this.Username = username;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene el ID del jugador.
         /// </summary>
         /// <returns>
         /// El ID del jugador.
         /// </returns>
-        public string GetId() {
+        public string GetId()
+        {
             return this.Id;
         }
+
         /// <summary>
-        /// Obtiene el username del jugador
+        /// Obtiene el username del jugador.
         /// </summary>
         /// <returns>
         /// El Username del jugador.
         /// </returns>
-        public string GetUsername() {
+        public string GetUsername()
+        {
             return this.Username;
         }
     }

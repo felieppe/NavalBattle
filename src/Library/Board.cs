@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="Board.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +11,7 @@ using System.Threading.Tasks;
 namespace Library
 {
     /// <summary>
-    /// Clase Board.
+    /// Board class.
     /// </summary>
     public class Board
     {
@@ -14,10 +19,10 @@ namespace Library
         private char[][] boards;
 
         /// <summary>
-        /// Constructor de la clase Board.
+        /// Initializes a new instance of the <see cref="Board"/> class.
         /// </summary>
-        /// <param name="boards"></param>
-        /// <param name="boardSize"></param>
+        /// <param name="boards"> Board. </param>
+        /// <param name="boardSize"> Board Size. </param>
         public Board(char[][] boards, BoardSize boardSize)
         {
             this.boards = boards;
@@ -26,7 +31,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Inicializar la matriz del tablero con etiquetas de fila y columna.
+        /// New board with row and column index.
         /// </summary>
         public void InitializeBoard()
         {
@@ -62,8 +67,8 @@ namespace Library
 /// <summary>
 /// Set de la clase Board.
 /// </summary>
-/// <param name="boards"></param>
-/// <param name="boardSize"></param>
+/// <param name="boards"> Board. </param>
+/// <param name="boardSize"> Board size. </param>
         public void SetBoard(char[][] boards, BoardSize boardSize)
         {
             this.boards = boards;
@@ -73,7 +78,7 @@ namespace Library
 /// <summary>
 /// Get de la clase Board.
 /// </summary>
-/// <returns></returns>
+/// <returns> boards. </returns>
         public char[][] GetBoard()
         {
             return this.boards; // Devuelve el tablero.
@@ -82,7 +87,7 @@ namespace Library
 /// <summary>
 /// Devuelve tamaño del tablero.
 /// </summary>
-/// <returns></returns>
+/// <returns> boardSize. </returns>
         public BoardSize GetBoardSize()
         {
             return this.boardSize;

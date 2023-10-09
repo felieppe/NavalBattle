@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="Printer.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,12 +21,12 @@ namespace Library
         private int columns;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="Printer"/> class.
         /// </summary>
         /// <param name="board"></param>
         /// <param name="rows"></param>
         /// <param name="columns"></param>
-        public Printer(Board board)
+        public Printer(Board board, int rows, int columns)
         {
             this.board = board;
             this.rows = board.GetBoardSize().Rows;

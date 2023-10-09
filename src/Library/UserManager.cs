@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="UserManager.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,41 +18,38 @@ namespace Library
         /// <summary>
         /// Lista de jugadores registrados en el UserManager.
         /// </summary>
-        /// <value>Lista con elementos de tipo Player</value>
-        private List<Player> Players = new List<Player>();
+        /// <value>Lista con elementos de tipo Player.</value>
+        private List<Player> players = new List<Player>();
+
         /// <summary>
         /// Lista de jugadores que actualmente estan jugando.
         /// </summary>
         /// <value>Lista con elementos de tipo Player</value>
-        private List<Player> InGamePlayers = new List<Player>();
+        private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
-        /// Constructor de la clase Game.
+        /// Initializes a new instance of the <see cref="UserManager"/> class.
         /// </summary>
-        public UserManager() {}
+        public UserManager()
+        {
+        }
 
         /// <summary>
         /// Añade un jugador a la lista de jugadores.
         /// </summary>
-        /// <param name="player"></param>
-        public void AddPlayer(Player player) {
-            this.Players.Add(player);
+        /// <param name="player"> Player. </param>
+        public void AddPlayer(Player player)
+        {
+            this.players.Add(player);
         }
+
         /// <summary>
         /// Elimina un jugador en especifico de la lista de jugadores.
         /// </summary>
-        /// <param name="player"></param>
-        public void RemovePlayer(Player player) {
-            this.Players.Remove(player);
-        }
-        /// <summary>
-        /// Añade a los jugadores de un juego a la lista de jugadores en juego.
-        /// </summary>
-        /// <param name="game"></param>
-        private void AddInGamePlayers(Game game) {
-            foreach (Player p in game.GetPlayers()) {
-                InGamePlayers.Add(p);
-            }
+        /// <param name="player"> Player. </param>
+        public void RemovePlayer(Player player)
+        {
+            this.players.Remove(player);
         }
 
         /// <summary>
@@ -56,16 +58,24 @@ namespace Library
         /// <returns>
         /// Una partida.
         /// </returns>
-        public Game NewGame() {
-            if (!(this.Players.Count > 1)) { return null; }
+        public Game NewGame()
+        {
+            if (!(this.players.Count > 1))
+            {
+                return null;
+            }
 
-            List<Player> availablePlayers = this.Players.Except(this.InGamePlayers).ToList();
-            if (!(availablePlayers.Count > 1)) { return null; }
+            List<Player> availablePlayers = this.players.Except(this.inGamePlayers).ToList();
+            if (!(availablePlayers.Count > 1))
+            {
+                return null;
+            }
 
             Random rnd = new Random();
             int pIndex = 0, pIndex2 = 0;
             bool ready = false;
-            while (!ready) {
+            while (!ready)
+            {
                 pIndex = rnd.Next(availablePlayers.Count);
                 pIndex2 = rnd.Next(availablePlayers.Count);
 
@@ -87,8 +97,9 @@ namespace Library
         /// <returns>
         /// Una lista con elementos de tipo Player.
         /// </returns>
-        public List<Player> GetPlayers() {
-            return this.Players;
+        public List<Player> GetPlayers()
+        {
+            return this.players;
         }
 
         /// <summary>
@@ -97,8 +108,20 @@ namespace Library
         /// <returns>
         /// Una lista con elementos de tipo Player.
         /// </returns>
-        public List<Player> GetInGamePlayers() {
-            return this.InGamePlayers;
+        public List<Player> GetInGamePlayers()
+        {
+            return this.inGamePlayers;
+        }
+        /// <summary>
+        /// Añade a los jugadores de un juego a la lista de jugadores en juego.
+        /// </summary>
+        /// <param name="game"> Ongoing games. </param>
+        private void AddInGamePlayers(Game game)
+        {
+            foreach (Player p in game.GetPlayers())
+            {
+                this.inGamePlayers.Add(p);
+            }
         }
     }
 }

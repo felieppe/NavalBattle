@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="BoardSize.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +15,25 @@ namespace Library
     /// </summary>
     public class BoardSize
     {
-        /// <summary>
-        /// Filas del tablero.
-        /// </summary> <summary>
-        /// Columnas del tablero.
-        /// </summary>
-        /// <value></value>
-        public int Rows { get; private set; }
-
-        public int Columns { get; private set; }
-
 /// <summary>
-/// Dimensiones del tablero.
+/// Initializes a new instance of the <see cref="BoardSize"/> class.
 /// </summary>
-/// <param name="rows"></param>
-/// <param name="columns"></param>
+/// <param name="rows"> Rows. </param>
+/// <param name="columns"> Columns. </param>
         public BoardSize(int rows, int columns)
         {
             this.Rows = rows;
             this.Columns = columns;
         }
+
+        /// <summary>
+        /// Board rows.
+        /// </summary>
+        public int Rows { get; private set; }
+
+        /// <summary>
+        /// Board columns.
+        /// </summary>
+        public int Columns { get; private set; }
     }
 }

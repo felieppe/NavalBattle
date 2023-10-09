@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="GameLogic.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 
@@ -11,10 +16,10 @@ namespace Library
         private int numberAttack;
 
         /// <summary>
-        /// GameLogic Class
+        /// Initializes a new instance of the <see cref="GameLogic"/> class.
         /// </summary>
-        /// <param name="boardSize"></param>
-        /// <param name="totalShips"></param>
+        /// <param name="boardSize"> Board size. </param>
+        /// <param name="totalShips"> Total ships to sink. </param>
         public GameLogic(BoardSize boardSize, int totalShips)
         {
             this.boardSize = boardSize;
@@ -24,19 +29,19 @@ namespace Library
         /// <summary>
         /// Verifica el ataque.
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="column"></param>
-        /// <returns></returns>
+        /// <param name="row"> Row input. </param>
+        /// <param name="column"> Column input. </param>
+        /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
             return this.board[row][column] == 'S'; /* "S" representa un barco */
         }
 
         /// <summary>
-        /// Posiciona barco
+        /// Sets ship position.
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="column"></param>
+        /// <param name="row"> Row input. </param>
+        /// <param name="column"> Column input. </param>
         public void PlaceShip(int row, int column)
         {
             this.board[row][column] = 'B';
@@ -45,8 +50,8 @@ namespace Library
         /// <summary>
         /// Ataque.
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="column"></param>
+        /// <param name="row"> Row input. </param>
+        /// <param name="column"> Column input. </param>
         public void Attack(int row, int column)
         {
             if (this.VerifyAttack(row, column))
@@ -61,9 +66,43 @@ namespace Library
         }
 
         /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public object GetShipCellList()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Determines which player has to attack.
+        /// </summary>
+        public void Turn()
+        {
+            if (this.numberAttack % 2 == 0)
+            {
+                Console.WriteLine(this.numberAttack + " es par, turno del Jugador 2");
+            }
+            else
+            {
+                Console.WriteLine(this.numberAttack + " es impar, turno del Jugador 1");
+            }
+        }
+
+        /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
+        public object GetBoard()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Crea una lista con la cantidad de barcos.
         /// </summary>
-        /// <param name="totalShips"></param>
+        /// <param name="totalShips"> Number of ships to sink. </param>
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
@@ -86,36 +125,6 @@ namespace Library
                     this.shipCellList.RemoveAt(0); /* Eliminar el barco si ya no quedan celdas */
                 }
             }
-        }
-
-        /// <summary>
-        /// Para que funcione el test.
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public object GetShipCellList()
-        {
-            throw new NotImplementedException();
-        }
-        public void Turn()
-        {
-            if (numberAttack % 2 == 0)
-            {
-                Console.WriteLine(numberAttack + " es par, turno del Jugador 2");
-            }
-            else
-            {
-                Console.WriteLine(numberAttack + " es impar, turno del Jugador 1");
-            }
-        }
-
-        /// <summary>
-        /// Para que funcione el test.
-        /// </summary>
-        /// <returns></returns>
-        public object GetBoard()
-        {
-            throw new NotImplementedException();
         }
     }
 }
