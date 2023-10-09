@@ -6,6 +6,16 @@ namespace BattleShip.Tests
     [TestFixture]
     public class GameLogicTests
     {
+        private Board board;
+        private char[][] board1;
+
+        private BoardSize bs;
+
+        [SetUp]
+        public void SetUp()
+        {
+            this.board = new Board(this.board1, this.bs);
+        }
         [Test]
         public void DisplayBoard_WhenCalled_PrintsBoard()
         {
