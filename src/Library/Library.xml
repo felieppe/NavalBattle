@@ -34,6 +34,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Library.Board.GetBoardSize">
+            <summary>
+            Devuelve tamaño del tablero.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Library.BoardSize">
             <summary>
             Clase para establecer las dimensiones del tablero.
@@ -194,8 +200,8 @@
             Constructor.
             </summary>
             <param name="board"></param>
-            <param name="width"></param>
-            <param name="height"></param>
+            <param name="rows"></param>
+            <param name="columns"></param>
         </member>
         <member name="M:Library.Printer.Print">
             <summary>
