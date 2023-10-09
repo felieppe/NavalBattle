@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -11,8 +12,8 @@ namespace Library
     public class Printer
     {
         private Board board;
-        private int width;
-        private int height;
+        private int rows;
+        private int columns;
 
         /// <summary>
         /// Constructor.
@@ -20,11 +21,11 @@ namespace Library
         /// <param name="board"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public Printer(Board board, int width, int height)
+        public Printer(Board board)
         {
             this.board = board;
-            this.width = width;
-            this.height = height;
+            this.rows = board.GetBoardSize.Rows;
+            this.rows = board.GetBoardSize.Columns;
         }
 
         /// <summary>
@@ -36,22 +37,12 @@ namespace Library
             {
                 Console.Clear();
 
-                StringBuilder s = new StringBuilder();
-                for (int y = 0; y < this.height; y++)
+                for (int i = 0; i < this.board.GetBoardSize.Rows; i++)
                 {
-                    for (int x = 0; x < this.width; x++)
+                    for (int j = 0; j < this.board.GetBoardSize.Columns; j++)
                     {
-                        if (this.board.GetCell(x, y))
-                        {
-                            s.Append("|X|");
-                        }
-                        else
-                        {
-                            s.Append("___");
-                        }
+                        Console.WriteLine(this.board);
                     }
-
-                    s.Append('\n');
                 }
             }
         }
