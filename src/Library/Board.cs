@@ -78,5 +78,10 @@ namespace BattleShip
         {
             return this.boards; // Devuelve el tablero.
         }
+
+        internal bool GetCell(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BattleShip;
+using System.Text;
 
 namespace Library{
     public class Printer
