@@ -19,6 +19,11 @@
             Crea un tablero para probar.
             </summary>
         </member>
+        <member name="M:Tests.BoardTests.InitializeBoardTest">
+            <summary>
+            Prueba que el tablero creado sea igual al que se espera.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.

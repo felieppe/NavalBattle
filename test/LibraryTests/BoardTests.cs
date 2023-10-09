@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="BoardTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
 
@@ -28,7 +33,6 @@ namespace Tests
         /// <summary>
         /// Prueba que el tablero creado sea igual al que se espera.
         /// </summary>
-/*
         [Test]
         public void InitializeBoardTest()
         {
@@ -49,6 +53,6 @@ namespace Tests
             char[][] actualBoard = board.GetBoard();
 
             Assert.AreEqual(expectedBoard, actualBoard);
-        }*/
+        }
     }
 }

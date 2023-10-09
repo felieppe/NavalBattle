@@ -26,7 +26,8 @@ namespace Library
         /// </summary>
         /// <param name="p1"></param>
         /// <param name="p2"></param>
-        public Game(Player p1, Player p2) {
+        public Game(Player p1, Player p2)
+        {
             Players.Add(p1);
             Players.Add(p2);
         }
@@ -37,7 +38,8 @@ namespace Library
         /// <returns>
         /// Una lista con elementos de tipo Player.
         /// </returns>
-        public List<Player> GetPlayers() {
+        public List<Player> GetPlayers()
+        {
             return this.Players;
         }
     }

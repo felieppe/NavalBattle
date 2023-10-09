@@ -27,7 +27,6 @@ namespace Library
         {
             this.boards = boards;
             this.boardSize = boardSize;
-            this.InitializeBoard();
         }
 
         /// <summary>

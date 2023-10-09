@@ -6,63 +6,65 @@
     <members>
         <member name="T:Library.Board">
             <summary>
-            Clase Board.
+            Board class.
             </summary>
         </member>
         <member name="M:Library.Board.#ctor(System.Char[][],Library.BoardSize)">
             <summary>
-            Constructor de la clase Board.
+            Initializes a new instance of the <see cref="T:Library.Board"/> class.
             </summary>
-            <param name="boards"></param>
-            <param name="boardSize"></param>
+            <param name="boards"> Board. </param>
+            <param name="boardSize"> Board Size. </param>
         </member>
         <member name="M:Library.Board.InitializeBoard">
             <summary>
-            Inicializar la matriz del tablero con etiquetas de fila y columna.
+            New board with row and column index.
             </summary>
         </member>
         <member name="M:Library.Board.SetBoard(System.Char[][],Library.BoardSize)">
             <summary>
             Set de la clase Board.
             </summary>
-            <param name="boards"></param>
-            <param name="boardSize"></param>
+            <param name="boards"> Board. </param>
+            <param name="boardSize"> Board size. </param>
         </member>
         <member name="M:Library.Board.GetBoard">
             <summary>
             Get de la clase Board.
             </summary>
-            <returns></returns>
+            <returns> boards. </returns>
         </member>
         <member name="M:Library.Board.GetBoardSize">
             <summary>
             Devuelve tamaño del tablero.
             </summary>
-            <returns></returns>
+            <returns> boardSize. </returns>
         </member>
         <member name="T:Library.BoardSize">
             <summary>
             Clase para establecer las dimensiones del tablero.
             </summary>
         </member>
-        <member name="P:Library.BoardSize.Rows">
-            <summary>
-            Filas del tablero.
-            </summary> <summary>
-            Columnas del tablero.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Library.BoardSize.#ctor(System.Int32,System.Int32)">
             <summary>
-            Dimensiones del tablero.
+            Initializes a new instance of the <see cref="T:Library.BoardSize"/> class.
             </summary>
-            <param name="rows"></param>
-            <param name="columns"></param>
+            <param name="rows"> Rows. </param>
+            <param name="columns"> Columns. </param>
+        </member>
+        <member name="P:Library.BoardSize.Rows">
+            <summary>
+            Board rows.
+            </summary>
+        </member>
+        <member name="P:Library.BoardSize.Columns">
+            <summary>
+            Board columns.
+            </summary>
         </member>
         <member name="T:Library.Game">
             <summary>
-            Esta clase representa una p artida.
+            Esta clase representa una partida.
             </summary>
         </member>
         <member name="F:Library.Game.Players">
@@ -88,43 +90,32 @@
         </member>
         <member name="M:Library.GameLogic.#ctor(Library.BoardSize,System.Int32)">
             <summary>
-            GameLogic Class
+            Initializes a new instance of the <see cref="T:Library.GameLogic"/> class.
             </summary>
-            <param name="boardSize"></param>
-            <param name="totalShips"></param>
+            <param name="boardSize"> Board size. </param>
+            <param name="totalShips"> Total ships to sink. </param>
         </member>
         <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
             <summary>
             Verifica el ataque.
             </summary>
-            <param name="row"></param>
-            <param name="column"></param>
-            <returns></returns>
+            <param name="row"> Row input. </param>
+            <param name="column"> Column input. </param>
+            <returns> Hit or miss (true or false). </returns>
         </member>
         <member name="M:Library.GameLogic.PlaceShip(System.Int32,System.Int32)">
             <summary>
-            Posiciona barco
+            Sets ship position.
             </summary>
-            <param name="row"></param>
-            <param name="column"></param>
+            <param name="row"> Row input. </param>
+            <param name="column"> Column input. </param>
         </member>
         <member name="M:Library.GameLogic.Attack(System.Int32,System.Int32)">
             <summary>
             Ataque.
             </summary>
-            <param name="row"></param>
-            <param name="column"></param>
-        </member>
-        <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
-            <summary>
-            Crea una lista con la cantidad de barcos.
-            </summary>
-            <param name="totalShips"></param>
-        </member>
-        <member name="M:Library.GameLogic.VerifyShipCellList">
-            <summary>
-            Si le pega a un barco disminuye en 1 la cantidad de barcos.
-            </summary>
+            <param name="row"> Row input. </param>
+            <param name="column"> Column input. </param>
         </member>
         <member name="M:Library.GameLogic.GetShipCellList">
             <summary>
@@ -133,11 +124,27 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
+        <member name="M:Library.GameLogic.Turn">
+            <summary>
+            Determines which player has to attack.
+            </summary>
+        </member>
         <member name="M:Library.GameLogic.GetBoard">
             <summary>
             Para que funcione el test.
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
+            <summary>
+            Crea una lista con la cantidad de barcos.
+            </summary>
+            <param name="totalShips"> Number of ships to sink. </param>
+        </member>
+        <member name="M:Library.GameLogic.VerifyShipCellList">
+            <summary>
+            Si le pega a un barco disminuye en 1 la cantidad de barcos.
+            </summary>
         </member>
         <member name="T:Library.Player">
             <summary>
@@ -148,35 +155,35 @@
             <summary>
             Id del jugador.
             </summary>
-            <value>Id del jugador</value>
+            <value> Player's Id. </value>
         </member>
         <member name="P:Library.Player.Username">
             <summary>
-            Nombre de usuario del jugador
+            Nombre de usuario del jugador.
             </summary>
-            <value>Username del jugador</value>
+            <value>Username del jugador.</value>
         </member>
         <member name="M:Library.Player.#ctor(System.String)">
             <summary>
-            Constructor de la clase Game.
+            Initializes a new instance of the <see cref="T:Library.Player"/> class.
             </summary>
-            <param name="id"></param>
+            <param name="id"> Player's Id. </param>
         </member>
         <member name="M:Library.Player.SetId(System.String)">
             <summary>
             Establece el ID del jugador.
             </summary>
-            <param name="id"></param>
+            <param name="id"> Player's Id. </param>
         </member>
         <member name="M:Library.Player.SetUsername(System.String)">
             <summary>
             Establece el username del jugador.
             </summary>
-            <param name="username"></param>
+            <param name="username"> Player's username. </param>
         </member>
         <member name="M:Library.Player.GetId">
             <summary>
-            Obtiene el ID del jugador
+            Obtiene el ID del jugador.
             </summary>
             <returns>
             El ID del jugador.
@@ -184,7 +191,7 @@
         </member>
         <member name="M:Library.Player.GetUsername">
             <summary>
-            Obtiene el username del jugador
+            Obtiene el username del jugador.
             </summary>
             <returns>
             El Username del jugador.
@@ -197,7 +204,7 @@
         </member>
         <member name="M:Library.Printer.#ctor(Library.Board,System.Int32,System.Int32)">
             <summary>
-            Constructor.
+            Initializes a new instance of the <see cref="T:Library.Printer"/> class.
             </summary>
             <param name="board"></param>
             <param name="rows"></param>
@@ -213,13 +220,13 @@
             Esta clase representa al mananger de usuarios.
             </summary>
         </member>
-        <member name="F:Library.UserManager.Players">
+        <member name="F:Library.UserManager.players">
             <summary>
             Lista de jugadores registrados en el UserManager.
             </summary>
-            <value>Lista con elementos de tipo Player</value>
+            <value>Lista con elementos de tipo Player.</value>
         </member>
-        <member name="F:Library.UserManager.InGamePlayers">
+        <member name="F:Library.UserManager.inGamePlayers">
             <summary>
             Lista de jugadores que actualmente estan jugando.
             </summary>
@@ -227,26 +234,20 @@
         </member>
         <member name="M:Library.UserManager.#ctor">
             <summary>
-            Constructor de la clase Game.
+            Initializes a new instance of the <see cref="T:Library.UserManager"/> class.
             </summary>
         </member>
         <member name="M:Library.UserManager.AddPlayer(Library.Player)">
             <summary>
             Añade un jugador a la lista de jugadores.
             </summary>
-            <param name="player"></param>
+            <param name="player"> Player. </param>
         </member>
         <member name="M:Library.UserManager.RemovePlayer(Library.Player)">
             <summary>
             Elimina un jugador en especifico de la lista de jugadores.
             </summary>
-            <param name="player"></param>
-        </member>
-        <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
-            <summary>
-            Añade a los jugadores de un juego a la lista de jugadores en juego.
-            </summary>
-            <param name="game"></param>
+            <param name="player"> Player. </param>
         </member>
         <member name="M:Library.UserManager.NewGame">
             <summary>
@@ -271,6 +272,12 @@
             <returns>
             Una lista con elementos de tipo Player.
             </returns>
+        </member>
+        <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
+            <summary>
+            Añade a los jugadores de un juego a la lista de jugadores en juego.
+            </summary>
+            <param name="game"> Ongoing games. </param>
         </member>
     </members>
 </doc>
