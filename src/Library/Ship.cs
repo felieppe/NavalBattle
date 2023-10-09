@@ -1,6 +1,6 @@
 namespace Library
 {
-    public class Ship
+    public class Ship : IShip
     {
         public string Name { get; set; }
         public int Lenght { get; set; }
