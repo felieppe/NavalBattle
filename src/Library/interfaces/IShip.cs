@@ -5,5 +5,7 @@ namespace Library {
 
         bool Sunken {get; set;}
         bool GetSunken();
+
+        void SetSunken(bool s);
     }
 }

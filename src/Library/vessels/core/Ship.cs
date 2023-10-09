@@ -11,6 +11,10 @@ namespace Library
             this.Lenght = lenght;
         }
 
+        public void SetSunken(bool s) {
+            this.Sunken = s;
+        }
+
         public bool GetSunken() {
             return this.Sunken;
         }
