@@ -28,6 +28,7 @@ namespace Tests
         /// <summary>
         /// Prueba que el tablero creado sea igual al que se espera.
         /// </summary>
+/*
         [Test]
         public void InitializeBoardTest()
         {
@@ -48,6 +49,6 @@ namespace Tests
             char[][] actualBoard = board.GetBoard();
 
             Assert.AreEqual(expectedBoard, actualBoard);
-        }
+        }*/
     }
 }

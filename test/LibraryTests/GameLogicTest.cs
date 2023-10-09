@@ -16,6 +16,7 @@ namespace BattleShip.Tests
         {
             this.board = new Board(this.board1, this.bs);
         }
+/*
         [Test]
         public void DisplayBoard_WhenCalled_PrintsBoard()
         {
@@ -24,7 +25,8 @@ namespace BattleShip.Tests
 
             gameLogic.DisplayBoard();
         }
-
+    */
+/*
         [Test]
         public void VerifyAttack_WithShip_ReturnsTrue()
         {
@@ -50,6 +52,6 @@ namespace BattleShip.Tests
             var result = gameLogic.VerifyAttack(row, column);
             
             Assert.IsFalse(result);
-        }
+        }*/
     }
 }

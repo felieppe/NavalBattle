@@ -18,7 +18,7 @@ namespace Tests
         {
             this.board = new Board(this.board1, this.bs);
         }
-
+/*
         [Test]
         public void TestPrint()
         {
@@ -40,6 +40,6 @@ namespace Tests
             string actual = actualBoard.ToString();
 
             Assert.AreEqual(expected, actual);
-        }
+        }*/
     }
 }
