@@ -18,7 +18,7 @@ namespace Tests
         {
             this.board = new Board(this.board1, this.bs);
         }
-/*
+
         [Test]
         public void TestPrint()
         {

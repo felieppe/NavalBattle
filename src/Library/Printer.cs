@@ -19,13 +19,13 @@ namespace Library
         /// Constructor.
         /// </summary>
         /// <param name="board"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="rows"></param>
+        /// <param name="columns"></param>
         public Printer(Board board)
         {
             this.board = board;
-            this.rows = board.GetBoardSize.Rows;
-            this.rows = board.GetBoardSize.Columns;
+            this.rows = board.GetBoardSize().Rows;
+            this.columns = board.GetBoardSize().Columns;
         }
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace Library
             {
                 Console.Clear();
 
-                for (int i = 0; i < this.board.GetBoardSize.Rows; i++)
+                for (int i = 0; i < this.board.GetBoardSize().Rows; i++)
                 {
-                    for (int j = 0; j < this.board.GetBoardSize.Columns; j++)
+                    for (int j = 0; j < this.board.GetBoardSize().Columns; j++)
                     {
                         Console.WriteLine(this.board);
                     }
