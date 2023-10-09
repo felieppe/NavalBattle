@@ -1,4 +1,4 @@
-namespace BattleShip
+namespace Library
 {
     public class Ship
     {

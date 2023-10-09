@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BattleShip
+namespace Library
 {
     public class GameLogic
     {
@@ -9,10 +9,14 @@ namespace BattleShip
         private BoardSize boardSize;
         private List<int> shipCellList;
 
+        /// <summary>
+        /// GameLogic Class
+        /// </summary>
+        /// <param name="boardSize"></param>
+        /// <param name="totalShips"></param>
         public GameLogic(BoardSize boardSize, int totalShips)
         {
             this.boardSize = boardSize;
-            this.InitializeBoard();
             this.InitializeShipCellList(totalShips);
         }
 
@@ -28,16 +32,32 @@ namespace BattleShip
             }
         }
 
+        /// <summary>
+        /// Verifica el ataque.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        /// <returns></returns>
         public bool VerifyAttack(int row, int column)
         {
             return this.board[row][column] == 'S'; /* "S" representa un barco */
         }
 
+        /// <summary>
+        /// Posiciona barco
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         public void PlaceShip(int row, int column)
         {
             this.board[row][column] = 'B';
         }
 
+        /// <summary>
+        /// Ataque.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         public void Attack(int row, int column)
         {
             if (this.VerifyAttack(row, column))
@@ -51,19 +71,10 @@ namespace BattleShip
             }
         }
 
-        private void InitializeBoard()
-        {
-            this.board = new char[this.boardSize.Rows][];
-            for (int i = 0; i < this.boardSize.Rows; i++)
-            {
-                this.board[i] = new char[this.boardSize.Columns];
-                for (int j = 0; j < this.boardSize.Columns; j++)
-                {
-                    this.board[i][j] = 'O'; /* O representa celdas vacías */
-                }
-            }
-        }
-
+        /// <summary>
+        /// Crea una lista con la cantidad de barcos.
+        /// </summary>
+        /// <param name="totalShips"></param>
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
@@ -73,6 +84,9 @@ namespace BattleShip
             }
         }
 
+        /// <summary>
+        /// Si le pega a un barco disminuye en 1 la cantidad de barcos.
+        /// </summary>
         private void VerifyShipCellList()
         {
             if (this.shipCellList.Count > 0)
@@ -85,11 +99,20 @@ namespace BattleShip
             }
         }
 
+        /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public object GetShipCellList()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
         public object GetBoard()
         {
             throw new NotImplementedException();

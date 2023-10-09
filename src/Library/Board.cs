@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BattleShip
+namespace Library
 {
     /// <summary>
     /// Clase Board.
@@ -77,6 +77,11 @@ namespace BattleShip
         public char[][] GetBoard()
         {
             return this.boards; // Devuelve el tablero.
+        }
+
+        internal bool GetCell(int x, int y)
+        {
+            throw new NotImplementedException();
         }
     }
 }
