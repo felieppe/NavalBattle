@@ -8,6 +8,7 @@ namespace Library
         private char[][] board;
         private BoardSize boardSize;
         private List<int> shipCellList;
+        private int numberAttack;
 
         /// <summary>
         /// GameLogic Class
@@ -95,6 +96,17 @@ namespace Library
         public object GetShipCellList()
         {
             throw new NotImplementedException();
+        }
+        public void Turn()
+        {
+            if (numberAttack % 2 == 0)
+            {
+                Console.WriteLine(numberAttack + " es par, turno del Jugador 2");
+            }
+            else
+            {
+                Console.WriteLine(numberAttack + " es impar, turno del Jugador 1");
+            }
         }
 
         /// <summary>
