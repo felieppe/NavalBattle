@@ -11,24 +11,24 @@ using System.Threading.Tasks;
 namespace Library
 {
     /// <summary>
-    /// Esta clase representa al mananger de usuarios.
+    /// Esta clase representa al administrador de usuarios.
     /// </summary>
     public class UserManager
     {
         /// <summary>
         /// Lista de jugadores registrados en el UserManager.
         /// </summary>
-        /// <value>Lista con elementos de tipo Player.</value>
+        /// <value> Lista con elementos de tipo Player. </value>
         private List<Player> players = new List<Player>();
 
         /// <summary>
-        /// Lista de jugadores que actualmente estan jugando.
+        /// Lista de jugadores que actualmente están jugando.
         /// </summary>
-        /// <value>Lista con elementos de tipo Player</value>
+        /// <value> Lista con elementos de tipo Player. </value>
         private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserManager"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
         public UserManager()
         {
@@ -53,7 +53,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Crea una partida con dos jugadores al azar que esten disponibles.
+        /// Crea una partida con dos jugadores al azar que estén disponibles.
         /// </summary>
         /// <returns>
         /// Una partida.
@@ -76,10 +76,15 @@ namespace Library
             bool ready = false;
             while (!ready)
             {
+#pragma warning disable CA5394
                 pIndex = rnd.Next(availablePlayers.Count);
+#pragma warning disable CA5394
                 pIndex2 = rnd.Next(availablePlayers.Count);
 
-                if (pIndex != pIndex2) { ready = true; }
+                if (pIndex != pIndex2)
+                {
+                    ready = true;
+                }
             }
 
             Player player1 = availablePlayers[pIndex];
@@ -97,6 +102,7 @@ namespace Library
         /// <returns>
         /// Una lista con elementos de tipo Player.
         /// </returns>
+#pragma warning disable CA1002
         public List<Player> GetPlayers()
         {
             return this.players;
@@ -112,6 +118,7 @@ namespace Library
         {
             return this.inGamePlayers;
         }
+
         /// <summary>
         /// Añade a los jugadores de un juego a la lista de jugadores en juego.
         /// </summary>

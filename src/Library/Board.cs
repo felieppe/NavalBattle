@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Library
 {
     /// <summary>
-    /// Board class.
+    /// Clase tablero.
     /// </summary>
     public class Board
     {
@@ -19,7 +19,7 @@ namespace Library
         private char[][] boards;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Board"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
         /// </summary>
         /// <param name="boards"> Board. </param>
         /// <param name="boardSize"> Board Size. </param>
@@ -30,7 +30,7 @@ namespace Library
         }
 
         /// <summary>
-        /// New board with row and column index.
+        /// Nuevo tablero con índice de fila y columna.
         /// </summary>
         public void InitializeBoard()
         {
@@ -66,8 +66,8 @@ namespace Library
 /// <summary>
 /// Set de la clase Board.
 /// </summary>
-/// <param name="boards"> Board. </param>
-/// <param name="boardSize"> Board size. </param>
+/// <param name="boards"> Tablero. </param>
+/// <param name="boardSize"> Tamaño del tablero. </param>
         public void SetBoard(char[][] boards, BoardSize boardSize)
         {
             this.boards = boards;
@@ -77,7 +77,7 @@ namespace Library
 /// <summary>
 /// Get de la clase Board.
 /// </summary>
-/// <returns> boards. </returns>
+/// <returns> Tablero. </returns>
         public char[][] GetBoard()
         {
             return this.boards; // Devuelve el tablero.

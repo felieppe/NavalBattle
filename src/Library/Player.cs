@@ -18,19 +18,19 @@ namespace Library
         /// <summary>
         /// Id del jugador.
         /// </summary>
-        /// <value> Player's Id. </value>
+        /// <value> Id. </value>
         private string Id { get; set; }
 
         /// <summary>
         /// Nombre de usuario del jugador.
         /// </summary>
-        /// <value>Username del jugador.</value>
+        /// <value> Username. </value>
         private string Username { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Player"/>.
         /// </summary>
-        /// <param name="id"> Player's Id. </param>
+        /// <param name="id"> Id. </param>
         public Player(string id)
         {
             this.Id = id;
@@ -39,7 +39,7 @@ namespace Library
         /// <summary>
         /// Establece el ID del jugador.
         /// </summary>
-        /// <param name="id"> Player's Id. </param>
+        /// <param name="id"> Id. </param>
         public void SetId(string id)
         {
             if (!string.IsNullOrEmpty(id))
@@ -51,7 +51,7 @@ namespace Library
         /// <summary>
         /// Establece el username del jugador.
         /// </summary>
-        /// <param name="username"> Player's username. </param>
+        /// <param name="username"> Username. </param>
         public void SetUsername(string username)
         {
             if (!string.IsNullOrEmpty(username))

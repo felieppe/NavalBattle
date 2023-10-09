@@ -18,18 +18,18 @@ namespace Library
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
-        /// <value>Lista con elementos de tipo Player</value>
+        /// <value> Lista con elementos de tipo Player. </value>
         private List<Player> Players = new List<Player>();
 
         /// <summary>
-        /// Constructor de la clase Game.
+        /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
+        /// <param name="p1"> Jugador 1. </param>
+        /// <param name="p2"> Jugador 2. </param>
         public Game(Player p1, Player p2)
         {
-            Players.Add(p1);
-            Players.Add(p2);
+            this.Players.Add(p1);
+            this.Players.Add(p2);
         }
 
         /// <summary>

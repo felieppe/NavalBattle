@@ -15,7 +15,7 @@ namespace Tests
     public class BoardTests
     {
         /// <summary>
-        /// Board para probar.
+        /// Tablero para probar.
         /// </summary>
         private Board board;
         private char[][] board1;

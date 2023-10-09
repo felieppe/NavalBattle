@@ -21,11 +21,11 @@ namespace Library
         private int columns;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Printer"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Printer"/>.
         /// </summary>
-        /// <param name="board"></param>
-        /// <param name="rows"></param>
-        /// <param name="columns"></param>
+        /// <param name="board"> Tablero. </param>
+        /// <param name="rows"> Filas del tablero. </param>
+        /// <param name="columns"> Columnas del tablero. </param>
         public Printer(Board board, int rows, int columns)
         {
             this.board = board;

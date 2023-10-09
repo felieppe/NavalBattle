@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase contiene la lógica del juego.
+    /// </summary>
     public class GameLogic
     {
         private char[][] board;
@@ -16,10 +19,10 @@ namespace Library
         private int numberAttack;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GameLogic"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
-        /// <param name="boardSize"> Board size. </param>
-        /// <param name="totalShips"> Total ships to sink. </param>
+        /// <param name="boardSize"> Tamaño del tablero. </param>
+        /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
         public GameLogic(BoardSize boardSize, int totalShips)
         {
             this.boardSize = boardSize;
@@ -29,16 +32,16 @@ namespace Library
         /// <summary>
         /// Verifica el ataque.
         /// </summary>
-        /// <param name="row"> Row input. </param>
-        /// <param name="column"> Column input. </param>
+        /// <param name="row"> Fila ingresada. </param>
+        /// <param name="column"> Columna ingresada. </param>
         /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
-            return this.board[row][column] == 'S'; /* "S" representa un barco */
+            return this.board[row][column] == 'S'; // "S" representa un barco.
         }
 
         /// <summary>
-        /// Sets ship position.
+        /// Ubica los barcos al comenzar la partida.
         /// </summary>
         /// <param name="row"> Row input. </param>
         /// <param name="column"> Column input. </param>
@@ -50,14 +53,14 @@ namespace Library
         /// <summary>
         /// Ataque.
         /// </summary>
-        /// <param name="row"> Row input. </param>
-        /// <param name="column"> Column input. </param>
+        /// <param name="row"> Fila ingresada. </param>
+        /// <param name="column"> Columna ingresada. </param>
         public void Attack(int row, int column)
         {
             if (this.VerifyAttack(row, column))
             {
                 Console.WriteLine("Le diste a un barco.");
-                this.VerifyShipCellList(); // Disminuir el número de barcos
+                this.VerifyShipCellList(); // Disminuir el número de barcos.
             }
             else
             {
@@ -68,15 +71,15 @@ namespace Library
         /// <summary>
         /// Para que funcione el test.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns> Excepción. </returns>
+        /// <exception cref="NotImplementedException"> Excepción si no está implementada la clase. </exception>
         public object GetShipCellList()
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Determines which player has to attack.
+        /// Determina el turno del jugador.
         /// </summary>
         public void Turn()
         {
@@ -93,7 +96,7 @@ namespace Library
         /// <summary>
         /// Para que funcione el test.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Excepción. </returns>
         public object GetBoard()
         {
             throw new NotImplementedException();
@@ -102,13 +105,13 @@ namespace Library
         /// <summary>
         /// Crea una lista con la cantidad de barcos.
         /// </summary>
-        /// <param name="totalShips"> Number of ships to sink. </param>
+        /// <param name="totalShips"> Cantidad de barcos para hundir. </param>
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
             for (int i = 0; i < totalShips; i++)
             {
-                this.shipCellList.Add(1); // Inicializa la lista con la cantidad total de barcos
+                this.shipCellList.Add(1); // Inicializa la lista con la cantidad total de barcos.
             }
         }
 
@@ -119,10 +122,10 @@ namespace Library
         {
             if (this.shipCellList.Count > 0)
             {
-                this.shipCellList[0]--; /* Se encarga de restar 1 al número restante de barcos */
+                this.shipCellList[0]--; // Se encarga de restar 1 al número restante de barcos.
                 if (this.shipCellList[0] == 0)
                 {
-                    this.shipCellList.RemoveAt(0); /* Eliminar el barco si ya no quedan celdas */
+                    this.shipCellList.RemoveAt(0); // Eliminar el barco si ya no quedan celdas.
                 }
             }
         }
