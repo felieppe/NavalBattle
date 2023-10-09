@@ -1,3 +1,4 @@
+using Library;
 using NUnit.Framework;
 
 namespace BattleShip.Tests
