@@ -54,5 +54,146 @@
             <param name="rows"></param>
             <param name="columns"></param>
         </member>
+        <member name="T:Library.Game">
+            <summary>
+            Esta clase representa una p artida.
+            </summary>
+        </member>
+        <member name="F:Library.Game.Players">
+            <summary>
+            Lista de jugadores del juego.
+            </summary>
+            <value>Lista con elementos de tipo Player</value>
+        </member>
+        <member name="M:Library.Game.#ctor(Library.Player,Library.Player)">
+            <summary>
+            Constructor de la clase Game.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+        </member>
+        <member name="M:Library.Game.GetPlayers">
+            <summary>
+            Obtiene los jugadores guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="T:Library.Player">
+            <summary>
+            Esta clase representa un jugador.
+            </summary>
+        </member>
+        <member name="P:Library.Player.Id">
+            <summary>
+            Id del jugador.
+            </summary>
+            <value>Id del jugador</value>
+        </member>
+        <member name="P:Library.Player.Username">
+            <summary>
+            Nombre de usuario del jugador
+            </summary>
+            <value>Username del jugador</value>
+        </member>
+        <member name="M:Library.Player.#ctor(System.String)">
+            <summary>
+            Constructor de la clase Game.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Library.Player.SetId(System.String)">
+            <summary>
+            Establece el ID del jugador.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Library.Player.SetUsername(System.String)">
+            <summary>
+            Establece el username del jugador.
+            </summary>
+            <param name="username"></param>
+        </member>
+        <member name="M:Library.Player.GetId">
+            <summary>
+            Obtiene el ID del jugador
+            </summary>
+            <returns>
+            El ID del jugador.
+            </returns>
+        </member>
+        <member name="M:Library.Player.GetUsername">
+            <summary>
+            Obtiene el username del jugador
+            </summary>
+            <returns>
+            El Username del jugador.
+            </returns>
+        </member>
+        <member name="T:Library.UserManager">
+            <summary>
+            Esta clase representa al mananger de usuarios.
+            </summary>
+        </member>
+        <member name="F:Library.UserManager.Players">
+            <summary>
+            Lista de jugadores registrados en el UserManager.
+            </summary>
+            <value>Lista con elementos de tipo Player</value>
+        </member>
+        <member name="F:Library.UserManager.InGamePlayers">
+            <summary>
+            Lista de jugadores que actualmente estan jugando.
+            </summary>
+            <value>Lista con elementos de tipo Player</value>
+        </member>
+        <member name="M:Library.UserManager.#ctor">
+            <summary>
+            Constructor de la clase Game.
+            </summary>
+        </member>
+        <member name="M:Library.UserManager.AddPlayer(Library.Player)">
+            <summary>
+            Añade un jugador a la lista de jugadores.
+            </summary>
+            <param name="player"></param>
+        </member>
+        <member name="M:Library.UserManager.RemovePlayer(Library.Player)">
+            <summary>
+            Elimina un jugador en especifico de la lista de jugadores.
+            </summary>
+            <param name="player"></param>
+        </member>
+        <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
+            <summary>
+            Añade a los jugadores de un juego a la lista de jugadores en juego.
+            </summary>
+            <param name="game"></param>
+        </member>
+        <member name="M:Library.UserManager.NewGame">
+            <summary>
+            Crea una partida con dos jugadores al azar que esten disponibles.
+            </summary>
+            <returns>
+            Una partida.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetPlayers">
+            <summary>
+            Obtiene los jugadores guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetInGamePlayers">
+            <summary>
+            Obtiene los jugadores en juego guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
     </members>
 </doc>
