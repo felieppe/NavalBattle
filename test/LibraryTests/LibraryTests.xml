@@ -89,6 +89,11 @@
             Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
             </summary>
         </member>
+        <member name="M:Tests.ShipTests.SetSunkenTest">
+            <summary>
+            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            </summary>
+        </member>
         <member name="T:Tests.UserManagerTests">
             <summary>
             Prueba de la clase <see cref="T:Library.UserManager"/>.

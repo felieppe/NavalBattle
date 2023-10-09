@@ -1,5 +1,6 @@
 using System;
 using Library;
+using NuGet.Frameworks;
 using NUnit.Framework;
 
 namespace Tests
@@ -33,8 +34,22 @@ namespace Tests
 
             Ship ship;
             ship = (Ship) sub;
-            
+
             Assert.True(ship.GetType().ToString() == "Library.Submarine");
+        }
+
+        /// <summary>
+        /// Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
+        /// </summary>
+        [Test]
+        public void SetSunkenTest()
+        {
+            Assert.NotNull(this.sub);
+
+            bool expectedStatus = true;
+            this.sub.SetSunken(true);
+
+            Assert.True(this.sub.GetSunken());
         }
     }
 }
