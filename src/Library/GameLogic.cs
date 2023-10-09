@@ -53,6 +53,11 @@ namespace Library
             this.board[row][column] = 'B';
         }
 
+        /// <summary>
+        /// Ataque.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         public void Attack(int row, int column)
         {
             if (this.VerifyAttack(row, column))
@@ -66,6 +71,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Crea una lista con la cantidad de barcos.
+        /// </summary>
+        /// <param name="totalShips"></param>
         private void InitializeShipCellList(int totalShips)
         {
             this.shipCellList = new List<int>();
@@ -75,6 +84,9 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Si le pega a un barco disminuye en 1 la cantidad de barcos.
+        /// </summary>
         private void VerifyShipCellList()
         {
             if (this.shipCellList.Count > 0)
@@ -87,11 +99,20 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public object GetShipCellList()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Para que funcione el test.
+        /// </summary>
+        /// <returns></returns>
         public object GetBoard()
         {
             throw new NotImplementedException();
