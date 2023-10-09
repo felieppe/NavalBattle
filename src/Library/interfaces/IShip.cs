@@ -4,5 +4,6 @@ namespace Library {
         int Lenght {get; set;}
 
         bool Sunken {get; set;}
+        bool GetSunken();
     }
 }

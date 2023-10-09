@@ -10,5 +10,9 @@ namespace Library
             this.Name = name;
             this.Lenght = lenght;
         }
+
+        public bool GetSunken() {
+            return this.Sunken;
+        }
     }
 }
