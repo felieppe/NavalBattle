@@ -8,15 +8,15 @@ Repositorio de GitHub dedicado para el proyecto de final de materia de Programac
 
 ### ¿Qué desafíos de la entrega fueron los más difíciles?
 
-*Respuestas aquí.*
+*Respuestas [aquí](docs/notes/ans1.md).*
 
 ### ¿Qué cosas aprendieron enfrentándose al proyecto que no aprendieron en clase como parte de la currícula?
 
-*Respuestas aquí.*
+*Respuestas [aquí](docs/notes/ans2.md).*
 
 ### ¿Qué recursos (páginas web, libros, foros, etc) encontraron que les fueron valiosos para sortear los desafíos que encontraron?
 
-*Respuestas aquí.*
+*Respuestas [aquí](docs/notes/ans3.md).*
 
 # Estudiantes
 

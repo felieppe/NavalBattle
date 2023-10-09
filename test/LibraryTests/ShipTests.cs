@@ -46,7 +46,6 @@ namespace Tests
         {
             Assert.NotNull(this.sub);
 
-            bool expectedStatus = true;
             this.sub.SetSunken(true);
 
             Assert.True(this.sub.GetSunken());

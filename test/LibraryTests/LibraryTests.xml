@@ -64,11 +64,6 @@
             Prueba que SetUsername() establezca de forma correcta el Username al Player.
             </summary>
         </member>
-        <member name="T:Tests.PrinterTests">
-            <summary>
-            Prueba de la clase <see cref="T:Library.Game"/>.
-            </summary>
-        </member>
         <member name="T:Tests.ShipTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.
@@ -91,7 +86,7 @@
         </member>
         <member name="M:Tests.ShipTests.SetSunkenTest">
             <summary>
-            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
             </summary>
         </member>
         <member name="T:Tests.UserManagerTests">
