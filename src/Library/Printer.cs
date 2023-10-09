@@ -3,44 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Library{
-    public class Printer
+namespace Library
 {
-    private Board board;
-    private int Width;
-    private int Height;
-
-    public Printer(Board board, int width, int height)
+    /// <summary>
+    /// Class Printer.
+    /// </summary>
+    public class Printer
     {
-        this.board = board;
-        this.Width = width;
-        this.Height = height;
-    }
+        private Board board;
+        private int width;
+        private int height;
 
-    public void Print()
-    {
-        while (true)
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="board"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public Printer(Board board, int width, int height)
         {
-            Console.Clear();
+            this.board = board;
+            this.width = width;
+            this.height = height;
+        }
 
-            StringBuilder s = new StringBuilder();
-            for (int y = 0; y < Height; y++)
+        /// <summary>
+        /// Impresora.
+        /// </summary>
+        public void Print()
+        {
+            while (true)
             {
-                for (int x = 0; x < Width; x++)
+                Console.Clear();
+
+                StringBuilder s = new StringBuilder();
+                for (int y = 0; y < this.height; y++)
                 {
-                    if (board.GetCell(x, y))
+                    for (int x = 0; x < this.width; x++)
                     {
-                        s.Append("|X|");
+                        if (this.board.GetCell(x, y))
+                        {
+                            s.Append("|X|");
+                        }
+                        else
+                        {
+                            s.Append("___");
+                        }
                     }
-                    else
-                    {
-                        s.Append("___");
-                    }
+
+                    s.Append('\n');
                 }
-                s.Append("\n");
             }
         }
     }
-}
-
 }

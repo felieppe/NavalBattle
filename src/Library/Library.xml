@@ -184,6 +184,24 @@
             El Username del jugador.
             </returns>
         </member>
+        <member name="T:Library.Printer">
+            <summary>
+            Class Printer.
+            </summary>
+        </member>
+        <member name="M:Library.Printer.#ctor(Library.Board,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="board"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:Library.Printer.Print">
+            <summary>
+            Impresora.
+            </summary>
+        </member>
         <member name="T:Library.UserManager">
             <summary>
             Esta clase representa al mananger de usuarios.
