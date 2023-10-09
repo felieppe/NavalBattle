@@ -1,7 +1,4 @@
-using System;
-using BattleShip;
 using Library;
-using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Tests
@@ -21,7 +18,7 @@ namespace Tests
 
         /// <summary>
         /// Crea un tablero para probar.
-        /// </summary> <summary>
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -30,9 +27,9 @@ namespace Tests
 
         /// <summary>
         /// Prueba que el tablero creado sea igual al que se espera.
-        /// </summary> <summary>
+        /// </summary>
         [Test]
-        public void InitializeBoardsTest()
+        public void InitializeBoardTest()
         {
             int rows = 3;
             int columns = 4;
@@ -47,7 +44,7 @@ namespace Tests
             BoardSize boardSize = new BoardSize(rows, columns);
             Board board = new Board(this.board1, boardSize);
 
-            board.InitializeBoards();
+            board.InitializeBoard();
             char[][] actualBoard = board.GetBoard();
 
             Assert.AreEqual(expectedBoard, actualBoard);
