@@ -40,6 +40,6 @@ namespace Tests
             string actual = actualBoard.ToString();
 
             Assert.AreEqual(expected, actual);
-        }*/
+        }
     }
 }
