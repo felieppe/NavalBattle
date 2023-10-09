@@ -1,6 +1,11 @@
+//---------------------------------------------------------------------------------
+// <copyright file="UserManagerTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Tests
 {
@@ -19,7 +24,8 @@ namespace Tests
         /// Crea un UserManager para probar.
         /// </summary>
         [SetUp]
-        public void Setup() {
+        public void Setup()
+        {
             this.um = new UserManager();
         }
 
@@ -42,7 +48,8 @@ namespace Tests
             this.um.AddPlayer(player2);
 
             List<Player> umPlayers = this.um.GetPlayers();
-            foreach (Player p in umPlayers) {
+            foreach (Player p in umPlayers)
+            {
                 Assert.True(expectedPlayers.Contains(p));
             }
         }
@@ -51,8 +58,8 @@ namespace Tests
         /// Prueba el sistema de crear un nuevo juego.
         /// </summary>
         [Test]
-        public void NewGameTest() {
-        
+        public void NewGameTest()
+        {
             Assert.NotNull(this.um);
 
             Player player = new Player("af546682-6603-11ee-8c99-0242ac120002");
@@ -68,7 +75,8 @@ namespace Tests
             Game game = this.um.NewGame();
             List<Player> gamePlayers = game.GetPlayers();
 
-            foreach (Player p in gamePlayers) {
+            foreach (Player p in gamePlayers)
+            {
                 Assert.True(expectedPlayers.Contains(p));
             }
         }
@@ -94,7 +102,8 @@ namespace Tests
             Game game = this.um.NewGame();
 
             List<Player> inGamePlayersList = this.um.GetInGamePlayers();
-            foreach (Player p in inGamePlayersList) {
+            foreach (Player p in inGamePlayersList)
+            {
                 Assert.True(expectedInGamePlayers.Contains(p));
             }
         }

@@ -1,6 +1,11 @@
+//---------------------------------------------------------------------------------
+// <copyright file="GameTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Tests
 {
@@ -14,16 +19,18 @@ namespace Tests
         /// El Game y los Players para probar.
         /// </summary>
         private Game game;
-        private Player player, player2;
+        private Player player;
+        private Player player2;
 
         /// <summary>
         /// Crea un Game y dos players para probar.
         /// </summary>
         [SetUp]
-        public void Setup() {
+        public void Setup()
+        {
             this.player = new Player("ce622ce8-6609-11ee-8c99-0242ac120002");
             this.player2 = new Player("d06ce532-6609-11ee-8c99-0242ac120002");
-            this.game = new Game(player, player2);
+            this.game = new Game(this.player, this.player2);
         }
 
         /// <summary>
@@ -41,7 +48,8 @@ namespace Tests
             expectedPlayers.Add(this.player2);
 
             List<Player> gamePlayers = this.game.GetPlayers();
-            foreach (Player p in gamePlayers) {
+            foreach (Player p in gamePlayers)
+            {
                 Assert.True(expectedPlayers.Contains(p));
             }
         }

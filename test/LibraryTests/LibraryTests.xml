@@ -11,7 +11,7 @@
         </member>
         <member name="F:Tests.BoardTests.board">
             <summary>
-            Board para probar.
+            Tablero para probar.
             </summary>
         </member>
         <member name="M:Tests.BoardTests.SetUp">
@@ -122,6 +122,21 @@
         <member name="M:Tests.UserManagerTests.InGamePlayersTest">
             <summary>
             Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Tests.GameLogicTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.SetUp">
+            <summary>
+            El tablero para probar.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.VerifyAttackWithShipReturnsTrue">
+            <summary>
+            Prueba del método VerifyAttack.
             </summary>
         </member>
     </members>

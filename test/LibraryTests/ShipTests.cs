@@ -1,6 +1,9 @@
-using System;
+//---------------------------------------------------------------------------------
+// <copyright file="ShipTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using Library;
-using NuGet.Frameworks;
 using NUnit.Framework;
 
 namespace Tests
@@ -20,7 +23,8 @@ namespace Tests
         /// Crea un jugador para probar.
         /// </summary>
         [SetUp]
-        public void Setup() {
+        public void Setup()
+        {
             this.sub = new Submarine();
         }
 
@@ -33,7 +37,7 @@ namespace Tests
             Assert.NotNull(this.sub);
 
             Ship ship;
-            ship = (Ship) sub;
+            ship = (Ship)this.sub;
 
             Assert.True(ship.GetType().ToString() == "Library.Submarine");
         }

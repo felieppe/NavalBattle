@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="PlayerTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
 
@@ -15,11 +20,12 @@ namespace Tests
         private Player player;
 
         /// <summary>
-        /// Crea un jugador para probar.
+        /// Crea un jugador con Id vacío para probar.
         /// </summary>
         [SetUp]
-        public void Setup() {
-            this.player = new Player("");
+        public void Setup()
+        {
+            this.player = new Player(string.Empty);
         }
 
         /// <summary>
@@ -33,7 +39,7 @@ namespace Tests
             string newId = "5e5eb7ee-6600-11ee-8c99-0242ac120002";
             this.player.SetId(newId);
 
-            Assert.True(newId.Equals(player.GetId()));
+            Assert.True(newId.Equals(this.player.GetId()));
         }
 
         /// <summary>
@@ -47,7 +53,7 @@ namespace Tests
             string newUsername = "Alfred000";
             this.player.SetUsername(newUsername);
 
-            Assert.True(newUsername.Equals(player.GetUsername()));
+            Assert.True(newUsername.Equals(this.player.GetUsername()));
         }
     }
 }
