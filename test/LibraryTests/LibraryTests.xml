@@ -6,7 +6,7 @@
     <members>
         <member name="T:Tests.BoardTests">
             <summary>
-            Prueba de la clase <see cref="T:BattleShip.Board"/>.
+            Prueba de la clase <see cref="T:Library.Board"/>.
             </summary>
         </member>
         <member name="F:Tests.BoardTests.board">
@@ -14,8 +14,16 @@
             Board para probar.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Tests.BoardTests.SetUp" -->
-        <!-- Badly formed XML comment ignored for member "M:Tests.BoardTests.InitializeBoardsTest" -->
+        <member name="M:Tests.BoardTests.SetUp">
+            <summary>
+            Crea un tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.BoardTests.InitializeBoardTest">
+            <summary>
+            Prueba que el tablero creado sea igual al que se espera.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
@@ -59,6 +67,11 @@
         <member name="M:Tests.PlayerTests.SetUsernameTest">
             <summary>
             Prueba que SetUsername() establezca de forma correcta el Username al Player.
+            </summary>
+        </member>
+        <member name="T:Tests.PrinterTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Game"/>.
             </summary>
         </member>
         <member name="T:Tests.UserManagerTests">

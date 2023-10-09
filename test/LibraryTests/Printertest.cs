@@ -1,7 +1,5 @@
 using Library;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 
 namespace Tests
 {
@@ -9,37 +7,39 @@ namespace Tests
     /// Prueba de la clase <see cref="Game"/>.
     /// </summary>
     [TestFixture]
-    public class PrinterTests{
+    public class PrinterTests
+    {
+        private Board board;
+        private char[][] board1;
+        private BoardSize bs;
 
-    
-    public void TestPrint(){
-
-         bool[,] exampleBoard = new bool[,]
+        [SetUp]
+        public void SetUp()
         {
-            { true, false, true },
-            { false, true, false },
-            { true, false, true }
-        };
+            this.board = new Board(this.board1, this.bs);
+        }
 
-        Printer printer = new Printer(new Board(exampleBoard), 3, 3);
-
-        using (ConsoleCapture consoleCapture = new ConsoleCapture())
+        [Test]
+        public void TestPrint()
         {
-            printer.Print();
-            string printedOutput = consoleCapture.CapturedOutput;
-
-            // Comparar la salida con el texto esperado
-            if (printedOutput == expectedOutput)
+            int rows = 3;
+            int columns = 4;
+            char[][] expectedBoard = new char[4][]
             {
-                Console.WriteLine("");
-            }
+                new char[] { ' ', 'A', 'B', 'C', 'D' },
+                new char[] { '1', ' ', ' ', ' ', ' ' },
+                new char[] { '2', ' ', ' ', ' ', ' ' },
+                new char[] { '3', ' ', ' ', ' ', ' ' },
+            };
+            string expected = expectedBoard.ToString();
+            BoardSize boardSize = new BoardSize(rows, columns);
+            Board board = new Board(this.board1, boardSize);
+
+            board.InitializeBoard();
+            char[][] actualBoard = board.GetBoard();
+            string actual = actualBoard.ToString();
+
+            Assert.AreEqual(expected, actual);
         }
     }
-    }
-    internal class ConsoleCapture
-    {
-        public string CapturedOutput { get; internal set; }
-    }
 }
-
-

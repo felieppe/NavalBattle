@@ -4,42 +4,42 @@
         <name>Library</name>
     </assembly>
     <members>
-        <member name="T:BattleShip.Board">
+        <member name="T:Library.Board">
             <summary>
             Clase Board.
             </summary>
         </member>
-        <member name="M:BattleShip.Board.#ctor(System.Char[][],BattleShip.BoardSize)">
+        <member name="M:Library.Board.#ctor(System.Char[][],Library.BoardSize)">
             <summary>
             Constructor de la clase Board.
             </summary>
             <param name="boards"></param>
             <param name="boardSize"></param>
         </member>
-        <member name="M:BattleShip.Board.InitializeBoard">
+        <member name="M:Library.Board.InitializeBoard">
             <summary>
             Inicializar la matriz del tablero con etiquetas de fila y columna.
             </summary>
         </member>
-        <member name="M:BattleShip.Board.SetBoard(System.Char[][],BattleShip.BoardSize)">
+        <member name="M:Library.Board.SetBoard(System.Char[][],Library.BoardSize)">
             <summary>
             Set de la clase Board.
             </summary>
             <param name="boards"></param>
             <param name="boardSize"></param>
         </member>
-        <member name="M:BattleShip.Board.GetBoard">
+        <member name="M:Library.Board.GetBoard">
             <summary>
             Get de la clase Board.
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BattleShip.BoardSize">
+        <member name="T:Library.BoardSize">
             <summary>
             Clase para establecer las dimensiones del tablero.
             </summary>
         </member>
-        <member name="P:BattleShip.BoardSize.Rows">
+        <member name="P:Library.BoardSize.Rows">
             <summary>
             Filas del tablero.
             </summary> <summary>
@@ -47,7 +47,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:BattleShip.BoardSize.#ctor(System.Int32,System.Int32)">
+        <member name="M:Library.BoardSize.#ctor(System.Int32,System.Int32)">
             <summary>
             Dimensiones del tablero.
             </summary>
@@ -79,6 +79,59 @@
             <returns>
             Una lista con elementos de tipo Player.
             </returns>
+        </member>
+        <member name="M:Library.GameLogic.#ctor(Library.BoardSize,System.Int32)">
+            <summary>
+            GameLogic Class
+            </summary>
+            <param name="boardSize"></param>
+            <param name="totalShips"></param>
+        </member>
+        <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
+            <summary>
+            Verifica el ataque.
+            </summary>
+            <param name="row"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.GameLogic.PlaceShip(System.Int32,System.Int32)">
+            <summary>
+            Posiciona barco
+            </summary>
+            <param name="row"></param>
+            <param name="column"></param>
+        </member>
+        <member name="M:Library.GameLogic.Attack(System.Int32,System.Int32)">
+            <summary>
+            Ataque.
+            </summary>
+            <param name="row"></param>
+            <param name="column"></param>
+        </member>
+        <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
+            <summary>
+            Crea una lista con la cantidad de barcos.
+            </summary>
+            <param name="totalShips"></param>
+        </member>
+        <member name="M:Library.GameLogic.VerifyShipCellList">
+            <summary>
+            Si le pega a un barco disminuye en 1 la cantidad de barcos.
+            </summary>
+        </member>
+        <member name="M:Library.GameLogic.GetShipCellList">
+            <summary>
+            Para que funcione el test.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Library.GameLogic.GetBoard">
+            <summary>
+            Para que funcione el test.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Library.Player">
             <summary>
