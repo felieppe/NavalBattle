@@ -11,9 +11,11 @@
         </member>
         <member name="F:Tests.BoardTests.board">
             <summary>
-            El Board para probar.
+            Board para probar.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Tests.BoardTests.SetUp" -->
+        <!-- Badly formed XML comment ignored for member "M:Tests.BoardTests.InitializeBoardsTest" -->
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
