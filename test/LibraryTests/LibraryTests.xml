@@ -91,7 +91,7 @@
         </member>
         <member name="M:Tests.ShipTests.SetSunkenTest">
             <summary>
-            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
             </summary>
         </member>
         <member name="T:Tests.UserManagerTests">
