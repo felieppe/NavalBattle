@@ -54,7 +54,7 @@ namespace Library
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
-            if (this.Ships.Count > this.TotalShips) { return false; }
+            if (this.Ships.Count >= this.TotalShips) { return false; }
 
             if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
