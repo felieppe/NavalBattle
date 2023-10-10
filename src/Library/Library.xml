@@ -259,6 +259,12 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
             </summary>
         </member>
+        <member name="M:Library.Printer.SplitBoardVisually(System.Int32)">
+            <summary>
+            Imprime una linea horizontal que divide el tablero en dos.
+            </summary>
+            <param name="board">Numero de filas del tablero</param>
+        </member>
         <member name="M:Library.Printer.Print(Library.Board)">
             <summary>
             Imprime el tablero

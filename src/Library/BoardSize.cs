@@ -22,8 +22,8 @@ namespace Library
         /// <param name="columns"> Columnas. </param>
         public BoardSize(int rows, int columns)
         {
-            this.Rows = rows + 1;
-            this.Columns = columns + 1;
+            this.SetRows(rows);
+            this.SetColumns(columns);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Library
         {
             if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
             {
-                this.Rows = rows;
+                this.Rows = rows + 1;
                 return true;
             }
             else
@@ -63,7 +63,7 @@ namespace Library
         {
             if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
             {
-                this.Columns = columns;
+                this.Columns = columns + 1;
                 return true;
             }
             else
