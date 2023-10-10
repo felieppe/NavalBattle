@@ -240,16 +240,17 @@
             Class Printer.
             </summary>
         </member>
-        <member name="M:Library.Printer.#ctor(Library.Board)">
+        <member name="M:Library.Printer.#ctor">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
             </summary>
             <param name="board"> Tablero. </param>
         </member>
-        <member name="M:Library.Printer.Print">
+        <member name="M:Library.Printer.Print(Library.Board)">
             <summary>
-            Impresora.
+            Imprime el tablero
             </summary>
+            <param name="board">Tablero</param>
         </member>
         <member name="T:Library.UserManager">
             <summary>

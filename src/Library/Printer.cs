@@ -16,32 +16,22 @@ namespace Library
     /// </summary>
     public class Printer
     {
-        private Board board;
-        private int rows;
-        private int columns;
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Printer"/>.
         /// </summary>
-        /// <param name="board"> Tablero. </param>
-        public Printer(Board board)
-        {
-            this.board = board;
-            this.rows = this.board.GetBoardSize().Rows;
-            this.columns = this.board.GetBoardSize().Columns;
-        }
+        public Printer() {}
 
         /// <summary>
         /// Imprime el tablero
         /// </summary>
         /// <param name="board">Tablero</param>
-        public void Print()
+        public void Print(Board board)
         {
-            for (int row = 0; row < this.board.GetBoardSize().Rows; row++)
+            for (int row = 0; row < board.GetBoardSize().Rows; row++)
             {
-                for (int col = 0; col < this.board.GetBoardSize().Columns; col++)
+                for (int col = 0; col < board.GetBoardSize().Columns; col++)
                 {
-                    Console.Write(this.board.GetBoard()[row][col] + " ");
+                    Console.Write(board.GetBoard()[row][col] + " ");
                 }
 
                 Console.WriteLine();
