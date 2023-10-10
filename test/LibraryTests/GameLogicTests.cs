@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+using System;
 using Library;
 using NUnit.Framework;
 
@@ -14,10 +15,13 @@ namespace BattleShip.Tests
     [TestFixture]
     public class GameLogicTests
     {
-        private Board board;
+        private char[][] board1;
+        /*private Board board;
         private char[][] board1;
         private GameLogic gameLogic1;
-        private BoardSize bs;
+        private BoardSize boardSize;
+        private int rows = 4;
+        private int columns = 4;*/
 
         /// <summary>
         /// El tablero para probar.
@@ -25,24 +29,33 @@ namespace BattleShip.Tests
         [SetUp]
         public void SetUp()
         {
-            this.board = new Board(this.board1, this.bs);
-            this.gameLogic1 = new GameLogic(this.bs, 3);
-        }
+            /*this.boardSize = new BoardSize(rows, columns);
+            this.board = new Board(this.board1, this.boardSize);
+            this.gameLogic1 = new GameLogic(this.board1, this.boardSize, 3);
+        */}
 
         /// <summary>
         /// Prueba del método VerifyAttack.
         /// </summary>
         [Test]
         public void VerifyAttackWithShipReturnsTrue()
-        {
-            var boardSize = new BoardSize(5, 5);
-            var gameLogic = new GameLogic(boardSize, 3);
-            var row = 1;
-            var column = 2;
-            this.gameLogic1.PlaceShip(row, column);
+        {   
+            // boardtest.cs
+            int rows = 3;
+            int columns = 4;
 
-            var result = gameLogic.VerifyAttack(row, column);
+            BoardSize boardSize = new BoardSize(rows, columns);
+            Board board = new Board(this.board1, boardSize);
 
+            board.InitializeBoard();
+            char[][] actualBoard = board.GetBoard();
+
+            GameLogic gameLogic = new GameLogic(actualBoard, boardSize, 3);
+            gameLogic.PlaceShip(1, 2);
+            gameLogic.Attack(1, 2);
+
+            bool result = gameLogic.VerifyAttack(1, 2);
+            
             Assert.IsTrue(result);
         }
     }
