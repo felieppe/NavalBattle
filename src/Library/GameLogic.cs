@@ -51,19 +51,16 @@ namespace Library
         /// <returns></returns>
         public bool PlaceShip(Ship ship, int row, int column)
         {
-<<<<<<< HEAD
-            if (this.board[row][column] == 'S')
+            if (this.board.GetBoard()[row][column] == 'S')
             {
                 return false;
             }
             else
             { 
-                this.board[row][column]='S';
+                this.board.GetBoard()[row][column]='S';
                 return true;
             }
-=======
-            this.board.GetBoard()[row][column] = 'S';
->>>>>>> 698e88a2a317fb40e742e37326b06e9f4495a3d2
+
         }
         
         /// <summary>
