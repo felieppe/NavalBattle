@@ -122,12 +122,14 @@
             <param name="column"> Columna ingresada. </param>
             <returns> Hit or miss (true or false). </returns>
         </member>
-        <member name="M:Library.GameLogic.PlaceShip(System.Int32,System.Int32)">
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Int32,System.Int32)">
             <summary>
-            Ubica los barcos al comenzar la partida.
+            Ubica los barcos al iniciar la partida.
             </summary>
-            <param name="row"> Row input. </param>
-            <param name="column"> Column input. </param>
+            <param name="ship"> Barco. </param>
+            <param name="row"> Fila del tablero. </param>
+            <param name="column"> Columna del tablero. </param>
+            <returns></returns>
         </member>
         <member name="M:Library.GameLogic.Attack(System.Int32,System.Int32)">
             <summary>
@@ -258,6 +260,12 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
             </summary>
+        </member>
+        <member name="M:Library.Printer.SplitBoardVisually(System.Int32)">
+            <summary>
+            Imprime una linea horizontal que divide el tablero en dos.
+            </summary>
+            <param name="board">Numero de filas del tablero</param>
         </member>
         <member name="M:Library.Printer.Print(Library.Board)">
             <summary>

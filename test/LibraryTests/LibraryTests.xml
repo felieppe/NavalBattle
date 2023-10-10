@@ -129,5 +129,25 @@
             Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
             </summary>
         </member>
+        <member name="T:BattleShip.Tests.GameLogicTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Tests.GameLogicTests.boardSize">
+            <summary>
+            El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.SetUp">
+            <summary>
+            Creamos los elementos necesarios para la prueba.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.VerifyAttackWithShipReturnsTrue">
+            <summary>
+            Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+        </member>
     </members>
 </doc>
