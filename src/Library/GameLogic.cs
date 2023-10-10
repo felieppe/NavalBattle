@@ -138,6 +138,10 @@ namespace Library
             return this.shipCellList;
         }
 
+        /// <summary>
+        /// Devuelve la lista de barcos en el tablero.
+        /// </summary>
+        /// <returns> Lista con valores tipo Ship.</returns>
         public List<Ship> GetShips() {
             return this.Ships;
         }
@@ -200,6 +204,7 @@ namespace Library
         /// <param name="row">Fila</param>
         /// <returns>El tablero</returns>
         private int LetterToNumber(char row) {
+            row = Char.ToUpper(row);
             return char.ToUpper(row) - 'A' + 1;
         }
 

@@ -145,6 +145,12 @@
             </summary>
             <returns> Lista con valores tipo int.</returns>
         </member>
+        <member name="M:Library.GameLogic.GetShips">
+            <summary>
+            Devuelve la lista de barcos en el tablero.
+            </summary>
+            <returns> Lista con valores tipo Ship.</returns>
+        </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
             Determina el turno del jugador.
