@@ -36,7 +36,15 @@ namespace Library
         /// </summary>
         public void Print()
         {
-            
+            for (int row = 0; row < this.board.GetBoardSize().Rows; row++)
+            {
+                for (int col = 0; col < this.board.GetBoardSize().Columns; col++)
+                {
+                    Console.Write(this.board.GetBoard()[row][col] + " ");
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
