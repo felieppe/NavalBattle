@@ -139,11 +139,11 @@
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
         </member>
-        <member name="M:Library.GameLogic.GetShipCellList">
+        <member name="M:Library.GameLogic.GetShips">
             <summary>
-            Devuelve el valor de la variable shipCellList.
+            Devuelve la lista de barcos en el tablero.
             </summary>
-            <returns> Lista con valores tipo int.</returns>
+            <returns> Lista con valores tipo Ship.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
@@ -155,17 +155,6 @@
             Devuelve el tablero actualizado por el GameLogic.
             </summary>
             <returns>El tablero</returns>
-        </member>
-        <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
-            <summary>
-            Crea una lista con la cantidad de barcos.
-            </summary>
-            <param name="totalShips"> Cantidad de barcos para hundir. </param>
-        </member>
-        <member name="M:Library.GameLogic.VerifyShipCellList">
-            <summary>
-            Si le pega a un barco disminuye en 1 la cantidad de barcos.
-            </summary>
         </member>
         <member name="M:Library.GameLogic.LetterToNumber(System.Char)">
             <summary>

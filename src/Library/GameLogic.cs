@@ -15,7 +15,7 @@ namespace Library
     {
         private Board board;
         private BoardSize boardSize;
-        private List<int> shipCellList;
+        private int TotalShips;
         private int numberAttack;
         private List<Ship> Ships = new List<Ship>();
 
@@ -29,7 +29,7 @@ namespace Library
         {
             this.board = board;
             this.boardSize = boardSize;
-            this.InitializeShipCellList(totalShips);
+            this.TotalShips = totalShips;
         }
 
         /// <summary>
@@ -54,6 +54,7 @@ namespace Library
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
+            if (this.Ships.Count >= this.TotalShips) { return false; }
 
             if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
@@ -125,19 +126,13 @@ namespace Library
         {
             if (this.VerifyAttack(LetterToNumber(row), column)) {
                 this.DestroyShip(LetterToNumber(row), column);
-                this.VerifyShipCellList(); // Disminuir el número de barcos.
             }
         }
 
         /// <summary>
-        /// Devuelve el valor de la variable shipCellList.
+        /// Devuelve la lista de barcos en el tablero.
         /// </summary>
-        /// <returns> Lista con valores tipo int.</returns>
-        public List<int> GetShipCellList()
-        {
-            return this.shipCellList;
-        }
-
+        /// <returns> Lista con valores tipo Ship.</returns>
         public List<Ship> GetShips() {
             return this.Ships;
         }
@@ -167,39 +162,12 @@ namespace Library
         }
 
         /// <summary>
-        /// Crea una lista con la cantidad de barcos.
-        /// </summary>
-        /// <param name="totalShips"> Cantidad de barcos para hundir. </param>
-        private void InitializeShipCellList(int totalShips)
-        {
-            this.shipCellList = new List<int>();
-            for (int i = 0; i < totalShips; i++)
-            {
-                this.shipCellList.Add(1); // Inicializa la lista con la cantidad total de barcos.
-            }
-        }
-
-        /// <summary>
-        /// Si le pega a un barco disminuye en 1 la cantidad de barcos.
-        /// </summary>
-        private void VerifyShipCellList()
-        {
-            if (this.shipCellList.Count > 0)
-            {
-                this.shipCellList[0]--; // Se encarga de restar 1 al número restante de barcos.
-                if (this.shipCellList[0] == 0)
-                {
-                    this.shipCellList.RemoveAt(0); // Eliminar el barco si ya no quedan celdas.
-                }
-            }
-        }
-
-        /// <summary>
         /// Devuelve el numero correspodiente a la letra en orden alfabetico.
         /// </summary>
         /// <param name="row">Fila</param>
         /// <returns>El tablero</returns>
         private int LetterToNumber(char row) {
+            row = Char.ToUpper(row);
             return char.ToUpper(row) - 'A' + 1;
         }
 
