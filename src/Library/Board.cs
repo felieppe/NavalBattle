@@ -65,9 +65,9 @@ namespace Library
         /// </summary>
         /// <param name="b"> Tablero. </param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
-        public void SetBoard(char[][] b, BoardSize boardSize)
+        public void SetBoard(Board b, BoardSize boardSize)
         {
-            this.board = b;
+            this.board = b.GetBoard();
             this.boardSize = boardSize;
         }
 
