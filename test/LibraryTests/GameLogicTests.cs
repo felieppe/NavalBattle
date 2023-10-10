@@ -45,19 +45,5 @@ namespace BattleShip.Tests
 
             Assert.IsTrue(result);
         }
-
-/*
-        [Test]
-        public void VerifyAttack_WithoutShip_ReturnsFalse()
-        {
-            var boardSize = new BoardSize(5, 5);
-            var gameLogic = new GameLogic(boardSize, 3);
-            var row = 1;
-            var column = 2;
-
-            var result = gameLogic.VerifyAttack(row, column);
-
-            Assert.IsFalse(result);
-        }*/
     }
 }
