@@ -124,10 +124,9 @@
         </member>
         <member name="M:Library.GameLogic.GetShipCellList">
             <summary>
-            Para que funcione el test.
+            Devuelve el valor de la variable shipCellList.
             </summary>
-            <returns> Excepción. </returns>
-            <exception cref="T:System.NotImplementedException"> Excepción si no está implementada la clase. </exception>
+            <returns> Lista con valores tipo int.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>

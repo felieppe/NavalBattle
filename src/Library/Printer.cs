@@ -32,8 +32,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Impresora.
+        /// Imprime el tablero
         /// </summary>
+        /// <param name="board">Tablero</param>
         public void Print()
         {
             for (int row = 0; row < this.board.GetBoardSize().Rows; row++)
