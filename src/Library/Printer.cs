@@ -24,9 +24,7 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Printer"/>.
         /// </summary>
         /// <param name="board"> Tablero. </param>
-        /// <param name="rows"> Filas del tablero. </param>
-        /// <param name="columns"> Columnas del tablero. </param>
-        public Printer(Board board, int rows, int columns)
+        public Printer(Board board)
         {
             this.board = board;
             this.rows = board.GetBoardSize().Rows;
