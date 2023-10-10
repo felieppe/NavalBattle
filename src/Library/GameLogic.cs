@@ -145,6 +145,10 @@ namespace Library
             return this.shipCellList;
         }
 
+        public List<Ship> GetShips() {
+            return this.Ships;
+        }
+
         /// <summary>
         /// Determina el turno del jugador.
         /// </summary>
