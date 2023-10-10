@@ -129,14 +129,19 @@
             Prueba de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
         </member>
+        <member name="F:BattleShip.Tests.GameLogicTests.boardSize">
+            <summary>
+            El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
+            </summary>
+        </member>
         <member name="M:BattleShip.Tests.GameLogicTests.SetUp">
             <summary>
-            El tablero para probar.
+            Creamos los elementos necesarios para la prueba.
             </summary>
         </member>
         <member name="M:BattleShip.Tests.GameLogicTests.VerifyAttackWithShipReturnsTrue">
             <summary>
-            Prueba del método VerifyAttack.
+            Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
         </member>
     </members>

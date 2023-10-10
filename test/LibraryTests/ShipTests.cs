@@ -50,7 +50,7 @@ namespace Tests
         {
             Assert.NotNull(this.sub);
 
-            this.sub.SetSunken(true);
+            this.sub.Sink();
 
             Assert.True(this.sub.GetSunken());
         }
