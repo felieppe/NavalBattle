@@ -61,6 +61,20 @@
             Columnas del tablero.
             </summary>
         </member>
+        <member name="M:Library.BoardSize.SetRows(System.Int32)">
+            <summary>
+            Establece el número de filas.
+            </summary>
+            <param name="rows"> Filas del tablero. </param>
+            <returns> Número par de filas de tablero entre 10 y 20. </returns>
+        </member>
+        <member name="M:Library.BoardSize.SetColumns(System.Int32)">
+            <summary>
+            Establece el número de columnas.
+            </summary>
+            <param name="columns"> Columnas del tablero. </param>
+            <returns> Número par de columnas de tablero entre 10 y 20. </returns>
+        </member>
         <member name="T:Library.Game">
             <summary>
             Esta clase representa una partida.

@@ -5,13 +5,13 @@
 //---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
-
+/*
 namespace Tests
 {
     /// <summary>
     /// Prueba de la clase <see cref="Game"/>.
     /// </summary>
-/* [TestFixture]
+    [TestFixture]
     public class PrinterTests
     {
         private Board board;
@@ -46,5 +46,5 @@ namespace Tests
 
             Assert.AreEqual(expected, actual);
         }
-    }*/
-}
+    }
+}*/
