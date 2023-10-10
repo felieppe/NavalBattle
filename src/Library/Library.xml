@@ -13,19 +13,18 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Board"/>.
             </summary>
-            <param name="boards"> Board. </param>
-            <param name="boardSize"> Board Size. </param>
+            <param name="boardSize"> Boardsize.</param>
         </member>
         <member name="M:Library.Board.InitializeBoard">
             <summary>
             Nuevo tablero con índice de fila y columna.
             </summary>
         </member>
-        <member name="M:Library.Board.SetBoard(System.Char[][],Library.BoardSize)">
+        <member name="M:Library.Board.SetBoard(Library.Board,Library.BoardSize)">
             <summary>
             Set de la clase Board.
             </summary>
-            <param name="boards"> Tablero. </param>
+            <param name="b"> Tablero. </param>
             <param name="boardSize"> Tamaño del tablero. </param>
         </member>
         <member name="M:Library.Board.GetBoard">
@@ -181,11 +180,10 @@
             </summary>
             <returns> El estado del barco. </returns>
         </member>
-        <member name="M:Library.IShip.SetSunken(System.Boolean)">
+        <member name="M:Library.IShip.Sink">
             <summary>
             Establece el estado del barco.
             </summary>
-            <param name="s"> Barco. </param>
         </member>
         <member name="T:Library.Player">
             <summary>
@@ -329,6 +327,49 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Battleship"/>.
             </summary>
+        </member>
+        <member name="T:Library.Ship">
+            <summary>
+            Esta clase representa un barco.
+            </summary>
+        </member>
+        <member name="P:Library.Ship.Name">
+            <summary>
+            Nombre del barco.
+            </summary>
+            <value> Nombre. </value>
+        </member>
+        <member name="P:Library.Ship.Length">
+            <summary>
+            Tamaño del barco.
+            </summary>
+            <value> Tamaño. </value>
+        </member>
+        <member name="P:Library.Ship.Sunken">
+            <summary>
+            Estado del hundimiento del barco.
+            </summary>
+            <value><c>true</c> si el barco está hundido, <c>false</c> en caso contrario.</value>
+        </member>
+        <member name="M:Library.Ship.#ctor(System.String,System.Int32)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Ship"/>.
+            </summary>
+            <param name="name">Nombre del barco.</param>
+            <param name="length">Tamaño del barco.</param>
+        </member>
+        <member name="M:Library.Ship.Sink">
+            <summary>
+            Hundir el barco.
+            </summary>
+        </member>
+        <member name="M:Library.Ship.GetSunken">
+            <summary>
+            Obtiene el estado de hundimiento del barco.
+            </summary>
+            <returns>
+            El valor de la variable Sunken.
+            </returns>
         </member>
         <member name="T:Library.Cruise">
             <summary>

@@ -37,7 +37,6 @@ namespace Library
         /// <summary>
         /// Establece el estado del barco.
         /// </summary>
-        /// <param name="s"> Barco. </param>
-        void SetSunken(bool s);
+        void Sink();
     }
 }
