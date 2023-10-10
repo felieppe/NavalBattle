@@ -29,6 +29,26 @@
             Prueba que el tamaño del tablero creado no sea válido.
             </summary>
         </member>
+        <member name="T:Tests.BoardTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Board"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.BoardTests.board">
+            <summary>
+            Tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.BoardTests.SetUp">
+            <summary>
+            Crea un tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.BoardTests.InitializeBoardTest">
+            <summary>
+            Prueba que el tablero creado sea igual al que se espera.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
