@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
-/*
+
 namespace Tests
 {
     /// <summary>
@@ -19,7 +19,6 @@ namespace Tests
         /// </summary>
         private Board board;
         private BoardSize boardSize;
-        private BoardSize bs1;
         private int rows;
         private int columns;
 
@@ -29,8 +28,8 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 4;
-            this.columns = 6;
+            this.rows = 10;
+            this.columns = 10;
 
             this.boardSize = new BoardSize(this.rows, this.columns);
             this.board = new Board(this.boardSize);
@@ -42,15 +41,23 @@ namespace Tests
         [Test]
         public void InitializeBoardTest()
         {
-            char[][] expectedBoard = new char[4][]
+            char[][] expectedBoard = new char[12][]
             {
-                new char[] {' ', 'A', 'B', 'C', 'D', 'E'},
-                new char[] {'1', ' ', ' ', ' ', ' ', ' '},
-                new char[] {'2', ' ', ' ', ' ', ' ', ' '},
-                new char[] {'3', ' ', ' ', ' ', ' ', ' '},
+                new char[] {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'},
+                new char[] {'1', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'2', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'3', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'4', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'5', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'6', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'7', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'8', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {'9', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {':', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                new char[] {';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
             };
 
             Assert.AreEqual(expectedBoard, this.board.GetBoard());
         }
     }
-}*/
+}

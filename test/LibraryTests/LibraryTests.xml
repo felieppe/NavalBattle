@@ -84,6 +84,16 @@
             Crea un jugador con Id vacío para probar.
             </summary>
         </member>
+        <member name="M:Tests.PlayerTests.SetIdTest">
+            <summary>
+            Prueba que SetId() establezca de forma correcta el Id al Player.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetUsernameTest">
+            <summary>
+            Prueba que SetUsername() establezca de forma correcta el Username al Player.
+            </summary>
+        </member>
         <member name="T:Tests.ShipTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.
@@ -97,6 +107,16 @@
         <member name="M:Tests.ShipTests.Setup">
             <summary>
             Crea un jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.InterfaceCastTest">
+            <summary>
+            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.SetSunkenTest">
+            <summary>
+            Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
             </summary>
         </member>
         <member name="T:Tests.UserManagerTests">
@@ -144,7 +164,7 @@
             Creamos los elementos necesarios para la prueba.
             </summary>
         </member>
-        <member name="M:BattleShip.Tests.GameLogicTests.VerifyAttackWithShipReturnsTrue">
+        <member name="M:BattleShip.Tests.GameLogicTests.AttackTest">
             <summary>
             Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="T:Library.GameLogic"/>.
             </summary>

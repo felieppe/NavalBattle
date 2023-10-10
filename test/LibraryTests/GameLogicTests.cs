@@ -29,8 +29,8 @@ namespace BattleShip.Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 3;
-            this.columns = 4;
+            this.rows = 20;
+            this.columns = 20;
 
             this.boardSize = new BoardSize(this.rows, this.columns);
             this.board = new Board(this.boardSize);
@@ -40,33 +40,30 @@ namespace BattleShip.Tests
         /// Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="GameLogic"/>.
         /// </summary>
         [Test]
-        public void VerifyAttackWithShipReturnsTrue()
+        public void AttackTest()
         {
             int ships = 3;
-            Ship ship1 = new Ship("Submarine",1);
+            Submarine sub = new Submarine();
 
             GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
-            gameLogic.PlaceShip(ship1,1, 2);
-            gameLogic.Attack(1, 2);
+            gameLogic.PlaceShip(sub, 'B', 2, "right");
+            gameLogic.Attack('B', 2);
 
-            bool result = gameLogic.VerifyAttack(1, 2);
-            Assert.IsTrue(result);
+            Assert.IsTrue(gameLogic.GetShips()[0].GetSunken());
         }
         [Test]
 
-        public void ValidPlaceShip()
+        public void ValidPlaceShipTest()
         {
         
-        int ships =2;
-        GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
-        Ship ship1 = new Ship("Submarine",1);
-        Ship ship2 = new Ship("Submarine",1);
+            int ships =2;
+            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+            
+            Submarine sub = new Submarine();
+            gameLogic.PlaceShip(sub, 'A', 2, "down"); 
 
-        gameLogic.PlaceShip(ship1, 5, 5); 
-        bool result = gameLogic.PlaceShip(ship2, 5, 5);
-
-       
-        Assert.IsFalse(result);
+            bool result = gameLogic.PlaceShip(sub, 'A', 30, "down");
+            Assert.IsFalse(result);
         }
     }
 }
