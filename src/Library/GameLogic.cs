@@ -39,7 +39,7 @@ namespace Library
         /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
-            return this.board.GetBoard()[row][column] == 'S'; // "S" representa un barco.
+            return this.board.GetBoard()[column][row] == 'S'; // "S" representa un barco.
         }
 
         /// <summary>
@@ -67,9 +67,9 @@ namespace Library
         /// </summary>
         /// <param name="row"> Fila ingresada. </param>
         /// <param name="column"> Columna ingresada. </param>
-        public void Attack(int row, int column)
+        public void Attack(char row, int column)
         {
-            if (this.VerifyAttack(row, column))
+            if (this.VerifyAttack(LetterToNumber(row), column))
             {
                 Console.WriteLine("Le diste a un barco.");
                 this.VerifyShipCellList(); // Disminuir el número de barcos.
