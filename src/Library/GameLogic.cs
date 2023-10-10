@@ -34,8 +34,8 @@ namespace Library
         /// <summary>
         /// Verifica el ataque.
         /// </summary>
-        /// <param name="row"> Fila ingresada. </param>
         /// <param name="column"> Columna ingresada. </param>
+        /// <param name="row"> Fila ingresada. </param>
         /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
