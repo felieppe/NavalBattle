@@ -58,30 +58,30 @@ namespace Library
             }
         }
 
-/// <summary>
-/// Set de la clase Board.
-/// </summary>
-/// <param name="boards"> Tablero. </param>
-/// <param name="boardSize"> Tamaño del tablero. </param>
+        /// <summary>
+        /// Set de la clase Board.
+        /// </summary>
+        /// <param name="boards"> Tablero. </param>
+        /// <param name="boardSize"> Tamaño del tablero. </param>
         public void SetBoard(char[][] boards, BoardSize boardSize)
         {
             this.boards = boards;
             this.boardSize = boardSize;
         }
 
-/// <summary>
-/// Get de la clase Board.
-/// </summary>
-/// <returns> Tablero. </returns>
+        /// <summary>
+        /// Get de la clase Board.
+        /// </summary>
+        /// <returns> Tablero. </returns>
         public char[][] GetBoard()
         {
             return this.boards; // Devuelve el tablero.
         }
 
-/// <summary>
-/// Devuelve tamaño del tablero.
-/// </summary>
-/// <returns> boardSize. </returns>
+        /// <summary>
+        /// Devuelve tamaño del tablero.
+        /// </summary>
+        /// <returns> boardSize. </returns>
         public BoardSize GetBoardSize()
         {
             return this.boardSize;
