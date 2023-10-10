@@ -3,13 +3,13 @@ namespace Library
     public class Ship : IShip
     {
         public string Name { get; set; }
-        public int Length { get; set; }  // Corregir la propiedad Length
+        public int Length { get; set; }
         public bool Sunken { get; set; }
 
-        public Ship(string name, int length)  // Corregir el nombre del parámetro
+        public Ship(string name, int length)
         {
             this.Name = name;
-            this.Length = length;  // Corregir la asignación de la propiedad Length
+            this.Length = length;
         }
 
         public void SetSunken(bool s)
