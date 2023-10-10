@@ -48,11 +48,20 @@ namespace Library
             this.Sunken = true;
         }
 
+        /// <summary>
+        /// Añadir array de coordenadas a la lista de la clase.
+        /// </summary>
         public void AddCellCoord(int row, int column) {
             int[] array = { row, column };
             Coords.Add(array);
         }
 
+        /// <summary>
+        /// Obtiene la lista de array de coordenadas del barco.
+        /// </summary>
+        /// <returns>
+        /// La lista con elementos tipo int array.
+        /// </returns>
         public List<int[]> GetCoords() {
             return this.Coords;
         }
