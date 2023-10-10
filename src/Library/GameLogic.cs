@@ -21,10 +21,12 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
+        /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
         /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(BoardSize boardSize, int totalShips)
+        public GameLogic(char[][] board, BoardSize boardSize, int totalShips)
         {
+            this.board = board;
             this.boardSize = boardSize;
             this.InitializeShipCellList(totalShips);
         }
@@ -47,7 +49,7 @@ namespace Library
         /// <param name="column"> Column input. </param>
         public void PlaceShip(int row, int column)
         {
-            this.board[row][column] = 'B';
+            this.board[row][column] = 'S';
         }
 
         /// <summary>

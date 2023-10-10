@@ -93,10 +93,11 @@
             Esta clase contiene la lógica del juego.
             </summary>
         </member>
-        <member name="M:Library.GameLogic.#ctor(Library.BoardSize,System.Int32)">
+        <member name="M:Library.GameLogic.#ctor(System.Char[][],Library.BoardSize,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
+            <param name="board">Tablero.</param>
             <param name="boardSize"> Tamaño del tablero. </param>
             <param name="totalShips"> Total de barcos que hay que hundir. </param>
         </member>
