@@ -22,8 +22,8 @@ namespace Library
         /// <param name="columns"> Columnas. </param>
         public BoardSize(int rows, int columns)
         {
-            this.Rows = rows;
-            this.Columns = columns;
+            this.Rows = rows + 1;
+            this.Columns = columns + 1;
         }
 
         /// <summary>
@@ -35,5 +35,41 @@ namespace Library
         /// Columnas del tablero.
         /// </summary>
         public int Columns { get; private set; }
+
+        /// <summary>
+        /// Establece el número de filas.
+        /// </summary>
+        /// <param name="rows"> Filas del tablero. </param>
+        /// <returns> Número par de filas de tablero entre 10 y 20. </returns>
+        public bool SetRows(int rows)
+        {
+            if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
+            {
+                this.Rows = rows;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Establece el número de columnas.
+        /// </summary>
+        /// <param name="columns"> Columnas del tablero. </param>
+        /// <returns> Número par de columnas de tablero entre 10 y 20. </returns>
+        public bool SetColumns(int columns)
+        {
+            if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
+            {
+                this.Columns = columns;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -9,8 +9,9 @@ using NUnit.Framework;
 namespace Tests
 {
     /// <summary>
-    /// Prueba de la clase <see cref="Game"/>.
+    /// Prueba de la clase <see cref="Printer"/>.
     /// </summary>
+<<<<<<< HEAD
  [TestFixture]
     public class PrinterTests
     {
@@ -47,4 +48,8 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
     }
+=======
+    [TestFixture]
+    public class PrinterTests {}
+>>>>>>> 698e88a2a317fb40e742e37326b06e9f4495a3d2
 }

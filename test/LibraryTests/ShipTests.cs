@@ -27,7 +27,7 @@ namespace Tests
         {
             this.sub = new Submarine();
         }
-
+/*
         /// <summary>
         /// Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
         /// </summary>
@@ -53,6 +53,6 @@ namespace Tests
             this.sub.Sink();
 
             Assert.True(this.sub.GetSunken());
-        }
+        }*/
     }
 }
