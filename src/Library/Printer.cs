@@ -27,8 +27,8 @@ namespace Library
         public Printer(Board board)
         {
             this.board = board;
-            this.rows = board.GetBoardSize().Rows;
-            this.columns = board.GetBoardSize().Columns;
+            this.rows = this.board.GetBoardSize().Rows;
+            this.columns = this.board.GetBoardSize().Columns;
         }
 
         /// <summary>
