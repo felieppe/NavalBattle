@@ -15,7 +15,7 @@ namespace Library
     {
         private Board board;
         private BoardSize boardSize;
-        private List<int> shipCellList;
+        private int TotalShips;
         private int numberAttack;
         private List<Ship> Ships = new List<Ship>();
 
@@ -29,7 +29,7 @@ namespace Library
         {
             this.board = board;
             this.boardSize = boardSize;
-            this.InitializeShipCellList(totalShips);
+            this.TotalShips = totalShips;
         }
 
         /// <summary>
@@ -54,6 +54,7 @@ namespace Library
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
+            if (this.Ships.Count > this.TotalShips) { return false; }
 
             if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
@@ -129,15 +130,6 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el valor de la variable shipCellList.
-        /// </summary>
-        /// <returns> Lista con valores tipo int.</returns>
-        public List<int> GetShipCellList()
-        {
-            return this.shipCellList;
-        }
-
-        /// <summary>
         /// Devuelve la lista de barcos en el tablero.
         /// </summary>
         /// <returns> Lista con valores tipo Ship.</returns>
@@ -167,19 +159,6 @@ namespace Library
         public Board GetBoard()
         {
             return this.board;
-        }
-
-        /// <summary>
-        /// Crea una lista con la cantidad de barcos.
-        /// </summary>
-        /// <param name="totalShips"> Cantidad de barcos para hundir. </param>
-        private void InitializeShipCellList(int totalShips)
-        {
-            this.shipCellList = new List<int>();
-            for (int i = 0; i < totalShips; i++)
-            {
-                this.shipCellList.Add(1); // Inicializa la lista con la cantidad total de barcos.
-            }
         }
 
         /// <summary>
