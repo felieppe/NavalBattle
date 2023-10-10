@@ -151,6 +151,41 @@
             Si le pega a un barco disminuye en 1 la cantidad de barcos.
             </summary>
         </member>
+        <member name="T:Library.IShip">
+            <summary>
+            Interfaz IShip.
+            </summary>
+        </member>
+        <member name="P:Library.IShip.Name">
+            <summary>
+            Nombre.
+            </summary>
+            <value> Nombre del barco. </value>
+        </member>
+        <member name="P:Library.IShip.Length">
+            <summary>
+            Largo.
+            </summary>
+            <value> Largo del barco. </value>
+        </member>
+        <member name="P:Library.IShip.Sunken">
+            <summary>
+            Hundido.
+            </summary>
+            <value> Estado del barco. </value>
+        </member>
+        <member name="M:Library.IShip.GetSunken">
+            <summary>
+            Obtiene el estado del barco.
+            </summary>
+            <returns> El estado del barco. </returns>
+        </member>
+        <member name="M:Library.IShip.SetSunken(System.Boolean)">
+            <summary>
+            Establece el estado del barco.
+            </summary>
+            <param name="s"> Barco. </param>
+        </member>
         <member name="T:Library.Player">
             <summary>
             Esta clase representa un jugador.
@@ -283,6 +318,46 @@
             Añade a los jugadores de un juego a la lista de jugadores en juego.
             </summary>
             <param name="game"> Ongoing games. </param>
+        </member>
+        <member name="T:Library.Battleship">
+            <summary>
+            Clase battleShip.
+            </summary>
+        </member>
+        <member name="M:Library.Battleship.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Battleship"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Cruise">
+            <summary>
+            Clase cruise.
+            </summary>
+        </member>
+        <member name="M:Library.Cruise.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Cruise"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Destroyer">
+            <summary>
+            Clase destroyer.
+            </summary>
+        </member>
+        <member name="M:Library.Destroyer.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Destroyer"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Submarine">
+            <summary>
+            Clase submarine.
+            </summary>
+        </member>
+        <member name="M:Library.Submarine.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Submarine"/>.
+            </summary>
         </member>
     </members>
 </doc>

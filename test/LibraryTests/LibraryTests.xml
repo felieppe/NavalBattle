@@ -56,7 +56,7 @@
         </member>
         <member name="M:Tests.PlayerTests.Setup">
             <summary>
-            Crea un jugador para probar.
+            Crea un jugador con Id vacío para probar.
             </summary>
         </member>
         <member name="M:Tests.PlayerTests.SetIdTest">
