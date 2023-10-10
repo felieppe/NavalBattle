@@ -49,15 +49,15 @@ namespace Library
         /// <param name="row"> Fila del tablero. </param>
         /// <param name="column"> Columna del tablero. </param>
         /// <returns></returns>
-        public bool PlaceShip(Ship ship, int row, int column)
+        public bool PlaceShip(Ship ship, char row, int column)
         {
-            if (this.board[row][column] == 'S')
+            if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S')
             {
                 return false;
             }
             else
             { 
-                this.board[row][column] = 'S';
+                this.board.GetBoard()[column][LetterToNumber(row)] = 'S';
                 return true;
             }
         }
@@ -139,6 +139,10 @@ namespace Library
                     this.shipCellList.RemoveAt(0); // Eliminar el barco si ya no quedan celdas.
                 }
             }
+        }
+
+        private int LetterToNumber(char row) {
+            return row - 'A' + 1;
         }
     }
 }
