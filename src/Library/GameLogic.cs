@@ -49,17 +49,33 @@ namespace Library
         /// <param name="row"> Fila del tablero. </param>
         /// <param name="column"> Columna del tablero. </param>
         /// <returns></returns>
-        public bool PlaceShip(Ship ship, char row, int column)
+        public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
-            if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S')
-            {
-                return false;
-            }
+            if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
-            { 
-                this.board.GetBoard()[column][LetterToNumber(row)] = 'S';
-                return true;
+            {
+                for (var x = 0; x < ship.Length; x++) {
+                    switch (facing.ToUpper()) {
+                        case "UP":
+                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row), column - (ship.Length - 1))) { return false; } }
+                            this.board.GetBoard()[column - x][LetterToNumber(row)] = 'S';
+                            break;
+                        case "DOWN":
+                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row), column + (ship.Length - 1))) { return false; } }
+                            this.board.GetBoard()[column + x][LetterToNumber(row)] = 'S';
+                            break;
+                        case "RIGHT":
+                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row) + (ship.Length - 1), column)) { return false; } }
+                            this.board.GetBoard()[column][LetterToNumber(row) + x] = 'S';
+                            break;
+                        case "LEFT":
+                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row) - (ship.Length - 1), column)) { return false; } }
+                            this.board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
+                            break;
+                    }
+                }
             }
+            return true;
         }
         
         /// <summary>
@@ -141,8 +157,25 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Devuelve el numero correspodiente a la letra en orden alfabetico.
+        /// </summary>
+        /// <param name="row">Fila</param>
+        /// <returns>El tablero</returns>
         private int LetterToNumber(char row) {
-            return row - 'A' + 1;
+            return char.ToUpper(row) - 'A' + 1;
+        }
+
+        /// <summary>
+        /// Verifica que una coordenada no esté fuera de los limites del mapa.
+        /// </summary>
+        /// <param name="row">Fila</param>
+        /// <param name="column">Columna</param>
+        /// <returns>true/false</returns>
+        private bool CheckBoundaries(int row, int column) {
+            if ((row >= 1 && row <= 20) && ((column >= 1 && column <= 10) || (column >= 11 && column <= 20))) {
+                return true;
+            } else { return false; }
         }
     }
 }

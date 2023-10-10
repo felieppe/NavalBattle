@@ -118,11 +118,11 @@
             <summary>
             Verifica el ataque.
             </summary>
-            <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
+            <param name="row"> Fila ingresada. </param>
             <returns> Hit or miss (true or false). </returns>
         </member>
-        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Char,System.Int32)">
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Char,System.Int32,System.String)">
             <summary>
             Ubica los barcos al iniciar la partida.
             </summary>
@@ -131,7 +131,7 @@
             <param name="column"> Columna del tablero. </param>
             <returns></returns>
         </member>
-        <member name="M:Library.GameLogic.Attack(System.Int32,System.Int32)">
+        <member name="M:Library.GameLogic.Attack(System.Char,System.Int32)">
             <summary>
             Ataque.
             </summary>
@@ -165,6 +165,19 @@
             <summary>
             Si le pega a un barco disminuye en 1 la cantidad de barcos.
             </summary>
+        </member>
+        <member name="M:Library.GameLogic.LetterToNumber(System.Char)">
+            <summary>
+            Devuelve el numero correspodiente a la letra en orden alfabetico.
+            </summary>
+            /// <param name="row">Fila</param>
+            <returns>El tablero</returns>
+        </member>
+        <member name="M:Library.GameLogic.CheckBoundaries(System.Int32,System.Int32)">
+            <summary>
+            ...
+            </summary>
+            <returns>true/false</returns>
         </member>
         <member name="T:Library.IShip">
             <summary>
