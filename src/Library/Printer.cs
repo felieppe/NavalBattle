@@ -21,6 +21,16 @@ namespace Library
         /// </summary>
         public Printer() {}
 
+        private void SplitBoardVisually(int rows) {
+            string border = "";
+
+            for (int x = 0; x < rows; x++) {
+                border += "==";
+            }
+
+            Console.WriteLine(border);
+        }
+
         /// <summary>
         /// Imprime el tablero
         /// </summary>
@@ -30,6 +40,8 @@ namespace Library
             Console.Clear();
             for (int row = 0; row < board.GetBoardSize().Rows; row++)
             {
+                if ((board.GetBoardSize().Rows / 2) + 1 == row) { SplitBoardVisually(board.GetBoardSize().Rows); }
+
                 for (int col = 0; col < board.GetBoardSize().Columns; col++)
                 {
                     Console.Write(board.GetBoard()[row][col] + " ");
