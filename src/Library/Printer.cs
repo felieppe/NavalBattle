@@ -27,6 +27,7 @@ namespace Library
         /// <param name="board">Tablero</param>
         public void Print(Board board)
         {
+            Console.Clear();
             for (int row = 0; row < board.GetBoardSize().Rows; row++)
             {
                 for (int col = 0; col < board.GetBoardSize().Columns; col++)
