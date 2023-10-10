@@ -3,6 +3,8 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+using System;
+
 namespace Library
 {
     /// <summary>
@@ -11,17 +13,17 @@ namespace Library
     public class Board
     {
         private BoardSize boardSize;
-        private char[][] boards;
+        private char[][] board;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
         /// </summary>
         /// <param name="boards"> Board. </param>
         /// <param name="boardSize"> Board Size. </param>
-        public Board(char[][] boards, BoardSize boardSize)
+        public Board(BoardSize boardSize)
         {
-            this.boards = boards;
             this.boardSize = boardSize;
+            this.InitializeBoard();
         }
 
         /// <summary>
@@ -29,30 +31,31 @@ namespace Library
         /// </summary>
         public void InitializeBoard()
         {
+            Console.WriteLine(this.boardSize.Rows);
             int rows = this.boardSize.Rows;
             int columns = this.boardSize.Columns;
 
-            this.boards = new char[rows + 1][];
+            this.board = new char[rows + 1][];
             for (int i = 0; i <= rows; i++)
             {
-                this.boards[i] = new char[columns + 1];
+                this.board[i] = new char[columns + 1];
                 for (int j = 0; j <= columns; j++)
                 {
                     if (i == 0 && j == 0)
                     {
-                        this.boards[i][j] = ' ';
+                        this.board[i][j] = ' ';
                     }
                     else if (i == 0)
                     {
-                        this.boards[i][j] = (char)('A' + j - 1);
+                        this.board[i][j] = (char)('A' + j - 1);
                     }
                     else if (j == 0)
                     {
-                        this.boards[i][j] = (char)('0' + i);
+                        this.board[i][j] = (char)('0' + i);
                     }
                     else
                     {
-                        this.boards[i][j] = ' ';
+                        this.board[i][j] = ' ';
                     }
                 }
             }
@@ -63,9 +66,9 @@ namespace Library
         /// </summary>
         /// <param name="boards"> Tablero. </param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
-        public void SetBoard(char[][] boards, BoardSize boardSize)
+        public void SetBoard(char[][] b, BoardSize boardSize)
         {
-            this.boards = boards;
+            this.board = b;
             this.boardSize = boardSize;
         }
 
@@ -75,7 +78,7 @@ namespace Library
         /// <returns> Tablero. </returns>
         public char[][] GetBoard()
         {
-            return this.boards; // Devuelve el tablero.
+            return this.board; // Devuelve el tablero.
         }
 
         /// <summary>

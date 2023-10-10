@@ -9,7 +9,7 @@
             Clase tablero.
             </summary>
         </member>
-        <member name="M:Library.Board.#ctor(System.Char[][],Library.BoardSize)">
+        <member name="M:Library.Board.#ctor(Library.BoardSize)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Board"/>.
             </summary>

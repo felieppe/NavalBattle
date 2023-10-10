@@ -45,9 +45,8 @@ namespace BattleShip.Tests
             int columns = 4;
 
             BoardSize boardSize = new BoardSize(rows, columns);
-            Board board = new Board(this.board1, boardSize);
+            Board board = new Board(boardSize);
 
-            board.InitializeBoard();
             char[][] actualBoard = board.GetBoard();
 
             GameLogic gameLogic = new GameLogic(actualBoard, boardSize, 3);

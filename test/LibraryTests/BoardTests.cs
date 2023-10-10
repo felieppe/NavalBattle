@@ -18,8 +18,9 @@ namespace Tests
         /// Tablero para probar.
         /// </summary>
         private Board board;
-        private char[][] board1;
         private BoardSize bs;
+        private int rows;
+        private int columns;
 
         /// <summary>
         /// Crea un tablero para probar.
@@ -27,7 +28,11 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.board = new Board(this.board1, this.bs);
+            this.rows = 3;
+            this.columns = 4;
+
+            this.bs = new BoardSize(rows, columns);
+            this.board = new Board(this.bs);
         }
 
         /// <summary>
@@ -36,8 +41,6 @@ namespace Tests
         [Test]
         public void InitializeBoardTest()
         {
-            int rows = 3;
-            int columns = 4;
             char[][] expectedBoard = new char[4][]
             {
                 new char[] { ' ', 'A', 'B', 'C', 'D' },
@@ -46,13 +49,7 @@ namespace Tests
                 new char[] { '3', ' ', ' ', ' ', ' ' },
             };
 
-            BoardSize boardSize = new BoardSize(rows, columns);
-            Board board = new Board(this.board1, boardSize);
-
-            board.InitializeBoard();
-            char[][] actualBoard = board.GetBoard();
-
-            Assert.AreEqual(expectedBoard, actualBoard);
+            Assert.AreEqual(expectedBoard, this.board.GetBoard());
         }
     }
 }
