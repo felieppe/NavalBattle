@@ -6,7 +6,7 @@
 using System;
 using Library;
 using NUnit.Framework;
-/*
+
 namespace BattleShip.Tests
 {
     /// <summary>
@@ -43,14 +43,30 @@ namespace BattleShip.Tests
         public void VerifyAttackWithShipReturnsTrue()
         {
             int ships = 3;
+            Ship ship1 = new Ship("Submarine",1);
 
             GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
-            gameLogic.PlaceShip(1, 2);
+            gameLogic.PlaceShip(ship1,1, 2);
             gameLogic.Attack(1, 2);
 
             bool result = gameLogic.VerifyAttack(1, 2);
             Assert.IsTrue(result);
         }
+        [Test]
+
+        public void ValidPlaceShip()
+        {
+        
+        int ships =2;
+        GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+        Ship ship1 = new Ship("Submarine",1);
+        Ship ship2 = new Ship("Submarine",1);
+
+        gameLogic.PlaceShip(ship1, 5, 5); 
+        bool result = gameLogic.PlaceShip(ship2, 5, 5);
+
+       
+        Assert.IsFalse(result);
+        }
     }
 }
-*/
