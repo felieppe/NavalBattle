@@ -18,8 +18,7 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
         /// </summary>
-        /// <param name="boards"> Board. </param>
-        /// <param name="boardSize"> Board Size. </param>
+        /// <param name="boardSize"> Boardsize.</param>
         public Board(BoardSize boardSize)
         {
             this.boardSize = boardSize;
@@ -64,7 +63,7 @@ namespace Library
         /// <summary>
         /// Set de la clase Board.
         /// </summary>
-        /// <param name="boards"> Tablero. </param>
+        /// <param name="b"> Tablero. </param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
         public void SetBoard(char[][] b, BoardSize boardSize)
         {
