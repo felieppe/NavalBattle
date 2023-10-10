@@ -93,7 +93,7 @@
             Esta clase contiene la lógica del juego.
             </summary>
         </member>
-        <member name="M:Library.GameLogic.#ctor(System.Char[][],Library.BoardSize,System.Int32)">
+        <member name="M:Library.GameLogic.#ctor(Library.Board,Library.BoardSize,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
