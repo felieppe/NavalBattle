@@ -21,6 +21,10 @@ namespace Library
         /// </summary>
         public Printer() {}
 
+        /// <summary>
+        /// Imprime una linea horizontal que divide el tablero en dos.
+        /// </summary>
+        /// <param name="board">Numero de filas del tablero</param>
         private void SplitBoardVisually(int rows) {
             string border = "";
 
