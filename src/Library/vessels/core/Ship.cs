@@ -35,12 +35,11 @@ namespace Library
         }
 
         /// <summary>
-        /// Establece el estado de hundimeinto del barco.
+        /// Hundir el barco.
         /// </summary>
-        /// <param name="s">Estado de hundimiento.</param>
-        public void SetSunken(bool s)
+        public void Sink()
         {
-            this.Sunken = s;
+            this.Sunken = true;
         }
 
         /// <summary>
