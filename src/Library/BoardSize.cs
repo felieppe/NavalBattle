@@ -22,8 +22,8 @@ namespace Library
         /// <param name="columns"> Columnas. </param>
         public BoardSize(int rows, int columns)
         {
-            this.Rows = rows;
-            this.Columns = columns;
+            this.Rows = rows + 1;
+            this.Columns = columns + 1;
         }
 
         /// <summary>
