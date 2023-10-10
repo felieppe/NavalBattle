@@ -15,11 +15,11 @@ namespace Library
     /// </summary>
     public class BoardSize
     {
-/// <summary>
-/// Inicializa una nueva instancia de la clase <see cref="BoardSize"/>.
-/// </summary>
-/// <param name="rows"> Filas. </param>
-/// <param name="columns"> Columnas. </param>
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="BoardSize"/>.
+        /// </summary>
+        /// <param name="rows"> Filas. </param>
+        /// <param name="columns"> Columnas. </param>
         public BoardSize(int rows, int columns)
         {
             this.Rows = rows;
