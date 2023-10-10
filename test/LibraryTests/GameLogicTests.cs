@@ -16,7 +16,7 @@ namespace BattleShip.Tests
     public class GameLogicTests
     {
         /// <summary>
-        /// El tablero, con sus elementos respectivos (boardSize, rows y columns).
+        /// El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
         /// </summary>
         private BoardSize boardSize;
         private Board board;
@@ -24,7 +24,7 @@ namespace BattleShip.Tests
         private int columns;
 
         /// <summary>
-        /// El tablero para probar.
+        /// Creamos los elementos necesarios para la prueba.
         /// </summary>
         [SetUp]
         public void SetUp()
@@ -37,7 +37,7 @@ namespace BattleShip.Tests
         }
 
         /// <summary>
-        /// Prueba del método VerifyAttack.
+        /// Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="GameLogic"/>.
         /// </summary>
         [Test]
         public void VerifyAttackWithShipReturnsTrue()
