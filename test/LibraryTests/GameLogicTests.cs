@@ -15,10 +15,13 @@ namespace BattleShip.Tests
     [TestFixture]
     public class GameLogicTests
     {
-        public BoardSize BoardSize;
-        public Board Board;
-        private int Rows;
-        private int Columns;
+        /// <summary>
+        /// El tablero, con sus elementos respectivos (boardSize, rows y columns).
+        /// </summary>
+        private BoardSize boardSize;
+        private Board board;
+        private int rows;
+        private int columns;
 
         /// <summary>
         /// El tablero para probar.
@@ -26,11 +29,11 @@ namespace BattleShip.Tests
         [SetUp]
         public void SetUp()
         {
-            this.Rows = 3;
-            this.Columns = 4;
+            this.rows = 3;
+            this.columns = 4;
 
-            this.BoardSize = new BoardSize(this.Rows, this.Columns);
-            this.Board = new Board(this.BoardSize);
+            this.boardSize = new BoardSize(this.rows, this.columns);
+            this.board = new Board(this.boardSize);
         }
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace BattleShip.Tests
         {
             int ships = 3;
 
-            GameLogic gameLogic = new GameLogic(this.Board, this.BoardSize, ships);
+            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
             gameLogic.PlaceShip(1, 2);
             gameLogic.Attack(1, 2);
 
