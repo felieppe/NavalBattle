@@ -24,7 +24,12 @@ namespace NavalBattle
             int ships = 3;
             GameLogic gameLogic = new GameLogic(b, bs, ships);
 
-            gameLogic.PlaceShip(10, 3);
+            Battleship bship = new Battleship();
+            Cruise cruise = new Cruise();
+            gameLogic.PlaceShip(cruise, 'H', 5, "right");
+            gameLogic.PlaceShip(bship, 'F', 3, "down");
+
+            gameLogic.Attack('J', 5);
 
             Board glBoard = gameLogic.GetBoard();
             Printer pr = new Printer();
