@@ -170,13 +170,15 @@
             <summary>
             Devuelve el numero correspodiente a la letra en orden alfabetico.
             </summary>
-            /// <param name="row">Fila</param>
+            <param name="row">Fila</param>
             <returns>El tablero</returns>
         </member>
         <member name="M:Library.GameLogic.CheckBoundaries(System.Int32,System.Int32)">
             <summary>
-            ...
+            Verifica que una coordenada no esté fuera de los limites del mapa.
             </summary>
+            <param name="row">Fila</param>
+            <param name="column">Columna</param>
             <returns>true/false</returns>
         </member>
         <member name="T:Library.IShip">

@@ -48,6 +48,7 @@ namespace Library
         /// <param name="ship"> Barco. </param>
         /// <param name="row"> Fila del tablero. </param>
         /// <param name="column"> Columna del tablero. </param>
+        /// <param name="facing"> Sentido hacia donde apunta el barco. </param>
         /// <returns></returns>
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
@@ -57,19 +58,44 @@ namespace Library
                 for (var x = 0; x < ship.Length; x++) {
                     switch (facing.ToUpper()) {
                         case "UP":
-                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row), column - (ship.Length - 1))) { return false; } }
+                            if (x == 0) {
+                                if (!CheckBoundaries(LetterToNumber(row), column - (ship.Length - 1))) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column - y][LetterToNumber(row)] == 'S') { return false; }
+                                }
+                            }
                             this.board.GetBoard()[column - x][LetterToNumber(row)] = 'S';
                             break;
                         case "DOWN":
-                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row), column + (ship.Length - 1))) { return false; } }
+                            if (x == 0) {
+                                if (!CheckBoundaries(LetterToNumber(row), column + (ship.Length - 1))) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column + y][LetterToNumber(row)] == 'S') { return false; }
+                                }
+                            }
+
                             this.board.GetBoard()[column + x][LetterToNumber(row)] = 'S';
                             break;
                         case "RIGHT":
-                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row) + (ship.Length - 1), column)) { return false; } }
+                            if (x == 0) { 
+                                if (!CheckBoundaries(LetterToNumber(row) + (ship.Length - 1), column)) { return false; } 
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column][LetterToNumber(row) + y] == 'S') { return false; }
+                                }
+                            }
                             this.board.GetBoard()[column][LetterToNumber(row) + x] = 'S';
                             break;
                         case "LEFT":
-                            if (x == 0) { if (!CheckBoundaries(LetterToNumber(row) - (ship.Length - 1), column)) { return false; } }
+                            if (x == 0) { 
+                                if (!CheckBoundaries(LetterToNumber(row) - (ship.Length - 1), column)) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column][LetterToNumber(row) - y] == 'S') { return false; }
+                                }
+                            }
                             this.board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
                             break;
                     }
