@@ -40,7 +40,7 @@ namespace BattleShip.Tests
         /// Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="GameLogic"/>.
         /// </summary>
         [Test]
-        public void VerifyAttackWithShipReturnsTrue()
+        public void AttackTest()
         {
             int ships = 3;
             Submarine sub = new Submarine();
@@ -49,8 +49,7 @@ namespace BattleShip.Tests
             gameLogic.PlaceShip(sub, 'B', 2, "right");
             gameLogic.Attack('B', 2);
 
-            bool result = gameLogic.VerifyAttack(2, 2);
-            Assert.IsTrue(result);
+            Assert.IsTrue(gameLogic.GetShips()[0].GetSunken());
         }
         [Test]
 
