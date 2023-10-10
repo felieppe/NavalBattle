@@ -138,10 +138,9 @@
         </member>
         <member name="M:Library.GameLogic.GetShipCellList">
             <summary>
-            Para que funcione el test.
+            Devuelve el valor de la variable shipCellList.
             </summary>
-            <returns> Excepción. </returns>
-            <exception cref="T:System.NotImplementedException"> Excepción si no está implementada la clase. </exception>
+            <returns> Lista con valores tipo int.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
@@ -150,9 +149,9 @@
         </member>
         <member name="M:Library.GameLogic.GetBoard">
             <summary>
-            Para que funcione el test.
+            Devuelve el tablero actualizado por el GameLogic.
             </summary>
-            <returns> Excepción. </returns>
+            <returns>El tablero</returns>
         </member>
         <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
             <summary>
@@ -255,18 +254,16 @@
             Class Printer.
             </summary>
         </member>
-        <member name="M:Library.Printer.#ctor(Library.Board,System.Int32,System.Int32)">
+        <member name="M:Library.Printer.#ctor">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
             </summary>
-            <param name="board"> Tablero. </param>
-            <param name="rows"> Filas del tablero. </param>
-            <param name="columns"> Columnas del tablero. </param>
         </member>
-        <member name="M:Library.Printer.Print">
+        <member name="M:Library.Printer.Print(Library.Board)">
             <summary>
-            Impresora.
+            Imprime el tablero
             </summary>
+            <param name="board">Tablero</param>
         </member>
         <member name="T:Library.UserManager">
             <summary>

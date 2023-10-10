@@ -30,7 +30,6 @@ namespace Library
         /// </summary>
         public void InitializeBoard()
         {
-            Console.WriteLine(this.boardSize.Rows);
             int rows = this.boardSize.Rows;
             int columns = this.boardSize.Columns;
 

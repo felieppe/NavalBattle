@@ -16,39 +16,42 @@ namespace Library
     /// </summary>
     public class Printer
     {
-        private Board board;
-        private int rows;
-        private int columns;
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Printer"/>.
         /// </summary>
-        /// <param name="board"> Tablero. </param>
-        /// <param name="rows"> Filas del tablero. </param>
-        /// <param name="columns"> Columnas del tablero. </param>
-        public Printer(Board board, int rows, int columns)
-        {
-            this.board = board;
-            this.rows = board.GetBoardSize().Rows;
-            this.columns = board.GetBoardSize().Columns;
+        public Printer() {}
+
+        /// <summary>
+        /// Imprime una linea horizontal que divide el tablero en dos.
+        /// </summary>
+        /// <param name="board">Numero de filas del tablero</param>
+        private void SplitBoardVisually(int rows) {
+            string border = "";
+
+            for (int x = 0; x < rows; x++) {
+                border += "==";
+            }
+
+            Console.WriteLine(border);
         }
 
         /// <summary>
-        /// Impresora.
+        /// Imprime el tablero
         /// </summary>
-        public void Print()
+        /// <param name="board">Tablero</param>
+        public void Print(Board board)
         {
-            while (true)
+            Console.Clear();
+            for (int row = 0; row < board.GetBoardSize().Rows; row++)
             {
-                Console.Clear();
+                if ((board.GetBoardSize().Rows / 2) + 1 == row) { SplitBoardVisually(board.GetBoardSize().Rows); }
 
-                for (int i = 0; i < this.board.GetBoardSize().Rows; i++)
+                for (int col = 0; col < board.GetBoardSize().Columns; col++)
                 {
-                    for (int j = 0; j < this.board.GetBoardSize().Columns; j++)
-                    {
-                        Console.WriteLine(this.board);
-                    }
+                    Console.Write(board.GetBoard()[row][col] + " ");
                 }
+
+                Console.WriteLine();
             }
         }
     }

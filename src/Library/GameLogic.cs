@@ -13,7 +13,7 @@ namespace Library
     /// </summary>
     public class GameLogic
     {
-        private char[][] board;
+        private Board board;
         private BoardSize boardSize;
         private List<int> shipCellList;
         private int numberAttack;
@@ -26,7 +26,7 @@ namespace Library
         /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
         public GameLogic(Board board, BoardSize boardSize, int totalShips)
         {
-            this.board = board.GetBoard();
+            this.board = board;
             this.boardSize = boardSize;
             this.InitializeShipCellList(totalShips);
         }
@@ -39,7 +39,7 @@ namespace Library
         /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
-            return this.board[row][column] == 'S'; // "S" representa un barco.
+            return this.board.GetBoard()[row][column] == 'S'; // "S" representa un barco.
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Library
         /// <param name="column"> Column input. </param>
         public void PlaceShip(int row, int column)
         {
-            this.board[row][column] = 'S';
+            this.board.GetBoard()[row][column] = 'S';
         }
 
         /// <summary>
@@ -71,13 +71,12 @@ namespace Library
         }
 
         /// <summary>
-        /// Para que funcione el test.
+        /// Devuelve el valor de la variable shipCellList.
         /// </summary>
-        /// <returns> Excepción. </returns>
-        /// <exception cref="NotImplementedException"> Excepción si no está implementada la clase. </exception>
-        public object GetShipCellList()
+        /// <returns> Lista con valores tipo int.</returns>
+        public List<int> GetShipCellList()
         {
-            throw new NotImplementedException();
+            return this.shipCellList;
         }
 
         /// <summary>
@@ -96,12 +95,12 @@ namespace Library
         }
 
         /// <summary>
-        /// Para que funcione el test.
+        /// Devuelve el tablero actualizado por el GameLogic.
         /// </summary>
-        /// <returns> Excepción. </returns>
-        public object GetBoard()
+        /// <returns>El tablero</returns>
+        public Board GetBoard()
         {
-            throw new NotImplementedException();
+            return this.board;
         }
 
         /// <summary>

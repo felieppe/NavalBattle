@@ -17,6 +17,18 @@ namespace NavalBattle
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main() {}
+        public static void Main() {
+            BoardSize bs = new BoardSize(20, 20);
+            Board b = new Board(bs);
+
+            int ships = 3;
+            GameLogic gameLogic = new GameLogic(b, bs, ships);
+
+            gameLogic.PlaceShip(10, 3);
+
+            Board glBoard = gameLogic.GetBoard();
+            Printer pr = new Printer();
+            pr.Print(glBoard);
+        }
     }
 }
