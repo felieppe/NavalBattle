@@ -123,16 +123,9 @@ namespace Library
         /// <param name="column"> Columna ingresada. </param>
         public void Attack(char row, int column)
         {
-            if (this.VerifyAttack(LetterToNumber(row), column))
-            {
-                Console.WriteLine("Le diste a un barco.");
-
+            if (this.VerifyAttack(LetterToNumber(row), column)) {
                 this.DestroyShip(LetterToNumber(row), column);
                 this.VerifyShipCellList(); // Disminuir el número de barcos.
-            }
-            else
-            {
-                Console.WriteLine("No le diste a ningún barco.");
             }
         }
 
