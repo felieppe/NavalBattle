@@ -43,15 +43,25 @@ namespace Library
         }
 
         /// <summary>
-        /// Ubica los barcos al comenzar la partida.
+        /// Ubica los barcos al iniciar la partida.
         /// </summary>
-        /// <param name="row"> Row input. </param>
-        /// <param name="column"> Column input. </param>
-        public void PlaceShip(int row, int column)
+        /// <param name="ship"> Barco. </param>
+        /// <param name="row"> Fila del tablero. </param>
+        /// <param name="column"> Columna del tablero. </param>
+        /// <returns></returns>
+        public bool PlaceShip(Ship ship, int row, int column)
         {
-            this.board[row][column] = 'S';
+            if (this.board[row][column] == 'S')
+            {
+                return false;
+            }
+            else
+            { 
+                this.board[row][column]='S';
+                return true;
+            }
         }
-
+        
         /// <summary>
         /// Ataque.
         /// </summary>
