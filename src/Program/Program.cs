@@ -5,6 +5,7 @@
 //--------------------------------------------------------------------------------
 
 using System;
+using Library;
 
 namespace NavalBattle
 {
@@ -16,6 +17,23 @@ namespace NavalBattle
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main() { }
+        public static void Main() {
+            BoardSize bs = new BoardSize(20, 20);
+            Board b = new Board(bs);
+
+            int ships = 3;
+            GameLogic gameLogic = new GameLogic(b, bs, ships);
+
+            Battleship bship = new Battleship();
+            Cruise cruise = new Cruise();
+            gameLogic.PlaceShip(cruise, 'H', 5, "right");
+            gameLogic.PlaceShip(bship, 'F', 3, "down");
+
+            gameLogic.Attack('J', 5);
+
+            Board glBoard = gameLogic.GetBoard();
+            Printer pr = new Printer();
+            pr.Print(glBoard);
+        }
     }
 }
