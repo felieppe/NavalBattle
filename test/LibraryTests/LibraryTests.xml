@@ -89,6 +89,16 @@
             Crea un jugador para probar.
             </summary>
         </member>
+        <member name="M:Tests.ShipTests.InterfaceCastTest">
+            <summary>
+            Prueba la funcionalidad del casteo entre clases gracias a la implementación de interfaces.
+            </summary>
+        </member>
+        <member name="M:Tests.ShipTests.SetSunkenTest">
+            <summary>
+            Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
+            </summary>
+        </member>
         <member name="T:Tests.UserManagerTests">
             <summary>
             Prueba de la clase <see cref="T:Library.UserManager"/>.
