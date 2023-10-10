@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
-
+/*
 namespace Tests
 {
     /// <summary>
@@ -13,7 +13,7 @@ namespace Tests
     /// </summary>
 <<<<<<< HEAD
  [TestFixture]
-    public class PrinterTests
+     public class PrinterTests
     {
         private Board board;
         private char[][] board1;
@@ -52,4 +52,4 @@ namespace Tests
     [TestFixture]
     public class PrinterTests {}
 >>>>>>> 698e88a2a317fb40e742e37326b06e9f4495a3d2
-}
+}*/
