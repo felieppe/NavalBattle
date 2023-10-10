@@ -18,7 +18,7 @@ namespace Tests
         /// Tablero para probar.
         /// </summary>
         private Board board;
-        private BoardSize bs;
+        private BoardSize boardSize;
         private int rows;
         private int columns;
 
@@ -31,8 +31,8 @@ namespace Tests
             this.rows = 3;
             this.columns = 4;
 
-            this.bs = new BoardSize(rows, columns);
-            this.board = new Board(this.bs);
+            this.boardSize = new BoardSize(this.rows, this.columns);
+            this.board = new Board(this.boardSize);
         }
 
         /// <summary>
