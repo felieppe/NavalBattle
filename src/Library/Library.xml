@@ -122,14 +122,21 @@
             <param name="row"> Fila ingresada. </param>
             <returns> Hit or miss (true or false). </returns>
         </member>
+<<<<<<< HEAD
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Int32,System.Int32)">
+=======
         <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Char,System.Int32,System.String)">
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
             <summary>
             Ubica los barcos al iniciar la partida.
             </summary>
             <param name="ship"> Barco. </param>
             <param name="row"> Fila del tablero. </param>
             <param name="column"> Columna del tablero. </param>
+<<<<<<< HEAD
+=======
             <param name="facing"> Sentido hacia donde apunta el barco. </param>
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
             <returns></returns>
         </member>
         <member name="M:Library.GameLogic.Attack(System.Char,System.Int32)">

@@ -29,26 +29,6 @@
             Prueba que el tamaño del tablero creado no sea válido.
             </summary>
         </member>
-        <member name="T:Tests.BoardTests">
-            <summary>
-            Prueba de la clase <see cref="T:Library.Board"/>.
-            </summary>
-        </member>
-        <member name="F:Tests.BoardTests.board">
-            <summary>
-            Tablero para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.BoardTests.SetUp">
-            <summary>
-            Crea un tablero para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.BoardTests.InitializeBoardTest">
-            <summary>
-            Prueba que el tablero creado sea igual al que se espera.
-            </summary>
-        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
@@ -164,7 +144,11 @@
             Creamos los elementos necesarios para la prueba.
             </summary>
         </member>
+<<<<<<< HEAD
+        <member name="M:BattleShip.Tests.GameLogicTests.VerifyAttackWithShipReturnsTrue">
+=======
         <member name="M:BattleShip.Tests.GameLogicTests.AttackTest">
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
             <summary>
             Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
