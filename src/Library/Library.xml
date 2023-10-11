@@ -4,5 +4,454 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.Board">
+            <summary>
+            Clase tablero.
+            </summary>
+        </member>
+        <member name="M:Library.Board.#ctor(Library.BoardSize)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Board"/>.
+            </summary>
+            <param name="boardSize"> Boardsize.</param>
+        </member>
+        <member name="M:Library.Board.InitializeBoard">
+            <summary>
+            Nuevo tablero con índice de fila y columna.
+            </summary>
+        </member>
+        <member name="M:Library.Board.SetBoard(Library.Board,Library.BoardSize)">
+            <summary>
+            Set de la clase Board.
+            </summary>
+            <param name="b"> Tablero. </param>
+            <param name="boardSize"> Tamaño del tablero. </param>
+        </member>
+        <member name="M:Library.Board.GetBoard">
+            <summary>
+            Get de la clase Board.
+            </summary>
+            <returns> Tablero. </returns>
+        </member>
+        <member name="M:Library.Board.GetBoardSize">
+            <summary>
+            Devuelve tamaño del tablero.
+            </summary>
+            <returns> boardSize. </returns>
+        </member>
+        <member name="T:Library.BoardSize">
+            <summary>
+            Clase para establecer las dimensiones del tablero.
+            </summary>
+        </member>
+        <member name="M:Library.BoardSize.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.BoardSize"/>.
+            </summary>
+            <param name="rows"> Filas. </param>
+            <param name="columns"> Columnas. </param>
+        </member>
+        <member name="P:Library.BoardSize.Rows">
+            <summary>
+            Filas del tablero.
+            </summary>
+        </member>
+        <member name="P:Library.BoardSize.Columns">
+            <summary>
+            Columnas del tablero.
+            </summary>
+        </member>
+        <member name="M:Library.BoardSize.SetRows(System.Int32)">
+            <summary>
+            Establece el número de filas.
+            </summary>
+            <param name="rows"> Filas del tablero. </param>
+            <returns> Número par de filas de tablero entre 10 y 20. </returns>
+        </member>
+        <member name="M:Library.BoardSize.SetColumns(System.Int32)">
+            <summary>
+            Establece el número de columnas.
+            </summary>
+            <param name="columns"> Columnas del tablero. </param>
+            <returns> Número par de columnas de tablero entre 10 y 20. </returns>
+        </member>
+        <member name="T:Library.Game">
+            <summary>
+            Esta clase representa una partida.
+            </summary>
+        </member>
+        <member name="F:Library.Game.Players">
+            <summary>
+            Lista de jugadores del juego.
+            </summary>
+            <value> Lista con elementos de tipo Player. </value>
+        </member>
+        <member name="M:Library.Game.#ctor(Library.Player,Library.Player)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Game"/>.
+            </summary>
+            <param name="p1"> Jugador 1. </param>
+            <param name="p2"> Jugador 2. </param>
+        </member>
+        <member name="M:Library.Game.GetPlayers">
+            <summary>
+            Obtiene los jugadores guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="T:Library.GameLogic">
+            <summary>
+            Esta clase contiene la lógica del juego.
+            </summary>
+        </member>
+        <member name="M:Library.GameLogic.#ctor(Library.Board,Library.BoardSize,System.Int32)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+            <param name="board">Tablero.</param>
+            <param name="boardSize"> Tamaño del tablero. </param>
+            <param name="totalShips"> Total de barcos que hay que hundir. </param>
+        </member>
+        <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
+            <summary>
+            Verifica el ataque.
+            </summary>
+            <param name="column"> Columna ingresada. </param>
+            <param name="row"> Fila ingresada. </param>
+            <returns> Hit or miss (true or false). </returns>
+        </member>
+<<<<<<< HEAD
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Int32,System.Int32)">
+=======
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Char,System.Int32,System.String)">
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
+            <summary>
+            Ubica los barcos al iniciar la partida.
+            </summary>
+            <param name="ship"> Barco. </param>
+            <param name="row"> Fila del tablero. </param>
+            <param name="column"> Columna del tablero. </param>
+<<<<<<< HEAD
+=======
+            <param name="facing"> Sentido hacia donde apunta el barco. </param>
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
+            <returns></returns>
+        </member>
+        <member name="M:Library.GameLogic.Attack(System.Char,System.Int32)">
+            <summary>
+            Ataque.
+            </summary>
+            <param name="row"> Fila ingresada. </param>
+            <param name="column"> Columna ingresada. </param>
+        </member>
+        <member name="M:Library.GameLogic.GetShips">
+            <summary>
+            Devuelve la lista de barcos en el tablero.
+            </summary>
+            <returns> Lista con valores tipo Ship.</returns>
+        </member>
+        <member name="M:Library.GameLogic.Turn">
+            <summary>
+            Determina el turno del jugador.
+            </summary>
+        </member>
+        <member name="M:Library.GameLogic.GetBoard">
+            <summary>
+            Devuelve el tablero actualizado por el GameLogic.
+            </summary>
+            <returns>El tablero</returns>
+        </member>
+        <member name="M:Library.GameLogic.LetterToNumber(System.Char)">
+            <summary>
+            Devuelve el numero correspodiente a la letra en orden alfabetico.
+            </summary>
+            <param name="row">Fila</param>
+            <returns>El tablero</returns>
+        </member>
+        <member name="M:Library.GameLogic.CheckBoundaries(System.Int32,System.Int32)">
+            <summary>
+            Verifica que una coordenada no esté fuera de los limites del mapa.
+            </summary>
+            <param name="row">Fila</param>
+            <param name="column">Columna</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:Library.GameLogic.DestroyShip(System.Int32,System.Int32)">
+            <summary>
+            Destruye el barco del tablero.
+            </summary>
+            <param name="row">Fila</param>
+            <param name="column">Columna</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="T:Library.IShip">
+            <summary>
+            Interfaz IShip.
+            </summary>
+        </member>
+        <member name="P:Library.IShip.Name">
+            <summary>
+            Nombre.
+            </summary>
+            <value> Nombre del barco. </value>
+        </member>
+        <member name="P:Library.IShip.Length">
+            <summary>
+            Largo.
+            </summary>
+            <value> Largo del barco. </value>
+        </member>
+        <member name="P:Library.IShip.Sunken">
+            <summary>
+            Hundido.
+            </summary>
+            <value> Estado del barco. </value>
+        </member>
+        <member name="M:Library.IShip.GetSunken">
+            <summary>
+            Obtiene el estado del barco.
+            </summary>
+            <returns> El estado del barco. </returns>
+        </member>
+        <member name="M:Library.IShip.Sink">
+            <summary>
+            Establece el estado del barco.
+            </summary>
+        </member>
+        <member name="T:Library.Player">
+            <summary>
+            Esta clase representa un jugador.
+            </summary>
+        </member>
+        <member name="P:Library.Player.Id">
+            <summary>
+            Id del jugador.
+            </summary>
+            <value> Id. </value>
+        </member>
+        <member name="P:Library.Player.Username">
+            <summary>
+            Nombre de usuario del jugador.
+            </summary>
+            <value> Username. </value>
+        </member>
+        <member name="M:Library.Player.#ctor(System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Player"/>.
+            </summary>
+            <param name="id"> Id. </param>
+        </member>
+        <member name="M:Library.Player.SetId(System.String)">
+            <summary>
+            Establece el ID del jugador.
+            </summary>
+            <param name="id"> Id. </param>
+        </member>
+        <member name="M:Library.Player.SetUsername(System.String)">
+            <summary>
+            Establece el username del jugador.
+            </summary>
+            <param name="username"> Username. </param>
+        </member>
+        <member name="M:Library.Player.GetId">
+            <summary>
+            Obtiene el ID del jugador.
+            </summary>
+            <returns>
+            El ID del jugador.
+            </returns>
+        </member>
+        <member name="M:Library.Player.GetUsername">
+            <summary>
+            Obtiene el username del jugador.
+            </summary>
+            <returns>
+            El Username del jugador.
+            </returns>
+        </member>
+        <member name="T:Library.Printer">
+            <summary>
+            Class Printer.
+            </summary>
+        </member>
+        <member name="M:Library.Printer.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
+            </summary>
+        </member>
+        <member name="M:Library.Printer.SplitBoardVisually(System.Int32)">
+            <summary>
+            Imprime una linea horizontal que divide el tablero en dos.
+            </summary>
+            <param name="board">Numero de filas del tablero</param>
+        </member>
+        <member name="M:Library.Printer.Print(Library.Board)">
+            <summary>
+            Imprime el tablero
+            </summary>
+            <param name="board">Tablero</param>
+        </member>
+        <member name="T:Library.UserManager">
+            <summary>
+            Esta clase representa al administrador de usuarios.
+            </summary>
+        </member>
+        <member name="F:Library.UserManager.players">
+            <summary>
+            Lista de jugadores registrados en el UserManager.
+            </summary>
+            <value> Lista con elementos de tipo Player. </value>
+        </member>
+        <member name="F:Library.UserManager.inGamePlayers">
+            <summary>
+            Lista de jugadores que actualmente están jugando.
+            </summary>
+            <value> Lista con elementos de tipo Player. </value>
+        </member>
+        <member name="M:Library.UserManager.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="M:Library.UserManager.AddPlayer(Library.Player)">
+            <summary>
+            Añade un jugador a la lista de jugadores.
+            </summary>
+            <param name="player"> Player. </param>
+        </member>
+        <member name="M:Library.UserManager.RemovePlayer(Library.Player)">
+            <summary>
+            Elimina un jugador en especifico de la lista de jugadores.
+            </summary>
+            <param name="player"> Player. </param>
+        </member>
+        <member name="M:Library.UserManager.NewGame">
+            <summary>
+            Crea una partida con dos jugadores al azar que estén disponibles.
+            </summary>
+            <returns>
+            Una partida.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetPlayers">
+            <summary>
+            Obtiene los jugadores guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetInGamePlayers">
+            <summary>
+            Obtiene los jugadores en juego guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
+            <summary>
+            Añade a los jugadores de un juego a la lista de jugadores en juego.
+            </summary>
+            <param name="game"> Ongoing games. </param>
+        </member>
+        <member name="T:Library.Battleship">
+            <summary>
+            Clase battleShip.
+            </summary>
+        </member>
+        <member name="M:Library.Battleship.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Battleship"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Ship">
+            <summary>
+            Esta clase representa un barco.
+            </summary>
+        </member>
+        <member name="P:Library.Ship.Name">
+            <summary>
+            Nombre del barco.
+            </summary>
+            <value> Nombre. </value>
+        </member>
+        <member name="P:Library.Ship.Length">
+            <summary>
+            Tamaño del barco.
+            </summary>
+            <value> Tamaño. </value>
+        </member>
+        <member name="P:Library.Ship.Sunken">
+            <summary>
+            Estado del hundimiento del barco.
+            </summary>
+            <value><c>true</c> si el barco está hundido, <c>false</c> en caso contrario.</value>
+        </member>
+        <member name="M:Library.Ship.#ctor(System.String,System.Int32)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Ship"/>.
+            </summary>
+            <param name="name">Nombre del barco.</param>
+            <param name="length">Tamaño del barco.</param>
+        </member>
+        <member name="M:Library.Ship.Sink">
+            <summary>
+            Hundir el barco.
+            </summary>
+        </member>
+        <member name="M:Library.Ship.AddCellCoord(System.Int32,System.Int32)">
+            <summary>
+            Añadir array de coordenadas a la lista de la clase.
+            </summary>
+        </member>
+        <member name="M:Library.Ship.GetCoords">
+            <summary>
+            Obtiene la lista de array de coordenadas del barco.
+            </summary>
+            <returns>
+            La lista con elementos tipo int array.
+            </returns>
+        </member>
+        <member name="M:Library.Ship.GetSunken">
+            <summary>
+            Obtiene el estado de hundimiento del barco.
+            </summary>
+            <returns>
+            El valor de la variable Sunken.
+            </returns>
+        </member>
+        <member name="T:Library.Cruise">
+            <summary>
+            Clase cruise.
+            </summary>
+        </member>
+        <member name="M:Library.Cruise.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Cruise"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Destroyer">
+            <summary>
+            Clase destroyer.
+            </summary>
+        </member>
+        <member name="M:Library.Destroyer.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Destroyer"/>.
+            </summary>
+        </member>
+        <member name="T:Library.Submarine">
+            <summary>
+            Clase submarine.
+            </summary>
+        </member>
+        <member name="M:Library.Submarine.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Submarine"/>.
+            </summary>
+        </member>
     </members>
 </doc>
