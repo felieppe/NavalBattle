@@ -162,11 +162,12 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el numero correspodiente a la letra en orden alfabetico.
+        /// Devuelve el numero correspondiente a la letra en orden alfabético.
         /// </summary>
         /// <param name="row">Fila</param>
         /// <returns>El tablero</returns>
-        private int LetterToNumber(char row) {
+        private static int LetterToNumber(char row)
+        {
             row = Char.ToUpper(row);
             return char.ToUpper(row) - 'A' + 1;
         }
@@ -177,7 +178,8 @@ namespace Library
         /// <param name="row">Fila</param>
         /// <param name="column">Columna</param>
         /// <returns>true/false</returns>
-        private bool CheckBoundaries(int row, int column) {
+        private static bool CheckBoundaries(int row, int column)
+        {
             if ((row >= 1 && row <= 20) && ((column >= 1 && column <= 10) || (column >= 11 && column <= 20))) {
                 return true;
             } else { return false; }
