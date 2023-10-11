@@ -15,8 +15,9 @@ namespace Library
     {
         private Board board;
         private BoardSize boardSize;
-        private List<int> shipCellList;
+        private int TotalShips;
         private int numberAttack;
+        private List<Ship> Ships = new List<Ship>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
@@ -28,18 +29,18 @@ namespace Library
         {
             this.board = board;
             this.boardSize = boardSize;
-            this.InitializeShipCellList(totalShips);
+            this.TotalShips = totalShips;
         }
 
         /// <summary>
         /// Verifica el ataque.
         /// </summary>
-        /// <param name="row"> Fila ingresada. </param>
         /// <param name="column"> Columna ingresada. </param>
+        /// <param name="row"> Fila ingresada. </param>
         /// <returns> Hit or miss (true or false). </returns>
         public bool VerifyAttack(int row, int column)
         {
-            return this.board.GetBoard()[row][column] == 'S'; // "S" representa un barco.
+            return this.board.GetBoard()[column][row] == 'S'; // "S" representa un barco.
         }
 
         /// <summary>
@@ -48,19 +49,72 @@ namespace Library
         /// <param name="ship"> Barco. </param>
         /// <param name="row"> Fila del tablero. </param>
         /// <param name="column"> Columna del tablero. </param>
+        /// <param name="facing"> Sentido hacia donde apunta el barco. </param>
         /// <returns></returns>
-        public bool PlaceShip(Ship ship, int row, int column)
+        public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
-            if (this.board.GetBoard()[row][column] == 'S')
-            {
-                return false;
-            }
+            if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
+            if (this.Ships.Count >= this.TotalShips) { return false; }
+
+            if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
-            { 
-                this.board.GetBoard()[row][column]='S';
-                return true;
+            {
+                for (var x = 0; x < ship.Length; x++) {
+                    switch (facing.ToUpper()) {
+                        case "UP":
+                            if (x == 0) {
+                                if (!CheckBoundaries(LetterToNumber(row), column - (ship.Length - 1))) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column - y][LetterToNumber(row)] == 'S') { return false; }
+                                }
+                            }
+
+                            ship.AddCellCoord(LetterToNumber(row), column - x);
+                            this.board.GetBoard()[column - x][LetterToNumber(row)] = 'S';
+                            break;
+                        case "DOWN":
+                            if (x == 0) {
+                                if (!CheckBoundaries(LetterToNumber(row), column + (ship.Length - 1))) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column + y][LetterToNumber(row)] == 'S') { return false; }
+                                }
+                            }
+
+                            ship.AddCellCoord(LetterToNumber(row), column + x);
+                            this.board.GetBoard()[column + x][LetterToNumber(row)] = 'S';
+                            break;
+                        case "RIGHT":
+                            if (x == 0) { 
+                                if (!CheckBoundaries(LetterToNumber(row) + (ship.Length - 1), column)) { return false; } 
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column][LetterToNumber(row) + y] == 'S') { return false; }
+                                }
+                            }
+
+                            ship.AddCellCoord(LetterToNumber(row) + x, column);
+                            this.board.GetBoard()[column][LetterToNumber(row) + x] = 'S';
+                            break;
+                        case "LEFT":
+                            if (x == 0) { 
+                                if (!CheckBoundaries(LetterToNumber(row) - (ship.Length - 1), column)) { return false; }
+
+                                for (var y = 1; y < ship.Length; y++) {
+                                    if (this.board.GetBoard()[column][LetterToNumber(row) - y] == 'S') { return false; }
+                                }
+                            }
+
+                            ship.AddCellCoord(LetterToNumber(row) - x, column);
+                            this.board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
+                            break;
+                    }
+                }
             }
 
+            this.Ships.Add(ship);
+            return true;
         }
         
         /// <summary>
@@ -68,26 +122,19 @@ namespace Library
         /// </summary>
         /// <param name="row"> Fila ingresada. </param>
         /// <param name="column"> Columna ingresada. </param>
-        public void Attack(int row, int column)
+        public void Attack(char row, int column)
         {
-            if (this.VerifyAttack(row, column))
-            {
-                Console.WriteLine("Le diste a un barco.");
-                this.VerifyShipCellList(); // Disminuir el número de barcos.
-            }
-            else
-            {
-                Console.WriteLine("No le diste a ningún barco.");
+            if (this.VerifyAttack(LetterToNumber(row), column)) {
+                this.DestroyShip(LetterToNumber(row), column);
             }
         }
 
         /// <summary>
-        /// Devuelve el valor de la variable shipCellList.
+        /// Devuelve la lista de barcos en el tablero.
         /// </summary>
-        /// <returns> Lista con valores tipo int.</returns>
-        public List<int> GetShipCellList()
-        {
-            return this.shipCellList;
+        /// <returns> Lista con valores tipo Ship.</returns>
+        public List<Ship> GetShips() {
+            return this.Ships;
         }
 
         /// <summary>
@@ -115,31 +162,55 @@ namespace Library
         }
 
         /// <summary>
-        /// Crea una lista con la cantidad de barcos.
+        /// Devuelve el numero correspodiente a la letra en orden alfabetico.
         /// </summary>
-        /// <param name="totalShips"> Cantidad de barcos para hundir. </param>
-        private void InitializeShipCellList(int totalShips)
-        {
-            this.shipCellList = new List<int>();
-            for (int i = 0; i < totalShips; i++)
-            {
-                this.shipCellList.Add(1); // Inicializa la lista con la cantidad total de barcos.
-            }
+        /// <param name="row">Fila</param>
+        /// <returns>El tablero</returns>
+        private int LetterToNumber(char row) {
+            row = Char.ToUpper(row);
+            return char.ToUpper(row) - 'A' + 1;
         }
 
         /// <summary>
-        /// Si le pega a un barco disminuye en 1 la cantidad de barcos.
+        /// Verifica que una coordenada no esté fuera de los limites del mapa.
         /// </summary>
-        private void VerifyShipCellList()
-        {
-            if (this.shipCellList.Count > 0)
-            {
-                this.shipCellList[0]--; // Se encarga de restar 1 al número restante de barcos.
-                if (this.shipCellList[0] == 0)
-                {
-                    this.shipCellList.RemoveAt(0); // Eliminar el barco si ya no quedan celdas.
+        /// <param name="row">Fila</param>
+        /// <param name="column">Columna</param>
+        /// <returns>true/false</returns>
+        private bool CheckBoundaries(int row, int column) {
+            if ((row >= 1 && row <= 20) && ((column >= 1 && column <= 10) || (column >= 11 && column <= 20))) {
+                return true;
+            } else { return false; }
+        }
+
+        /// <summary>
+        /// Destruye el barco del tablero.
+        /// </summary>
+        /// <param name="row">Fila</param>
+        /// <param name="column">Columna</param>
+        /// <returns>true/false</returns>
+        private bool DestroyShip(int row, int column) {
+            Ship foundedShip = null;
+            foreach (Ship ship in this.Ships) {
+                if (!ship.GetSunken()) {
+                    foreach (int[] arr in ship.GetCoords()) {
+                        int[] expected = { row, column };
+                        if (arr[0] == expected[0] && arr[1] == expected[1]) {
+                            foundedShip = ship;
+                            this.Ships[this.Ships.IndexOf(ship)].Sink();
+
+                            break;
+                        }
+                    }
                 }
             }
+
+            if (foundedShip != null) {
+                foreach (int[] arr in foundedShip.GetCoords()) {
+                    this.board.GetBoard()[arr[1]][arr[0]] = 'X';
+                }
+                return true;
+            } else { return false; }
         }
     }
 }

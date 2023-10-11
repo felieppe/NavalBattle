@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Library
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace Library
         /// <value><c>true</c> si el barco está hundido, <c>false</c> en caso contrario.</value>
         public bool Sunken { get; set; }
 
+        public List<int[]> Coords { get; set; }
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Ship"/>.
         /// </summary>
@@ -32,6 +36,8 @@ namespace Library
         {
             this.Name = name;
             this.Length = length;
+        
+            this.Coords = new List<int[]>();
         }
 
         /// <summary>
@@ -40,6 +46,24 @@ namespace Library
         public void Sink()
         {
             this.Sunken = true;
+        }
+
+        /// <summary>
+        /// Añadir array de coordenadas a la lista de la clase.
+        /// </summary>
+        public void AddCellCoord(int row, int column) {
+            int[] array = { row, column };
+            Coords.Add(array);
+        }
+
+        /// <summary>
+        /// Obtiene la lista de array de coordenadas del barco.
+        /// </summary>
+        /// <returns>
+        /// La lista con elementos tipo int array.
+        /// </returns>
+        public List<int[]> GetCoords() {
+            return this.Coords;
         }
 
         /// <summary>

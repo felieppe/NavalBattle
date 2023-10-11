@@ -2,7 +2,9 @@
 // <copyright file="IShip.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
-//---------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+using System.Collections.Generic;
+
 namespace Library
 {
     /// <summary>
@@ -27,6 +29,8 @@ namespace Library
         /// </summary>
         /// <value> Estado del barco. </value>
         bool Sunken { get; set; }
+
+        List<int[]> Coords { get; set; }
 
         /// <summary>
         /// Obtiene el estado del barco.

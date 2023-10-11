@@ -118,31 +118,39 @@
             <summary>
             Verifica el ataque.
             </summary>
-            <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
+            <param name="row"> Fila ingresada. </param>
             <returns> Hit or miss (true or false). </returns>
         </member>
+<<<<<<< HEAD
         <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Int32,System.Int32)">
+=======
+        <member name="M:Library.GameLogic.PlaceShip(Library.Ship,System.Char,System.Int32,System.String)">
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
             <summary>
             Ubica los barcos al iniciar la partida.
             </summary>
             <param name="ship"> Barco. </param>
             <param name="row"> Fila del tablero. </param>
             <param name="column"> Columna del tablero. </param>
+<<<<<<< HEAD
+=======
+            <param name="facing"> Sentido hacia donde apunta el barco. </param>
+>>>>>>> 889dccdcad02d9753d2d845004f88f3155040338
             <returns></returns>
         </member>
-        <member name="M:Library.GameLogic.Attack(System.Int32,System.Int32)">
+        <member name="M:Library.GameLogic.Attack(System.Char,System.Int32)">
             <summary>
             Ataque.
             </summary>
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
         </member>
-        <member name="M:Library.GameLogic.GetShipCellList">
+        <member name="M:Library.GameLogic.GetShips">
             <summary>
-            Devuelve el valor de la variable shipCellList.
+            Devuelve la lista de barcos en el tablero.
             </summary>
-            <returns> Lista con valores tipo int.</returns>
+            <returns> Lista con valores tipo Ship.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
@@ -155,16 +163,28 @@
             </summary>
             <returns>El tablero</returns>
         </member>
-        <member name="M:Library.GameLogic.InitializeShipCellList(System.Int32)">
+        <member name="M:Library.GameLogic.LetterToNumber(System.Char)">
             <summary>
-            Crea una lista con la cantidad de barcos.
+            Devuelve el numero correspodiente a la letra en orden alfabetico.
             </summary>
-            <param name="totalShips"> Cantidad de barcos para hundir. </param>
+            <param name="row">Fila</param>
+            <returns>El tablero</returns>
         </member>
-        <member name="M:Library.GameLogic.VerifyShipCellList">
+        <member name="M:Library.GameLogic.CheckBoundaries(System.Int32,System.Int32)">
             <summary>
-            Si le pega a un barco disminuye en 1 la cantidad de barcos.
+            Verifica que una coordenada no esté fuera de los limites del mapa.
             </summary>
+            <param name="row">Fila</param>
+            <param name="column">Columna</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:Library.GameLogic.DestroyShip(System.Int32,System.Int32)">
+            <summary>
+            Destruye el barco del tablero.
+            </summary>
+            <param name="row">Fila</param>
+            <param name="column">Columna</param>
+            <returns>true/false</returns>
         </member>
         <member name="T:Library.IShip">
             <summary>
@@ -381,6 +401,19 @@
             <summary>
             Hundir el barco.
             </summary>
+        </member>
+        <member name="M:Library.Ship.AddCellCoord(System.Int32,System.Int32)">
+            <summary>
+            Añadir array de coordenadas a la lista de la clase.
+            </summary>
+        </member>
+        <member name="M:Library.Ship.GetCoords">
+            <summary>
+            Obtiene la lista de array de coordenadas del barco.
+            </summary>
+            <returns>
+            La lista con elementos tipo int array.
+            </returns>
         </member>
         <member name="M:Library.Ship.GetSunken">
             <summary>
