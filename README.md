@@ -18,6 +18,14 @@ Repositorio de GitHub dedicado para el proyecto de final de materia de Programac
 
 *Respuestas [aquí](docs/notes/ans3.md).*
 
+# Entregas
+
+Entrega| Link
+-------- | ------ 
+Primera Entrega|  *[Aquí](https://github.com/ucudal/PII_2023_2_equipo_4/releases/tag/primera_entrega)*
+Segunda Entrega | No disponible!
+Ultima entrega | No disponible!
+
 # Estudiantes
 
 1. [Felipe Cabrera](https://github.com/felieppe)
