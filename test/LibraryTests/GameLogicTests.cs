@@ -4,6 +4,8 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Library;
 using NUnit.Framework;
 
@@ -81,5 +83,29 @@ namespace BattleShip.Tests
             bool result = gameLogic.PlaceShip(sub, 'A', 30, "down");
             Assert.IsFalse(result);
         }
+        [Test]
+        public void FirstMoveTest(){
+
+            int ships = 2;
+            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+
+            BoardSize boardSize = new BoardSize(10,10);
+            Board board = new Board(boardSize);
+
+            UserManager userManager = new UserManager();
+            Player player1 = new Player("Player 1");
+            Player player2 = new Player("Player 2");
+            userManager.AddPlayer(player1);
+            userManager.AddPlayer(player2);
+
+        
+            Assert.AreEqual(1, gameLogic.GetNumberAttack());
+
+            gameLogic.Attack('A', 1);
+            Assert.AreEqual(2, gameLogic.Turn);
+        }
+        
     }
 }
+            
+

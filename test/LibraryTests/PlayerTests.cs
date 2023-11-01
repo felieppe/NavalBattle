@@ -55,5 +55,6 @@ namespace Tests
 
             Assert.True(newUsername.Equals(this.player.GetUsername()));
         }
-    }
+    
+        }
 }

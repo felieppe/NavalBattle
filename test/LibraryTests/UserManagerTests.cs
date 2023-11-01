@@ -127,5 +127,23 @@ namespace Tests
             Assert.True(gamePlayers.Contains(player));
             Assert.True(gamePlayers.Contains(player2));
         }
+        [Test]
+        public void ConectTwoPlayersTest(){
+            Assert.NotNull(this.um);
+
+            Player player1 = new Player("af546682-6603-11ee-8c99-0242ac120002");
+            Player player2 = new Player("af546984-6603-11ee-8c99-0242ac120002");
+
+            this.um.AddPlayer(player1);
+            this.um.AddPlayer(player2);
+
+            Game game = this.um.NewGame();
+           
+
+            List<Player> gamePlayers = game.GetPlayers();
+            Assert.IsTrue(gamePlayers.Contains(player1));
+            Assert.IsTrue(gamePlayers.Contains(player2));
+       }     
     }
 }
+
