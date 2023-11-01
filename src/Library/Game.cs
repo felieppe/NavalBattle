@@ -47,6 +47,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Id del jugador.
+        /// </summary>
+        /// <value> Id. </value>
         public object Id { get; set; }
 
         /// <summary>
@@ -58,11 +62,6 @@ namespace Library
         public List<Player> GetPlayers()
         {
             return this.Players;
-        }
-
-        internal void AddPlayer(Player player)
-        {
-            throw new NotImplementedException();
         }
     }
 }
