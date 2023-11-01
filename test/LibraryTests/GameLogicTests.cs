@@ -47,10 +47,26 @@ namespace BattleShip.Tests
 
             GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
             gameLogic.PlaceShip(sub, 'B', 2, "right");
+
+            // Realiza el ataque
             gameLogic.Attack('B', 2);
 
-            Assert.IsTrue(gameLogic.GetShips()[0].GetSunken());
+            // Verifica si el barco se ha hundido
+            bool hasHit = gameLogic.GetShips()[0].GetSunken();
+
+        if (hasHit)
+        {
+            Console.WriteLine("¡Has dado en un barco!");
         }
+        else
+        {
+            Console.WriteLine("No has dado en un barco.");
+        }
+
+            Assert.IsTrue(hasHit);
+        }
+
+
         [Test]
 
         public void ValidPlaceShipTest()
