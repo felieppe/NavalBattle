@@ -51,8 +51,11 @@ namespace BattleShip.Tests
 
             Assert.IsTrue(gameLogic.GetShips()[0].GetSunken());
         }
-        [Test]
 
+        /// <summary>
+        /// Verifica que el barco esté bien posicionado.
+        /// </summary>
+        [Test]
         public void ValidPlaceShipTest()
         {
         

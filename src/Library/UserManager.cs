@@ -89,7 +89,9 @@ namespace Library
 
             Player player1 = availablePlayers[pIndex];
             Player player2 = availablePlayers[pIndex2];
-            Game game = new Game(player1, player2);
+            Game game = new Game(8, 8, 6, player1);
+            game.AddPlayer(player1);
+            game.AddPlayer(player2);
 
             this.AddInGamePlayers(game);
 
