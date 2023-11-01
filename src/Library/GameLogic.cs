@@ -133,7 +133,8 @@ namespace Library
         /// Devuelve la lista de barcos en el tablero.
         /// </summary>
         /// <returns> Lista con valores tipo Ship.</returns>
-        public List<Ship> GetShips() {
+        public List<Ship> GetShips() 
+        {
             return this.Ships;
         }
 
@@ -191,7 +192,8 @@ namespace Library
         /// <param name="row">Fila</param>
         /// <param name="column">Columna</param>
         /// <returns>true/false</returns>
-        private bool DestroyShip(int row, int column) {
+        private bool DestroyShip(int row, int column)
+        {
             Ship foundedShip = null;
             foreach (Ship ship in this.Ships) {
                 if (!ship.GetSunken()) {
@@ -207,12 +209,15 @@ namespace Library
                 }
             }
 
-            if (foundedShip != null) {
-                foreach (int[] arr in foundedShip.GetCoords()) {
+            if (foundedShip != null)
+            {
+                foreach (int[] arr in foundedShip.GetCoords())
+                {
                     this.board.GetBoard()[arr[1]][arr[0]] = 'X';
                 }
                 return true;
-            } else { return false; }
+            }
+            else { return false; }
         }
 
         /// <summary>

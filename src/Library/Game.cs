@@ -24,12 +24,27 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        /// <param name="p1"> Jugador 1. </param>
-        /// <param name="p2"> Jugador 2. </param>
-        public Game(Player p1, Player p2)
+        public Game(int rows, int columns, int totalShips, Player player)
         {
-            this.Players.Add(p1);
-            this.Players.Add(p2);
+            BoardSize boardSize1 = new BoardSize(rows, columns);
+            Board board1 = new Board(boardSize1);
+            GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
+            this.AddPlayer(player);
+        }
+
+        /// <summary>
+        /// Agrega jugadores a la partida.
+        /// </summary>
+        public void AddPlayer(Player player)
+        {
+            if (this.Players.Count >= 2)
+            {
+                return;
+            }
+            else
+            {
+                this.Players.Add(player);
+            }
         }
 
         public object Id { get; set; }
