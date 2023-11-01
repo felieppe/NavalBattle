@@ -214,5 +214,15 @@ namespace Library
                 return true;
             } else { return false; }
         }
+
+        /// <summary>
+        /// Devuelve el numero de ataques.
+        /// </summary>
+        /// <param name="numberAttack"> Npumero de ataques. </param>
+        /// <returns> El número de ataques. </returns>
+        public double GetNumberAttack()
+        {
+            return this.numberAttack;
+        }
     }
 }
