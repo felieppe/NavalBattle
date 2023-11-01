@@ -50,6 +50,7 @@ namespace Library
             }
             else
             {
+                this.Rows = 9;
                 return false;
             }
         }
@@ -68,6 +69,7 @@ namespace Library
             }
             else
             {
+                this.Columns = 9;
                 return false;
             }
         }
