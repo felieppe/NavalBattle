@@ -107,5 +107,25 @@ namespace Tests
                 Assert.True(expectedInGamePlayers.Contains(p));
             }
         }
+
+        [Test]
+        public void AddPlayersToExistingGameTest()
+        {
+            Assert.NotNull(this.um);
+
+            Player player = new Player("94b49998-6601-11ee-8c99-0242ac120002");
+            Player player2 = new Player("98cdf916-6601-11ee-8c99-0242ac120002");
+
+            this.um.AddPlayer(player);
+
+            Game game = this.um.NewGame(); // Inicializa el objeto Game
+            this.um.AddPlayerToGame(player2, game.Id);
+
+            List<Player> gamePlayers = game.GetPlayers();
+
+            Assert.AreEqual(2, gamePlayers.Count); // Verifica que haya 2 jugadores en la partida
+            Assert.True(gamePlayers.Contains(player));
+            Assert.True(gamePlayers.Contains(player2));
+        }
     }
 }

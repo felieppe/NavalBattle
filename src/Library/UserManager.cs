@@ -130,5 +130,38 @@ namespace Library
                 this.inGamePlayers.Add(p);
             }
         }
+        public void AddPlayerToGame(Player player, object id)
+        {
+            if (id is Guid gameId)
+            {
+                // Buscar la partida en función del gameId
+                Game game = FindGameById(gameId);
+
+                if (game != null)
+                {
+                game.AddPlayer(player);
+                }
+                else
+                {
+                    throw new InvalidOperationException("Partida no encontrada.");// La partida no se encontró, manejar el error de alguna manera
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Identificador no válido.");// El identificador no es válido, manejar el error de alguna manera
+            }
+        }
+        private Game FindGameById(Guid gameId)
+        {
+            // Itera a través de los juegos existentes y busca el juego con el gameId dado
+            foreach (Game game in this.inGamePlayers)
+            {
+                if (game.Id == game.Id)
+                {
+                    return game;
+                }
+            }
+            return null; // Si no se encuentra el juego, devuelve null
+        }
     }
 }

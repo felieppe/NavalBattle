@@ -32,6 +32,8 @@ namespace Library
             this.Players.Add(p2);
         }
 
+        public object Id { get; set; }
+
         /// <summary>
         /// Obtiene los jugadores guardados.
         /// </summary>
@@ -41,6 +43,11 @@ namespace Library
         public List<Player> GetPlayers()
         {
             return this.Players;
+        }
+
+        internal void AddPlayer(Player player)
+        {
+            throw new NotImplementedException();
         }
     }
 }
