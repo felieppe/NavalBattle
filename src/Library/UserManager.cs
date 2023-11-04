@@ -28,6 +28,12 @@ namespace Library
         private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
+        /// Lista de juegos actuales.
+        /// </summary>
+        /// <typeparam name="Game"> Juego. </typeparam>
+        private List<Game> ongoingGames = new List<Game>();
+
+        /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
         public UserManager()
@@ -132,6 +138,12 @@ namespace Library
                 this.inGamePlayers.Add(p);
             }
         }
+
+        /// <summary>
+        /// Agrega un jugador a una partida.
+        /// </summary>
+        /// <param name="player"> Jugador. </param>
+        /// <param name="id"> Id del jugador. </param>
         public void AddPlayerToGame(Player player, object id)
         {
             if (id is Guid gameId)
@@ -156,7 +168,7 @@ namespace Library
         private Game FindGameById(Guid gameId)
         {
             // Itera a través de los juegos existentes y busca el juego con el gameId dado
-            foreach (Game game in this.inGamePlayers)
+            foreach (Game game in this.ongoingGames)
             {
                 if (game.Id == game.Id)
                 {

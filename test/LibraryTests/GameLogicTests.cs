@@ -56,15 +56,14 @@ namespace BattleShip.Tests
             // Verifica si el barco se ha hundido
             bool hasHit = gameLogic.GetShips()[0].GetSunken();
 
-        if (hasHit)
-        {
-            Console.WriteLine("¡Has dado en un barco!");
-        }
-        else
-        {
-            Console.WriteLine("No has dado en un barco.");
-        }
-
+            if (hasHit)
+                {
+                    Console.WriteLine("¡Has dado en un barco!");
+                }
+            else
+                {
+                    Console.WriteLine("No has dado en un barco.");
+                }
             Assert.IsTrue(hasHit);
         }
 
@@ -74,7 +73,6 @@ namespace BattleShip.Tests
         [Test]
         public void ValidPlaceShipTest()
         {
-        
             int ships =2;
             GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
             
@@ -84,6 +82,10 @@ namespace BattleShip.Tests
             bool result = gameLogic.PlaceShip(sub, 'A', 30, "down");
             Assert.IsFalse(result);
         }
+
+        /// <summary>
+        /// Prueba que el primer turno sea del jugador 1.
+        /// </summary>
         [Test]
         public void FirstMoveTest(){
 
@@ -103,7 +105,7 @@ namespace BattleShip.Tests
             Assert.AreEqual(1, gameLogic.GetNumberAttack());
 
             gameLogic.Attack('A', 1);
-            Assert.AreEqual(2, gameLogic.Turn);
+            Assert.AreEqual(2, gameLogic.Turn());
         }
         
     }
