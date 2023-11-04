@@ -60,7 +60,7 @@ namespace Library
         /// </returns>
         public Game NewGame()
         {
-            if (!(this.players.Count > 1))
+            if (!(this.players.Count >= 1))
             {
                 return null;
             }

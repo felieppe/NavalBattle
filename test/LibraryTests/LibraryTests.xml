@@ -99,36 +99,6 @@
             Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
             </summary>
         </member>
-        <member name="T:Tests.UserManagerTests">
-            <summary>
-            Prueba de la clase <see cref="T:Library.UserManager"/>.
-            </summary>
-        </member>
-        <member name="F:Tests.UserManagerTests.um">
-            <summary>
-            El UserManager para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.UserManagerTests.Setup">
-            <summary>
-            Crea un UserManager para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.UserManagerTests.AddPlayersTest">
-            <summary>
-            Prueba el sistema de agregar jugadores a UserManager.
-            </summary>
-        </member>
-        <member name="M:Tests.UserManagerTests.NewGameTest">
-            <summary>
-            Prueba el sistema de crear un nuevo juego.
-            </summary>
-        </member>
-        <member name="M:Tests.UserManagerTests.InGamePlayersTest">
-            <summary>
-            Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
-            </summary>
-        </member>
         <member name="T:BattleShip.Tests.GameLogicTests">
             <summary>
             Prueba de la clase <see cref="T:Library.GameLogic"/>.
