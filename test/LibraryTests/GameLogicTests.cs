@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Library;
 using NUnit.Framework;
-/*
+
 namespace BattleShip.Tests
 {
     /// <summary>
@@ -105,23 +105,22 @@ namespace BattleShip.Tests
             Assert.AreEqual(1, gameLogic.GetNumberAttack());
 
             gameLogic.Attack('A', 1);
-            Assert.AreEqual(2, gameLogic.Turn());
+            Assert.AreEqual(2, gameLogic.GetNumberAttack());
         }
         [Test]
-        public void AccessTwoBoardsTest(){
-            int ships = 2;
-            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
-            
-            UserManager userManager = new UserManager();
+        public void AccessTwoBoardsTest()
+        {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
-            userManager.AddPlayer(player1);
-            userManager.AddPlayer(player2);
+            Game game1 = new Game(12, 12, 9, player1); 
+            game1.AddPlayer(player2);
 
-            }
-
+            Assert.IsNotNull(game1.board1);
+            Assert.IsNotNull(game1.board2);
+            
         }
+
+    }
         
 }
-*/
 

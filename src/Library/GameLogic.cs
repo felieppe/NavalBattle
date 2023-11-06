@@ -14,6 +14,7 @@ namespace Library
     public class GameLogic
     {
         private Board board;
+        private Board board2;
         private BoardSize boardSize;
         private int TotalShips;
         private int numberAttack;
@@ -25,9 +26,10 @@ namespace Library
         /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
         /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(Board board, BoardSize boardSize, int totalShips)
+        public GameLogic(Board board, Board board2, BoardSize boardSize, int totalShips)
         {
             this.board = board;
+            this.board2 = board2;
             this.boardSize = boardSize;
             this.TotalShips = totalShips;
         }

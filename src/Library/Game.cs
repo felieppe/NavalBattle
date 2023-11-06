@@ -25,6 +25,8 @@ namespace Library
         /// Tamaño del tablero.
         /// </summary>
         public BoardSize boardSize1;
+        public Board board1;
+        public Board board2;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
@@ -32,8 +34,9 @@ namespace Library
         public Game(int rows, int columns, int totalShips, Player player)
         {
             this.boardSize1 = new BoardSize(rows, columns);
-            Board board1 = new Board(boardSize1);
-            GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
+            this.board1 = new Board(boardSize1);
+            this.board2 = new Board(boardSize1);
+            GameLogic gameLogic1 = new GameLogic(board1, board2, boardSize1, totalShips);
             this.AddPlayer(player);
         }
 
