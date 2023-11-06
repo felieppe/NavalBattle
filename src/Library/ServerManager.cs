@@ -22,7 +22,7 @@ namespace Library
         }
         
         public Game GetGame(string id) {
-
+            return this.Servers.FirstOrDefault(g => g.GetGameId() == id);
         }
     }
 }
