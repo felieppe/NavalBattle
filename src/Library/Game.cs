@@ -173,5 +173,9 @@ namespace Library
         public Board GetBoard() {
             return this.board1;
         }
+
+        public Player GetAdmin() {
+            return this.Admin;
+        }
     }
 }

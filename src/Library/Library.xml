@@ -169,6 +169,7 @@
             <summary>
             Agrega las coordenadas del barco.
             </summary>
+            <param name="id"> Id del barco. </param>
             <param name="x"> Coordenada x. </param>
             <param name="y"> Coordenada y. </param>
         </member>
