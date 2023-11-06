@@ -120,8 +120,8 @@ namespace BattleShip.Tests
             game1.AddPlayer(player1);
             game1.AddPlayer(player2);
 
-            Assert.IsNotNull(game1.board1);
-            Assert.IsNotNull(game1.board2);
+            Assert.IsNotNull(game1.GetBoard1());
+            Assert.IsNotNull(game1.GetBoard2());
 
         }
 
