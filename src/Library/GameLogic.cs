@@ -25,17 +25,12 @@ namespace Library
         /// <param name="game"=Juego.</param>
         /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
-        /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(Board board, Board board2, BoardSize boardSize, int totalShips){
-        
 
-        public GameLogic(Game game, Board board)
+        public GameLogic(Game game, Board board, Board board2)
         {
             this.game = game;
             this.board = board;
             this.board2 = board2;
-            this.boardSize = boardSize;
-            this.TotalShips = totalShips;
             this.boardSize = board.GetBoardSize();
         }
 
@@ -220,12 +215,7 @@ namespace Library
 
                 this.game.UpdateShip(foundedShip, updatedShip); 
                 this.board.GetBoard()[foundedShipCoords.GetX()][foundedShipCoords.GetY()] = 'X';
-                /*
-                foreach (int[] arr in foundedShip.GetCoords())
-                {
-                    this.board.GetBoard()[arr[1]][arr[0]] = 'X';
-                }
-                */
+
                 return true;
             }
             else { return false; }
