@@ -84,5 +84,9 @@ namespace Library
         public string GetGameId() {
             return this.GameId;
         }
+ 
+        public List<Coords> GetShipsCoords() {
+            return this.ShipsCoords;
+        }
     }
 }
