@@ -11,7 +11,8 @@ namespace Library
         private int X;
         private int Y;
 
-        public Coords(int x, int y) {
+        public Coords(string id, int x, int y) {
+            this.ShipId = id;
             this.X = x;
             this.Y = y;
         }
