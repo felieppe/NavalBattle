@@ -4,8 +4,6 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using Library;
 using NUnit.Framework;
 
@@ -77,7 +75,7 @@ namespace BattleShip.Tests
         [Test]
         public void ValidPlaceShipTest()
         {
-            int ships =2;
+            int ships = 2;
             GameLogic gameLogic = new GameLogic(this.game, this.board, null);
             
             Submarine sub = new Submarine();

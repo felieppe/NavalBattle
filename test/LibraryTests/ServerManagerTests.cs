@@ -1,7 +1,9 @@
-using System;
+//---------------------------------------------------------------------------------
+// <copyright file="ServerManagerTests.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Library;
 using NUnit.Framework;
 

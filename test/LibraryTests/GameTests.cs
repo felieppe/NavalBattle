@@ -6,7 +6,6 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-using System;
 
 namespace Tests
 {
@@ -81,6 +80,10 @@ namespace Tests
             Assert.AreEqual(20+1, game1.GetBoard().GetBoardSize().GetRows());
             Assert.AreEqual(20+1, game1.GetBoard().GetBoardSize().GetColumns());
         }
+
+        /// <summary>
+        /// Verifica que se establezca bien el Admin.
+        /// </summary>
         [Test]
         public void SetAdminTest()
         {

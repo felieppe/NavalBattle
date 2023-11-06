@@ -182,12 +182,21 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el tablero.
+        /// Devuelve el tablero 1.
         /// </summary>
-        /// <returns> El tablero. </returns>
-        public Board GetBoard()
+        /// <returns> El tablero 1. </returns>
+        public Board GetBoard1()
         {
             return this.board1;
+        }
+
+        /// <summary>
+        /// Devuelve el tablero 2.
+        /// </summary>
+        /// <returns> El tablero 2. </returns>
+        public Board GetBoard2()
+        {
+            return this.board2;
         }
 
         /// <summary>
