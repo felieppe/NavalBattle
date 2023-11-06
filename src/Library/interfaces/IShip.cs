@@ -12,6 +12,8 @@ namespace Library
     /// </summary>
     public interface IShip
     {
+        string Id { get; set; }
+
         /// <summary>
         /// Nombre.
         /// </summary>

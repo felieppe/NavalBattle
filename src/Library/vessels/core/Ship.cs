@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Library
@@ -7,6 +8,8 @@ namespace Library
     /// </summary>
     public class Ship : IShip
     {
+        public string Id { get; set; }
+
         /// <summary>
         /// Nombre del barco.
         /// </summary>
@@ -34,6 +37,9 @@ namespace Library
         {
             this.Name = name;
             this.Length = length;
+
+            Guid uuid = Guid.NewGuid();
+            this.Id = uuid.ToString();
         }
 
         /// <summary>
