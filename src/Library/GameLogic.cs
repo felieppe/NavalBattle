@@ -158,7 +158,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el numero correspondiente a la letra en orden alfabético.
+        /// Devuelve el número correspondiente a la letra en orden alfabético.
         /// </summary>
         /// <param name="row">Fila</param>
         /// <returns>El tablero</returns>
@@ -246,7 +246,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el numero de ataques.
+        /// Devuelve el número de ataques.
         /// </summary>
         /// <returns> El número de ataques. </returns>
         public double GetNumberAttack()
