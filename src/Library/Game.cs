@@ -15,6 +15,8 @@ namespace Library
     /// </summary>
     public class Game
     {
+        private string GameId;
+
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
@@ -62,6 +64,10 @@ namespace Library
         public List<Player> GetPlayers()
         {
             return this.Players;
+        }
+ 
+        public string GetGameId() {
+            return this.GameId;
         }
     }
 }
