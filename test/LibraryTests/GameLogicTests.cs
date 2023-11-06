@@ -112,12 +112,12 @@ namespace BattleShip.Tests
         {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
-            Game game1 = new Game(12, 12, 9, player1); 
+            Game game1 = new Game (12, 12, 9, player1); 
             game1.AddPlayer(player2);
 
             Assert.IsNotNull(game1.board1);
             Assert.IsNotNull(game1.board2);
-            
+
         }
 
     }

@@ -18,11 +18,12 @@ namespace NavalBattle
         /// Punto de entrada al programa principal.
         /// </summary>
         public static void Main() {
-            BoardSize bs = new BoardSize(20, 20);
-            Board b = new Board(bs);
+            int rows = 20;
+            int columns = 20;
+            int totalShips = 5;
+            Game g = new Game(rows, columns, totalShips);
 
-            int ships = 3;
-            GameLogic gameLogic = new GameLogic(b, bs, ships);
+            GameLogic gameLogic = new GameLogic(g, g.GetBoard());
 
             Battleship bship = new Battleship();
             Cruise cruise = new Cruise();
