@@ -49,6 +49,31 @@
             Prueba que el tablero creado sea igual al que se espera.
             </summary>
         </member>
+        <member name="T:Tests.CoordsTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.CoordsTests.coordinates">
+            <summary>
+            La clase Coords para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.ShipIdTest">
+            <summary>
+            Prueba que se establezca correctamente el ShipId en Coords.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.XTest">
+            <summary>
+            Prueba que se establezca correctamente la coordenada X en Coords.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.YTest">
+            <summary>
+            Prueba que se establezca correctamente la coordenada Y en Coords.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
