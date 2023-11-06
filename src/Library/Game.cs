@@ -16,6 +16,8 @@ namespace Library
     public class Game
     {
         private string GameId;
+        
+        private List<Coords> ShipsCoords = new List<Coords>();
 
         /// <summary>
         /// Lista de jugadores del juego.
