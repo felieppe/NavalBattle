@@ -15,8 +15,9 @@ namespace Tests
     public class PrinterTests
     {
         private Board board;
-        private char[][] board1;
-        private BoardSize bs;
+        private BoardSize boardSize;
+        private int rows;
+        private int columns;
 
         /// <summary>
         /// Crea un nuevo tablero para probar.
@@ -24,7 +25,11 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.board = new Board(bs);
+            this.rows = 10;
+            this.columns = 10;
+
+            this.boardSize = new BoardSize(this.rows, this.columns);
+            board = new Board(boardSize);
         }
 
         /// <summary>

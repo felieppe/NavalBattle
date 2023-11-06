@@ -219,6 +219,11 @@
             El UserManager para probar.
             </summary>
         </member>
+        <member name="F:Tests.UserManagerTests.sm">
+            <summary>
+            El ServerManager para probar.
+            </summary>
+        </member>
         <member name="M:Tests.UserManagerTests.Setup">
             <summary>
             Crea un UserManager para probar.
@@ -244,7 +249,7 @@
             Test que agrega un jugador a una partida existente.
             </summary>
         </member>
-        <member name="M:Tests.UserManagerTests.ConectTwoPlayersTest">
+        <member name="M:Tests.UserManagerTests.ConnectTwoPlayersTest">
             <summary>
             Test que verifica que user manager conecta dos jugadores en un juego de manera satisfactoria.
             </summary>
@@ -277,6 +282,11 @@
         <member name="M:BattleShip.Tests.GameLogicTests.FirstMoveTest">
             <summary>
             Prueba que el primer turno sea del jugador 1.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.AccessTwoBoardsTest">
+            <summary>
+            Verifica que se pueda acceder a dos tableros
             </summary>
         </member>
     </members>
