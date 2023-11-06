@@ -32,6 +32,9 @@ namespace Library
             Board board1 = new Board(boardSize1);
             GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
             this.AddPlayer(player);
+
+            Guid uuid = Guid.NewGuid();
+            this.SetGameId(uuid.ToString());
         }
 
         /// <summary>
