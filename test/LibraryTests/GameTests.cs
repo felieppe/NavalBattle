@@ -6,6 +6,9 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
+using System.Collections.Generic;
+using Library;
+using NUnit.Framework;
 
 namespace Tests
 {
@@ -21,6 +24,8 @@ namespace Tests
         private Game game;
         private Player player;
         private Player player2;
+        private Player admin;
+        private object players;
 
         /// <summary>
         /// Crea un Game y dos players para probar.
@@ -31,7 +36,7 @@ namespace Tests
             this.player = new Player("ce622ce8-6609-11ee-8c99-0242ac120002");
             this.player2 = new Player("d06ce532-6609-11ee-8c99-0242ac120002");
             this.game = new Game(10, 10, 6, this.player);
-            this.game.AddPlayer(player2);
+            this.game.AddAdmin(player2);
         }
 
         /// <summary>
@@ -75,6 +80,11 @@ namespace Tests
             Game game1 = new Game(12, 12, 9, this.player);
             Assert.AreEqual(13, game1.boardSize1.GetRows());
             Assert.AreEqual(13, game1.boardSize1.GetColumns());
+        }
+        public void AddAdmin(Player admin)
+        {
+            this.admin = admin;
+            this.players.Add(admin);
         }
     }
 }
