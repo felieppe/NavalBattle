@@ -109,6 +109,9 @@ namespace BattleShip.Tests
             gameLogic.Attack('A', 1);
             Assert.AreEqual(2, gameLogic.GetNumberAttack());
         }
+        /// <summary>
+        /// Verifica que se pueda acceder a dos tableros
+        /// </summary>
         [Test]
         public void AccessTwoBoardsTest()
         {
