@@ -23,6 +23,8 @@ namespace Library
 
         private int TotalShips;
 
+        private Board board;
+
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
@@ -35,8 +37,7 @@ namespace Library
         public Game(int rows, int columns, int totalShips)
         {
             BoardSize bs = new BoardSize(rows, columns);
-            Board b = new Board(bs);
-            //GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
+            this.board = new Board(bs);
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
@@ -114,6 +115,10 @@ namespace Library
 
         public int GetTotalShips() {
             return this.TotalShips;
+        }
+
+        public Board GetBoard() {
+            return this.board;
         }
     }
 }
