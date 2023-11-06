@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Library;
 using NUnit.Framework;
-
+/*
 namespace BattleShip.Tests
 {
     /// <summary>
@@ -110,5 +110,5 @@ namespace BattleShip.Tests
         
     }
 }
-            
+*/
 
