@@ -30,10 +30,12 @@ namespace Library
         /// </summary>
         /// <value> Lista con elementos de tipo Player. </value>
         private List<Player> Players = new List<Player>();
-        
+
         /// <summary>
-        /// Tamaño del tablero.
+        /// Jugador administrador de la partida.
         /// </summary>
+        public Player Admin { get; private set; }
+
         public BoardSize boardSize1;
         public Board board1;
         public Board board2;
@@ -41,13 +43,16 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        public Game(int rows, int columns, int totalShips)
+        public Game(int rows, int columns, int totalShips, Player admin)
         {
+            this.Admin = admin;
+            this.Players.Add(admin);
+
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
             this.board2 = new Board(boardSize1);
             GameLogic gameLogic1 = new GameLogic(board1, board2, boardSize1, totalShips);
-            this.AddPlayer(player);
+
             BoardSize bs = new BoardSize(rows, columns);
             this.board = new Board(bs);
 
@@ -71,65 +76,72 @@ namespace Library
                 this.Players.Add(player);
             }
         }
-        
-        public void SetGameId(string id) {
-            if (!string.IsNullOrEmpty(id)) {
+
+        /// <summary>
+        /// Agrega un jugador como administrador de la partida.
+        /// </summary>
+        public void AddAdmin(Player admin)
+        {
+            this.Admin = admin;
+            if (!this.Players.Contains(admin))
+            {
+                this.Players.Add(admin);
+            }
+        }
+
+        public void SetGameId(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
                 this.GameId = id;
             }
         }
 
-        public void AddShipCoords(int x, int y) {
+        public void AddShipCoords(int x, int y)
+        {
             Coords cs = new Coords(x, y);
             this.ShipsCoords.Add(cs);
         }
 
-        public void AddShip(Ship ship) {
+        public void AddShip(Ship ship)
+        {
             this.Ships.Add(ship);
         }
 
-        public void UpdateShip(Ship ship, Ship updated) {
+        public void UpdateShip(Ship ship, Ship updated)
+        {
             this.Ships[this.Ships.IndexOf(ship)] = updated;
         }
 
-        /// <summary>
-        /// Id del jugador.
-        /// </summary>
-        /// <value> Id. </value>
         public object Id { get; set; }
 
-        /// <summary>
-        /// Obtiene los jugadores guardados.
-        /// </summary>
-        /// <returns>
-        /// Una lista con elementos de tipo Player.
-        /// </returns>
         public List<Player> GetPlayers()
         {
             return this.Players;
         }
- 
-        public string GetGameId() {
+
+        public string GetGameId()
+        {
             return this.GameId;
         }
- 
-        public List<Coords> GetShipsCoords() {
+
+        public List<Coords> GetShipsCoords()
+        {
             return this.ShipsCoords;
         }
 
-        /// <summary>
-        /// Devuelve la lista de barcos en el tablero.
-        /// </summary>
-        /// <returns> Lista con valores tipo Ship.</returns>
-        public List<Ship> GetShips() 
+        public List<Ship> GetShips()
         {
             return this.Ships;
         }
 
-        public int GetTotalShips() {
+        public int GetTotalShips()
+        {
             return this.TotalShips;
         }
 
-        public Board GetBoard() {
+        public Board GetBoard()
+        {
             return this.board;
         }
     }
