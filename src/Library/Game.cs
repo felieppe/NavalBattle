@@ -16,7 +16,7 @@ namespace Library
     public class Game
     {
         private string GameId;
-        
+
         private List<Coords> ShipsCoords = new List<Coords>();
 
         /// <summary>
@@ -57,6 +57,11 @@ namespace Library
             if (!string.IsNullOrEmpty(id)) {
                 this.GameId = id;
             }
+        }
+
+        public void AddShipCoords(int x, int y) {
+            Coords cs = new Coords(x, y);
+            this.ShipsCoords.Add(cs);
         }
 
         /// <summary>
