@@ -19,6 +19,10 @@ namespace Library
 
         private List<Coords> ShipsCoords = new List<Coords>();
 
+        private List<Ship> Ships = new List<Ship>();
+
+        private int TotalShips;
+
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
@@ -30,12 +34,14 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            BoardSize boardSize1 = new BoardSize(rows, columns);
-            Board board1 = new Board(boardSize1);
-            GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
+            BoardSize bs = new BoardSize(rows, columns);
+            Board b = new Board(bs);
+            //GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
+
+            this.TotalShips = totalShips;
         }
 
         /// <summary>
@@ -64,6 +70,14 @@ namespace Library
             this.ShipsCoords.Add(cs);
         }
 
+        public void AddShip(Ship ship) {
+            this.Ships.Add(ship);
+        }
+
+        public void UpdateShip(Ship ship, Ship updated) {
+            this.Ships[this.Ships.IndexOf(ship)] = updated;
+        }
+
         /// <summary>
         /// Id del jugador.
         /// </summary>
@@ -87,6 +101,19 @@ namespace Library
  
         public List<Coords> GetShipsCoords() {
             return this.ShipsCoords;
+        }
+
+        /// <summary>
+        /// Devuelve la lista de barcos en el tablero.
+        /// </summary>
+        /// <returns> Lista con valores tipo Ship.</returns>
+        public List<Ship> GetShips() 
+        {
+            return this.Ships;
+        }
+
+        public int GetTotalShips() {
+            return this.TotalShips;
         }
     }
 }

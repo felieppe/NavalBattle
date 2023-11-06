@@ -153,19 +153,18 @@
             Una lista con elementos de tipo Player.
             </returns>
         </member>
+        <member name="M:Library.Game.GetShips">
+            <summary>
+            Devuelve la lista de barcos en el tablero.
+            </summary>
+            <returns> Lista con valores tipo Ship.</returns>
+        </member>
         <member name="T:Library.GameLogic">
             <summary>
             Esta clase contiene la lógica del juego.
             </summary>
         </member>
-        <member name="M:Library.GameLogic.#ctor(Library.Board,Library.BoardSize,System.Int32)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
-            </summary>
-            <param name="board">Tablero.</param>
-            <param name="boardSize"> Tamaño del tablero. </param>
-            <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.GameLogic.#ctor(Library.Game,Library.Board,Library.BoardSize)" -->
         <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
             <summary>
             Verifica el ataque.
@@ -190,12 +189,6 @@
             </summary>
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
-        </member>
-        <member name="M:Library.GameLogic.GetShips">
-            <summary>
-            Devuelve la lista de barcos en el tablero.
-            </summary>
-            <returns> Lista con valores tipo Ship.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>

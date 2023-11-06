@@ -16,9 +16,7 @@ namespace Library
         private Game game;
         private Board board;
         private BoardSize boardSize;
-        private int TotalShips;
         private int numberAttack;
-        private List<Ship> Ships = new List<Ship>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
@@ -26,13 +24,11 @@ namespace Library
         /// <param name="game"=Juego.</param>
         /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
-        /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(Game game, Board board, BoardSize boardSize, int totalShips)
+        public GameLogic(Game game, Board board, BoardSize boardSize)
         {
             this.game = game;
             this.board = board;
             this.boardSize = boardSize;
-            this.TotalShips = totalShips;
         }
 
         /// <summary>
@@ -57,7 +53,7 @@ namespace Library
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
-            if (this.Ships.Count >= this.TotalShips) { return false; }
+            if (this.game.GetShips().Count >= this.game.GetTotalShips()) { return false; }
 
             if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
@@ -116,7 +112,7 @@ namespace Library
                 }
             }
 
-            this.Ships.Add(ship);
+            this.game.AddShip(ship);
             return true;
         }
         
@@ -130,15 +126,6 @@ namespace Library
             if (this.VerifyAttack(LetterToNumber(row), column)) {
                 this.DestroyShip(LetterToNumber(row), column);
             }
-        }
-
-        /// <summary>
-        /// Devuelve la lista de barcos en el tablero.
-        /// </summary>
-        /// <returns> Lista con valores tipo Ship.</returns>
-        public List<Ship> GetShips() 
-        {
-            return this.Ships;
         }
 
         /// <summary>
@@ -198,13 +185,22 @@ namespace Library
         private bool DestroyShip(int row, int column)
         {
             Ship foundedShip = null;
-            foreach (Ship ship in this.Ships) {
+            foreach (Ship ship in this.game.GetShips()) {
                 if (!ship.GetSunken()) {
                     foreach (int[] arr in ship.GetCoords()) {
                         int[] expected = { row, column };
                         if (arr[0] == expected[0] && arr[1] == expected[1]) {
                             foundedShip = ship;
-                            this.Ships[this.Ships.IndexOf(ship)].Sink();
+                            //this.Ships[this.Ships.IndexOf(ship)].Sink();
+
+                            List<Ship> ships = this.game.GetShips();
+                            
+                            Ship updatedShip = ships[ships.IndexOf(ship)];
+                            updatedShip.Sink();
+
+                            this.game.UpdateShip(foundedShip, updatedShip); 
+                            //Ship updatedShip = this.game.GetShips()[this.game.GetShips().IndexOf(ship)].Sink();
+                            //this.game.UpdateShip(foundedShip, updatedShip);
 
                             break;
                         }
