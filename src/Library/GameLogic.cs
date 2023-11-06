@@ -196,12 +196,6 @@ namespace Library
                             foundedShipCoords = coord;
                             //this.Ships[this.Ships.IndexOf(ship)].Sink();
 
-                            List<Ship> ships = this.game.GetShips();
-                            
-                            Ship updatedShip = ships[ships.IndexOf(ship)];
-                            updatedShip.Sink();
-
-                            this.game.UpdateShip(foundedShip, updatedShip); 
                             break;
                         }
                     }
@@ -210,6 +204,12 @@ namespace Library
 
             if (foundedShip != null)
             {
+                List<Ship> ships = this.game.GetShips();
+                            
+                Ship updatedShip = ships[ships.IndexOf(foundedShip)];
+                updatedShip.Sink();
+
+                this.game.UpdateShip(foundedShip, updatedShip); 
                 this.board.GetBoard()[foundedShipCoords.GetX()][foundedShipCoords.GetY()] = 'X';
                 /*
                 foreach (int[] arr in foundedShip.GetCoords())
