@@ -14,7 +14,10 @@ namespace Library
             if (game != null) {this.Servers.Add(game);}
         }
         public void RemoveGame(string id) {
-            
+            Game g = this.Servers.FirstOrDefault(g => g.GetGameId() == id);
+            if (g != null) {
+                Servers.Remove(g);
+            }           
         }
 
         public List<Game> GetListing() {
