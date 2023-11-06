@@ -66,14 +66,57 @@
             Establece el número de filas.
             </summary>
             <param name="rows"> Filas del tablero. </param>
-            <returns> Número par de filas de tablero entre 10 y 20. </returns>
+            <returns> Número par de filas de tablero entre 8 y 20. </returns>
         </member>
         <member name="M:Library.BoardSize.SetColumns(System.Int32)">
             <summary>
             Establece el número de columnas.
             </summary>
             <param name="columns"> Columnas del tablero. </param>
-            <returns> Número par de columnas de tablero entre 10 y 20. </returns>
+            <returns> Número par de columnas de tablero entre 8 y 20. </returns>
+        </member>
+        <member name="M:Library.BoardSize.GetRows">
+            <summary>
+            Devuelve las filas del tablero.
+            </summary>
+            <returns> Las filas del tablero. </returns>
+        </member>
+        <member name="M:Library.BoardSize.GetColumns">
+            <summary>
+            Devuelve las columnas del tablero.
+            </summary>
+            <returns> Las columnas del tablero. </returns>
+        </member>
+        <member name="T:Library.NotEnoughPlayersException">
+            <summary>
+            La excepción levantada por un juego <see cref="T:Library.Game"/> 
+            </summary>
+        </member>
+        <member name="M:Library.NotEnoughPlayersException.#ctor">
+            <summary>
+            La excepción levantada al querer iniciar una partida con menos de dos jugadores.
+            </summary>
+        </member>
+        <member name="M:Library.NotEnoughPlayersException.#ctor(System.String)">
+            <summary>
+            Crea una nueva excepción con el mensaje recibido como argumento.
+            </summary>
+            <param name="message"> El mensaje de la excepción. </param>
+        </member>
+        <member name="M:Library.NotEnoughPlayersException.#ctor(System.String,System.Exception)">
+            <summary>
+            Crear una nueva excepción con el mensaje recibido como argumento, a partir de otra excepción
+            que ocurrió antes y también se recibe como argumento.
+            </summary>
+            <param name="message">El mensaje de la excepción.</param>
+            <param name="innerException">La excepción que provoca la creación de esta excepción.</param>
+        </member>
+        <member name="M:Library.NotEnoughPlayersException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serializa la excepción.
+            </summary>
+            <param name="info">La <see cref="T:System.Runtime.Serialization.SerializationInfo"/> que tiene los datos del objeto.</param>
+            <param name="context">El <see cref="T:System.Runtime.Serialization.StreamingContext"/> que tiene la información contextual del origen.</param>
         </member>
         <member name="T:Library.Game">
             <summary>
@@ -86,12 +129,26 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="M:Library.Game.#ctor(Library.Player,Library.Player)">
+        <member name="F:Library.Game.boardSize1">
+            <summary>
+            Tamaño del tablero.
+            </summary>
+        </member>
+        <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32,Library.Player)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Game"/>.
             </summary>
-            <param name="p1"> Jugador 1. </param>
-            <param name="p2"> Jugador 2. </param>
+        </member>
+        <member name="M:Library.Game.AddPlayer(Library.Player)">
+            <summary>
+            Agrega jugadores a la partida.
+            </summary>
+        </member>
+        <member name="P:Library.Game.Id">
+            <summary>
+            Id del jugador.
+            </summary>
+            <value> Id. </value>
         </member>
         <member name="M:Library.Game.GetPlayers">
             <summary>
@@ -178,6 +235,13 @@
             <param name="row">Fila</param>
             <param name="column">Columna</param>
             <returns>true/false</returns>
+        </member>
+        <member name="M:Library.GameLogic.GetNumberAttack">
+            <summary>
+            Devuelve el numero de ataques.
+            </summary>
+            <param name="numberAttack"> Npumero de ataques. </param>
+            <returns> El número de ataques. </returns>
         </member>
         <member name="T:Library.IShip">
             <summary>
@@ -285,6 +349,83 @@
             Imprime el tablero
             </summary>
             <param name="board">Tablero</param>
+        </member>
+        <member name="T:Library.UserManager">
+            <summary>
+            Esta clase representa al administrador de usuarios.
+            </summary>
+        </member>
+        <member name="F:Library.UserManager.players">
+            <summary>
+            Lista de jugadores registrados en el UserManager.
+            </summary>
+            <value> Lista con elementos de tipo Player. </value>
+        </member>
+        <member name="F:Library.UserManager.inGamePlayers">
+            <summary>
+            Lista de jugadores que actualmente están jugando.
+            </summary>
+            <value> Lista con elementos de tipo Player. </value>
+        </member>
+        <member name="F:Library.UserManager.ongoingGames">
+            <summary>
+            Lista de juegos actuales.
+            </summary>
+            <typeparam name="Game"> Juego. </typeparam>
+        </member>
+        <member name="M:Library.UserManager.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="M:Library.UserManager.AddPlayer(Library.Player)">
+            <summary>
+            Añade un jugador a la lista de jugadores.
+            </summary>
+            <param name="player"> Player. </param>
+        </member>
+        <member name="M:Library.UserManager.RemovePlayer(Library.Player)">
+            <summary>
+            Elimina un jugador en especifico de la lista de jugadores.
+            </summary>
+            <param name="player"> Player. </param>
+        </member>
+        <member name="M:Library.UserManager.NewGame">
+            <summary>
+            Crea una partida con dos jugadores al azar que estén disponibles.
+            </summary>
+            <returns>
+            Una partida.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetPlayers">
+            <summary>
+            Obtiene los jugadores guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.GetInGamePlayers">
+            <summary>
+            Obtiene los jugadores en juego guardados.
+            </summary>
+            <returns>
+            Una lista con elementos de tipo Player.
+            </returns>
+        </member>
+        <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
+            <summary>
+            Añade a los jugadores de un juego a la lista de jugadores en juego.
+            </summary>
+            <param name="game"> Ongoing games. </param>
+        </member>
+        <member name="M:Library.UserManager.AddPlayerToGame(Library.Player,System.Object)">
+            <summary>
+            Agrega un jugador a una partida.
+            </summary>
+            <param name="player"> Jugador. </param>
+            <param name="id"> Id del jugador. </param>
         </member>
         <member name="T:Library.Battleship">
             <summary>
