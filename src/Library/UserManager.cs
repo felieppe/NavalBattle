@@ -82,9 +82,7 @@ namespace Library
             bool ready = false;
             while (!ready)
             {
-#pragma warning disable CA5394
                 pIndex = rnd.Next(availablePlayers.Count);
-#pragma warning disable CA5394
                 pIndex2 = rnd.Next(availablePlayers.Count);
 
                 if (pIndex != pIndex2)
@@ -110,7 +108,6 @@ namespace Library
         /// <returns>
         /// Una lista con elementos de tipo Player.
         /// </returns>
-#pragma warning disable CA1002
         public List<Player> GetPlayers()
         {
             return this.players;
