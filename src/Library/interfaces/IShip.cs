@@ -12,6 +12,10 @@ namespace Library
     /// </summary>
     public interface IShip
     {
+        /// <summary>
+        /// Identificación del barco.
+        /// </summary>
+        /// <value> Identificación. </value>
         string Id { get; set; }
 
         /// <summary>

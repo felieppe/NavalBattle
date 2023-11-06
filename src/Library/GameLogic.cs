@@ -22,16 +22,16 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
-        /// <param name="game"=Juego.</param>
-        /// <param name="board">Tablero.</param>
-        /// <param name="boardSize"> Tamaño del tablero. </param>
+        /// <param name="game"> Juego. </param>
+        /// <param name="board"> Tablero del jugador 1.</param>
+        /// <param name="board2"> Tablero del jugador 2. </param>
 
         public GameLogic(Game game, Board board, Board board2)
         {
             this.game = game;
             this.board = board;
             this.board2 = board2;
-            this.boardSize = board.GetBoardSize();
+            this.boardSize = this.board.GetBoardSize();
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace Library
         /// <returns>El tablero</returns>
         private static int LetterToNumber(char row)
         {
-            row = Char.ToUpper(row);
+            row = char.ToUpper(row);
             return char.ToUpper(row) - 'A' + 1;
         }
 
@@ -199,7 +199,7 @@ namespace Library
             Ship foundedShip = null;
             string foundedShipId = null;
             foreach (Ship ship in this.game.GetShips()) {
-                string shipId = ship.GetId();
+                string shipId = coords.GetId();
 
                 /*      DEBUG       */
                 Console.WriteLine("\nSHIP ID | " + shipId);
@@ -249,14 +249,18 @@ namespace Library
         /// <summary>
         /// Devuelve el numero de ataques.
         /// </summary>
-        /// <param name="numberAttack"> Npumero de ataques. </param>
         /// <returns> El número de ataques. </returns>
         public double GetNumberAttack()
         {
             return this.numberAttack;
         }
 
-        public Game GetGame() {
+        /// <summary>
+        /// Devuelve el juego.
+        /// </summary>
+        /// <returns> Juego. </returns>
+        public Game GetGame()
+        {
             return this.game;
         }
     }

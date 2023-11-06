@@ -5,8 +5,6 @@
 //---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -34,17 +32,20 @@ namespace Library
         /// </summary>
         public Player Admin { get; private set; }
 
-        public BoardSize boardSize1;
+        /// <summary>
+        /// Dimensiones del tablero.
+        /// </summary>
+        private BoardSize boardSize1;
 
         /// <summary>
         /// Tablero del jugador 1.
         /// </summary>
-        public Board board1;
+        private Board board1;
 
         /// <summary>
         /// Tablero del jugador 2.
         /// </summary>
-        public Board board2;
+        private Board board2;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
@@ -82,8 +83,10 @@ namespace Library
         /// Set el Id del juego.
         /// </summary>
         /// <param name="id"> Id del juego. </param>
-        public void SetGameId(string id) {
-            if (!string.IsNullOrEmpty(id)) {
+        public void SetGameId(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
                 this.GameId = id;
             }
         }
@@ -106,7 +109,8 @@ namespace Library
         /// <param name="id"> Id del barco. </param>
         /// <param name="x"> Coordenada x. </param>
         /// <param name="y"> Coordenada y. </param>
-        public void AddShipCoords(string id, int x, int y) {
+        public void AddShipCoords(string id, int x, int y)
+        {
             Coords cs = new Coords(id, x, y);
             this.ShipsCoords.Add(cs);
         }
@@ -115,7 +119,8 @@ namespace Library
         /// Agrega un barco. 
         /// </summary>
         /// <param name="ship"> Agrega un barco. </param>
-        public void AddShip(Ship ship) {
+        public void AddShip(Ship ship)
+        {
             this.Ships.Add(ship);
         }
 
@@ -124,12 +129,17 @@ namespace Library
         /// </summary>
         /// <param name="ship"> Barco actual. </param>
         /// <param name="updated"> Barco actualizado. </param>
-        public void UpdateShip(Ship ship, Ship updated) {
+        public void UpdateShip(Ship ship, Ship updated)
+        {
             this.Ships[this.Ships.IndexOf(ship)] = updated;
         }
 
         public object Id { get; set; }
 
+        /// <summary>
+        /// Devuelve la lista de jugadores.
+        /// </summary>
+        /// <returns></returns>
         public List<Player> GetPlayers()
         {
             return this.Players;
@@ -147,12 +157,16 @@ namespace Library
         /// <summary>
         /// Devuelve las coordenadas del barco.
         /// </summary>
-        /// <returns> Las coordenadas del barco. </returns>
+        /// <returns> Coordenadas del barco. </returns>
         public List<Coords> GetShipsCoords()
         {
             return this.ShipsCoords;
         }
 
+        /// <summary>
+        /// Devuelve la lista de barcos.
+        /// </summary>
+        /// <returns> Lista de barcos. </returns>
         public List<Ship> GetShips()
         {
             return this.Ships;
@@ -162,7 +176,8 @@ namespace Library
         /// Devuelve la cantidad de barcos.
         /// </summary>
         /// <returns> La cantidad de barcos. </returns>
-        public int GetTotalShips() {
+        public int GetTotalShips()
+        {
             return this.TotalShips;
         }
 
@@ -170,11 +185,17 @@ namespace Library
         /// Devuelve el tablero.
         /// </summary>
         /// <returns> El tablero. </returns>
-        public Board GetBoard() {
+        public Board GetBoard()
+        {
             return this.board1;
         }
 
-        public Player GetAdmin() {
+        /// <summary>
+        /// Devuelve el administrador de la partida.
+        /// </summary>
+        /// <returns> Administrador de la partida. </returns>
+        public Player GetAdmin()
+        {
             return this.Admin;
         }
     }

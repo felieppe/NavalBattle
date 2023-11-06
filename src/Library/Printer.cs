@@ -4,10 +4,6 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
 
 namespace Library
 {
@@ -24,8 +20,8 @@ namespace Library
         /// <summary>
         /// Imprime una linea horizontal que divide el tablero en dos.
         /// </summary>
-        /// <param name="board">Numero de filas del tablero</param>
-        private void SplitBoardVisually(int rows) {
+        /// <param name="rows"> Número de filas del tablero. </param>
+        private static void SplitBoardVisually(int rows) {
             string border = "";
 
             for (int x = 0; x < rows; x++) {
@@ -39,14 +35,14 @@ namespace Library
         /// Imprime el tablero
         /// </summary>
         /// <param name="board">Tablero</param>
-        public void Print(Board board)
+        public static void Print(Board board)
         {
             Console.Clear();
-            for (int row = 0; row < board.GetBoardSize().Rows; row++)
+            for (int row = 0; row < board.GetBoardSize().GetRows(); row++)
             {
-                if ((board.GetBoardSize().Rows / 2) + 1 == row) { SplitBoardVisually(board.GetBoardSize().Rows); }
+                if ((board.GetBoardSize().GetRows() / 2) + 1 == row) { SplitBoardVisually(board.GetBoardSize().GetRows()); }
 
-                for (int col = 0; col < board.GetBoardSize().Columns; col++)
+                for (int col = 0; col < board.GetBoardSize().GetColumns(); col++)
                 {
                     Console.Write(board.GetBoard()[row][col] + " ");
                 }

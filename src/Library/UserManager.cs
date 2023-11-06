@@ -6,7 +6,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -30,15 +29,12 @@ namespace Library
         /// <summary>
         /// Lista de juegos actuales.
         /// </summary>
-        /// <typeparam name="Game"> Juego. </typeparam>
         private List<Game> ongoingGames = new List<Game>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
-        public UserManager()
-        {
-        }
+        public UserManager() {}
 
         /// <summary>
         /// Añade un jugador a la lista de jugadores.
@@ -83,7 +79,9 @@ namespace Library
                 bool ready = false;
                 while (!ready)
                 {
+#pragma warning disable CA5394
                     pIndex = rnd.Next(availablePlayers.Count);
+#pragma warning disable CA5394
                     pIndex2 = rnd.Next(availablePlayers.Count);
 
                     if (pIndex != pIndex2)

@@ -1,24 +1,49 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//---------------------------------------------------------------------------------
+// <copyright file="Coords.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 namespace Library
 {
+    /// <summary>
+    /// Clase que representa las coordenadas del barco.
+    /// </summary>
     public class Coords
     {
         private string ShipId;
         private int X;
         private int Y;
 
-        public Coords(string id, int x, int y) {
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Coords"/>.
+        /// </summary>
+        /// <param name="id"> Id del barco. </param>
+        /// <param name="x"> Coordenada x del barco. </param>
+        /// <param name="y"> Coordenada y del barco. </param>
+        public Coords(string id, int x, int y)
+        {
             this.ShipId = id;
             this.X = x;
             this.Y = y;
         }
 
+        /// <summary>
+        /// Devuelve el Id del barco.
+        /// </summary>
+        /// <returns> Id del barco. </returns>
         public string GetShipId() { return this.ShipId; }
+
+        /// <summary>
+        /// Devuelve la coordenada x del barco.
+        /// </summary>
+        /// <returns> Coordenada x del barco. </returns>
         public int GetX() { return this.X; }
+
+        /// <summary>
+        /// Devuelve la coordenada y del barco.
+        /// </summary>
+        /// <returns> Coordenada y del barco. </returns>
         public int GetY() { return this.Y; }
     }
 }

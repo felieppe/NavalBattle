@@ -3,10 +3,6 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -44,12 +40,12 @@ namespace Library
         /// <summary>
         /// Filas del tablero.
         /// </summary>
-        public int Rows { get; private set; }
+        private int Rows;
 
         /// <summary>
         /// Columnas del tablero.
         /// </summary>
-        public int Columns { get; private set; }
+        private int Columns;
 
         /// <summary>
         /// Establece el número de filas.

@@ -3,7 +3,6 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
-using System;
 
 namespace Library
 {
@@ -30,8 +29,8 @@ namespace Library
         /// </summary>
         public void InitializeBoard()
         {
-            int rows = this.boardSize.Rows;
-            int columns = this.boardSize.Columns;
+            int rows = this.boardSize.GetRows();
+            int columns = this.boardSize.GetColumns();
 
             this.board = new char[rows + 1][];
             for (int i = 0; i <= rows; i++)
