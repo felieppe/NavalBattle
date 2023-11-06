@@ -64,42 +64,50 @@ namespace Library
         /// <returns>
         /// Una partida.
         /// </returns>
-        public Game NewGame()
+        public Game NewGame(bool matchmaking, ServerManager manager)
         {
-            if (!(this.players.Count >= 1))
-            {
-                return null;
-            }
-
-            List<Player> availablePlayers = this.players.Except(this.inGamePlayers).ToList();
-            if (!(availablePlayers.Count > 1))
-            {
-                return null;
-            }
-
-            Random rnd = new Random();
-            int pIndex = 0, pIndex2 = 0;
-            bool ready = false;
-            while (!ready)
-            {
-                pIndex = rnd.Next(availablePlayers.Count);
-                pIndex2 = rnd.Next(availablePlayers.Count);
-
-                if (pIndex != pIndex2)
+            if (matchmaking) {
+                if (!(this.players.Count >= 1))
                 {
-                    ready = true;
+                    return null;
                 }
+
+                List<Player> availablePlayers = this.players.Except(this.inGamePlayers).ToList();
+                if (!(availablePlayers.Count > 1))
+                {
+                    return null;
+                }
+
+                Random rnd = new Random();
+                int pIndex = 0, pIndex2 = 0;
+                bool ready = false;
+                while (!ready)
+                {
+                    pIndex = rnd.Next(availablePlayers.Count);
+                    pIndex2 = rnd.Next(availablePlayers.Count);
+
+                    if (pIndex != pIndex2)
+                    {
+                        ready = true;
+                    }
+                }
+
+                Player player1 = availablePlayers[pIndex];
+                Player player2 = availablePlayers[pIndex2];
+                Game game = new Game(8, 8, 6);
+                game.AddPlayer(player1);
+                game.AddPlayer(player2);
+
+                this.AddInGamePlayers(game);
+                manager.AddGame(game);
+
+                return game;
+            } else {
+                Game game = new Game(8, 8, 6);
+                manager.AddGame(game);
+
+                return game;
             }
-
-            Player player1 = availablePlayers[pIndex];
-            Player player2 = availablePlayers[pIndex2];
-            Game game = new Game(8, 8, 6, player1);
-            game.AddPlayer(player1);
-            game.AddPlayer(player2);
-
-            this.AddInGamePlayers(game);
-
-            return game;
         }
 
         /// <summary>

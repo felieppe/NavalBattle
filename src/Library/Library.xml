@@ -129,7 +129,7 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32,Library.Player)">
+        <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Game"/>.
             </summary>
@@ -385,7 +385,7 @@
             </summary>
             <param name="player"> Player. </param>
         </member>
-        <member name="M:Library.UserManager.NewGame">
+        <member name="M:Library.UserManager.NewGame(System.Boolean,Library.ServerManager)">
             <summary>
             Crea una partida con dos jugadores al azar que estén disponibles.
             </summary>
