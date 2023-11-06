@@ -6,9 +6,6 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-using System.Collections.Generic;
-using Library;
-using NUnit.Framework;
 
 namespace Tests
 {
