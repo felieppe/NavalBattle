@@ -138,11 +138,16 @@ namespace Tests
             this.um.AddPlayer(player2);
 
             Game game = this.um.NewGame();
-           
 
             List<Player> gamePlayers = game.GetPlayers();
             Assert.IsTrue(gamePlayers.Contains(player1));
             Assert.IsTrue(gamePlayers.Contains(player2));
-       }     
+        }     
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> 6786b36b35c4479530ee0f2e9e2cacff218f9542

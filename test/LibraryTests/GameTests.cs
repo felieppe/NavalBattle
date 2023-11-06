@@ -54,5 +54,27 @@ namespace Tests
                 Assert.True(expectedPlayers.Contains(p));
             }
         }
+
+        /// <summary>
+        /// Crear una nueva partida con valores predefinidos.
+        /// </summary>
+        [Test]
+        public void NewPresetGame()
+        {
+            Game game1 = new Game(0, 0, 6, this.player);
+            Assert.AreEqual(9, game1.GetRows);
+            Assert.AreEqual(9, game1.GetColumns);
+        }
+
+        /// <summary>
+        /// Crear una nueva partida con valores personalizados.
+        /// </summary>
+        [Test]
+        public void NewCustomGame()
+        {
+            Game game1 = new Game(11, 11, 9, this.player);
+            Assert.AreEqual(13, game1.GetRows);
+            Assert.AreEqual(13, game1.GetColumns);
+        }
     }
 }

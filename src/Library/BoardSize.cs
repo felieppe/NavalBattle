@@ -22,8 +22,23 @@ namespace Library
         /// <param name="columns"> Columnas. </param>
         public BoardSize(int rows, int columns)
         {
-            this.SetRows(rows);
-            this.SetColumns(columns);
+            if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
+            {
+                this.Rows = rows + 1;
+            }
+            else
+            {
+                this.Rows = 9;
+            }
+        
+            if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
+            {
+                this.Columns = columns + 1;
+            }
+            else
+            {
+                this.Columns = 9;
+            }
         }
 
         /// <summary>
@@ -40,10 +55,10 @@ namespace Library
         /// Establece el número de filas.
         /// </summary>
         /// <param name="rows"> Filas del tablero. </param>
-        /// <returns> Número par de filas de tablero entre 10 y 20. </returns>
+        /// <returns> Número par de filas de tablero entre 8 y 20. </returns>
         public bool SetRows(int rows)
         {
-            if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
+            if ((rows >= 8) && (rows <= 20) && (rows % 2 == 0))
             {
                 this.Rows = rows + 1;
                 return true;
@@ -59,10 +74,10 @@ namespace Library
         /// Establece el número de columnas.
         /// </summary>
         /// <param name="columns"> Columnas del tablero. </param>
-        /// <returns> Número par de columnas de tablero entre 10 y 20. </returns>
+        /// <returns> Número par de columnas de tablero entre 8 y 20. </returns>
         public bool SetColumns(int columns)
         {
-            if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
+            if ((columns >= 8) && (columns <= 20) && (columns % 2 == 0))
             {
                 this.Columns = columns + 1;
                 return true;
@@ -72,6 +87,24 @@ namespace Library
                 this.Columns = 9;
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Devuelve las filas del tablero.
+        /// </summary>
+        /// <returns> Las filas del tablero. </returns>
+        public int GetRows()
+        {
+            return this.Rows;
+        }
+
+        /// <summary>
+        /// Devuelve las columnas del tablero.
+        /// </summary>
+        /// <returns> Las columnas del tablero. </returns>
+        public int GetColumns()
+        {
+            return this.Columns;
         }
     }
 }
