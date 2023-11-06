@@ -60,6 +60,10 @@ namespace Library
         {
             return this.Sunken;
         }
+
+        public string GetId() {
+            return this.Id;
+        }
     }
 }
 
