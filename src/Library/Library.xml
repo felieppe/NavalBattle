@@ -134,7 +134,7 @@
             Tamaño del tablero.
             </summary>
         </member>
-        <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32,Library.Player)">
+        <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Game"/>.
             </summary>
@@ -158,19 +158,18 @@
             Una lista con elementos de tipo Player.
             </returns>
         </member>
+        <member name="M:Library.Game.GetShips">
+            <summary>
+            Devuelve la lista de barcos en el tablero.
+            </summary>
+            <returns> Lista con valores tipo Ship.</returns>
+        </member>
         <member name="T:Library.GameLogic">
             <summary>
             Esta clase contiene la lógica del juego.
             </summary>
         </member>
-        <member name="M:Library.GameLogic.#ctor(Library.Board,Library.BoardSize,System.Int32)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
-            </summary>
-            <param name="board">Tablero.</param>
-            <param name="boardSize"> Tamaño del tablero. </param>
-            <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.GameLogic.#ctor(Library.Game,Library.Board)" -->
         <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
             <summary>
             Verifica el ataque.
@@ -195,12 +194,6 @@
             </summary>
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
-        </member>
-        <member name="M:Library.GameLogic.GetShips">
-            <summary>
-            Devuelve la lista de barcos en el tablero.
-            </summary>
-            <returns> Lista con valores tipo Ship.</returns>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
@@ -390,7 +383,7 @@
             </summary>
             <param name="player"> Player. </param>
         </member>
-        <member name="M:Library.UserManager.NewGame">
+        <member name="M:Library.UserManager.NewGame(System.Boolean,Library.ServerManager)">
             <summary>
             Crea una partida con dos jugadores al azar que estén disponibles.
             </summary>
@@ -471,19 +464,6 @@
             <summary>
             Hundir el barco.
             </summary>
-        </member>
-        <member name="M:Library.Ship.AddCellCoord(System.Int32,System.Int32)">
-            <summary>
-            Añadir array de coordenadas a la lista de la clase.
-            </summary>
-        </member>
-        <member name="M:Library.Ship.GetCoords">
-            <summary>
-            Obtiene la lista de array de coordenadas del barco.
-            </summary>
-            <returns>
-            La lista con elementos tipo int array.
-            </returns>
         </member>
         <member name="M:Library.Ship.GetSunken">
             <summary>
