@@ -30,8 +30,6 @@ namespace Library
         /// <value> Estado del barco. </value>
         bool Sunken { get; set; }
 
-        List<int[]> Coords { get; set; }
-
         /// <summary>
         /// Obtiene el estado del barco.
         /// </summary>
