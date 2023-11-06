@@ -119,6 +119,41 @@
             Test que prueba imprimir un tablero.
             </summary>
         </member>
+        <member name="T:Tests.ServerManagerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.ServerManagerTests.sm">
+            <summary>
+            El ServerManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.Setup">
+            <summary>
+            Crea una instancia de la clase ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.AddGameTest">
+            <summary>
+            Prueba la funcionalidad de AddGame() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.RemoveGameTest">
+            <summary>
+            Prueba la funcionalidad de RemoveGame() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.GetListingTest">
+            <summary>
+            Prueba la funcionalidad de GetListing() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.GetGameByIdTest">
+            <summary>
+            Prueba la funcionalidad de GetGame() en ServerManager.
+            </summary>
+        </member>
         <member name="T:Tests.ShipTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.
