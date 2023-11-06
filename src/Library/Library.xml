@@ -129,6 +129,11 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
+        <member name="F:Library.Game.boardSize1">
+            <summary>
+            Tamaño del tablero.
+            </summary>
+        </member>
         <member name="M:Library.Game.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Game"/>.

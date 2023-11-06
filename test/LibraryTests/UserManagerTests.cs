@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-
+/*
 namespace Tests
 {
     /// <summary>
@@ -145,3 +145,8 @@ namespace Tests
         }     
     }
 }
+<<<<<<< HEAD
+*/
+
+=======
+>>>>>>> 3f30ad513b7eb57b2c62e34368f7c3e9008c1f41

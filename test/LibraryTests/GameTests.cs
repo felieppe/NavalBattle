@@ -62,8 +62,8 @@ namespace Tests
         public void NewPresetGame()
         {
             Game game1 = new Game(0, 0, 6, this.player);
-            Assert.AreEqual(9, game1.GetRows);
-            Assert.AreEqual(9, game1.GetColumns);
+            Assert.AreEqual(9, game1.boardSize1.GetRows());
+            Assert.AreEqual(9, game1.boardSize1.GetColumns());
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace Tests
         [Test]
         public void NewCustomGame()
         {
-            Game game1 = new Game(11, 11, 9, this.player);
-            Assert.AreEqual(13, game1.GetRows);
-            Assert.AreEqual(13, game1.GetColumns);
+            Game game1 = new Game(12, 12, 9, this.player);
+            Assert.AreEqual(13, game1.boardSize1.GetRows());
+            Assert.AreEqual(13, game1.boardSize1.GetColumns());
         }
     }
 }

@@ -30,6 +30,11 @@ namespace Library
         /// </summary>
         /// <value> Lista con elementos de tipo Player. </value>
         private List<Player> Players = new List<Player>();
+        
+        /// <summary>
+        /// Tamaño del tablero.
+        /// </summary>
+        public BoardSize boardSize1;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
