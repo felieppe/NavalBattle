@@ -9,7 +9,6 @@ namespace Library
     {
         private List<Game> Servers = new List<Game>();
 
-
         public void AddGame(Game game) {
             if (game != null) {this.Servers.Add(game);}
         }
