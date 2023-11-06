@@ -26,12 +26,11 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        public Game(int rows, int columns, int totalShips, Player player)
+        public Game(int rows, int columns, int totalShips)
         {
             BoardSize boardSize1 = new BoardSize(rows, columns);
             Board board1 = new Board(boardSize1);
             GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
-            this.AddPlayer(player);
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
