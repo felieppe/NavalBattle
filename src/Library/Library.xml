@@ -460,19 +460,6 @@
             Hundir el barco.
             </summary>
         </member>
-        <member name="M:Library.Ship.AddCellCoord(System.Int32,System.Int32)">
-            <summary>
-            Añadir array de coordenadas a la lista de la clase.
-            </summary>
-        </member>
-        <member name="M:Library.Ship.GetCoords">
-            <summary>
-            Obtiene la lista de array de coordenadas del barco.
-            </summary>
-            <returns>
-            La lista con elementos tipo int array.
-            </returns>
-        </member>
         <member name="M:Library.Ship.GetSunken">
             <summary>
             Obtiene el estado de hundimiento del barco.
