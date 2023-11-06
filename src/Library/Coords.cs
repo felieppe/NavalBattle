@@ -7,14 +7,17 @@ namespace Library
 {
     public class Coords
     {
+        private string ShipId;
         private int X;
         private int Y;
 
-        public Coords(int x, int y) {
+        public Coords(string id, int x, int y) {
+            this.ShipId = id;
             this.X = x;
             this.Y = y;
         }
 
+        public string GetShipId() { return this.ShipId; }
         public int GetX() { return this.X; }
         public int GetY() { return this.Y; }
     }

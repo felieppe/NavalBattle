@@ -73,7 +73,7 @@ namespace Library
                             }
 
                             //ship.AddCellCoord(LetterToNumber(row), column - x);
-                            this.game.AddShipCoords(LetterToNumber(row), column - x);
+                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row), column - x);
                             this.board.GetBoard()[column - x][LetterToNumber(row)] = 'S';
                             break;
                         case "DOWN":
@@ -85,7 +85,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(LetterToNumber(row), column + x);
+                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row), column + x);
                             this.board.GetBoard()[column + x][LetterToNumber(row)] = 'S';
                             break;
                         case "RIGHT":
@@ -97,7 +97,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(LetterToNumber(row) + x, column);
+                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row) + x, column);
                             this.board.GetBoard()[column][LetterToNumber(row) + x] = 'S';
                             break;
                         case "LEFT":
@@ -109,7 +109,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(LetterToNumber(row) - x, column);
+                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row) - x, column);
                             this.board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
                             break;
                     }
@@ -189,16 +189,20 @@ namespace Library
         private bool DestroyShip(int row, int column)
         {
             Ship foundedShip = null;
-            Coords foundedShipCoords = null;
+            string foundedShipId = null;
             foreach (Ship ship in this.game.GetShips()) {
+                string shipId = ship.GetId();
+                Console.WriteLine("SHIP ID | " + shipId);
                 if (!ship.GetSunken()) {
-                    //foreach (int[] arr in ship.GetCoords()) {
                     foreach (Coords coord in this.game.GetShipsCoords()) {
+                        if (coord.GetShipId() != shipId) { break; }
                         int[] expected = { row, column };
+
+                        //Console.WriteLine("EXPECTED | " + coord.GetX() + "/" + coord.GetY() + " -> " + expected[0] + "/" + expected[1]);
                         if (coord.GetX() == expected[0] && coord.GetY() == expected[1]) {
+                            //Console.WriteLine("FOUNDED");
                             foundedShip = ship;
-                            foundedShipCoords = coord;
-                            //this.Ships[this.Ships.IndexOf(ship)].Sink();
+                            foundedShipId = shipId;
 
                             break;
                         }
@@ -213,9 +217,12 @@ namespace Library
                 Ship updatedShip = ships[ships.IndexOf(foundedShip)];
                 updatedShip.Sink();
 
-                this.game.UpdateShip(foundedShip, updatedShip); 
-                this.board.GetBoard()[foundedShipCoords.GetX()][foundedShipCoords.GetY()] = 'X';
+                foreach (Coords coord in this.game.GetShipsCoords()) {
+                    if (coord.GetShipId() != foundedShipId) { break; }
+                    this.board.GetBoard()[coord.GetY()][coord.GetX()] = 'X';
+                }
 
+                this.game.UpdateShip(foundedShip, updatedShip);
                 return true;
             }
             else { return false; }
