@@ -89,9 +89,9 @@ namespace Library
         }
         
         /// <summary>
-        /// /// Agrega un jugador como administrador de la partida.
+        /// Establece un jugador como administrador de la partida.
         /// </summary>
-        public void AddAdmin(Player admin)
+        public void SetAdmin(Player admin)
         {
             this.Admin = admin;
             if (!this.Players.Contains(admin))
