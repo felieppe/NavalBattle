@@ -164,7 +164,7 @@
             Esta clase contiene la lógica del juego.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Library.GameLogic.#ctor(Library.Game,Library.Board,Library.BoardSize)" -->
+        <!-- Badly formed XML comment ignored for member "M:Library.GameLogic.#ctor(Library.Game,Library.Board)" -->
         <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
             <summary>
             Verifica el ataque.

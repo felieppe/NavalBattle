@@ -23,12 +23,11 @@ namespace Library
         /// </summary>
         /// <param name="game"=Juego.</param>
         /// <param name="board">Tablero.</param>
-        /// <param name="boardSize"> Tamaño del tablero. </param>
-        public GameLogic(Game game, Board board, BoardSize boardSize)
+        public GameLogic(Game game, Board board)
         {
             this.game = game;
             this.board = board;
-            this.boardSize = boardSize;
+            this.boardSize = board.GetBoardSize();
         }
 
         /// <summary>
