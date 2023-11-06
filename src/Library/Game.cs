@@ -84,6 +84,9 @@ namespace Library
         /// <param name="id"> Id del juego. </param>
         public void SetGameId(string id) {
             if (!string.IsNullOrEmpty(id)) {
+                this.GameId = id;
+            }
+        }
         
         /// <summary>
         /// /// Agrega un jugador como administrador de la partida.
