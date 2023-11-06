@@ -23,7 +23,7 @@ namespace NavalBattle
             int totalShips = 5;
             Game g = new Game(rows, columns, totalShips);
 
-            GameLogic gameLogic = new GameLogic(g, g.GetBoard());
+            GameLogic gameLogic = new GameLogic(g, g.GetBoard(), null);
 
             Battleship bship = new Battleship();
             Cruise cruise = new Cruise();

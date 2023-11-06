@@ -49,16 +49,14 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        public Game(int rows, int columns, int totalShips, Player player)
+        public Game(int rows, int columns, int totalShips)
         {
-            this.Admin = admin;
-            this.Players.Add(admin);
+            this.Admin = new Player("new-id");      // solo test esto cambiarlo despues por player admin real en param
 
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
             this.board2 = new Board(boardSize1);
-            GameLogic gameLogic1 = new GameLogic(board1, board2, boardSize1, totalShips);
-            this.AddPlayer(player);
+
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
         }
@@ -84,6 +82,9 @@ namespace Library
         /// <param name="id"> Id del juego. </param>
         public void SetGameId(string id) {
             if (!string.IsNullOrEmpty(id)) {
+                this.GameId = id;
+            }
+        }
         
         /// <summary>
         /// /// Agrega un jugador como administrador de la partida.
@@ -94,14 +95,6 @@ namespace Library
             if (!this.Players.Contains(admin))
             {
                 this.Players.Add(admin);
-            }
-        }
-
-        public void SetGameId(string id)
-        {
-            if (!string.IsNullOrEmpty(id))
-            {
-                this.GameId = id;
             }
         }
 
