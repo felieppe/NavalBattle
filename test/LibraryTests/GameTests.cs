@@ -6,9 +6,6 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-using System.Collections.Generic;
-using Library;
-using NUnit.Framework;
 
 namespace Tests
 {
@@ -81,10 +78,17 @@ namespace Tests
             Assert.AreEqual(13, game1.boardSize1.GetRows());
             Assert.AreEqual(13, game1.boardSize1.GetColumns());
         }
-        public void AddAdmin(Player admin)
-        {
-            this.admin = admin;
-            this.players.Add(admin);
+        [Test]
+        public void SetAdminTest()
+{
+        Player admin = new Player("some-admin-id"); // Crea un nuevo jugador para el administrador
+
+        this.game.AddAdmin(admin);
+
+        Assert.AreEqual(admin, this.game.Admin);
+
+        List<Player> gamePlayers = this.game.GetPlayers();
+        Assert.Contains(admin, gamePlayers);
         }
     }
 }
