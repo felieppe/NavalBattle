@@ -154,11 +154,11 @@ namespace Library
             if (id is Guid gameId)
             {
                 // Buscar la partida en función del gameId
-                Game game = FindGameById(gameId);
+                Game game = this.FindGameById(gameId);
 
                 if (game != null)
                 {
-                game.AddPlayer(player);
+                    game.AddPlayer(player);
                 }
                 else
                 {

@@ -17,7 +17,7 @@ namespace Library
         private Board board;
         private Board board2;
         private BoardSize boardSize;
-        private int numberAttack;
+        private int numberAttack = 1;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
@@ -130,6 +130,8 @@ namespace Library
             if (this.VerifyAttack(LetterToNumber(row), column)) {
                 this.DestroyShip(LetterToNumber(row), column);
             }
+
+            this.numberAttack += 1;
         }
 
         /// <summary>
@@ -252,6 +254,10 @@ namespace Library
         public double GetNumberAttack()
         {
             return this.numberAttack;
+        }
+
+        public Game GetGame() {
+            return this.game;
         }
     }
 }
