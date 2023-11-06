@@ -188,26 +188,42 @@ namespace Library
         /// <returns>true/false</returns>
         private bool DestroyShip(int row, int column)
         {
+            /*      DEBUG       */
+            Console.WriteLine("\nCOORDENADAS: ");
+            foreach (Coords coord in this.game.GetShipsCoords()) {
+                Console.WriteLine("X: " + coord.GetX() + "; Y: " + coord.GetY() + " | " + coord.GetShipId());
+            }
+
             Ship foundedShip = null;
             string foundedShipId = null;
             foreach (Ship ship in this.game.GetShips()) {
                 string shipId = ship.GetId();
-                Console.WriteLine("SHIP ID | " + shipId);
+
+                /*      DEBUG       */
+                Console.WriteLine("\nSHIP ID | " + shipId);
+                Console.WriteLine("STATUS SUNKEN | " + ship.GetSunken());
+
                 if (!ship.GetSunken()) {
                     foreach (Coords coord in this.game.GetShipsCoords()) {
-                        if (coord.GetShipId() != shipId) { break; }
+                        Console.WriteLine("IF | " + coord.GetShipId() + " \\ " + shipId);
+                        if (coord.GetShipId() != shipId) { continue; }
                         int[] expected = { row, column };
 
-                        //Console.WriteLine("EXPECTED | " + coord.GetX() + "/" + coord.GetY() + " -> " + expected[0] + "/" + expected[1]);
+                        /*      DEBUG       */
+                        Console.WriteLine("EXPECTED | " + coord.GetX() + "/" + coord.GetY() + " -> " + expected[0] + "/" + expected[1]);
+                        
                         if (coord.GetX() == expected[0] && coord.GetY() == expected[1]) {
-                            //Console.WriteLine("FOUNDED");
+                            /*      DEBUG       */
+                            Console.WriteLine("FOUNDED\n");
+
                             foundedShip = ship;
                             foundedShipId = shipId;
-
                             break;
                         }
                     }
                 }
+
+                if (foundedShip != null && foundedShipId != null) { break; }
             }
 
             if (foundedShip != null)
@@ -218,7 +234,7 @@ namespace Library
                 updatedShip.Sink();
 
                 foreach (Coords coord in this.game.GetShipsCoords()) {
-                    if (coord.GetShipId() != foundedShipId) { break; }
+                    if (coord.GetShipId() != foundedShipId) { continue; }
                     this.board.GetBoard()[coord.GetY()][coord.GetX()] = 'X';
                 }
 
