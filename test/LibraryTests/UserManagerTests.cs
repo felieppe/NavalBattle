@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-/*
+
 namespace Tests
 {
     /// <summary>
@@ -108,6 +108,9 @@ namespace Tests
             }
         }
 
+        /// <summary>
+        /// Test que agrega un jugador a una partida existente.
+        /// </summary>
         [Test]
         public void AddPlayersToExistingGameTest()
         {
@@ -127,6 +130,10 @@ namespace Tests
             Assert.True(gamePlayers.Contains(player));
             Assert.True(gamePlayers.Contains(player2));
         }
+
+        /// <summary>
+        /// Test que verifica que user manager conecta dos jugadores en un juego de manera satisfactoria.
+        /// </summary>
         [Test]
         public void ConectTwoPlayersTest(){
             Assert.NotNull(this.um);
@@ -145,8 +152,4 @@ namespace Tests
         }     
     }
 }
-<<<<<<< HEAD
-*/
 
-=======
->>>>>>> 3f30ad513b7eb57b2c62e34368f7c3e9008c1f41

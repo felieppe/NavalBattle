@@ -79,6 +79,46 @@
             Crear una nueva partida con valores personalizados.
             </summary>
         </member>
+        <member name="T:Tests.PlayerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.PlayerTests.player">
+            <summary>
+            El jugador para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.Setup">
+            <summary>
+            Crea un jugador con Id vacío para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetIdTest">
+            <summary>
+            Prueba que SetId() establezca de forma correcta el Id al Player.
+            </summary>
+        </member>
+        <member name="M:Tests.PlayerTests.SetUsernameTest">
+            <summary>
+            Prueba que SetUsername() establezca de forma correcta el Username al Player.
+            </summary>
+        </member>
+        <member name="T:Tests.PrinterTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Printer"/>.
+            </summary>
+        </member>
+        <member name="M:Tests.PrinterTests.SetUp">
+            <summary>
+            Crea un nuevo tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.PrinterTests.TestPrint">
+            <summary>
+            Test que prueba imprimir un tablero.
+            </summary>
+        </member>
         <member name="T:Tests.ShipTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.
@@ -102,6 +142,46 @@
         <member name="M:Tests.ShipTests.SetSunkenTest">
             <summary>
             Prueba la funcionalidad de SetSunken() y comprueba que establezca bien los valores.
+            </summary>
+        </member>
+        <member name="T:Tests.UserManagerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.UserManagerTests.um">
+            <summary>
+            El UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.Setup">
+            <summary>
+            Crea un UserManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.AddPlayersTest">
+            <summary>
+            Prueba el sistema de agregar jugadores a UserManager.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.NewGameTest">
+            <summary>
+            Prueba el sistema de crear un nuevo juego.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.InGamePlayersTest">
+            <summary>
+            Prueba que se añadan de forma correcta los jugadores que están jugando actualmente.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.AddPlayersToExistingGameTest">
+            <summary>
+            Test que agrega un jugador a una partida existente.
+            </summary>
+        </member>
+        <member name="M:Tests.UserManagerTests.ConectTwoPlayersTest">
+            <summary>
+            Test que verifica que user manager conecta dos jugadores en un juego de manera satisfactoria.
             </summary>
         </member>
     </members>

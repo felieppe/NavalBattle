@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
-/*
+
 namespace Tests
 {
     /// <summary>
@@ -18,12 +18,18 @@ namespace Tests
         private char[][] board1;
         private BoardSize bs;
 
+        /// <summary>
+        /// Crea un nuevo tablero para probar.
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
-            this.board = new Board(this.board1, this.bs);
+            this.board = new Board(bs);
         }
 
+        /// <summary>
+        /// Test que prueba imprimir un tablero.
+        /// </summary>
         [Test]
         public void TestPrint()
         {
@@ -38,7 +44,7 @@ namespace Tests
             };
             string expected = expectedBoard.ToString();
             BoardSize boardSize = new BoardSize(rows, columns);
-            Board board = new Board(this.board1, boardSize);
+            Board board = new Board(boardSize);
 
             board.InitializeBoard();
             char[][] actualBoard = board.GetBoard();
@@ -47,6 +53,4 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
     }
-    [TestFixture]
-    public class PrinterTests {}
-}*/
+}
