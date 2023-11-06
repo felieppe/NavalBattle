@@ -103,10 +103,11 @@ namespace Library
         /// <summary>
         /// Agrega las coordenadas del barco.
         /// </summary>
+        /// <param name="id"> Id del barco. </param>
         /// <param name="x"> Coordenada x. </param>
         /// <param name="y"> Coordenada y. </param>
-        public void AddShipCoords(int x, int y) {
-            Coords cs = new Coords(x, y);
+        public void AddShipCoords(string id, int x, int y) {
+            Coords cs = new Coords(id, x, y);
             this.ShipsCoords.Add(cs);
         }
 
