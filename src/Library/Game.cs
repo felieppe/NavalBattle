@@ -21,7 +21,7 @@ namespace Library
 
         private List<Ship> Ships = new List<Ship>();
 
-        private int TotalShips;
+        private int TotalShips = 0;
 
         /// <summary>
         /// Lista de jugadores del juego.
@@ -56,6 +56,8 @@ namespace Library
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
             this.board2 = new Board(boardSize1);
+
+            this.TotalShips = totalShips;
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
