@@ -24,6 +24,7 @@ namespace BattleShip.Tests
         private Board board;
         private int rows;
         private int columns;
+        private Game game;
 
         /// <summary>
         /// Creamos los elementos necesarios para la prueba.
@@ -36,6 +37,8 @@ namespace BattleShip.Tests
 
             this.boardSize = new BoardSize(this.rows, this.columns);
             this.board = new Board(this.boardSize);
+
+            this.game = new Game(rows, columns, 8);
         }
 
         /// <summary>
@@ -47,23 +50,24 @@ namespace BattleShip.Tests
             int ships = 3;
             Submarine sub = new Submarine();
 
-            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
             gameLogic.PlaceShip(sub, 'B', 2, "right");
 
             // Realiza el ataque
             gameLogic.Attack('B', 2);
 
             // Verifica si el barco se ha hundido
-            bool hasHit = gameLogic.GetShips()[0].GetSunken();
+            //bool hasHit = gameLogic.GetShips()[0].GetSunken();
+            bool hasHit = gameLogic.GetGame().GetShips()[0].GetSunken();
 
             if (hasHit)
-                {
-                    Console.WriteLine("¡Has dado en un barco!");
-                }
+            {
+                Console.WriteLine("¡Has dado en un barco!");
+            }
             else
-                {
-                    Console.WriteLine("No has dado en un barco.");
-                }
+            {
+                Console.WriteLine("No has dado en un barco.");
+            }
             Assert.IsTrue(hasHit);
         }
 
@@ -74,7 +78,7 @@ namespace BattleShip.Tests
         public void ValidPlaceShipTest()
         {
             int ships =2;
-            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
             
             Submarine sub = new Submarine();
             gameLogic.PlaceShip(sub, 'A', 2, "down"); 
@@ -88,9 +92,9 @@ namespace BattleShip.Tests
         /// </summary>
         [Test]
         public void FirstMoveTest(){
-
+ 
             int ships = 2;
-            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
 
             BoardSize boardSize = new BoardSize(10,10);
             Board board = new Board(boardSize);
@@ -112,7 +116,10 @@ namespace BattleShip.Tests
         {
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
-            Game game1 = new Game (12, 12, 9, player1); 
+            
+            Game game1 = new Game (12, 12, 9); 
+            
+            game1.AddPlayer(player1);
             game1.AddPlayer(player2);
 
             Assert.IsNotNull(game1.board1);

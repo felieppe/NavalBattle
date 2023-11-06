@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
+using System;
 
 namespace Tests
 {
@@ -32,8 +33,10 @@ namespace Tests
         {
             this.player = new Player("ce622ce8-6609-11ee-8c99-0242ac120002");
             this.player2 = new Player("d06ce532-6609-11ee-8c99-0242ac120002");
-            this.game = new Game(10, 10, 6, this.player);
-            this.game.AddAdmin(player2);
+            this.game = new Game(10, 10, 6);
+
+            this.game.AddPlayer(player);
+            this.game.SetAdmin(player2);
         }
 
         /// <summary>
@@ -58,14 +61,14 @@ namespace Tests
         }
 
         /// <summary>
-        /// Crear una nueva partida con valores predefinidos.
+        /// Crear una nueva partida con valores ya predefinidos.
         /// </summary>
         [Test]
         public void NewPresetGame()
         {
-            Game game1 = new Game(0, 0, 6, this.player);
-            Assert.AreEqual(9, game1.boardSize1.GetRows());
-            Assert.AreEqual(9, game1.boardSize1.GetColumns());
+            // Se busca que sea 10+1 porque el proyecto está pensado para que arranque a contar de uno y no de cero.
+            Assert.AreEqual(10+1, this.game.GetBoard().GetBoardSize().GetRows());
+            Assert.AreEqual(10+1, this.game.GetBoard().GetBoardSize().GetColumns());
         }
 
         /// <summary>
@@ -74,21 +77,20 @@ namespace Tests
         [Test]
         public void NewCustomGame()
         {
-            Game game1 = new Game(12, 12, 9, this.player);
-            Assert.AreEqual(13, game1.boardSize1.GetRows());
-            Assert.AreEqual(13, game1.boardSize1.GetColumns());
+            Game game1 = new Game(20, 20, 9);
+            Assert.AreEqual(20+1, game1.GetBoard().GetBoardSize().GetRows());
+            Assert.AreEqual(20+1, game1.GetBoard().GetBoardSize().GetColumns());
         }
         [Test]
         public void SetAdminTest()
-{
-        Player admin = new Player("some-admin-id"); // Crea un nuevo jugador para el administrador
+        {
+            Player admin = new Player("some-admin-id"); // Crea un nuevo jugador para el administrador
+            this.game.SetAdmin(admin);
 
-        this.game.AddAdmin(admin);
+            Assert.AreEqual(admin, this.game.Admin);
 
-        Assert.AreEqual(admin, this.game.Admin);
-
-        List<Player> gamePlayers = this.game.GetPlayers();
-        Assert.Contains(admin, gamePlayers);
+            List<Player> gamePlayers = this.game.GetPlayers();
+            Assert.Contains(admin, gamePlayers);
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Tests
         /// </summary>
         private UserManager um;
 
+        private ServerManager sm;
+
         /// <summary>
         /// Crea un UserManager para probar.
         /// </summary>
@@ -27,6 +29,7 @@ namespace Tests
         public void Setup()
         {
             this.um = new UserManager();
+            this.sm = new ServerManager();
         }
 
         /// <summary>
@@ -72,7 +75,7 @@ namespace Tests
             this.um.AddPlayer(player);
             this.um.AddPlayer(player2);
 
-            Game game = this.um.NewGame();
+            Game game = this.um.NewGame(true, this.sm);
             List<Player> gamePlayers = game.GetPlayers();
 
             foreach (Player p in gamePlayers)
@@ -99,7 +102,7 @@ namespace Tests
             this.um.AddPlayer(player);
             this.um.AddPlayer(player2);
 
-            Game game = this.um.NewGame();
+            Game game = this.um.NewGame(true, this.sm);
 
             List<Player> inGamePlayersList = this.um.GetInGamePlayers();
             foreach (Player p in inGamePlayersList)
@@ -121,7 +124,7 @@ namespace Tests
 
             this.um.AddPlayer(player);
 
-            Game game = this.um.NewGame(); // Inicializa el objeto Game
+            Game game = this.um.NewGame(true, this.sm); // Inicializa el objeto Game
             this.um.AddPlayerToGame(player2, game.Id);
 
             List<Player> gamePlayers = game.GetPlayers();
@@ -144,7 +147,7 @@ namespace Tests
             this.um.AddPlayer(player1);
             this.um.AddPlayer(player2);
 
-            Game game = this.um.NewGame();
+            Game game = this.um.NewGame(true, this.sm);
 
             List<Player> gamePlayers = game.GetPlayers();
             Assert.IsTrue(gamePlayers.Contains(player1));

@@ -71,7 +71,7 @@
         </member>
         <member name="M:Tests.GameTests.NewPresetGame">
             <summary>
-            Crear una nueva partida con valores predefinidos.
+            Crear una nueva partida con valores ya predefinidos.
             </summary>
         </member>
         <member name="M:Tests.GameTests.NewCustomGame">
@@ -182,6 +182,36 @@
         <member name="M:Tests.UserManagerTests.ConectTwoPlayersTest">
             <summary>
             Test que verifica que user manager conecta dos jugadores en un juego de manera satisfactoria.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Tests.GameLogicTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Tests.GameLogicTests.boardSize">
+            <summary>
+            El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.SetUp">
+            <summary>
+            Creamos los elementos necesarios para la prueba.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.AttackTest">
+            <summary>
+            Prueba los métodos PlaceShip(), Attack() y VerifyAttack() de la clase <see cref="T:Library.GameLogic"/>.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.ValidPlaceShipTest">
+            <summary>
+            Verifica que el barco esté bien posicionado.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Tests.GameLogicTests.FirstMoveTest">
+            <summary>
+            Prueba que el primer turno sea del jugador 1.
             </summary>
         </member>
     </members>

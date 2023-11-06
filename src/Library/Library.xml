@@ -162,7 +162,7 @@
         </member>
         <member name="M:Library.Game.SetAdmin(Library.Player)">
             <summary>
-            /// Establece un jugador como administrador de la partida.
+            Establece un jugador como administrador de la partida.
             </summary>
         </member>
         <member name="M:Library.Game.AddShipCoords(System.String,System.Int32,System.Int32)">
