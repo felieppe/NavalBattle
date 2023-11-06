@@ -8,7 +8,11 @@ namespace Library
     /// </summary>
     public class Ship : IShip
     {
-        public string Id { get; set; }
+        /// <summary>
+        /// Identificación del barco.
+        /// </summary>
+        /// <value> Identificación. </value>
+        public string ShipId { get; set; }
 
         /// <summary>
         /// Nombre del barco.
@@ -39,7 +43,7 @@ namespace Library
             this.Length = length;
 
             Guid uuid = Guid.NewGuid();
-            this.Id = uuid.ToString();
+            this.ShipId = uuid.ToString();
         }
 
         /// <summary>
@@ -61,8 +65,13 @@ namespace Library
             return this.Sunken;
         }
 
-        public string GetId() {
-            return this.Id;
+        /// <summary>
+        /// Devuelve el Id del barco.
+        /// </summary>
+        /// <returns> Id del barco. </returns>
+        public string GetShipId()
+        {
+            return this.ShipId;
         }
     }
 }

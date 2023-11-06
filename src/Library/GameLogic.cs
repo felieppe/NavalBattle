@@ -73,7 +73,7 @@ namespace Library
                             }
 
                             //ship.AddCellCoord(LetterToNumber(row), column - x);
-                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row), column - x);
+                            this.game.AddShipCoords(ship.GetShipId(), LetterToNumber(row), column - x);
                             this.board.GetBoard()[column - x][LetterToNumber(row)] = 'S';
                             break;
                         case "DOWN":
@@ -85,7 +85,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row), column + x);
+                            this.game.AddShipCoords(ship.GetShipId(), LetterToNumber(row), column + x);
                             this.board.GetBoard()[column + x][LetterToNumber(row)] = 'S';
                             break;
                         case "RIGHT":
@@ -97,7 +97,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row) + x, column);
+                            this.game.AddShipCoords(ship.GetShipId(), LetterToNumber(row) + x, column);
                             this.board.GetBoard()[column][LetterToNumber(row) + x] = 'S';
                             break;
                         case "LEFT":
@@ -109,7 +109,7 @@ namespace Library
                                 }
                             }
 
-                            this.game.AddShipCoords(ship.GetId(), LetterToNumber(row) - x, column);
+                            this.game.AddShipCoords(ship.GetShipId(), LetterToNumber(row) - x, column);
                             this.board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
                             break;
                     }
@@ -199,7 +199,7 @@ namespace Library
             Ship foundedShip = null;
             string foundedShipId = null;
             foreach (Ship ship in this.game.GetShips()) {
-                string shipId = coords.GetId();
+                string shipId = ship.GetShipId();
 
                 /*      DEBUG       */
                 Console.WriteLine("\nSHIP ID | " + shipId);

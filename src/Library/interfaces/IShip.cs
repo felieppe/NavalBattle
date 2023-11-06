@@ -16,7 +16,7 @@ namespace Library
         /// Identificación del barco.
         /// </summary>
         /// <value> Identificación. </value>
-        string Id { get; set; }
+        string ShipId { get; set; }
 
         /// <summary>
         /// Nombre.
