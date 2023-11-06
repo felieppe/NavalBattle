@@ -7,11 +7,11 @@ namespace Library
 {
     public class ServerManager
     {
-        private List<Game> servers = new List<Game>();
+        private List<Game> Servers = new List<Game>();
 
 
         public void AddGame(Game game) {
-
+            if (game != null) {this.Servers.Add(game);}
         }
         public void RemoveGame(string id) {
             
