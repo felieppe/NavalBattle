@@ -48,6 +48,12 @@ namespace Library
                 this.Players.Add(player);
             }
         }
+        
+        public void SetGameId(string id) {
+            if (!string.IsNullOrEmpty(id)) {
+                this.GameId = id;
+            }
+        }
 
         /// <summary>
         /// Id del jugador.
