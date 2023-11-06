@@ -26,7 +26,9 @@ namespace Library
         /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
         /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(Board board, Board board2, BoardSize boardSize, int totalShips)
+        public GameLogic(Board board, Board board2, BoardSize boardSize, int totalShips){
+        
+
         public GameLogic(Game game, Board board)
         {
             this.game = game;
