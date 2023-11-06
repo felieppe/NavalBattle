@@ -15,7 +15,7 @@ namespace Library
             this.Y = y;
         }
 
-        public void GetX() { return this.X; }
-        public void GetY() { return this.Y; }
+        public int GetX() { return this.X; }
+        public int GetY() { return this.Y; }
     }
 }
