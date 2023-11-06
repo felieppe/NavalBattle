@@ -49,6 +49,31 @@
             Prueba que el tablero creado sea igual al que se espera.
             </summary>
         </member>
+        <member name="T:Tests.CoordsTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.CoordsTests.coordinates">
+            <summary>
+            La clase Coords para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.ShipIdTest">
+            <summary>
+            Prueba que se establezca correctamente el ShipId en Coords.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.XTest">
+            <summary>
+            Prueba que se establezca correctamente la coordenada X en Coords.
+            </summary>
+        </member>
+        <member name="M:Tests.CoordsTests.YTest">
+            <summary>
+            Prueba que se establezca correctamente la coordenada Y en Coords.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.
@@ -117,6 +142,41 @@
         <member name="M:Tests.PrinterTests.TestPrint">
             <summary>
             Test que prueba imprimir un tablero.
+            </summary>
+        </member>
+        <member name="T:Tests.ServerManagerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.ServerManagerTests.sm">
+            <summary>
+            El ServerManager para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.Setup">
+            <summary>
+            Crea una instancia de la clase ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.AddGameTest">
+            <summary>
+            Prueba la funcionalidad de AddGame() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.RemoveGameTest">
+            <summary>
+            Prueba la funcionalidad de RemoveGame() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.GetListingTest">
+            <summary>
+            Prueba la funcionalidad de GetListing() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.GetGameByIdTest">
+            <summary>
+            Prueba la funcionalidad de GetGame() en ServerManager.
             </summary>
         </member>
         <member name="T:Tests.ShipTests">
