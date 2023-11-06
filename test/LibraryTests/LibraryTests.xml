@@ -104,6 +104,11 @@
             Crear una nueva partida con valores personalizados.
             </summary>
         </member>
+        <member name="M:Tests.GameTests.SetAdminTest">
+            <summary>
+            Verifica que se establezca bien el Admin.
+            </summary>
+        </member>
         <member name="T:Tests.PlayerTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Player"/>.

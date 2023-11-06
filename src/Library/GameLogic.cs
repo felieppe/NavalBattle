@@ -52,7 +52,6 @@ namespace Library
         /// <param name="row"> Fila del tablero. </param>
         /// <param name="column"> Columna del tablero. </param>
         /// <param name="facing"> Sentido hacia donde apunta el barco. </param>
-        /// <returns></returns>
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }

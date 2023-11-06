@@ -59,9 +59,7 @@ namespace Library
         /// <summary>
         /// Obtiene el ID del jugador.
         /// </summary>
-        /// <returns>
-        /// El ID del jugador.
-        /// </returns>
+        /// <returns> El ID del jugador. </returns>
         public string GetId()
         {
             return this.Id;
@@ -70,9 +68,7 @@ namespace Library
         /// <summary>
         /// Obtiene el username del jugador.
         /// </summary>
-        /// <returns>
-        /// El Username del jugador.
-        /// </returns>
+        /// <returns> El Username del jugador. </returns>
         public string GetUsername()
         {
             return this.Username;

@@ -52,7 +52,7 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            this.Admin = new Player("new-id");      // solo test esto cambiarlo despues por player admin real en param
+            this.Admin = new Player("new-id");      // solo test esto cambiarlo después por player admin real en param
 
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
@@ -134,12 +134,10 @@ namespace Library
             this.Ships[this.Ships.IndexOf(ship)] = updated;
         }
 
-        public object Id { get; set; }
-
         /// <summary>
         /// Devuelve la lista de jugadores.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Lista de jugadores. </returns>
         public List<Player> GetPlayers()
         {
             return this.Players;
@@ -207,5 +205,6 @@ namespace Library
         {
             return this.Admin;
         }
+        public object Id { get; set; }
     }
 }

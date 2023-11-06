@@ -8,7 +8,6 @@ using System.Linq;
 
 namespace Library
 {
-
     /// <summary>
     /// Clase que administra las partidas en curso.
     /// </summary>
@@ -41,7 +40,7 @@ namespace Library
         /// <summary>
         /// Elimina un juego del servidor.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Id del juego. </param>
         public void RemoveGame(string id)
         {
             Game g = this.Servers.FirstOrDefault(g => g.GetGameId() == id);

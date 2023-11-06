@@ -168,6 +168,12 @@ namespace Library
                 throw new ArgumentException("Identificador no válido.");// El identificador no es válido, manejar el error de alguna manera
             }
         }
+
+        /// <summary>
+        /// Busca un juego por el Id.
+        /// </summary>
+        /// <param name="gameId"> Id del juego. </param>
+        /// <returns> Juego. </returns>
         private Game FindGameById(Guid gameId)
         {
             // Itera a través de los juegos existentes y busca el juego con el gameId dado
