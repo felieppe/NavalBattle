@@ -107,8 +107,21 @@ namespace BattleShip.Tests
             gameLogic.Attack('A', 1);
             Assert.AreEqual(2, gameLogic.Turn());
         }
+        [Test]
+        public void AccessTwoBoardsTest(){
+            int ships = 2;
+            GameLogic gameLogic = new GameLogic(this.board, this.boardSize, ships);
+            
+            UserManager userManager = new UserManager();
+            Player player1 = new Player("Player 1");
+            Player player2 = new Player("Player 2");
+            userManager.AddPlayer(player1);
+            userManager.AddPlayer(player2);
+
+            }
+
+        }
         
-    }
 }
 */
 
