@@ -189,7 +189,6 @@ namespace Library
         private bool DestroyShip(int row, int column)
         {
             Ship foundedShip = null;
-            Coords foundedShipCoords = null;
             string foundedShipId = null;
             foreach (Ship ship in this.game.GetShips()) {
                 string shipId = ship.GetId();
@@ -203,7 +202,6 @@ namespace Library
                         if (coord.GetX() == expected[0] && coord.GetY() == expected[1]) {
                             //Console.WriteLine("FOUNDED");
                             foundedShip = ship;
-                            foundedShipCoords = coord;
                             foundedShipId = shipId;
 
                             break;
