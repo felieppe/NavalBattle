@@ -118,12 +118,10 @@ namespace BattleShip.Tests
             userManager.AddPlayer(player1);
             userManager.AddPlayer(player2);
 
-            
-
+            }
 
         }
         
-    }
 }
             
 

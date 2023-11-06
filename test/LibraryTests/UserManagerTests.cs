@@ -144,10 +144,4 @@ namespace Tests
             Assert.IsTrue(gamePlayers.Contains(player2));
         }     
     }
-<<<<<<< HEAD
 }
-=======
-}
-
-
->>>>>>> 6786b36b35c4479530ee0f2e9e2cacff218f9542
