@@ -13,6 +13,7 @@ namespace Library
     /// </summary>
     public class GameLogic
     {
+        private Game game;
         private Board board;
         private BoardSize boardSize;
         private int TotalShips;
@@ -22,11 +23,13 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
+        /// <param name="game"=Juego.</param>
         /// <param name="board">Tablero.</param>
         /// <param name="boardSize"> Tamaño del tablero. </param>
         /// <param name="totalShips"> Total de barcos que hay que hundir. </param>
-        public GameLogic(Board board, BoardSize boardSize, int totalShips)
+        public GameLogic(Game game, Board board, BoardSize boardSize, int totalShips)
         {
+            this.game = game;
             this.board = board;
             this.boardSize = boardSize;
             this.TotalShips = totalShips;
