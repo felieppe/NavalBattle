@@ -18,7 +18,7 @@ namespace Library
         }
 
         public List<Game> GetListing() {
-
+            return this.Servers;
         }
         
         public Game GetGame(string id) {
