@@ -23,8 +23,6 @@ namespace Library
 
         private int TotalShips;
 
-        private Board board1;
-
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
@@ -37,19 +35,27 @@ namespace Library
         public BoardSize boardSize1;
 
         /// <summary>
+        /// Tablero del jugador 1.
+        /// </summary>
+        public Board board1;
+
+        /// <summary>
+        /// Tablero del jugador 2.
+        /// </summary>
+        public Board board2;
+
+        /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
         public Game(int rows, int columns, int totalShips, Player player)
         {
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
-
+            this.board2 = new Board(boardSize1);
+            GameLogic gameLogic1 = new GameLogic(board1, board2, boardSize1, totalShips);
+            this.AddPlayer(player);
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
-
-            this.TotalShips = totalShips;
-            GameLogic gameLogic1 = new GameLogic(board1, boardSize1, totalShips);
-            this.AddPlayer(player);
         }
 
         /// <summary>
