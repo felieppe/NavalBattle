@@ -25,7 +25,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.player = new Player(string.Empty);
+            this.player = new Player();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Tests
             string newId = "5e5eb7ee-6600-11ee-8c99-0242ac120002";
             this.player.SetId(newId);
 
-            Assert.True(newId.Equals(this.player.GetId()));
+            Assert.AreEqual(newId, this.player.GetId());
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Tests
             string newUsername = "Alfred000";
             this.player.SetUsername(newUsername);
 
-            Assert.True(newUsername.Equals(this.player.GetUsername()));
+            Assert.AreEqual(newUsername, this.player.GetUsername());
         }
     }
 }

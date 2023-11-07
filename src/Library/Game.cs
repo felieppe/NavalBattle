@@ -52,7 +52,7 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            this.Admin = new Player("new-id");      // solo test esto cambiarlo después por player admin real en param
+            this.Admin = new Player();      // solo test esto cambiarlo después por player admin real en param
 
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);

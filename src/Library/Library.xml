@@ -379,7 +379,7 @@
             </summary>
             <value> Username. </value>
         </member>
-        <member name="M:Library.Player.#ctor(System.String)">
+        <member name="M:Library.Player.#ctor">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Player"/>.
             </summary>

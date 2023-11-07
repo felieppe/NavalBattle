@@ -30,8 +30,8 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.player = new Player("ce622ce8-6609-11ee-8c99-0242ac120002");
-            this.player2 = new Player("d06ce532-6609-11ee-8c99-0242ac120002");
+            this.player = new Player();
+            this.player2 = new Player();
             this.game = new Game(10, 10, 6);
 
             this.game.AddPlayer(player);
@@ -87,7 +87,7 @@ namespace Tests
         [Test]
         public void SetAdminTest()
         {
-            Player admin = new Player("some-admin-id"); // Crea un nuevo jugador para el administrador
+            Player admin = new Player(); // Crea un nuevo jugador para el administrador
             this.game.SetAdmin(admin);
 
             Assert.AreEqual(admin, this.game.Admin);
