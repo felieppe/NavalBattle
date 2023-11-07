@@ -205,6 +205,5 @@ namespace Library
         {
             return this.Admin;
         }
-        public object Id { get; set; }
     }
 }
