@@ -92,6 +92,24 @@
             Clase que representa las coordenadas del barco.
             </summary>
         </member>
+        <member name="F:Library.Coords.ShipId">
+            <summary>
+            Id del barco al que se le relaciona la coordenada.
+            </summary>
+            <value> Valor del Id del barco </value>
+        </member>
+        <member name="F:Library.Coords.X">
+            <summary>
+            Coordenada X.
+            </summary>
+            <value> Integrer </value>
+        </member>
+        <member name="F:Library.Coords.Y">
+            <summary>
+            Coordenada Y.
+            </summary>
+            <value> Integrer. </value>
+        </member>
         <member name="M:Library.Coords.#ctor(System.String,System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Coords"/>.
@@ -122,6 +140,30 @@
             <summary>
             Esta clase representa una partida.
             </summary>
+        </member>
+        <member name="F:Library.Game.GameId">
+            <summary>
+            Id del juego.
+            </summary>
+            <value> Id </value>
+        </member>
+        <member name="F:Library.Game.ShipsCoords">
+            <summary>
+            Lista de coordenadas de los barcos en el juego.
+            </summary>
+            <value> Lista con elementos de tipo Coords. </value>
+        </member>
+        <member name="F:Library.Game.Ships">
+            <summary>
+            Lista de barcos ubicados en el tablero del juego.
+            </summary>
+            <value> Lista con elementos de tipo Ship. </value>
+        </member>
+        <member name="F:Library.Game.TotalShips">
+            <summary>
+            Conteo de la cantidad de barcos que se pueden colocar
+            </summary>
+            <value> Integrer </value>
         </member>
         <member name="F:Library.Game.Players">
             <summary>
@@ -242,6 +284,31 @@
         <member name="T:Library.GameLogic">
             <summary>
             Esta clase contiene la lógica del juego.
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.game">
+            <summary>
+            Instancia del juego
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.board">
+            <summary>
+            Instancia del tablero 1
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.board2">
+            <summary>
+            Instancia del tablero 2
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.boardSize">
+            <summary>
+            Instancia del boardSize
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.numberAttack">
+            <summary>
+            Conteo del numero de ataques
             </summary>
         </member>
         <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board,Library.Board)">
