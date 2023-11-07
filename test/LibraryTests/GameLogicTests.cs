@@ -99,8 +99,8 @@ namespace BattleShip.Tests
 
             ServerManager sm = new ServerManager();
             UserManager userManager = new UserManager(sm);
-            Player player1 = new Player("Player 1");
-            Player player2 = new Player("Player 2");
+            Player player1 = new Player();
+            Player player2 = new Player();
             userManager.AddPlayer(player1);
             userManager.AddPlayer(player2);
 
@@ -116,8 +116,8 @@ namespace BattleShip.Tests
         [Test]
         public void AccessTwoBoardsTest()
         {
-            Player player1 = new Player("Player 1");
-            Player player2 = new Player("Player 2");
+            Player player1 = new Player();
+            Player player2 = new Player();
             
             Game game1 = new Game (12, 12, 9); 
             

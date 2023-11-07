@@ -43,8 +43,8 @@ namespace Tests
         {
             Assert.NotNull(this.um);
 
-            Player player = new Player("94b49998-6601-11ee-8c99-0242ac120002");
-            Player player2 = new Player("98cdf916-6601-11ee-8c99-0242ac120002");
+            Player player = new Player();
+            Player player2 = new Player();
 
             List<Player> expectedPlayers = new List<Player>();
             expectedPlayers.Add(player);
@@ -68,8 +68,8 @@ namespace Tests
         {
             Assert.NotNull(this.um);
 
-            Player player = new Player("af546682-6603-11ee-8c99-0242ac120002");
-            Player player2 = new Player("af546984-6603-11ee-8c99-0242ac120002");
+            Player player = new Player();
+            Player player2 = new Player();
 
             List<Player> expectedPlayers = new List<Player>();
             expectedPlayers.Add(player);
@@ -95,8 +95,8 @@ namespace Tests
         {
             Assert.NotNull(this.um);
 
-            Player player = new Player("86f5a46e-6606-11ee-8c99-0242ac120002");
-            Player player2 = new Player("8af786ea-6606-11ee-8c99-0242ac120002");
+            Player player = new Player();
+            Player player2 = new Player();
 
             List<Player> expectedInGamePlayers = new List<Player>();
             expectedInGamePlayers.Add(player);
@@ -122,8 +122,8 @@ namespace Tests
         {
             Assert.NotNull(um);
 
-            Player player = new Player("94b49998-6601-11ee-8c99-0242ac120002");
-            Player player2 = new Player("98cdf916-6601-11ee-8c99-0242ac120002");
+            Player player = new Player();
+            Player player2 = new Player();
 
             // Creamos un juego y añadimos un jugador, lo oficializamos agregandolo al ServerManager
             Game game = this.um.NewGame(false, sm);
@@ -147,8 +147,8 @@ namespace Tests
         public void ConnectTwoPlayersTest(){
             Assert.NotNull(this.um);
 
-            Player player1 = new Player("af546682-6603-11ee-8c99-0242ac120002");
-            Player player2 = new Player("af546984-6603-11ee-8c99-0242ac120002");
+            Player player1 = new Player();
+            Player player2 = new Player();
 
             this.um.AddPlayer(player1);
             this.um.AddPlayer(player2);
