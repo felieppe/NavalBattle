@@ -478,12 +478,12 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="F:Library.UserManager.ongoingGames">
+        <member name="F:Library.UserManager.serverManager">
             <summary>
-            Lista de juegos actuales.
+            Instancia de Server Manager
             </summary>
         </member>
-        <member name="M:Library.UserManager.#ctor">
+        <member name="M:Library.UserManager.#ctor(Library.ServerManager)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
             </summary>
@@ -530,14 +530,14 @@
             </summary>
             <param name="game"> Ongoing games. </param>
         </member>
-        <member name="M:Library.UserManager.AddPlayerToGame(Library.Player,System.Object)">
+        <member name="M:Library.UserManager.AddPlayerToGame(Library.Player,System.String)">
             <summary>
             Agrega un jugador a una partida.
             </summary>
             <param name="player"> Jugador. </param>
             <param name="id"> Id del jugador. </param>
         </member>
-        <member name="M:Library.UserManager.FindGameById(System.Guid)">
+        <member name="M:Library.UserManager.FindGameById(System.String)">
             <summary>
             Busca un juego por el Id.
             </summary>

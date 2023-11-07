@@ -27,14 +27,16 @@ namespace Library
         private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
-        /// Lista de juegos actuales.
+        /// Instancia de Server Manager
         /// </summary>
-        private List<Game> ongoingGames = new List<Game>();
+        private ServerManager serverManager;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
-        public UserManager() {}
+        public UserManager(ServerManager sm) {
+            this.serverManager = sm;
+        }
 
         /// <summary>
         /// Añade un jugador a la lista de jugadores.
@@ -147,25 +149,13 @@ namespace Library
         /// </summary>
         /// <param name="player"> Jugador. </param>
         /// <param name="id"> Id del jugador. </param>
-        public void AddPlayerToGame(Player player, object id)
+        public void AddPlayerToGame(Player player, string id)
         {
-            if (id is Guid gameId)
-            {
-                // Buscar la partida en función del gameId
-                Game game = this.FindGameById(gameId);
-
-                if (game != null)
-                {
+            if (!String.IsNullOrEmpty(id)) {
+                Game game = this.FindGameById(id);
+                if (game != null) {
                     game.AddPlayer(player);
                 }
-                else
-                {
-                    throw new InvalidOperationException("Partida no encontrada.");// La partida no se encontró, manejar el error de alguna manera
-                }
-            }
-            else
-            {
-                throw new ArgumentException("Identificador no válido.");// El identificador no es válido, manejar el error de alguna manera
             }
         }
 
@@ -174,17 +164,14 @@ namespace Library
         /// </summary>
         /// <param name="gameId"> Id del juego. </param>
         /// <returns> Juego. </returns>
-        private Game FindGameById(Guid gameId)
+        private Game FindGameById(string gameId)
         {
-            // Itera a través de los juegos existentes y busca el juego con el gameId dado
-            foreach (Game game in this.ongoingGames)
-            {
-                if (game.Id == game.Id)
-                {
+            foreach (Game game in this.serverManager.GetListing()) {
+                if (game.GetGameId() == gameId) {
                     return game;
                 }
             }
-            return null; // Si no se encuentra el juego, devuelve null
+            return null;
         }
     }
 }
