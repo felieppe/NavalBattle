@@ -15,7 +15,7 @@ namespace Tests
     public class BoardSizeTests
     {
         /// <summary>
-        /// Tablero para probar.
+        /// Tablero, rows y columns para probar.
         /// </summary>
         private BoardSize boardSize;
         private int rows;
