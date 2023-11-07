@@ -31,8 +31,8 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.um = new UserManager();
             this.sm = new ServerManager();
+            this.um = new UserManager(this.sm);
         }
 
         /// <summary>
@@ -125,16 +125,19 @@ namespace Tests
             Player player = new Player("94b49998-6601-11ee-8c99-0242ac120002");
             Player player2 = new Player("98cdf916-6601-11ee-8c99-0242ac120002");
 
-            um.AddPlayer(player);
+            // Creamos un juego y añadimos un jugador, lo oficializamos agregandolo al ServerManager
+            Game game = this.um.NewGame(false, sm);
+            game.AddPlayer(player);
+            this.sm.AddGame(game);
 
-            Game game = um.NewGame(true, sm); // Inicializa el objeto Game
-            um.AddPlayerToGame(player2, game.GetGameId());
+            // Revisamos que los valores esten bien.
+            Assert.AreEqual(1, this.sm.GetGame(game.GetGameId()).GetPlayers().Count);
+            Assert.True(this.sm.GetGame(game.GetGameId()).GetPlayers().Contains(player));
 
-            List<Player> gamePlayers = game.GetPlayers();
-
-            Assert.AreEqual(2, gamePlayers.Count); // Verifica que haya 2 jugadores en la partida
-            Assert.True(gamePlayers.Contains(player));
-            Assert.True(gamePlayers.Contains(player2));
+            // Agregamos otro jugador obteniendo el juego desde ServerManager y revisamos que se haya agregado correctamente.
+            this.sm.GetGame(game.GetGameId()).AddPlayer(player2);
+            Assert.AreEqual(2, this.sm.GetGame(game.GetGameId()).GetPlayers().Count);
+            Assert.True(this.sm.GetGame(game.GetGameId()).GetPlayers().Contains(player2));
         }
 
         /// <summary>

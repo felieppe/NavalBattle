@@ -97,7 +97,8 @@ namespace BattleShip.Tests
             BoardSize boardSize = new BoardSize(10,10);
             Board board = new Board(boardSize);
 
-            UserManager userManager = new UserManager();
+            ServerManager sm = new ServerManager();
+            UserManager userManager = new UserManager(sm);
             Player player1 = new Player("Player 1");
             Player player2 = new Player("Player 2");
             userManager.AddPlayer(player1);
