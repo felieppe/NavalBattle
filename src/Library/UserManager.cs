@@ -81,9 +81,9 @@ namespace Library
                 bool ready = false;
                 while (!ready)
                 {
-#pragma warning disable CA5394
+                    #pragma warning disable CA5394
                     pIndex = rnd.Next(availablePlayers.Count);
-#pragma warning disable CA5394
+                    #pragma warning disable CA5394
                     pIndex2 = rnd.Next(availablePlayers.Count);
 
                     if (pIndex != pIndex2)
