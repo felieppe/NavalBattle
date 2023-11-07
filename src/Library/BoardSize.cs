@@ -104,3 +104,4 @@ namespace Library
         }
     }
 }
+/// Solo se encarga del tamaño del tablero.

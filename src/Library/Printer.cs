@@ -52,3 +52,4 @@ namespace Library
         }
     }
 }
+/// Cumple con EXPERT porque tiene todos los datos que necesita para imprimir, y cumple con el principio de responsabilidad única porque sólo tiene la responsabilidad de imprimir en consola.

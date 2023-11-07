@@ -69,3 +69,4 @@ namespace Library
         }
     }
 }
+///Cumple con EXPERT porque tiene todos los datos que necesita para manejar los juegos, y cumple con el principio de responsabilidad única porque sólo tiene la responsabilidad de administrar las partidas en curso.

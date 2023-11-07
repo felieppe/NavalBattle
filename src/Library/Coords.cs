@@ -20,13 +20,13 @@ namespace Library
         /// <summary>
         /// Coordenada X.
         /// </summary>
-        /// <value> Integrer </value>
+        /// <value> Integrar </value>
         private int X;
 
         /// <summary>
         /// Coordenada Y.
         /// </summary>
-        /// <value> Integrer. </value>
+        /// <value> Integrar. </value>
         private int Y;
 
         /// <summary>
@@ -61,3 +61,4 @@ namespace Library
         public int GetY() { return this.Y; }
     }
 }
+/// Solo se encarga de las coordenadas del tablero.

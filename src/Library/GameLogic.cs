@@ -283,3 +283,4 @@ namespace Library
         }
     }
 }
+/// Cumple con EXPERT porque tiene todos los datos necesarios para poder manejar la lógica del juego.

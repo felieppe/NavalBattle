@@ -28,7 +28,6 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Player"/>.
         /// </summary>
-        /// <param name="id"> Id. </param>
         public Player()
         {
             Guid uuid = Guid.NewGuid();
@@ -78,3 +77,5 @@ namespace Library
         }
     }
 }
+/// Cumple con EXPERT porque tiene todos los datos necesarios para crear un jugador.
+/// Cumple con el principio abierto-cerrado, ya que se le pueden agregar funciones mediante herencia o composición, pero no es necesario modificar la clase.

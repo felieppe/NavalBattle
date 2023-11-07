@@ -34,7 +34,7 @@ namespace Library
         /// <summary>
         /// Conteo de la cantidad de barcos que se pueden colocar
         /// </summary>
-        /// <value> Integrer </value>
+        /// <value> Integer </value>
         private int TotalShips = 0;
 
         /// <summary>
