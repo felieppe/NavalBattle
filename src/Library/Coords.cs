@@ -11,8 +11,22 @@ namespace Library
     /// </summary>
     public class Coords
     {
+        /// <summary>
+        /// Id del barco al que se le relaciona la coordenada.
+        /// </summary>
+        /// <value> Valor del Id del barco </value>
         private string ShipId;
+
+        /// <summary>
+        /// Coordenada X.
+        /// </summary>
+        /// <value> Integrer </value>
         private int X;
+
+        /// <summary>
+        /// Coordenada Y.
+        /// </summary>
+        /// <value> Integrer. </value>
         private int Y;
 
         /// <summary>
