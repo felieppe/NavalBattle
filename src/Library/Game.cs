@@ -13,12 +13,28 @@ namespace Library
     /// </summary>
     public class Game
     {
+        /// <summary>
+        /// Id del juego.
+        /// </summary>
+        /// <value> Id </value>
         private string GameId;
 
+        /// <summary>
+        /// Lista de coordenadas de los barcos en el juego.
+        /// </summary>
+        /// <value> Lista con elementos de tipo Coords. </value>
         private List<Coords> ShipsCoords = new List<Coords>();
 
+        /// <summary>
+        /// Lista de barcos ubicados en el tablero del juego.
+        /// </summary>
+        /// <value> Lista con elementos de tipo Ship. </value>
         private List<Ship> Ships = new List<Ship>();
 
+        /// <summary>
+        /// Conteo de la cantidad de barcos que se pueden colocar
+        /// </summary>
+        /// <value> Integrer </value>
         private int TotalShips = 0;
 
         /// <summary>

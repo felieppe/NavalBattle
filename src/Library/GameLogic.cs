@@ -13,10 +13,29 @@ namespace Library
     /// </summary>
     public class GameLogic
     {
+        /// <summary>
+        /// Instancia del juego
+        /// </summary>
         private Game game;
+
+        /// <summary>
+        /// Instancia del tablero 1
+        /// </summary>
         private Board board;
+
+        /// <summary>
+        /// Instancia del tablero 2
+        /// </summary>
         private Board board2;
+
+        /// <summary>
+        /// Instancia del boardSize
+        /// </summary>
         private BoardSize boardSize;
+
+        /// <summary>
+        /// Conteo del numero de ataques
+        /// </summary>
         private int numberAttack = 1;
 
         /// <summary>
