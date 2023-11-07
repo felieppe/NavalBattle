@@ -23,7 +23,7 @@ Repositorio de GitHub dedicado para el proyecto de final de materia de Programac
 Entrega| Link
 -------- | ------ 
 Primera Entrega|  *[Aquí](https://github.com/ucudal/PII_2023_2_equipo_4/releases/tag/primera_entrega)*
-Segunda Entrega | No disponible!
+Segunda Entrega | *[Aquí](https://github.com/ucudal/PII_2023_2_equipo_4/releases/tag/segunda_entrega)*
 Ultima entrega | No disponible!
 
 # Estudiantes
