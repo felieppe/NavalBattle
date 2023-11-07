@@ -4,6 +4,8 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 
+using System;
+
 namespace Library
 {
     /// <summary>
@@ -27,9 +29,10 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Player"/>.
         /// </summary>
         /// <param name="id"> Id. </param>
-        public Player(string id)
+        public Player()
         {
-            this.Id = id;
+            Guid uuid = Guid.NewGuid();
+            this.SetId(uuid.ToString());
         }
 
         /// <summary>
