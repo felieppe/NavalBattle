@@ -17,31 +17,31 @@ namespace Library
         /// Id del juego.
         /// </summary>
         /// <value> Id </value>
-        private string GameId;
+        private string gameId;
 
         /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
         /// </summary>
         /// <value> Lista con elementos de tipo Coords. </value>
-        private List<Coords> ShipsCoords = new List<Coords>();
+        private List<Coords> shipsCoords = new List<Coords>();
 
         /// <summary>
         /// Lista de barcos ubicados en el tablero del juego.
         /// </summary>
         /// <value> Lista con elementos de tipo Ship. </value>
-        private List<Ship> Ships = new List<Ship>();
+        private List<Ship> ships = new List<Ship>();
 
         /// <summary>
         /// Conteo de la cantidad de barcos que se pueden colocar
         /// </summary>
         /// <value> Integer </value>
-        private int TotalShips = 0;
+        private int totalShips = 0;
 
         /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
         /// <value> Lista con elementos de tipo Player. </value>
-        private List<Player> Players = new List<Player>();
+        private List<Player> players = new List<Player>();
 
         /// <summary>
         /// Jugador administrador de la partida.
@@ -74,7 +74,7 @@ namespace Library
             this.board1 = new Board(boardSize1);
             this.board2 = new Board(boardSize1);
 
-            this.TotalShips = totalShips;
+            this.totalShips = totalShips;
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
@@ -85,13 +85,13 @@ namespace Library
         /// </summary>
         public void AddPlayer(Player player)
         {
-            if (this.Players.Count >= 2)
+            if (this.players.Count >= 2)
             {
                 return;
             }
             else
             {
-                this.Players.Add(player);
+                this.players.Add(player);
             }
         }
 
@@ -103,7 +103,7 @@ namespace Library
         {
             if (!string.IsNullOrEmpty(id))
             {
-                this.GameId = id;
+                this.gameId = id;
             }
         }
         
@@ -113,9 +113,9 @@ namespace Library
         public void SetAdmin(Player admin)
         {
             this.Admin = admin;
-            if (!this.Players.Contains(admin))
+            if (!this.players.Contains(admin))
             {
-                this.Players.Add(admin);
+                this.players.Add(admin);
             }
         }
 
@@ -128,7 +128,7 @@ namespace Library
         public void AddShipCoords(string id, int x, int y)
         {
             Coords cs = new Coords(id, x, y);
-            this.ShipsCoords.Add(cs);
+            this.shipsCoords.Add(cs);
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace Library
         /// <param name="ship"> Agrega un barco. </param>
         public void AddShip(Ship ship)
         {
-            this.Ships.Add(ship);
+            this.ships.Add(ship);
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace Library
         /// <param name="updated"> Barco actualizado. </param>
         public void UpdateShip(Ship ship, Ship updated)
         {
-            this.Ships[this.Ships.IndexOf(ship)] = updated;
+            this.ships[this.ships.IndexOf(ship)] = updated;
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Library
         /// <returns> Lista de jugadores. </returns>
         public List<Player> GetPlayers()
         {
-            return this.Players;
+            return this.players;
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace Library
         /// <returns> Id del juego. </returns>
         public string GetGameId()
         {
-            return this.GameId;
+            return this.gameId;
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Library
         /// <returns> Coordenadas del barco. </returns>
         public List<Coords> GetShipsCoords()
         {
-            return this.ShipsCoords;
+            return this.shipsCoords;
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Library
         /// <returns> Lista de barcos. </returns>
         public List<Ship> GetShips()
         {
-            return this.Ships;
+            return this.ships;
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace Library
         /// <returns> La cantidad de barcos. </returns>
         public int GetTotalShips()
         {
-            return this.TotalShips;
+            return this.totalShips;
         }
 
         /// <summary>

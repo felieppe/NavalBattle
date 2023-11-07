@@ -88,4 +88,5 @@ namespace Library
         }
     }
 }
-/// Cumple con el principio de responsabilidad única, ya que sólo se encarga de crear tableros, y la clase BoardSize permite que si se quisiera cambiar la manera de establecer dimensiones de tableros Board no tenga que cambiar.
+
+/// Cumple con el principio de responsabilidad única, ya que sólo se encarga de crear tableros, y la clase BoardSize permite que, si se quisiera cambiar la manera de establecer dimensiones de tableros Board no tenga que cambiar.

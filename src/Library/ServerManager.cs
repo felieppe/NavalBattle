@@ -69,4 +69,6 @@ namespace Library
         }
     }
 }
-///Cumple con EXPERT porque tiene todos los datos que necesita para manejar los juegos, y cumple con el principio de responsabilidad única porque sólo tiene la responsabilidad de administrar las partidas en curso.
+
+///Cumple con el patrón Expert porque tiene todos los datos que se necesitan para manejar los juegos.
+///Cumple con el principio de responsabilidad única porque solo tiene la responsabilidad de administrar las partidas en curso.
