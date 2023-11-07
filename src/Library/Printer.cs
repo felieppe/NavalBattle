@@ -35,7 +35,7 @@ namespace Library
         /// Imprime el tablero
         /// </summary>
         /// <param name="board">Tablero</param>
-        public static void Print(Board board)
+        public void Print(Board board)
         {
             Console.Clear();
             for (int row = 0; row < board.GetBoardSize().GetRows(); row++)
