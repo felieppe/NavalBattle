@@ -283,3 +283,5 @@ namespace Library
         }
     }
 }
+
+/// Cumple con el patrón Expert porque tiene todos los datos necesarios para poder manejar la lógica del juego.

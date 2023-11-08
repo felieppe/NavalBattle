@@ -20,32 +20,32 @@ namespace Library
         {
             if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
             {
-                this.Rows = rows + 1;
+                this.rows = rows + 1;
             }
             else
             {
-                this.Rows = 9;
+                this.rows = 9;
             }
         
             if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
             {
-                this.Columns = columns + 1;
+                this.columns = columns + 1;
             }
             else
             {
-                this.Columns = 9;
+                this.columns = 9;
             }
         }
 
         /// <summary>
         /// Filas del tablero.
         /// </summary>
-        private int Rows;
+        private int rows;
 
         /// <summary>
         /// Columnas del tablero.
         /// </summary>
-        private int Columns;
+        private int columns;
 
         /// <summary>
         /// Establece el número de filas.
@@ -56,12 +56,12 @@ namespace Library
         {
             if ((rows >= 8) && (rows <= 20) && (rows % 2 == 0))
             {
-                this.Rows = rows + 1;
+                this.rows = rows + 1;
                 return true;
             }
             else
             {
-                this.Rows = 9;
+                this.rows = 9;
                 return false;
             }
         }
@@ -75,12 +75,12 @@ namespace Library
         {
             if ((columns >= 8) && (columns <= 20) && (columns % 2 == 0))
             {
-                this.Columns = columns + 1;
+                this.columns = columns + 1;
                 return true;
             }
             else
             {
-                this.Columns = 9;
+                this.columns = 9;
                 return false;
             }
         }
@@ -91,7 +91,7 @@ namespace Library
         /// <returns> Las filas del tablero. </returns>
         public int GetRows()
         {
-            return this.Rows;
+            return this.rows;
         }
 
         /// <summary>
@@ -100,7 +100,9 @@ namespace Library
         /// <returns> Las columnas del tablero. </returns>
         public int GetColumns()
         {
-            return this.Columns;
+            return this.columns;
         }
     }
 }
+
+/// Cumple con el principio de responsabilidad única, ya que solo se encarga del tamaño del tablero.

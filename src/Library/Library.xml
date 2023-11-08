@@ -51,12 +51,12 @@
             <param name="rows"> Filas. </param>
             <param name="columns"> Columnas. </param>
         </member>
-        <member name="F:Library.BoardSize.Rows">
+        <member name="F:Library.BoardSize.rows">
             <summary>
             Filas del tablero.
             </summary>
         </member>
-        <member name="F:Library.BoardSize.Columns">
+        <member name="F:Library.BoardSize.columns">
             <summary>
             Columnas del tablero.
             </summary>
@@ -92,6 +92,24 @@
             Clase que representa las coordenadas del barco.
             </summary>
         </member>
+        <member name="F:Library.Coords.shipId">
+            <summary>
+            Id del barco al que se le relaciona la coordenada.
+            </summary>
+            <value> Valor del Id del barco </value>
+        </member>
+        <member name="F:Library.Coords.x">
+            <summary>
+            Coordenada X.
+            </summary>
+            <value> Integrar </value>
+        </member>
+        <member name="F:Library.Coords.y">
+            <summary>
+            Coordenada Y.
+            </summary>
+            <value> Integrar. </value>
+        </member>
         <member name="M:Library.Coords.#ctor(System.String,System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Coords"/>.
@@ -123,7 +141,31 @@
             Esta clase representa una partida.
             </summary>
         </member>
-        <member name="F:Library.Game.Players">
+        <member name="F:Library.Game.gameId">
+            <summary>
+            Id del juego.
+            </summary>
+            <value> Id </value>
+        </member>
+        <member name="F:Library.Game.shipsCoords">
+            <summary>
+            Lista de coordenadas de los barcos en el juego.
+            </summary>
+            <value> Lista con elementos de tipo Coords. </value>
+        </member>
+        <member name="F:Library.Game.ships">
+            <summary>
+            Lista de barcos ubicados en el tablero del juego.
+            </summary>
+            <value> Lista con elementos de tipo Ship. </value>
+        </member>
+        <member name="F:Library.Game.totalShips">
+            <summary>
+            Conteo de la cantidad de barcos que se pueden colocar
+            </summary>
+            <value> Integer </value>
+        </member>
+        <member name="F:Library.Game.players">
             <summary>
             Lista de jugadores del juego.
             </summary>
@@ -242,6 +284,31 @@
         <member name="T:Library.GameLogic">
             <summary>
             Esta clase contiene la lógica del juego.
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.game">
+            <summary>
+            Instancia del juego
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.board">
+            <summary>
+            Instancia del tablero 1
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.board2">
+            <summary>
+            Instancia del tablero 2
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.boardSize">
+            <summary>
+            Instancia del boardSize
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.numberAttack">
+            <summary>
+            Conteo del numero de ataques
             </summary>
         </member>
         <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board,Library.Board)">
@@ -383,7 +450,6 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Player"/>.
             </summary>
-            <param name="id"> Id. </param>
         </member>
         <member name="M:Library.Player.SetId(System.String)">
             <summary>

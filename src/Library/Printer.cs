@@ -52,3 +52,6 @@ namespace Library
         }
     }
 }
+
+/// Cumple con el patrón Expert porque tiene todos los datos que necesita para imprimir.
+/// Cumple con el principio de responsabilidad única porque solo tiene la responsabilidad de imprimir en consola.

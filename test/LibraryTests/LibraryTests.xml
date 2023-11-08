@@ -11,7 +11,7 @@
         </member>
         <member name="F:Tests.BoardSizeTests.boardSize">
             <summary>
-            Tablero para probar.
+            Tablero, rows y columns para probar.
             </summary>
         </member>
         <member name="M:Tests.BoardSizeTests.SetUp">
