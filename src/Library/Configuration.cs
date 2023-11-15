@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Library.Exceptions;
 
-namespace NavalBattle
+namespace Library
 {
     public class Configuration
     {
