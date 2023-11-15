@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.Exceptions;
 
 namespace NavalBattle
 {
@@ -29,9 +30,15 @@ namespace NavalBattle
                 JsonDocument jdoc = JsonDocument.Parse(jstring);
                 JsonElement elem = jdoc.RootElement;
 
-                this.Name = elem.GetProperty("name").GetString();
-                this.Username = elem.GetProperty("username").GetString();
-                this.Token = elem.GetProperty("token").GetString();
+                try {
+                    this.Name = elem.GetProperty("name").GetString();
+                } catch (KeyNotFoundException ex) { throw new NameNotFoundException("The property 'name' in configuration file does not exist."); }
+                try {
+                    this.Username = elem.GetProperty("username").GetString();
+                } catch (KeyNotFoundException ex) { throw new UsernameNotFoundException("The property 'username' in configuration file does not exist."); }
+                try {
+                    this.Token = elem.GetProperty("token").GetString();
+                } catch (KeyNotFoundException ex) { throw new TokenNotFoundException("The property 'token' in configuration file does not exist."); }
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
