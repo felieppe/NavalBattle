@@ -1,9 +1,12 @@
+using System.Net;
+using System.IO;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Library
+namespace NavalBattle
 {
     public class Configuration
     {
@@ -12,7 +15,18 @@ namespace Library
         public Configuration() {}
 
         private void Load() {
+            string jpath = "../settings.json";
 
+            try {
+                string jstring = File.ReadAllText(jpath);
+
+                JsonDocument jdoc = JsonDocument.Parse(jstring);
+                JsonElement elem = jdoc.RootElement;
+
+                this.Token = elem.GetProperty("token").GetString();
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
