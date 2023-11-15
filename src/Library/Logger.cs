@@ -26,17 +26,22 @@ namespace Library
             string logFile = GenerateLogfile();
             
             string logPath = $"{folderPath}/{logFile}";
-            if (!File.Exists(logPath)) { File.Create(logPath); }
+            if (!File.Exists(logPath)) { 
+                FileStream fs = File.Create(logPath); 
+                fs.Close();
+            }
         
             this.LogPath = logPath;
         }
         private void Log(string log) {
+            Console.WriteLine(this.LogPath);
             try {
                 using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
                     writer.WriteLine(log);
                 }
             } catch (Exception ex) {
                 Console.WriteLine("ERROR! Impossible to write in logfile.");
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -46,13 +51,24 @@ namespace Library
         }
 
         public void Info(string msg) {
-            Console.WriteLine($"[@{Config.GetUsername()}/INFO]: {msg}");
+            string output = $"[@{Config.GetUsername()}/INFO]: {msg}";
+            Console.WriteLine(output);
+
+            this.Log(output);
         }
         public void Debug(string msg) {
-            if (this.Config.GetDebug()) { Console.WriteLine($"[@{Config.GetUsername()}/DEBUG]: {msg}"); }
+            if (this.Config.GetDebug()) {
+                string output = $"[@{Config.GetUsername()}/DEBUG]: {msg}";
+                Console.WriteLine(output); 
+            
+                this.Log(output);
+            }
         }
         public void Error(string msg) {
-            Console.WriteLine($"[@{Config.GetUsername()}/ERROR]: {msg}");
+            string output = $"[@{Config.GetUsername()}/ERROR]: {msg}";
+            Console.WriteLine(output);
+
+            this.Log(output);
         }
     }
 }
