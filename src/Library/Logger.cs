@@ -11,6 +11,7 @@ namespace Library
     public class Logger
     {
         private Configuration Config;
+        private string LogPath;
 
         private void Setup() {
             string folderPath = "../../logs";
@@ -26,6 +27,17 @@ namespace Library
             
             string logPath = $"{folderPath}/{logFile}";
             if (!File.Exists(logPath)) { File.Create(logPath); }
+        
+            this.LogPath = logPath;
+        }
+        private void Log(string log) {
+            try {
+                using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
+                    writer.WriteLine(log);
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("ERROR! Impossible to write in logfile.");
+            }
         }
 
         public Logger(Configuration config) {
