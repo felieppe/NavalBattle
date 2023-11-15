@@ -44,13 +44,13 @@ namespace Library
             }
         }
 
-        private string GetName() {
+        public string GetName() {
             return this.Name;
         }
-        private string GetUsername() {
+        public string GetUsername() {
             return this.Username;
         }
-        private string GetToken() {
+        public string GetToken() {
             return this.Token;
         }
     }
