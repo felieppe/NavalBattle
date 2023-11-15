@@ -8,8 +8,10 @@ namespace Library
 {
     public class Logger
     {
-        private Configuration config;
+        private Configuration Config;
 
-        public Logger() {}
+        public Logger(Configuration config) {
+            this.Config = config;
+        }
     }
 }
