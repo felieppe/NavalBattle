@@ -620,3 +620,6 @@ Thumbs.db
 
 # Tokens & private info.
 settings.json
+
+# Logs of bot
+/logs
