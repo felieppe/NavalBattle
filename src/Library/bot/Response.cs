@@ -1,3 +1,4 @@
+using System.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace Library.bot
 
         public void SetType(ResponseType type) {
             if (type != null) { this.Type = type; }
+        }
+        public void SetMessage(string msg) {
+            if (!String.IsNullOrEmpty(msg)) { this.Message = msg; }
         }
 
         public ResponseType GetType() {
