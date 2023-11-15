@@ -19,7 +19,7 @@ namespace Library.bot
         public ResponseType GetType() {
             return this.Type;
         }
-        public string Message() {
+        public string GetMessage() {
             return this.Message;
         }
     }
