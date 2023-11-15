@@ -8,5 +8,9 @@ namespace Library
     public class Configuration
     {
         public Configuration() {}
+
+        private void Load() {
+
+        }
     }
 }
