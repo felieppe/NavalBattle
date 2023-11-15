@@ -13,5 +13,9 @@ namespace Library
         public Logger(Configuration config) {
             this.Config = config;
         }
+
+        public void Info(string msg) {
+            Console.WriteLine($"[@{Config.GetUsername()}/INFO]: {msg}");
+        }
     }
 }
