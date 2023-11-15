@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using System;
 using Library;
+using Library.handlers;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -27,7 +28,7 @@ namespace NavalBattle
         private static Logger Logger = new Logger(Config);
         private static TelegramBotClient Bot;
 
-        private static IHandler firstHandler;
+        private static IHandler Handler;
 
         /// <summary>
         /// Punto de entrada al programa principal.
@@ -37,6 +38,8 @@ namespace NavalBattle
 
             Bot = new TelegramBotClient(Config.GetToken());
             var cts = new CancellationTokenSource();
+
+            Handler = new PlayHandler(null);
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -67,7 +70,7 @@ namespace NavalBattle
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
             string response = string.Empty;
-            firstHandler.Handle(message, out response);
+            Handler.Handle(message, out response);
 
             if (!string.IsNullOrEmpty(response)) {
                 await Bot.SendTextMessageAsync(message.Chat.Id, response);
