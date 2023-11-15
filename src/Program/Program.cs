@@ -58,7 +58,6 @@ namespace NavalBattle
             }
         }
         private static async Task HandleMessageReceived(ITelegramBotClient botClient, Message message) {
-            Console.WriteLine($"Received a message from {message.From.FirstName} saying: {message.Text}");
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
             string response = string.Empty;
@@ -67,6 +66,10 @@ namespace NavalBattle
             if (!string.IsNullOrEmpty(response)) {
                 await bot.SendTextMessageAsync(message.Chat.Id, response);
             }
+        }
+        public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
+            Logger.Error(exception.Message);
+            return Task.CompletedTask;
         }
     }
 }
