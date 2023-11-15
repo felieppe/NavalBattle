@@ -45,5 +45,17 @@ namespace NavalBattle
             Logger.Info($"{Config.GetUsername()} is up!");
             Console.ReadLine();
         }
+
+        public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            try {
+                if (update.Type == UpdateType.Message) {
+                    await HandleMessageReceived(botClient, update.Message);
+                }
+            }
+            catch(Exception e) {
+                await HandleErrorAsync(botClient, e, cancellationToken);
+            }
+        }
     }
 }
