@@ -17,6 +17,9 @@ namespace Library
         public void Info(string msg) {
             Console.WriteLine($"[@{Config.GetUsername()}/INFO]: {msg}");
         }
+        public void Debug(string msg) {
+            if (this.Config.GetDebug()) { Console.WriteLine($"[@{Config.GetUsername()}/DEBUG]: {msg}"); }
+        }
         public void Error(string msg) {
             Console.WriteLine($"[@{Config.GetUsername()}/ERROR]: {msg}");
         }
