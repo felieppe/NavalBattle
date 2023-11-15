@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 namespace Library.bot.core
 {
     public enum ResponseType {
-        Message, Image, Video, Sticker, Keyboard
+        Message, Image, Video, Sticker, Keyboard, None
     }
 }
