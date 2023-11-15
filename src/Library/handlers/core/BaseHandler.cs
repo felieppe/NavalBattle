@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Library.bot;
+using Library.bot.core;
 
 namespace Library.handlers.core
 {
@@ -46,7 +48,7 @@ namespace Library.handlers.core
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
-        protected abstract void InternalHandle(Message message, out string response);
+        protected abstract void InternalHandle(Message message, out Response response);
 
         /// <summary>
         /// Este método puede ser sobreescrito en las clases sucesores que procesan varios mensajes cambiando de estado
@@ -83,7 +85,7 @@ namespace Library.handlers.core
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        public IHandler Handle(Message message, out string response)
+        public IHandler Handle(Message message, out Response response)
         {
             if (this.CanHandle(message))
             {
@@ -96,7 +98,7 @@ namespace Library.handlers.core
             }
             else
             {
-                response = String.Empty;
+                response = new Response(ResponseType.None, null);
                 return null;
             }
         }

@@ -73,11 +73,15 @@ namespace NavalBattle
         private static async Task HandleMessageReceived(ITelegramBotClient botClient, Message message) {
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
-            string response = string.Empty;
+            Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
-            if (!string.IsNullOrEmpty(response)) {
-                await Bot.SendTextMessageAsync(message.Chat.Id, response);
+            switch(response.GetType()) {
+                case ResponseType.Message:
+                    if (!string.IsNullOrEmpty(response.GetMessage())) {
+                        await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage());
+                    }
+                    break;
             }
         }
         public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {

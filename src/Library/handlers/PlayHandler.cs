@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
 using Library.handlers.core;
+using Library.bot;
+using Library.bot.core;
 
 namespace Library.handlers
 {
@@ -27,9 +29,10 @@ namespace Library.handlers
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(Message message, out string response)
+        protected override void InternalHandle(Message message, out Response response)
         {
-            response = "BUENO, VAMO A JUGA";
+            //response = "BUENO, VAMO A JUGA";
+            response = new Response(ResponseType.Message, "BUENO, VAMO A JUGA");
         }
     }
 }

@@ -414,7 +414,7 @@
             <param name="keywords">La lista de comandos.</param>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Library.handlers.core.BaseHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Library.handlers.core.BaseHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y asigna
             la respuesta al mensaje.
@@ -438,7 +438,7 @@
             <param name="message">El mensaje a procesar.</param>
             <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         </member>
-        <member name="M:Library.handlers.core.BaseHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Library.handlers.core.BaseHandler.Handle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje o lo pasa al siguiente "handler" si existe.
             </summary>
@@ -464,7 +464,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Library.handlers.PlayHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Library.handlers.PlayHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
@@ -478,7 +478,7 @@
             </summary>
             <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
         </member>
-        <member name="M:Library.IHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Library.IHandler.Handle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
