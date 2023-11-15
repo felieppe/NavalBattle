@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.ComTypes;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.IO;
 using System.Text.Json;
@@ -18,6 +20,8 @@ namespace NavalBattle
 
         private void Load() {
             string jpath = "../settings.json";
+
+            if (!File.Exists(jpath)) { break; }
 
             try {
                 string jstring = File.ReadAllText(jpath);
