@@ -12,6 +12,8 @@ using System.Globalization;
 using System;
 using Library;
 using Library.handlers;
+using Library.bot;
+using Library.bot.core;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -52,7 +54,9 @@ namespace NavalBattle
             );
 
             Logger.Info($"{Config.GetUsername()} is up!");
+
             Console.ReadLine();
+            cts.Cancel();
         }
 
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
