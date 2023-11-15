@@ -33,6 +33,12 @@ namespace NavalBattle
             }
         }
 
+        private string GetName() {
+            return this.Name;
+        }
+        private string GetUsername() {
+            return this.Username;
+        }
         private string GetToken() {
             return this.Token;
         }
