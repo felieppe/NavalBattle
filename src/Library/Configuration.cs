@@ -12,7 +12,7 @@ namespace NavalBattle
     {
         private string Token;
 
-        public Configuration() {}
+        public Configuration() { this.Load(); }
 
         private void Load() {
             string jpath = "../settings.json";
