@@ -1,3 +1,4 @@
+using Internal;
 using System.Net;
 using System;
 using System.IO;
@@ -34,7 +35,6 @@ namespace Library
             this.LogPath = logPath;
         }
         private void Log(string log) {
-            Console.WriteLine(this.LogPath);
             try {
                 using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
                     string GenerateTimestamp() {
@@ -68,7 +68,8 @@ namespace Library
         public void Debug(string msg) {
             if (this.Config.GetDebug()) {
                 string output = $"[@{Config.GetUsername()}/DEBUG]: {msg}";
-            
+                Console.WriteLine(output);
+
                 this.Log(output);
             }
         }
