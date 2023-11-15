@@ -57,5 +57,16 @@ namespace NavalBattle
                 await HandleErrorAsync(botClient, e, cancellationToken);
             }
         }
+        private static async Task HandleMessageReceived(ITelegramBotClient botClient, Message message) {
+            Console.WriteLine($"Received a message from {message.From.FirstName} saying: {message.Text}");
+            Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
+
+            string response = string.Empty;
+            firstHandler.Handle(message, out response);
+
+            if (!string.IsNullOrEmpty(response)) {
+                await bot.SendTextMessageAsync(message.Chat.Id, response);
+            }
+        }
     }
 }
