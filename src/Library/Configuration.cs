@@ -28,5 +28,9 @@ namespace NavalBattle
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private string GetToken() {
+            return this.Token;
+        }
     }
 }
