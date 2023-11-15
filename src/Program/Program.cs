@@ -5,12 +5,16 @@
 //--------------------------------------------------------------------------------
 
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Globalization;
 using System;
 using Library;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace NavalBattle
 {
@@ -22,6 +26,8 @@ namespace NavalBattle
         private static Configuration Config = new Configuration();
         private static Logger Logger = new Logger(Config);
         private static TelegramBotClient Bot;
+
+        private static IHandler firstHandler;
 
         /// <summary>
         /// Punto de entrada al programa principal.
@@ -64,7 +70,7 @@ namespace NavalBattle
             firstHandler.Handle(message, out response);
 
             if (!string.IsNullOrEmpty(response)) {
-                await bot.SendTextMessageAsync(message.Chat.Id, response);
+                await Bot.SendTextMessageAsync(message.Chat.Id, response);
             }
         }
         public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
