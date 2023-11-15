@@ -37,7 +37,14 @@ namespace Library
             Console.WriteLine(this.LogPath);
             try {
                 using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
-                    writer.WriteLine(log);
+                    string GenerateTimestamp() {
+                        DateTime now = DateTime.Now;
+                        string formatted = now.ToString("dd/MM/yy | HH:mm:ss");
+                        
+                        return formatted;
+                    }
+
+                    writer.WriteLine($"[{GenerateTimestamp()}] {log}");
                 }
             } catch (Exception ex) {
                 Console.WriteLine("ERROR! Impossible to write in logfile.");
