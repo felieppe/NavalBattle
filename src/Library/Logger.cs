@@ -55,6 +55,8 @@ namespace Library
         public Logger(Configuration config) {
             this.Config = config;
             this.Setup();
+
+            this.Info("Logger has been configured correctly!");
         }
 
         public void Info(string msg) {
@@ -66,7 +68,6 @@ namespace Library
         public void Debug(string msg) {
             if (this.Config.GetDebug()) {
                 string output = $"[@{Config.GetUsername()}/DEBUG]: {msg}";
-                Console.WriteLine(output); 
             
                 this.Log(output);
             }
