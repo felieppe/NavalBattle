@@ -25,6 +25,8 @@ namespace NavalBattle
                 JsonDocument jdoc = JsonDocument.Parse(jstring);
                 JsonElement elem = jdoc.RootElement;
 
+                this.Name = elem.GetProperty("name").GetString();
+                this.Username = elem.GetProperty("username").GetString();
                 this.Token = elem.GetProperty("token").GetString();
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
