@@ -19,5 +19,8 @@ namespace Library.bot
         public ResponseType GetType() {
             return this.Type;
         }
+        public string Message() {
+            return this.Message;
+        }
     }
 }
