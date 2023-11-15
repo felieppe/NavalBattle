@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using System;
 using Library;
+using Telegram.Bot;
 
 namespace NavalBattle
 {
@@ -19,8 +20,8 @@ namespace NavalBattle
     public class Program
     {
         private static Configuration Config = new Configuration();
-        private static Logger Logger = new Logger(config);
-        private static TelegramClientBot Bot;
+        private static Logger Logger = new Logger(Config);
+        private static TelegramBotClient Bot;
 
         /// <summary>
         /// Punto de entrada al programa principal.
@@ -28,7 +29,7 @@ namespace NavalBattle
         public static void Main() {
             Logger.Info($"Setting up @{Config.GetUsername()}...");
 
-            bot = new TelegramClientBot(Config.GetToken());
+            Bot = new TelegramBotClient(Config.GetToken());
             var cts = new CancellationTokenSource();
 
             Bot.StartReceiving(
