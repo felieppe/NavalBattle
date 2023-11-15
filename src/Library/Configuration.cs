@@ -10,6 +10,8 @@ namespace NavalBattle
 {
     public class Configuration
     {
+        private string Name;
+        private string Username;
         private string Token;
 
         public Configuration() { this.Load(); }
