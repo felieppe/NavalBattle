@@ -16,6 +16,7 @@ namespace Library
         private string Name;
         private string Username;
         private string Token;
+        private bool Debug;
 
         public Configuration() { this.Load(); }
 
@@ -39,6 +40,9 @@ namespace Library
                 try {
                     this.Token = elem.GetProperty("token").GetString();
                 } catch (KeyNotFoundException ex) { throw new TokenNotFoundException("The property 'token' in configuration file does not exist."); }
+                try {
+                    this.Debug = elem.GetProperty("debug").GetBoolean();
+                } catch (KeyNotFoundException ex) { throw new DebugNotFoundException("The property 'debug' in configuration file does not exist."); }
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
@@ -52,6 +56,9 @@ namespace Library
         }
         public string GetToken() {
             return this.Token;
+        }
+        public bool GetDebug() {
+            return this.Debug;
         }
     }
 }
