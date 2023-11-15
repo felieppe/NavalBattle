@@ -21,7 +21,7 @@ namespace NavalBattle
         private void Load() {
             string jpath = "../settings.json";
 
-            if (!File.Exists(jpath)) { break; }
+            if (!File.Exists(jpath)) { return; }
 
             try {
                 string jstring = File.ReadAllText(jpath);
