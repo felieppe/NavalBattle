@@ -619,4 +619,4 @@ ehthumbs.db
 Thumbs.db
 
 # Tokens & private info.
-*.secret
+settings.json
