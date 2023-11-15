@@ -617,3 +617,6 @@ docs/html
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Tokens & private info.
+*.secret
