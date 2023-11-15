@@ -7,6 +7,8 @@ namespace Library
 {
     public class Configuration
     {
+        private string Token;
+
         public Configuration() {}
 
         private void Load() {
