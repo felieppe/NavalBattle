@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Globalization;
 //--------------------------------------------------------------------------------
 // <copyright file="Program.cs" company="Universidad Católica del Uruguay">
@@ -16,7 +17,8 @@ namespace NavalBattle
     /// </summary>
     public class Program
     {
-        private Configuration config = new Configuration();
+        private static Configuration config = new Configuration();
+        private static Logger logger = new Logger(config);
 
         /// <summary>
         /// Punto de entrada al programa principal.
