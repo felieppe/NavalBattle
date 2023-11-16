@@ -41,11 +41,11 @@ namespace Library.handlers
             {
                 new []
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Play 🎮", callbackData: "play"),
+                    InlineKeyboardButton.WithCallbackData(text: "Play 🎮", callbackData: "/menu"),
                 },
                 new []
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "quit"),
+                    InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "/quit"),
                 },
             });
 
