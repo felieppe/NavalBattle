@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Library.bot.core;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Library.bot
 {
@@ -11,6 +12,7 @@ namespace Library.bot
     {
         private ResponseType Type;
         private string Message;
+        private InlineKeyboardMarkup Keyboard;
 
         public Response(ResponseType type, string msg) {
             this.Type = type;
@@ -23,12 +25,18 @@ namespace Library.bot
         public void SetMessage(string msg) {
             if (!String.IsNullOrEmpty(msg)) { this.Message = msg; }
         }
+        public void SetKeyboard(InlineKeyboardMarkup kb) {
+            this.Keyboard = kb;
+        }
 
         public ResponseType GetType() {
             return this.Type;
         }
         public string GetMessage() {
             return this.Message;
+        }
+        public InlineKeyboardMarkup GetKeyboard() {
+            return this.Keyboard;
         }
     }
 }
