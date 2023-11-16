@@ -32,19 +32,23 @@ namespace Library
                 JsonElement elem = jdoc.RootElement;
 
                 try {
-                    this.Name = elem.GetProperty("name").GetString();
+                    JsonElement prop = elem.GetProperty("name");
+                    this.Name = prop.GetString();
                 } catch (KeyNotFoundException ex) { throw new NameNotFoundException("The property 'name' in configuration file does not exist."); }
                 try {
-                    this.Username = elem.GetProperty("username").GetString();
+                    JsonElement prop = elem.GetProperty("username");
+                    this.Username = prop.GetString();
                 } catch (KeyNotFoundException ex) { throw new UsernameNotFoundException("The property 'username' in configuration file does not exist."); }
                 try {
-                    this.Token = elem.GetProperty("token").GetString();
+                    JsonElement prop = elem.GetProperty("token");
+                    this.Token = prop.GetString();
                 } catch (KeyNotFoundException ex) { throw new TokenNotFoundException("The property 'token' in configuration file does not exist."); }
                 try {
-                    this.Debug = elem.GetProperty("debug").GetBoolean();
+                    JsonElement prop = elem.GetProperty("debug");
+                    this.Debug = prop.GetBoolean();
                 } catch (KeyNotFoundException ex) { throw new DebugNotFoundException("The property 'debug' in configuration file does not exist."); }
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                throw ex;
             }
         }
 
