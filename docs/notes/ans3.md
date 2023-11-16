@@ -5,3 +5,6 @@ Uno de los recursos utilizados por nosotros fue la página de Microsoft, que nos
 
 ## Segunda entrega (7 de noviembre)
 Utilizamos la página de Microsoft, donde encontramos información para resolver errores. Además, utilizamos las lecturas proporcionadas a lo largo del curso y Trello para optimizar la organización grupal.
+
+## Segunda entrega (28 de noviembre)
+Utilizamos el repositorio de la libreria, telegra.bot para entender el funcionamiento del bot(https://github.com/TelegramBots/Telegram.Bot) y ademas, usamos la documentación para poder tener ejemplos de como usar estas clases(https://telegrambots.github.io/book/). 

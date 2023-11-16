@@ -7,3 +7,6 @@ Por otra parte, es importante mencionar que también aprendimos ciertos concepto
 
 ## Segunda entrega (7 de noviembre)
 Aprendimos a comunicarnos de manera efectiva para optimizar la organización del equipo. Mejoramos la planificación, dividiendo tareas complejas en otras más cortas y alcanzables para tener un avance continuo y medible, para esto utilizamos Trello que nos permitió organizar listas de pendientes y dividir responsabilidades equitativamente.
+
+## Tercer entrega (28 de noviembre)
+La experiencia del proyecto nos enseñó aspectos que no se cubrieron en clase. Ya que nos brindó la oportunidad de comprender en profundidad cómo se programa un bot en plataformas como Telegram u otros servicios similares. Aunque se abordó brevemente el funcionamiento de estos durante las clases, fue necesario invertir más tiempo en esto investigando más a fondo, lo que implicó realizar lecturas adicionales y realizar experimentos por nuestra cuenta. Fue así como logramos sobre llevar el tema del funcionamiento de excepciones en el bot.  
