@@ -23,7 +23,7 @@ namespace Library
         private void Load() {
             string jpath = "../settings.json";
 
-            if (!File.Exists(jpath)) { return; }
+            if (!File.Exists(jpath)) { throw new ConfigFileNotExistsException("The configuration file does not exist."); }
 
             try {
                 string jstring = File.ReadAllText(jpath);
