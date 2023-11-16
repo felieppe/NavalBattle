@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
@@ -31,8 +33,20 @@ namespace Library.handlers
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(Message message, out Response response)
         {
-            //response = "BUENO, VAMO A JUGA";
-            response = new Response(ResponseType.Message, "BUENO, VAMO A JUGA");
+            InlineKeyboardMarkup inlineKeyboard = new(new[]
+            {
+                new []
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "Play 🎮", callbackData: "play"),
+                },
+                new []
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "quit"),
+                },
+            });
+
+            response = new Response(ResponseType.Keyboard, "BUENO, VAMO A JUGA");
+            response.SetKeyboard(inlineKeyboard);
         }
     }
 }
