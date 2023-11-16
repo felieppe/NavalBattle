@@ -82,6 +82,9 @@ namespace NavalBattle
                         await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage());
                     }
                     break;
+                case ResponseType.Keyboard:
+                    await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                    break;
             }
         }
         public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
