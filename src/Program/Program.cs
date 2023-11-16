@@ -53,7 +53,7 @@ namespace NavalBattle
                 cts.Token
             );
 
-            Logger.Info($"{Config.GetUsername()} is up!");
+            Logger.Info($"@{Config.GetUsername()} is up!");
 
             Console.ReadLine();
             cts.Cancel();
