@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,9 @@ namespace Library.handlers
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(Message message, out Response response)
         {
+            User author = message.From;
+            string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
+
             InlineKeyboardMarkup inlineKeyboard = new(new[]
             {
                 new []
@@ -45,7 +49,7 @@ namespace Library.handlers
                 },
             });
 
-            response = new Response(ResponseType.Keyboard, "BUENO, VAMO A JUGA");
+            response = new Response(ResponseType.Keyboard, answr);
             response.SetKeyboard(inlineKeyboard);
         }
     }
