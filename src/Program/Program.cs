@@ -19,7 +19,7 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace NavalBattle
+namespace NavalBattle   
 {
     /// <summary>
     /// Programa de consola de demostración.
@@ -50,7 +50,7 @@ namespace NavalBattle
                 {
                     AllowedUpdates = Array.Empty<UpdateType>()
                 },
-                cts.Token
+                cts.Token   
             );
 
             Logger.Info($"@{Config.GetUsername()} is up!");
@@ -59,7 +59,7 @@ namespace NavalBattle
             cts.Cancel();
         }
 
-        public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        private static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             try {
                 if (update.Type == UpdateType.Message) {
@@ -87,7 +87,7 @@ namespace NavalBattle
                     break;
             }
         }
-        public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
+        private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
             Logger.Error(exception.Message);
             return Task.CompletedTask;
         }
