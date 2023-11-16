@@ -26,8 +26,8 @@ namespace NavalBattle
     /// </summary>
     public class Program
     {
-        private static Configuration Config = new Configuration();
-        private static Logger Logger = new Logger(Config);
+        private static Configuration Config;
+        private static Logger Logger;
         private static TelegramBotClient Bot;
 
         private static IHandler Handler;
@@ -36,6 +36,14 @@ namespace NavalBattle
         /// Punto de entrada al programa principal.
         /// </summary>
         public static void Main() {
+            try {
+                Config = new Configuration();
+            } catch (Exception ex) {
+                Console.WriteLine("ERROR: " + ex.Message);
+                Environment.Exit(1);
+            }
+
+            Logger = new Logger(Config);
             Logger.Info($"Setting up @{Config.GetUsername()}...");
 
             Bot = new TelegramBotClient(Config.GetToken());

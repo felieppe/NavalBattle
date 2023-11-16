@@ -48,7 +48,7 @@ namespace Library
                     this.Debug = prop.GetBoolean();
                 } catch (KeyNotFoundException ex) { throw new DebugNotFoundException("The property 'debug' in configuration file does not exist."); }
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                throw ex;
             }
         }
 
