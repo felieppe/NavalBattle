@@ -4,5 +4,8 @@
     "cSpell.words": [
         "Doxify"
     ],
-    "dotnet.defaultSolution": "ProjectTemplate.sln"
+    "dotnet.defaultSolution": "ProjectTemplate.sln",
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "dev"
+    ]
 }
