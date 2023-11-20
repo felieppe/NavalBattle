@@ -67,7 +67,7 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        public Game(ServerManager serverManager, int rows, int columns, int totalShips)
+        public Game(int rows, int columns, int totalShips, ServerManager serverManager)
         {
             this.Admin = new Player();      // solo test esto cambiarlo después por player admin real en param
             this.serverManager = serverManager;
