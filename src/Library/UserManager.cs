@@ -94,7 +94,7 @@ namespace Library
 
                 Player player1 = availablePlayers[pIndex];
                 Player player2 = availablePlayers[pIndex2];
-                Game game = new Game(8, 8, 6, manager);
+                Game game = new Game(8, 8, 6);
                 game.AddPlayer(player1);
                 game.AddPlayer(player2);
 
@@ -103,7 +103,7 @@ namespace Library
 
                 return game;
             } else {
-                Game game = new Game(8, 8, 6, manager);
+                Game game = new Game(8, 8, 6);
                 manager.AddGame(game);
 
                 return game;
