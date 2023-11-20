@@ -62,13 +62,15 @@ namespace Library
         /// Tablero del jugador 2.
         /// </summary>
         private Board board2;
+        private ServerManager serverManager;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Game"/>.
         /// </summary>
-        public Game(int rows, int columns, int totalShips)
+        public Game(ServerManager serverManager, int rows, int columns, int totalShips)
         {
             this.Admin = new Player();      // solo test esto cambiarlo después por player admin real en param
+            this.serverManager = serverManager;
 
             this.boardSize1 = new BoardSize(rows, columns);
             this.board1 = new Board(boardSize1);
@@ -78,6 +80,7 @@ namespace Library
 
             Guid uuid = Guid.NewGuid();
             this.SetGameId(uuid.ToString());
+            this.serverManager.AddGame(this);
         }
 
         /// <summary>
