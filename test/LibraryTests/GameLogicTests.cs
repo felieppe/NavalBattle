@@ -98,18 +98,19 @@ namespace BattleShip.Tests
             Board board = new Board(boardSize);
 
             ServerManager sm = new ServerManager();
-            UserManager userManager = new UserManager(sm);
+            UserManager userManager = new UserManager();
+
             Player player1 = new Player();
             Player player2 = new Player();
             userManager.AddPlayer(player1);
             userManager.AddPlayer(player2);
 
-        
             Assert.AreEqual(1, gameLogic.GetNumberAttack());
 
             gameLogic.Attack('A', 1);
             Assert.AreEqual(2, gameLogic.GetNumberAttack());
         }
+        
         /// <summary>
         /// Verifica que se pueda acceder a dos tableros
         /// </summary>
@@ -126,10 +127,7 @@ namespace BattleShip.Tests
 
             Assert.IsNotNull(game1.GetBoard1());
             Assert.IsNotNull(game1.GetBoard2());
-
         }
-
-    }
-        
+    }  
 }
 
