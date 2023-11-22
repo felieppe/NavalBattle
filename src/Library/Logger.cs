@@ -11,7 +11,7 @@ namespace Library
     public class Logger
     {
         private static Logger instance;
-        private Configuration Config;
+        private Configuration Config = Configuration.Instance;
         private string LogPath;
 
         private void Setup() {
@@ -54,13 +54,12 @@ namespace Library
 
         public static Logger Instance {
             get {
-                if (instance == null) { instance = new Logger(null); }
+                if (instance == null) { instance = new Logger(); }
                 return instance;
             }
         }
 
-        public Logger(Configuration config) {
-            this.Config = config;
+        public Logger() {
             this.Setup();
 
             this.Info("Logger has been configured correctly!");
