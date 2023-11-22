@@ -43,7 +43,7 @@ namespace NavalBattle
                 Environment.Exit(1);
             }
 
-            Logger = new Logger(Config);
+            Logger = new Logger();
             Logger.Info($"Setting up @{Config.GetUsername()}...");
 
             Bot = new TelegramBotClient(Config.GetToken());
