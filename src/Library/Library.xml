@@ -653,7 +653,7 @@
             Instancia de Server Manager
             </summary>
         </member>
-        <member name="M:Library.UserManager.#ctor(Library.ServerManager)">
+        <member name="M:Library.UserManager.#ctor">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
             </summary>
