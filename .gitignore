@@ -623,3 +623,6 @@ settings.json
 
 # Logs of bot
 /logs
+
+# Save folder of bot
+/save
