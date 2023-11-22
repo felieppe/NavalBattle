@@ -13,10 +13,19 @@ namespace Library
 {
     public class Configuration
     {
+        private static Configuration instance;
+
         private string Name;
         private string Username;
         private string Token;
         private bool Debug;
+
+        public static Configuration Instance {
+            get {
+                if (instance == null) { instance = new Configuration(); }
+                return instance;
+            }
+        }
 
         public Configuration() { this.Load(); }
 

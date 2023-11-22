@@ -10,6 +10,7 @@ namespace Library
 {
     public class Logger
     {
+        private static Logger instance;
         private Configuration Config;
         private string LogPath;
 
@@ -48,6 +49,13 @@ namespace Library
             } catch (Exception ex) {
                 Console.WriteLine("ERROR! Impossible to write in logfile.");
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static Logger Instance {
+            get {
+                if (instance == null) { instance = new Logger(null); }
+                return instance;
             }
         }
 

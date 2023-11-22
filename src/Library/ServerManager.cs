@@ -13,7 +13,16 @@ namespace Library
     /// </summary>
     public class ServerManager
     {
+        private static ServerManager instance;
+
         private List<Game> Servers = new List<Game>();
+
+        public static ServerManager Instance {
+            get {
+                if (instance == null) { instance = new ServerManager(); }
+                return instance;
+            }
+        }
 
         /// <summary>
         /// Agrega un juego al servidor.
