@@ -18,7 +18,6 @@ namespace Tests
         /// Tablero para probar.
         /// </summary>
         private Board board;
-        private BoardSize boardSize;
         private int rows;
         private int columns;
 
@@ -30,9 +29,7 @@ namespace Tests
         {
             this.rows = 10;
             this.columns = 10;
-
-            this.boardSize = new BoardSize(this.rows, this.columns);
-            this.board = new Board(this.boardSize);
+            this.board = new Board(rows, columns);
         }
 
         /// <summary>
@@ -58,6 +55,32 @@ namespace Tests
             };
 
             Assert.AreEqual(expectedBoard, this.board.GetBoard());
+        }
+
+        /// <summary>
+        /// Prueba que el tamaño del tablero creado sea válido.
+        /// </summary>
+        [Test]
+        public void ValidBoardSizeTest()
+        {
+            bool validRows = board.SetRows(16);
+            bool validColumns = board.SetColumns(18);
+
+            Assert.IsTrue(validRows);
+            Assert.IsTrue(validColumns);
+        }
+
+        /// <summary>
+        /// Prueba que el tamaño del tablero creado no sea válido.
+        /// </summary>
+        [Test]
+        public void InvalidBoardSizeTest()
+        {
+            bool invalidRows = board.SetRows(4);
+            bool invalidColumns = board.SetColumns(15);
+
+            Assert.IsFalse(invalidRows);
+            Assert.IsFalse(invalidColumns);
         }
     }
 }

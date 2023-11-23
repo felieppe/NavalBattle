@@ -24,12 +24,11 @@ namespace NavalBattle
     /// <summary>
     /// Programa de consola de demostración.
     /// </summary>
-    public class Program
+    public static class Program
     {
         private static Configuration Config;
         private static Logger Logger = Logger.Instance;
         private static TelegramBotClient Bot;
-
         private static IHandler Handler;
 
         private static void Setup() {
@@ -42,10 +41,14 @@ namespace NavalBattle
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main() {
-            try {
+        public static void Main()
+        {
+            try
+            {
                 Config = new Configuration();
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine("ERROR: " + ex.Message);
                 Environment.Exit(1);
             }
@@ -74,24 +77,30 @@ namespace NavalBattle
 
         private static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            try {
-                if (update.Type == UpdateType.Message) {
+            try
+            {
+                if (update.Type == UpdateType.Message)
+                {
                     await HandleMessageReceived(botClient, update.Message);
                 }
             }
-            catch(Exception e) {
+            catch(Exception e)
+            {
                 await HandleErrorAsync(botClient, e, cancellationToken);
             }
         }
-        private static async Task HandleMessageReceived(ITelegramBotClient botClient, Message message) {
+        private static async Task HandleMessageReceived(ITelegramBotClient botClient, Message message)
+        {
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
-            switch(response.GetType()) {
+            switch(response.GetType())
+            {
                 case ResponseType.Message:
-                    if (!string.IsNullOrEmpty(response.GetMessage())) {
+                    if (!string.IsNullOrEmpty(response.GetMessage()))
+                    {
                         await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage());
                     }
                     break;
@@ -100,7 +109,8 @@ namespace NavalBattle
                     break;
             }
         }
-        private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken) {
+        private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
+        {
             Logger.Error(exception.Message);
             return Task.CompletedTask;
         }
