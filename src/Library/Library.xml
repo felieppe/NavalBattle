@@ -51,12 +51,12 @@
             <param name="rows"> Filas. </param>
             <param name="columns"> Columnas. </param>
         </member>
-        <member name="F:Library.BoardSize.rows">
+        <member name="P:Library.BoardSize.rows">
             <summary>
             Filas del tablero.
             </summary>
         </member>
-        <member name="F:Library.BoardSize.columns">
+        <member name="P:Library.BoardSize.columns">
             <summary>
             Columnas del tablero.
             </summary>
@@ -92,19 +92,19 @@
             Clase que representa las coordenadas del barco.
             </summary>
         </member>
-        <member name="F:Library.Coords.shipId">
+        <member name="P:Library.Coords.shipId">
             <summary>
             Id del barco al que se le relaciona la coordenada.
             </summary>
             <value> Valor del Id del barco </value>
         </member>
-        <member name="F:Library.Coords.x">
+        <member name="P:Library.Coords.x">
             <summary>
             Coordenada X.
             </summary>
             <value> Integrar </value>
         </member>
-        <member name="F:Library.Coords.y">
+        <member name="P:Library.Coords.y">
             <summary>
             Coordenada Y.
             </summary>

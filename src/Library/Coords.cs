@@ -15,19 +15,19 @@ namespace Library
         /// Id del barco al que se le relaciona la coordenada.
         /// </summary>
         /// <value> Valor del Id del barco </value>
-        private string shipId;
+        public string shipId { get; private set; }
 
         /// <summary>
         /// Coordenada X.
         /// </summary>
         /// <value> Integrar </value>
-        private int x;
+        public int x { get; private set; }
 
         /// <summary>
         /// Coordenada Y.
         /// </summary>
         /// <value> Integrar. </value>
-        private int y;
+        public int y { get; private set; }
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Coords"/>.

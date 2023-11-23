@@ -17,13 +17,13 @@ namespace Library
         /// Id del jugador.
         /// </summary>
         /// <value> Id. </value>
-        private string Id { get; set; }
+        public string Id { get; private set; }
 
         /// <summary>
         /// Nombre de usuario del jugador.
         /// </summary>
         /// <value> Username. </value>
-        private string Username { get; set; }
+        public string Username { get; private set; }
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Player"/>.

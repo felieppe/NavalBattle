@@ -11,8 +11,8 @@ namespace Library
     /// </summary>
     public class Board
     {
-        private BoardSize boardSize;
-        private char[][] board;
+        public BoardSize boardSize { get; private set; }
+        public char[][] board { get; private set; }
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
