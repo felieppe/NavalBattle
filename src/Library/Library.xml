@@ -9,23 +9,43 @@
             Clase tablero.
             </summary>
         </member>
-        <member name="M:Library.Board.#ctor(Library.BoardSize)">
+        <member name="P:Library.Board.rows">
+            <summary>
+            Valor de las filas
+            </summary>
+            <value> Valor de las filas </value>
+        </member>
+        <member name="P:Library.Board.columns">
+            <summary>
+            Valor de las columnas.
+            </summary>
+            <value> Valor de las columnas </value>
+        </member>
+        <member name="P:Library.Board.board">
+            <summary>
+            Formato del tablero.
+            </summary>
+            <value> Formato del tablero </value>
+        </member>
+        <member name="M:Library.Board.#ctor(System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Board"/>.
             </summary>
-            <param name="boardSize"> Boardsize.</param>
+            <param name="rows"> Filas. </param>
+            <param name="columns"> Columnas. </param> 
         </member>
         <member name="M:Library.Board.InitializeBoard">
             <summary>
             Nuevo tablero con índice de fila y columna.
             </summary>
         </member>
-        <member name="M:Library.Board.SetBoard(Library.Board,Library.BoardSize)">
+        <member name="M:Library.Board.SetBoard(Library.Board,System.Int32,System.Int32)">
             <summary>
             Set de la clase Board.
             </summary>
             <param name="b"> Tablero. </param>
-            <param name="boardSize"> Tamaño del tablero. </param>
+            <param name="rows"> Filas. </param>
+            <param name="columns"> Columnas. </param>
         </member>
         <member name="M:Library.Board.GetBoard">
             <summary>
@@ -33,11 +53,31 @@
             </summary>
             <returns> Tablero. </returns>
         </member>
-        <member name="M:Library.Board.GetBoardSize">
+        <member name="M:Library.Board.SetRows(System.Int32)">
             <summary>
-            Devuelve tamaño del tablero.
+            Establece el número de filas.
             </summary>
-            <returns> boardSize. </returns>
+            <param name="rows"> Filas del tablero. </param>
+            <returns> Número par de filas de tablero entre 8 y 20. </returns>
+        </member>
+        <member name="M:Library.Board.SetColumns(System.Int32)">
+            <summary>
+            Establece el número de columnas.
+            </summary>
+            <param name="columns"> Columnas del tablero. </param>
+            <returns> Número par de columnas de tablero entre 8 y 20. </returns>
+        </member>
+        <member name="M:Library.Board.GetRows">
+            <summary>
+            Devuelve las filas del tablero.
+            </summary>
+            <returns> Las filas del tablero. </returns>
+        </member>
+        <member name="M:Library.Board.GetColumns">
+            <summary>
+            Devuelve las columnas del tablero.
+            </summary>
+            <returns> Las columnas del tablero. </returns>
         </member>
         <member name="T:Library.BoardSize">
             <summary>
@@ -86,6 +126,68 @@
             Devuelve las columnas del tablero.
             </summary>
             <returns> Las columnas del tablero. </returns>
+        </member>
+        <member name="F:Library.Configuration.instance">
+            <summary>
+            Instancia de Singleton.
+            </summary>
+            <value>  </value>
+        </member>
+        <member name="F:Library.Configuration.Name">
+            <summary>
+            Nombre.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Username">
+            <summary>
+            Nombre de usuario.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Token">
+            <summary>
+            Token del bot.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Debug">
+            <summary>
+            Estado del Debug.
+            </summary>
+        </member>
+        <member name="M:Library.Configuration.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Configuration.Load">
+            <summary>
+            Carga la configuracion del bot.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Configuration.GetName">
+            <summary>
+            Obtiene el nombre.
+            </summary>
+            <returns> Devuelve el nombre. </returns>
+        </member>
+        <member name="M:Library.Configuration.GetUsername">
+            <summary>
+            Obtiene el Nombre de usuario
+            </summary>
+            <returns> Devuelve el Nombre de usuario. </returns>
+        </member>
+        <member name="M:Library.Configuration.GetToken">
+            <summary>
+            Obtiene el Token de Telegram
+            </summary>
+            <returns> Devuelve elToken de Telegram . </returns>
+        </member>
+        <member name="M:Library.Configuration.GetDebug">
+            <summary>
+            Obtiene el valor booleano de Debug 
+            </summary>
+            <returns> Devuelve el valor booleano de Debug  </returns>
         </member>
         <member name="T:Library.Coords">
             <summary>
@@ -176,9 +278,14 @@
             Jugador administrador de la partida.
             </summary>
         </member>
-        <member name="F:Library.Game.boardSize1">
+        <member name="F:Library.Game.rows">
             <summary>
-            Dimensiones del tablero.
+            Filas del tablero.
+            </summary>
+        </member>
+        <member name="F:Library.Game.columns">
+            <summary>
+            Columnas del tablero.
             </summary>
         </member>
         <member name="F:Library.Game.board1">
@@ -275,12 +382,6 @@
             </summary>
             <returns> El tablero 2. </returns>
         </member>
-        <member name="M:Library.Game.GetBoardSize">
-            <summary>
-            Devuelve la instancia de BoardSize
-            </summary>
-            <returns> El tablero 2. </returns>
-        </member>
         <member name="M:Library.Game.GetAdmin">
             <summary>
             Devuelve el administrador de la partida.
@@ -307,9 +408,14 @@
             Instancia del tablero 2
             </summary>
         </member>
-        <member name="F:Library.GameLogic.boardSize">
+        <member name="F:Library.GameLogic.rows">
             <summary>
             Instancia del boardSize
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.columns">
+            <summary>
+            Columnas del tablero.
             </summary>
         </member>
         <member name="F:Library.GameLogic.numberAttack">
@@ -539,6 +645,55 @@
             Establece el estado del barco.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "F:Library.Logger.instance" -->
+        <member name="F:Library.Logger.Config">
+            <summary>
+            Instacia de la clase Configuration.
+            </summary>
+            <value> </value>
+        </member>
+        <member name="M:Library.Logger.Setup">
+            <summary>
+            Crea las carpetas que necesita el Logger para funcionar.
+            </summary>
+            <returns> . </returns>
+        </member>
+        <member name="M:Library.Logger.Log(System.String)">
+            <summary>
+            Escribe un mensaje en el archivo del registro.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="P:Library.Logger.Instance">
+            <summary>
+            Constructor unico.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Library.Logger.#ctor">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Logger.Info(System.String)">
+            <summary>
+            Escribe un mensaje de tipo informacion en la consola.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Logger.Debug(System.String)">
+            <summary>
+            Escribe un mensaje de tipo Debug en la consola.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Library.Logger.Error(System.String)">
+            <summary>
+            Escribe un mensaje de tipo Error en la consola.
+            </summary>
+            <returns> </returns>
+        </member>
         <member name="T:Library.Player">
             <summary>
             Esta clase representa un jugador.
@@ -611,6 +766,18 @@
             <summary>
             Clase que administra las partidas en curso.
             </summary>
+        </member>
+        <member name="F:Library.ServerManager.instance">
+            <summary>
+            Instancia de Singleton
+            </summary>
+            <value> Instancia de ServerManager</value>
+        </member>
+        <member name="F:Library.ServerManager.Servers">
+            <summary>
+            Lista de partidas.
+            </summary>
+            <value> Lista de partidas</value>
         </member>
         <member name="M:Library.ServerManager.AddGame(Library.Game)">
             <summary>

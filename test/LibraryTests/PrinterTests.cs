@@ -15,7 +15,6 @@ namespace Tests
     public class PrinterTests
     {
         private Board board;
-        private BoardSize boardSize;
         private int rows;
         private int columns;
 
@@ -27,9 +26,7 @@ namespace Tests
         {
             this.rows = 10;
             this.columns = 10;
-
-            this.boardSize = new BoardSize(this.rows, this.columns);
-            board = new Board(boardSize);
+            board = new Board(rows, columns);
         }
 
         /// <summary>
@@ -48,8 +45,7 @@ namespace Tests
                 new char[] { '3', ' ', ' ', ' ', ' ' },
             };
             string expected = expectedBoard.ToString();
-            BoardSize boardSize = new BoardSize(rows, columns);
-            Board board = new Board(boardSize);
+            Board board = new Board(rows, columns);
 
             board.InitializeBoard();
             char[][] actualBoard = board.GetBoard();
