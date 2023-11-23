@@ -51,7 +51,7 @@ namespace Library
                 this.players.Add(player);
             }
 
-            Logger.Instance.Info($"UserManager loaded ${retrieved.Count} players.");
+            Logger.Instance.Info($"UserManager loaded {retrieved.Count} players.");
         }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Library
             List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
             foreach (Game game in retrieved) { this.Servers.Add(game); }
 
-            Logger.Instance.Info($"ServerManager loaded ${retrieved.Count} games.");
+            Logger.Instance.Info($"ServerManager loaded {retrieved.Count} games.");
         }
 
         /// <summary>
