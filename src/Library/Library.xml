@@ -127,68 +127,6 @@
             </summary>
             <returns> Las columnas del tablero. </returns>
         </member>
-        <member name="F:Library.Configuration.instance">
-            <summary>
-            Instancia de Singleton.
-            </summary>
-            <value>  </value>
-        </member>
-        <member name="F:Library.Configuration.Name">
-            <summary>
-            Nombre.
-            </summary>
-        </member>
-        <member name="F:Library.Configuration.Username">
-            <summary>
-            Nombre de usuario.
-            </summary>
-        </member>
-        <member name="F:Library.Configuration.Token">
-            <summary>
-            Token del bot.
-            </summary>
-        </member>
-        <member name="F:Library.Configuration.Debug">
-            <summary>
-            Estado del Debug.
-            </summary>
-        </member>
-        <member name="M:Library.Configuration.#ctor">
-            <summary>
-            Constructor de la clase
-            </summary>
-            <returns>  </returns>
-        </member>
-        <member name="M:Library.Configuration.Load">
-            <summary>
-            Carga la configuracion del bot.
-            </summary>
-            <returns>  </returns>
-        </member>
-        <member name="M:Library.Configuration.GetName">
-            <summary>
-            Obtiene el nombre.
-            </summary>
-            <returns> Devuelve el nombre. </returns>
-        </member>
-        <member name="M:Library.Configuration.GetUsername">
-            <summary>
-            Obtiene el Nombre de usuario
-            </summary>
-            <returns> Devuelve el Nombre de usuario. </returns>
-        </member>
-        <member name="M:Library.Configuration.GetToken">
-            <summary>
-            Obtiene el Token de Telegram
-            </summary>
-            <returns> Devuelve elToken de Telegram . </returns>
-        </member>
-        <member name="M:Library.Configuration.GetDebug">
-            <summary>
-            Obtiene el valor booleano de Debug 
-            </summary>
-            <returns> Devuelve el valor booleano de Debug  </returns>
-        </member>
         <member name="T:Library.Coords">
             <summary>
             Clase que representa las coordenadas del barco.
@@ -501,6 +439,52 @@
             </summary>
             <returns> Juego. </returns>
         </member>
+        <member name="T:Library.Player">
+            <summary>
+            Esta clase representa un jugador.
+            </summary>
+        </member>
+        <member name="P:Library.Player.Id">
+            <summary>
+            Id del jugador.
+            </summary>
+            <value> Id. </value>
+        </member>
+        <member name="P:Library.Player.Username">
+            <summary>
+            Nombre de usuario del jugador.
+            </summary>
+            <value> Username. </value>
+        </member>
+        <member name="M:Library.Player.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Player"/>.
+            </summary>
+        </member>
+        <member name="M:Library.Player.SetId(System.String)">
+            <summary>
+            Establece el ID del jugador.
+            </summary>
+            <param name="id"> Id. </param>
+        </member>
+        <member name="M:Library.Player.SetUsername(System.String)">
+            <summary>
+            Establece el username del jugador.
+            </summary>
+            <param name="username"> Username. </param>
+        </member>
+        <member name="M:Library.Player.GetId">
+            <summary>
+            Obtiene el ID del jugador.
+            </summary>
+            <returns> El ID del jugador. </returns>
+        </member>
+        <member name="M:Library.Player.GetUsername">
+            <summary>
+            Obtiene el username del jugador.
+            </summary>
+            <returns> El Username del jugador. </returns>
+        </member>
         <member name="P:Library.handlers.core.BaseHandler.Next">
             <summary>
             Obtiene el próximo "handler".
@@ -645,123 +629,6 @@
             Establece el estado del barco.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "F:Library.Logger.instance" -->
-        <member name="F:Library.Logger.Config">
-            <summary>
-            Instacia de la clase Configuration.
-            </summary>
-            <value> </value>
-        </member>
-        <member name="M:Library.Logger.Setup">
-            <summary>
-            Crea las carpetas que necesita el Logger para funcionar.
-            </summary>
-            <returns> . </returns>
-        </member>
-        <member name="M:Library.Logger.Log(System.String)">
-            <summary>
-            Escribe un mensaje en el archivo del registro.
-            </summary>
-            <returns>  </returns>
-        </member>
-        <member name="P:Library.Logger.Instance">
-            <summary>
-            Constructor unico.
-            </summary>
-            <returns> </returns>
-        </member>
-        <member name="M:Library.Logger.#ctor">
-            <summary>
-            Constructor de la clase.
-            </summary>
-            <returns>  </returns>
-        </member>
-        <member name="M:Library.Logger.Info(System.String)">
-            <summary>
-            Escribe un mensaje de tipo informacion en la consola.
-            </summary>
-            <returns>  </returns>
-        </member>
-        <member name="M:Library.Logger.Debug(System.String)">
-            <summary>
-            Escribe un mensaje de tipo Debug en la consola.
-            </summary>
-            <returns> </returns>
-        </member>
-        <member name="M:Library.Logger.Error(System.String)">
-            <summary>
-            Escribe un mensaje de tipo Error en la consola.
-            </summary>
-            <returns> </returns>
-        </member>
-        <member name="T:Library.Player">
-            <summary>
-            Esta clase representa un jugador.
-            </summary>
-        </member>
-        <member name="P:Library.Player.Id">
-            <summary>
-            Id del jugador.
-            </summary>
-            <value> Id. </value>
-        </member>
-        <member name="P:Library.Player.Username">
-            <summary>
-            Nombre de usuario del jugador.
-            </summary>
-            <value> Username. </value>
-        </member>
-        <member name="M:Library.Player.#ctor">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Player"/>.
-            </summary>
-        </member>
-        <member name="M:Library.Player.SetId(System.String)">
-            <summary>
-            Establece el ID del jugador.
-            </summary>
-            <param name="id"> Id. </param>
-        </member>
-        <member name="M:Library.Player.SetUsername(System.String)">
-            <summary>
-            Establece el username del jugador.
-            </summary>
-            <param name="username"> Username. </param>
-        </member>
-        <member name="M:Library.Player.GetId">
-            <summary>
-            Obtiene el ID del jugador.
-            </summary>
-            <returns> El ID del jugador. </returns>
-        </member>
-        <member name="M:Library.Player.GetUsername">
-            <summary>
-            Obtiene el username del jugador.
-            </summary>
-            <returns> El Username del jugador. </returns>
-        </member>
-        <member name="T:Library.Printer">
-            <summary>
-            Class Printer.
-            </summary>
-        </member>
-        <member name="M:Library.Printer.#ctor">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
-            </summary>
-        </member>
-        <member name="M:Library.Printer.SplitBoardVisually(System.Int32)">
-            <summary>
-            Imprime una linea horizontal que divide el tablero en dos.
-            </summary>
-            <param name="rows"> Número de filas del tablero. </param>
-        </member>
-        <member name="M:Library.Printer.Print(Library.Board)">
-            <summary>
-            Imprime el tablero
-            </summary>
-            <param name="board">Tablero</param>
-        </member>
         <member name="T:Library.ServerManager">
             <summary>
             Clase que administra las partidas en curso.
@@ -886,6 +753,139 @@
             </summary>
             <param name="gameId"> Id del juego. </param>
             <returns> Juego. </returns>
+        </member>
+        <member name="F:Library.Configuration.instance">
+            <summary>
+            Instancia de Singleton.
+            </summary>
+            <value>  </value>
+        </member>
+        <member name="F:Library.Configuration.Name">
+            <summary>
+            Nombre.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Username">
+            <summary>
+            Nombre de usuario.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Token">
+            <summary>
+            Token del bot.
+            </summary>
+        </member>
+        <member name="F:Library.Configuration.Debug">
+            <summary>
+            Estado del Debug.
+            </summary>
+        </member>
+        <member name="M:Library.Configuration.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Configuration.Load">
+            <summary>
+            Carga la configuracion del bot.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Configuration.GetName">
+            <summary>
+            Obtiene el nombre.
+            </summary>
+            <returns> Devuelve el nombre. </returns>
+        </member>
+        <member name="M:Library.Configuration.GetUsername">
+            <summary>
+            Obtiene el Nombre de usuario
+            </summary>
+            <returns> Devuelve el Nombre de usuario. </returns>
+        </member>
+        <member name="M:Library.Configuration.GetToken">
+            <summary>
+            Obtiene el Token de Telegram
+            </summary>
+            <returns> Devuelve elToken de Telegram . </returns>
+        </member>
+        <member name="M:Library.Configuration.GetDebug">
+            <summary>
+            Obtiene el valor booleano de Debug 
+            </summary>
+            <returns> Devuelve el valor booleano de Debug  </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Library.Logger.instance" -->
+        <member name="F:Library.Logger.Config">
+            <summary>
+            Instacia de la clase Configuration.
+            </summary>
+            <value> </value>
+        </member>
+        <member name="M:Library.Logger.Setup">
+            <summary>
+            Crea las carpetas que necesita el Logger para funcionar.
+            </summary>
+            <returns> . </returns>
+        </member>
+        <member name="M:Library.Logger.Log(System.String)">
+            <summary>
+            Escribe un mensaje en el archivo del registro.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="P:Library.Logger.Instance">
+            <summary>
+            Constructor unico.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Library.Logger.#ctor">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Logger.Info(System.String)">
+            <summary>
+            Escribe un mensaje de tipo informacion en la consola.
+            </summary>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.Logger.Debug(System.String)">
+            <summary>
+            Escribe un mensaje de tipo Debug en la consola.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Library.Logger.Error(System.String)">
+            <summary>
+            Escribe un mensaje de tipo Error en la consola.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="T:Library.Printer">
+            <summary>
+            Class Printer.
+            </summary>
+        </member>
+        <member name="M:Library.Printer.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Printer"/>.
+            </summary>
+        </member>
+        <member name="M:Library.Printer.SplitBoardVisually(System.Int32)">
+            <summary>
+            Imprime una linea horizontal que divide el tablero en dos.
+            </summary>
+            <param name="rows"> Número de filas del tablero. </param>
+        </member>
+        <member name="M:Library.Printer.Print(Library.Board)">
+            <summary>
+            Imprime el tablero
+            </summary>
+            <param name="board">Tablero</param>
         </member>
         <member name="T:Library.Battleship">
             <summary>
