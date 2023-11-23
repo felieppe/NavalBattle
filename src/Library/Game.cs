@@ -214,6 +214,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Devuelve la instancia de BoardSize
+        /// </summary>
+        /// <returns> El tablero 2. </returns>
+        public BoardSize GetBoardSize()
+        {
+            return this.boardSize1;
+        }
+
+        /// <summary>
         /// Devuelve el administrador de la partida.
         /// </summary>
         /// <returns> Administrador de la partida. </returns>
