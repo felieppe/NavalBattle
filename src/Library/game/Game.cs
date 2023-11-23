@@ -124,6 +124,20 @@ namespace Library
         }
 
         /// <summary>
+        /// Establece el board1.
+        /// </summary>
+        public void SetBoard1(Board b) {
+            if (b != null) { this.board1 = b; }
+        }
+
+        /// <summary>
+        /// Establece el board2.
+        /// </summary>
+        public void SetBoard2(Board b) {
+            if (b != null) { this.board2 = b; }
+        }
+
+        /// <summary>
         /// Agrega las coordenadas del barco.
         /// </summary>
         /// <param name="id"> Id del barco. </param>
