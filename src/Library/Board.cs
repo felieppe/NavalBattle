@@ -11,11 +11,22 @@ namespace Library
     /// </summary>
     public class Board
     {
+        /// <summary>
+        /// Valor de las filas
+        /// </summary>
+        /// <value> Valor de las filas </value>
         private int rows;
+        /// <summary>
+        /// Valor de las columnas.
+        /// </summary>
+        /// <value> Valor de las columnas </value>
         private int columns;
+        /// <summary>
+        /// Formato del tablero.
+        /// </summary>
+        /// <value> Formato del tablero </value>
         private char[][] board;
     
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
         /// </summary>
