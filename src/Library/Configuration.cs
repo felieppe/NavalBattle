@@ -26,6 +26,10 @@ namespace Library
                 return instance;
             }
         }
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <returns>  </returns>
 
         public Configuration() { this.Load(); }
 
@@ -60,16 +64,33 @@ namespace Library
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene el nombre.
+        /// </summary>
+        /// <returns> Devuelve el nombre. </returns>
         public string GetName() {
             return this.Name;
         }
+        /// <summary>
+        /// Obtiene el Nombre de usuario
+        /// </summary>
+        /// <returns> Devuelve el Nombre de usuario. </returns>
+
         public string GetUsername() {
             return this.Username;
         }
+        /// <summary>
+        /// Obtiene el Token de Telegram
+        /// </summary>
+        /// <returns> Devuelve elToken de Telegram . </returns>
+        
         public string GetToken() {
             return this.Token;
         }
+        /// <summary>
+        /// Obtiene el valor booleano de Debug 
+        /// </summary>
+        /// <returns> Devuelve el valor booleano de Debug  </returns>
         public bool GetDebug() {
             return this.Debug;
         }
