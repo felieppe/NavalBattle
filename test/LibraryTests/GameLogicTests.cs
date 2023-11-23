@@ -16,13 +16,13 @@ namespace BattleShip.Tests
     public class GameLogicTests
     {
         /// <summary>
-        /// El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
+        /// El tablero, con sus elementos respectivos (rows y columns), para probar.
         /// </summary>
-        private BoardSize boardSize;
         private Board board;
         private int rows;
         private int columns;
         private Game game;
+        private UserManager userManager;
 
         /// <summary>
         /// Creamos los elementos necesarios para la prueba.
@@ -32,11 +32,9 @@ namespace BattleShip.Tests
         {
             this.rows = 20;
             this.columns = 20;
+            this.board = new Board(rows, columns);
 
-            this.boardSize = new BoardSize(this.rows, this.columns);
-            this.board = new Board(this.boardSize);
-
-            this.game = new Game(rows, columns, 8);
+            this.game = new Game(rows, columns, 3);
         }
 
         /// <summary>
@@ -45,7 +43,6 @@ namespace BattleShip.Tests
         [Test]
         public void AttackTest()
         {
-            int ships = 3;
             Submarine sub = new Submarine();
 
             GameLogic gameLogic = new GameLogic(this.game, this.board, null);
@@ -75,7 +72,6 @@ namespace BattleShip.Tests
         [Test]
         public void ValidPlaceShipTest()
         {
-            int ships = 2;
             GameLogic gameLogic = new GameLogic(this.game, this.board, null);
             
             Submarine sub = new Submarine();
@@ -89,27 +85,25 @@ namespace BattleShip.Tests
         /// Prueba que el primer turno sea del jugador 1.
         /// </summary>
         [Test]
-        public void FirstMoveTest(){
- 
-            int ships = 2;
+        public void FirstMoveTest()
+        {
             GameLogic gameLogic = new GameLogic(this.game, this.board, null);
 
-            BoardSize boardSize = new BoardSize(10,10);
-            Board board = new Board(boardSize);
+            Board board = new Board(rows, columns);
 
-            ServerManager sm = new ServerManager();
-            UserManager userManager = new UserManager(sm);
+            ServerManager sm = ServerManager.Instance;
+            this.userManager = UserManager.Instance(sm);
             Player player1 = new Player();
             Player player2 = new Player();
             userManager.AddPlayer(player1);
             userManager.AddPlayer(player2);
 
-        
             Assert.AreEqual(1, gameLogic.GetNumberAttack());
 
             gameLogic.Attack('A', 1);
             Assert.AreEqual(2, gameLogic.GetNumberAttack());
         }
+
         /// <summary>
         /// Verifica que se pueda acceder a dos tableros
         /// </summary>
@@ -126,10 +120,7 @@ namespace BattleShip.Tests
 
             Assert.IsNotNull(game1.GetBoard1());
             Assert.IsNotNull(game1.GetBoard2());
-
         }
-
     }
-        
 }
 

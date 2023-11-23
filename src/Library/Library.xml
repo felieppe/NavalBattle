@@ -9,23 +9,25 @@
             Clase tablero.
             </summary>
         </member>
-        <member name="M:Library.Board.#ctor(Library.BoardSize)">
+        <member name="M:Library.Board.#ctor(System.Int32,System.Int32)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Board"/>.
             </summary>
-            <param name="boardSize"> Boardsize.</param>
+            <param name="rows"> Filas. </param>
+            <param name="columns"> Columnas. </param> 
         </member>
         <member name="M:Library.Board.InitializeBoard">
             <summary>
             Nuevo tablero con índice de fila y columna.
             </summary>
         </member>
-        <member name="M:Library.Board.SetBoard(Library.Board,Library.BoardSize)">
+        <member name="M:Library.Board.SetBoard(Library.Board,System.Int32,System.Int32)">
             <summary>
             Set de la clase Board.
             </summary>
             <param name="b"> Tablero. </param>
-            <param name="boardSize"> Tamaño del tablero. </param>
+            <param name="rows"> Filas. </param>
+            <param name="columns"> Columnas. </param>
         </member>
         <member name="M:Library.Board.GetBoard">
             <summary>
@@ -33,55 +35,27 @@
             </summary>
             <returns> Tablero. </returns>
         </member>
-        <member name="M:Library.Board.GetBoardSize">
-            <summary>
-            Devuelve tamaño del tablero.
-            </summary>
-            <returns> boardSize. </returns>
-        </member>
-        <member name="T:Library.BoardSize">
-            <summary>
-            Clase para establecer las dimensiones del tablero.
-            </summary>
-        </member>
-        <member name="M:Library.BoardSize.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.BoardSize"/>.
-            </summary>
-            <param name="rows"> Filas. </param>
-            <param name="columns"> Columnas. </param>
-        </member>
-        <member name="F:Library.BoardSize.rows">
-            <summary>
-            Filas del tablero.
-            </summary>
-        </member>
-        <member name="F:Library.BoardSize.columns">
-            <summary>
-            Columnas del tablero.
-            </summary>
-        </member>
-        <member name="M:Library.BoardSize.SetRows(System.Int32)">
+        <member name="M:Library.Board.SetRows(System.Int32)">
             <summary>
             Establece el número de filas.
             </summary>
             <param name="rows"> Filas del tablero. </param>
             <returns> Número par de filas de tablero entre 8 y 20. </returns>
         </member>
-        <member name="M:Library.BoardSize.SetColumns(System.Int32)">
+        <member name="M:Library.Board.SetColumns(System.Int32)">
             <summary>
             Establece el número de columnas.
             </summary>
             <param name="columns"> Columnas del tablero. </param>
             <returns> Número par de columnas de tablero entre 8 y 20. </returns>
         </member>
-        <member name="M:Library.BoardSize.GetRows">
+        <member name="M:Library.Board.GetRows">
             <summary>
             Devuelve las filas del tablero.
             </summary>
             <returns> Las filas del tablero. </returns>
         </member>
-        <member name="M:Library.BoardSize.GetColumns">
+        <member name="M:Library.Board.GetColumns">
             <summary>
             Devuelve las columnas del tablero.
             </summary>
@@ -176,9 +150,14 @@
             Jugador administrador de la partida.
             </summary>
         </member>
-        <member name="F:Library.Game.boardSize1">
+        <member name="F:Library.Game.rows">
             <summary>
-            Dimensiones del tablero.
+            Filas del tablero.
+            </summary>
+        </member>
+        <member name="F:Library.Game.columns">
+            <summary>
+            Columnas del tablero.
             </summary>
         </member>
         <member name="F:Library.Game.board1">
@@ -301,9 +280,14 @@
             Instancia del tablero 2
             </summary>
         </member>
-        <member name="F:Library.GameLogic.boardSize">
+        <member name="F:Library.GameLogic.rows">
             <summary>
             Instancia del boardSize
+            </summary>
+        </member>
+        <member name="F:Library.GameLogic.columns">
+            <summary>
+            Columnas del tablero.
             </summary>
         </member>
         <member name="F:Library.GameLogic.numberAttack">
@@ -606,6 +590,17 @@
             Clase que administra las partidas en curso.
             </summary>
         </member>
+        <member name="P:Library.ServerManager.Instance">
+            <summary>
+            Creación de una única instancia de la clase ServerManager.
+            </summary>
+        </member>
+        <member name="M:Library.ServerManager.GetListing">
+            <summary>
+            Devuelve la lista de servidores.
+            </summary>
+            <returns> Lista de servidores. </returns>
+        </member>
         <member name="M:Library.ServerManager.AddGame(Library.Game)">
             <summary>
             Agrega un juego al servidor.
@@ -617,12 +612,6 @@
             Elimina un juego del servidor.
             </summary>
             <param name="id"> Id del juego. </param>
-        </member>
-        <member name="M:Library.ServerManager.GetListing">
-            <summary>
-            Devuelve la lista de juegos.
-            </summary>
-            <returns> Lista de juegos. </returns>
         </member>
         <member name="M:Library.ServerManager.GetGame(System.String)">
             <summary>
@@ -648,7 +637,7 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="F:Library.UserManager.serverManager">
+        <member name="F:Library.UserManager.sm">
             <summary>
             Instancia de Server Manager
             </summary>
@@ -656,6 +645,11 @@
         <member name="M:Library.UserManager.#ctor(Library.ServerManager)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
+            </summary>
+        </member>
+        <member name="M:Library.UserManager.Instance(Library.ServerManager)">
+            <summary>
+            Crea una única instancia de UserManager.
             </summary>
         </member>
         <member name="M:Library.UserManager.AddPlayer(Library.Player)">

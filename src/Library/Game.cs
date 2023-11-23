@@ -49,9 +49,14 @@ namespace Library
         public Player Admin { get; private set; }
 
         /// <summary>
-        /// Dimensiones del tablero.
+        /// Filas del tablero.
         /// </summary>
-        private BoardSize boardSize1;
+        private int rows;
+
+        /// <summary>
+        /// Columnas del tablero.
+        /// </summary>
+        private int columns;
 
         /// <summary>
         /// Tablero del jugador 1.
@@ -70,9 +75,8 @@ namespace Library
         {
             this.Admin = new Player();      // solo test esto cambiarlo después por player admin real en param
 
-            this.boardSize1 = new BoardSize(rows, columns);
-            this.board1 = new Board(boardSize1);
-            this.board2 = new Board(boardSize1);
+            this.board1 = new Board(rows, columns);
+            this.board2 = new Board(rows, columns);
 
             this.totalShips = totalShips;
 
@@ -223,3 +227,5 @@ namespace Library
         }
     }
 }
+
+/// Cumple con el patrón creator ya que crea instancias de board.
