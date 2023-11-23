@@ -10,9 +10,14 @@ namespace Library
     /// Clase tablero.
     /// </summary>
     public class Board
-    {
+    { 
+        /// <summary>
+        /// Instancia de BoardSize.
+        /// </summary>
+        /// <value> BoardSize </value>
         private BoardSize boardSize;
         private char[][] board;
+    
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
