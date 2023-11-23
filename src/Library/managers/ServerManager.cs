@@ -5,6 +5,8 @@
 //---------------------------------------------------------------------------------
 using System.Collections.Generic;
 using System.Linq;
+using Library.utils;
+using Library.utils.core;
 
 namespace Library
 {
@@ -29,6 +31,13 @@ namespace Library
                 if (instance == null) { instance = new ServerManager(); }
                 return instance;
             }
+        }
+
+        public ServerManager() {
+            List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
+            foreach (Game game in retrieved) { this.Servers.Add(game); }
+
+            Logger.Instance.Info($"ServerManager loaded ${retrieved.Count} games.");
         }
 
         /// <summary>
