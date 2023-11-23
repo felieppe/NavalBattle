@@ -6,6 +6,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Library.utils;
+using Library.utils.core;
 
 namespace Library
 {
@@ -43,7 +45,12 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
-        public UserManager() {}
+        public UserManager() {
+            List<Player> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
+            foreach (Player player in retrieved) {
+                this.players.Add(player);
+            }
+        }
 
         /// <summary>
         /// Añade un jugador a la lista de jugadores.
