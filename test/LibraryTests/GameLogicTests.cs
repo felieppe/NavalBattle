@@ -92,7 +92,7 @@ namespace BattleShip.Tests
             Board board = new Board(rows, columns);
 
             ServerManager sm = ServerManager.Instance;
-            this.userManager = UserManager.Instance(sm);
+            this.userManager = UserManager.Instance;
             Player player1 = new Player();
             Player player2 = new Player();
             userManager.AddPlayer(player1);

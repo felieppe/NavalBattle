@@ -184,14 +184,14 @@
             Prueba la funcionalidad de AddGame() en ServerManager.
             </summary>
         </member>
-        <member name="M:Tests.ServerManagerTests.GetListingTest">
-            <summary>
-            Prueba la funcionalidad de GetListing() en ServerManager.
-            </summary>
-        </member>
         <member name="M:Tests.ServerManagerTests.RemoveGameTest">
             <summary>
             Prueba la funcionalidad de RemoveGame() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.GetListingTest">
+            <summary>
+            Prueba la funcionalidad de GetListing() en ServerManager.
             </summary>
         </member>
         <member name="M:Tests.ServerManagerTests.GetGameByIdTest">
