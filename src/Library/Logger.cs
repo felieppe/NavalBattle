@@ -10,7 +10,15 @@ namespace Library
 {
     public class Logger
     {
+         /// <summary>
+        /// Instancia de singleton.
+        /// </summary>
+        /// <value> Logger <</value>
         private static Logger instance;
+         /// <summary>
+        /// Instacia de la clase Configuration.
+        /// </summary>
+        /// <value> </value>
         private Configuration Config = Configuration.Instance;
         private string LogPath;
         
@@ -63,7 +71,7 @@ namespace Library
         }
         
         /// <summary>
-        /// Patron singleton.
+        /// Constructor unico.
         /// </summary>
         /// <returns> </returns>
 

@@ -13,11 +13,27 @@ namespace Library
 {
     public class Configuration
     {
+         /// <summary>
+        /// Instancia de Singleton.
+        /// </summary>
+        /// <value>  </value>
         private static Configuration instance;
 
+         /// <summary>
+        /// Nombre.
+        /// </summary>
         private string Name;
+        /// <summary>
+        /// Nombre de usuario.
+        /// </summary>
         private string Username;
+        /// <summary>
+        /// Token del bot.
+        /// </summary>
         private string Token;
+        /// <summary>
+        /// Estado del Debug.
+        /// </summary>
         private bool Debug;
 
         public static Configuration Instance {
@@ -32,6 +48,10 @@ namespace Library
         /// <returns>  </returns>
 
         public Configuration() { this.Load(); }
+        /// <summary>
+        /// Carga la configuracion del bot.
+        /// </summary>
+        /// <returns>  </returns>
 
         private void Load() {
             string jpath = "../settings.json";
