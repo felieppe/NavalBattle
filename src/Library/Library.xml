@@ -275,6 +275,12 @@
             </summary>
             <returns> El tablero 2. </returns>
         </member>
+        <member name="M:Library.Game.GetBoardSize">
+            <summary>
+            Devuelve la instancia de BoardSize
+            </summary>
+            <returns> El tablero 2. </returns>
+        </member>
         <member name="M:Library.Game.GetAdmin">
             <summary>
             Devuelve el administrador de la partida.

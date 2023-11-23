@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Library.utils.core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Library.utils
 {
@@ -20,15 +23,37 @@ namespace Library.utils
         public Serializer() {}
 
         #nullable enable
-        public void Serialize(DataType opt, Game? game, Player? player) {
+        public void Serialize(DataType opt, Game? game = null, Player? player = null) {
+            string baseFolder = $"../../save/{Configuration.Instance.GetUsername()}";
+
             switch (opt) {
-            case DataType.Game:
-                if (game != null) { return; }
-                break;
-            case DataType.Player:
-                if (player != null) { return; }
-                break;
-            }
+                case DataType.Game:
+                    if (game == null) { return; }
+
+                    JObject obj = new JObject();
+
+                    obj["id"] = "" + game.GetGameId();
+                    obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
+                    obj["ships"] = JsonConvert.SerializeObject(game.GetShips(), Formatting.Indented);
+                    obj["total_ships"] = game.GetTotalShips();
+                    obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
+                    obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
+                    obj["board_size"] = JsonConvert.SerializeObject(game.GetBoardSize(), Formatting.Indented);
+                    obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
+                    obj["board_2"] = JsonConvert.SerializeObject(game.GetBoard2(), Formatting.Indented);
+
+                    string file = $"{baseFolder}/servers/{game.GetGameId()}.json";
+                    using (StreamWriter writer = new StreamWriter(file, true)) {
+                        writer.WriteLine(obj.ToString());
+                    }
+
+                    Logger.Instance.Info("A game has just been saved!");
+
+                    break;
+                case DataType.Player:
+                    if (player == null) { return; }
+                    break;
+                }
         }
     }
 }
