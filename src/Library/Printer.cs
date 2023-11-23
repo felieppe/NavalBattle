@@ -38,11 +38,11 @@ namespace Library
         public void Print(Board board)
         {
             Console.Clear();
-            for (int row = 0; row < board.GetBoardSize().GetRows(); row++)
+            for (int row = 0; row < board.GetRows(); row++)
             {
-                if ((board.GetBoardSize().GetRows() / 2) + 1 == row) { SplitBoardVisually(board.GetBoardSize().GetRows()); }
+                if ((board.GetRows() / 2) + 1 == row) { SplitBoardVisually(board.GetRows()); }
 
-                for (int col = 0; col < board.GetBoardSize().GetColumns(); col++)
+                for (int col = 0; col < board.GetColumns(); col++)
                 {
                     Console.Write(board.GetBoard()[row][col] + " ");
                 }

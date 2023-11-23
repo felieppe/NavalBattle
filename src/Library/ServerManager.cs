@@ -13,8 +13,15 @@ namespace Library
     /// </summary>
     public class ServerManager
     {
+        /// <summary>
+        /// Instancia de Singleton
+        /// </summary>
+        /// <value> Instancia de ServerManager</value>
         private static ServerManager instance;
-
+        /// <summary>
+        /// Lista de partidas.
+        /// </summary>
+        /// <value> Lista de partidas</value>
         private List<Game> Servers = new List<Game>();
 
         public static ServerManager Instance {

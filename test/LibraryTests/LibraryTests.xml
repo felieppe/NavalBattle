@@ -4,31 +4,6 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.BoardSizeTests">
-            <summary>
-            Prueba de la clase <see cref="T:Library.Board"/>.
-            </summary>
-        </member>
-        <member name="F:Tests.BoardSizeTests.boardSize">
-            <summary>
-            Tablero, rows y columns para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.BoardSizeTests.SetUp">
-            <summary>
-            Crea un tamaño de tablero para probar.
-            </summary>
-        </member>
-        <member name="M:Tests.BoardSizeTests.ValidBoardSizeTest">
-            <summary>
-            Prueba que el tamaño del tablero creado sea válido.
-            </summary>
-        </member>
-        <member name="M:Tests.BoardSizeTests.InvalidBoardSizeTest">
-            <summary>
-            Prueba que el tamaño del tablero creado no sea válido.
-            </summary>
-        </member>
         <member name="T:Tests.BoardTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Board"/>.
@@ -47,6 +22,16 @@
         <member name="M:Tests.BoardTests.InitializeBoardTest">
             <summary>
             Prueba que el tablero creado sea igual al que se espera.
+            </summary>
+        </member>
+        <member name="M:Tests.BoardTests.ValidBoardSizeTest">
+            <summary>
+            Prueba que el tamaño del tablero creado sea válido.
+            </summary>
+        </member>
+        <member name="M:Tests.BoardTests.InvalidBoardSizeTest">
+            <summary>
+            Prueba que el tamaño del tablero creado no sea válido.
             </summary>
         </member>
         <member name="T:Tests.CoordsTests">
@@ -199,14 +184,14 @@
             Prueba la funcionalidad de AddGame() en ServerManager.
             </summary>
         </member>
-        <member name="M:Tests.ServerManagerTests.RemoveGameTest">
-            <summary>
-            Prueba la funcionalidad de RemoveGame() en ServerManager.
-            </summary>
-        </member>
         <member name="M:Tests.ServerManagerTests.GetListingTest">
             <summary>
             Prueba la funcionalidad de GetListing() en ServerManager.
+            </summary>
+        </member>
+        <member name="M:Tests.ServerManagerTests.RemoveGameTest">
+            <summary>
+            Prueba la funcionalidad de RemoveGame() en ServerManager.
             </summary>
         </member>
         <member name="M:Tests.ServerManagerTests.GetGameByIdTest">
@@ -289,9 +274,9 @@
             Prueba de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
         </member>
-        <member name="F:BattleShip.Tests.GameLogicTests.boardSize">
+        <member name="F:BattleShip.Tests.GameLogicTests.board">
             <summary>
-            El tablero, con sus elementos respectivos (boardSize, rows y columns), para probar.
+            El tablero, con sus elementos respectivos (rows y columns), para probar.
             </summary>
         </member>
         <member name="M:BattleShip.Tests.GameLogicTests.SetUp">

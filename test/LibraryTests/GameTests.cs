@@ -66,8 +66,8 @@ namespace Tests
         public void NewPresetGame()
         {
             // Se busca que sea 10+1 porque el proyecto está pensado para que arranque a contar de uno y no de cero.
-            Assert.AreEqual(10+1, this.game.GetBoard1().GetBoardSize().GetRows());
-            Assert.AreEqual(10+1, this.game.GetBoard1().GetBoardSize().GetColumns());
+            Assert.AreEqual(10+1, this.game.GetBoard1().GetRows());
+            Assert.AreEqual(10+1, this.game.GetBoard1().GetColumns());
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace Tests
         public void NewCustomGame()
         {
             Game game1 = new Game(20, 20, 9);
-            Assert.AreEqual(20+1, game1.GetBoard1().GetBoardSize().GetRows());
-            Assert.AreEqual(20+1, game1.GetBoard1().GetBoardSize().GetColumns());
+            Assert.AreEqual(20+1, game1.GetBoard1().GetRows());
+            Assert.AreEqual(20+1, game1.GetBoard1().GetColumns());
         }
 
         /// <summary>

@@ -13,11 +13,27 @@ namespace Library
 {
     public class Configuration
     {
+         /// <summary>
+        /// Instancia de Singleton.
+        /// </summary>
+        /// <value>  </value>
         private static Configuration instance;
 
+         /// <summary>
+        /// Nombre.
+        /// </summary>
         private string Name;
+        /// <summary>
+        /// Nombre de usuario.
+        /// </summary>
         private string Username;
+        /// <summary>
+        /// Token del bot.
+        /// </summary>
         private string Token;
+        /// <summary>
+        /// Estado del Debug.
+        /// </summary>
         private bool Debug;
 
         public static Configuration Instance {
@@ -26,8 +42,16 @@ namespace Library
                 return instance;
             }
         }
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <returns>  </returns>
 
         public Configuration() { this.Load(); }
+        /// <summary>
+        /// Carga la configuracion del bot.
+        /// </summary>
+        /// <returns>  </returns>
 
         private void Load() {
             string jpath = "../settings.json";
@@ -60,16 +84,33 @@ namespace Library
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtiene el nombre.
+        /// </summary>
+        /// <returns> Devuelve el nombre. </returns>
         public string GetName() {
             return this.Name;
         }
+        /// <summary>
+        /// Obtiene el Nombre de usuario
+        /// </summary>
+        /// <returns> Devuelve el Nombre de usuario. </returns>
+
         public string GetUsername() {
             return this.Username;
         }
+        /// <summary>
+        /// Obtiene el Token de Telegram
+        /// </summary>
+        /// <returns> Devuelve elToken de Telegram . </returns>
+        
         public string GetToken() {
             return this.Token;
         }
+        /// <summary>
+        /// Obtiene el valor booleano de Debug 
+        /// </summary>
+        /// <returns> Devuelve el valor booleano de Debug  </returns>
         public bool GetDebug() {
             return this.Debug;
         }

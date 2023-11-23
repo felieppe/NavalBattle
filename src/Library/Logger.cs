@@ -10,9 +10,22 @@ namespace Library
 {
     public class Logger
     {
+         /// <summary>
+        /// Instancia de singleton.
+        /// </summary>
+        /// <value> Logger <</value>
         private static Logger instance;
+         /// <summary>
+        /// Instacia de la clase Configuration.
+        /// </summary>
+        /// <value> </value>
         private Configuration Config = Configuration.Instance;
         private string LogPath;
+        
+        /// <summary>
+        /// Crea las carpetas que necesita el Logger para funcionar.
+        /// </summary>
+        /// <returns> . </returns>
 
         private void Setup() {
             string folderPath = "../../logs";
@@ -34,6 +47,11 @@ namespace Library
         
             this.LogPath = logPath;
         }
+        
+        /// <summary>
+        /// Escribe un mensaje en el archivo del registro.
+        /// </summary>
+        /// <returns>  </returns>
         private void Log(string log) {
             try {
                 using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
@@ -51,6 +69,11 @@ namespace Library
                 Console.WriteLine(ex.Message);
             }
         }
+        
+        /// <summary>
+        /// Constructor unico.
+        /// </summary>
+        /// <returns> </returns>
 
         public static Logger Instance {
             get {
@@ -58,12 +81,22 @@ namespace Library
                 return instance;
             }
         }
+        
+        /// <summary>
+        /// Constructor de la clase.
+        /// </summary>
+        /// <returns>  </returns>
 
         public Logger() {
             this.Setup();
 
             this.Info("Logger has been configured correctly!");
         }
+        
+        /// <summary>
+        /// Escribe un mensaje de tipo informacion en la consola.
+        /// </summary>
+        /// <returns>  </returns>
 
         public void Info(string msg) {
             string output = $"[@{Config.GetUsername()}/INFO]: {msg}";
@@ -71,6 +104,11 @@ namespace Library
 
             this.Log(output);
         }
+        
+        /// <summary>
+        /// Escribe un mensaje de tipo Debug en la consola.
+        /// </summary>
+        /// <returns> </returns>
         public void Debug(string msg) {
             if (this.Config.GetDebug()) {
                 string output = $"[@{Config.GetUsername()}/DEBUG]: {msg}";
@@ -79,6 +117,10 @@ namespace Library
                 this.Log(output);
             }
         }
+        /// <summary>
+        /// Escribe un mensaje de tipo Error en la consola.
+        /// </summary>
+        /// <returns> </returns>
         public void Error(string msg) {
             string output = $"[@{Config.GetUsername()}/ERROR]: {msg}";
             Console.WriteLine(output);

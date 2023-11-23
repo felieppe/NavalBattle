@@ -31,7 +31,12 @@ namespace Library
         /// <summary>
         /// Instancia del boardSize
         /// </summary>
-        private BoardSize boardSize;
+        private int rows;
+
+        /// <summary>
+        /// Columnas del tablero.
+        /// </summary>
+        private int columns;
 
         /// <summary>
         /// Conteo del numero de ataques
@@ -50,7 +55,8 @@ namespace Library
             this.game = game;
             this.board = board;
             this.board2 = board2;
-            this.boardSize = this.board.GetBoardSize();
+            this.rows = this.board.GetRows();
+            this.columns = this.board.GetColumns();
         }
 
         /// <summary>
