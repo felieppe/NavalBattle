@@ -14,6 +14,7 @@ namespace Library
         private int rows;
         private int columns;
         private char[][] board;
+    
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.

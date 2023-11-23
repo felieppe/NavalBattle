@@ -32,7 +32,7 @@ namespace Tests
         public void Setup()
         {
             this.sm = new ServerManager();
-            this.um = new UserManager(this.sm);
+            this.um = new UserManager();
         }
 
         /// <summary>

@@ -14,6 +14,8 @@ namespace Library
     /// </summary>
     public class UserManager
     {
+        private static UserManager instance;
+
         /// <summary>
         /// Lista de jugadores registrados en el UserManager.
         /// </summary>
@@ -29,14 +31,19 @@ namespace Library
         /// <summary>
         /// Instancia de Server Manager
         /// </summary>
-        private ServerManager serverManager;
+        private ServerManager serverManager = ServerManager.Instance;
+
+        public static UserManager Instance {
+            get {
+                if (instance == null) { instance = new UserManager(); }
+                return instance;
+            }
+        }
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
-        public UserManager(ServerManager sm) {
-            this.serverManager = sm;
-        }
+        public UserManager() {}
 
         /// <summary>
         /// Añade un jugador a la lista de jugadores.
