@@ -73,7 +73,31 @@ namespace Library.utils
                     Logger.Instance.Info($"Has been retrieved {games.Count} games!");
                     return games;
                 case DataType.Player:
-                    break;
+                    string playersFolder = $"{baseFolder}/players/";
+                    files = Directory.GetFiles(playersFolder, "*.json");
+
+                    List<Player> playersList = new List<Player>();
+                    
+                    foreach (var file in files) {
+                        string json = File.ReadAllText(file);
+                        JObject obj = JObject.Parse(json);
+
+                        // Retriving player data from JSON object
+                        string id = obj["id"].ToString();
+                        string username = obj["username"].ToString();
+
+                        // Cloning the player data to a new instance
+                        Player player = new Player();
+                        
+                        player.SetId(id);
+                        player.SetUsername(username);
+
+                        // Adding player to the returnable player list
+                        playersList.Add(player);
+                    }
+
+                    Logger.Instance.Info($"Has been retrieved {playersList.Count} players!");
+                    return playersList;
             }
 
             return null;
