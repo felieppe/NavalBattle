@@ -51,12 +51,12 @@ namespace Library
         /// <summary>
         /// Filas del tablero.
         /// </summary>
-        private int rows;
+        public int rows { get; private set; }
 
         /// <summary>
         /// Columnas del tablero.
         /// </summary>
-        private int columns;
+        public int columns { get; private set; }
 
         /// <summary>
         /// Tablero del jugador 1.
