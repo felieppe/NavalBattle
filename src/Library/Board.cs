@@ -15,18 +15,18 @@ namespace Library
         /// Valor de las filas
         /// </summary>
         /// <value> Valor de las filas </value>
-        private int rows;
+        public int rows { get; private set; }
         /// <summary>
         /// Valor de las columnas.
         /// </summary>
         /// <value> Valor de las columnas </value>
-        private int columns;
+        public int columns { get; private set; }
         /// <summary>
         /// Formato del tablero.
         /// </summary>
         /// <value> Formato del tablero </value>
-        private char[][] board;
-    
+        public char[][] board { get; private set; }
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Board"/>.
         /// </summary>
