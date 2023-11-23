@@ -26,11 +26,10 @@ namespace Library.utils
         public void Serialize(DataType opt, Game? game = null, Player? player = null) {
             string baseFolder = $"../../save/{Configuration.Instance.GetUsername()}";
 
+            JObject obj = new JObject();
             switch (opt) {
                 case DataType.Game:
                     if (game == null) { return; }
-
-                    JObject obj = new JObject();
 
                     obj["id"] = "" + game.GetGameId();
                     obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
@@ -48,10 +47,19 @@ namespace Library.utils
                     }
 
                     Logger.Instance.Info("A game has just been saved!");
-
                     break;
                 case DataType.Player:
                     if (player == null) { return; }
+
+                    obj["id"] = player.GetId();
+                    obj["username"] = player.GetUsername();
+
+                    string playerFile = $"{baseFolder}/players/{player.GetId()}.json";
+                    using (StreamWriter writer = new StreamWriter(playerFile, true)) {
+                        writer.WriteLine(obj.ToString());
+                    }
+
+                    Logger.Instance.Info("A player has just been saved!");
                     break;
                 }
         }
