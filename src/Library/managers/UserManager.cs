@@ -61,6 +61,7 @@ namespace Library
         public void AddPlayer(Player player)
         {
             this.players.Add(player);
+            Serializer.Instance.Serialize(DataType.Player, player: player);
         }
 
         /// <summary>
