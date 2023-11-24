@@ -216,12 +216,12 @@
             Jugador administrador de la partida.
             </summary>
         </member>
-        <member name="F:Library.Game.rows">
+        <member name="P:Library.Game.rows">
             <summary>
             Filas del tablero.
             </summary>
         </member>
-        <member name="F:Library.Game.columns">
+        <member name="P:Library.Game.columns">
             <summary>
             Columnas del tablero.
             </summary>
@@ -255,6 +255,16 @@
         <member name="M:Library.Game.SetAdmin(Library.Player)">
             <summary>
             Establece un jugador como administrador de la partida.
+            </summary>
+        </member>
+        <member name="M:Library.Game.SetBoard1(Library.Board)">
+            <summary>
+            Establece el board1.
+            </summary>
+        </member>
+        <member name="M:Library.Game.SetBoard2(Library.Board)">
+            <summary>
+            Establece el board2.
             </summary>
         </member>
         <member name="M:Library.Game.AddShipCoords(System.String,System.Int32,System.Int32)">

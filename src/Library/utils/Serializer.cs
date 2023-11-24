@@ -13,6 +13,8 @@ namespace Library.utils
     {
         private static Serializer instance;
 
+        public bool Debug;
+
         public static Serializer Instance {
             get {
                 if (instance == null) { instance = new Serializer(); }
@@ -20,11 +22,14 @@ namespace Library.utils
             }
         }
 
-        public Serializer() {}
+        public Serializer(bool? debug = false) {
+            this.Debug = (bool) debug;
+        }
 
         #nullable enable
         public void Serialize(DataType opt, Game? game = null, Player? player = null) {
-            string baseFolder = $"../../save/{Configuration.Instance.GetUsername()}";
+            if (this.Debug) { return; }
+            string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
             JObject obj = new JObject();
             switch (opt) {
@@ -37,6 +42,8 @@ namespace Library.utils
                     obj["total_ships"] = game.GetTotalShips();
                     obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
                     obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
+                    obj["rows"] = game.rows;
+                    obj["columns"] = game.columns;
                     obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
                     obj["board_2"] = JsonConvert.SerializeObject(game.GetBoard2(), Formatting.Indented);
 
@@ -60,7 +67,7 @@ namespace Library.utils
 
                     Logger.Instance.Info("A player has just been saved!");
                     break;
-                }
+            }
         }
     }
 }

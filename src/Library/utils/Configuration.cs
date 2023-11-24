@@ -19,7 +19,7 @@ namespace Library
         /// <value>  </value>
         private static Configuration instance;
 
-         /// <summary>
+        /// <summary>
         /// Nombre.
         /// </summary>
         private string Name;
@@ -42,19 +42,19 @@ namespace Library
                 return instance;
             }
         }
+        
         /// <summary>
         /// Constructor de la clase
         /// </summary>
         /// <returns>  </returns>
-
         public Configuration() { this.Load(); }
+        
         /// <summary>
         /// Carga la configuracion del bot.
         /// </summary>
         /// <returns>  </returns>
-
         private void Load() {
-            string jpath = "../settings.json";
+            string jpath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + "/src/settings.json";
 
             if (!File.Exists(jpath)) { throw new ConfigFileNotExistsException("The configuration file does not exist."); }
 

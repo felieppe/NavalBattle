@@ -51,12 +51,12 @@ namespace Library
         /// <summary>
         /// Filas del tablero.
         /// </summary>
-        private int rows;
+        public int rows { get; private set; }
 
         /// <summary>
         /// Columnas del tablero.
         /// </summary>
-        private int columns;
+        public int columns { get; private set; }
 
         /// <summary>
         /// Tablero del jugador 1.
@@ -121,6 +121,20 @@ namespace Library
             {
                 this.players.Add(admin);
             }
+        }
+
+        /// <summary>
+        /// Establece el board1.
+        /// </summary>
+        public void SetBoard1(Board b) {
+            if (b != null) { this.board1 = b; }
+        }
+
+        /// <summary>
+        /// Establece el board2.
+        /// </summary>
+        public void SetBoard2(Board b) {
+            if (b != null) { this.board2 = b; }
         }
 
         /// <summary>

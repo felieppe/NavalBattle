@@ -5,6 +5,8 @@
 //---------------------------------------------------------------------------------
 using System.Collections.Generic;
 using System.Linq;
+using Library.utils;
+using Library.utils.core;
 
 namespace Library
 {
@@ -31,6 +33,15 @@ namespace Library
             }
         }
 
+        public ServerManager() {
+            List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
+            if (retrieved != null) {
+                foreach (Game game in retrieved) { this.Servers.Add(game); }
+
+                Logger.Instance.Info($"ServerManager loaded {retrieved.Count} games.");
+            }
+        }
+
         /// <summary>
         /// Agrega un juego al servidor.
         /// </summary>
@@ -49,7 +60,10 @@ namespace Library
                     }
                 }
 
-                if (!duplicated) { this.Servers.Add(game); }
+                if (!duplicated) { 
+                    this.Servers.Add(game);
+                    Serializer.Instance.Serialize(DataType.Game, game: game);
+                }
             }
         }
 

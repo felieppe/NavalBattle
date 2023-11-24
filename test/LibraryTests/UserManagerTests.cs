@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------------------
 using System.Collections.Generic;
 using Library;
+using Library.utils;
 using NUnit.Framework;
 
 namespace Tests
@@ -31,9 +32,12 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
+            Deserializer.Instance.Debug = true;
+            Serializer.Instance.Debug = true;
+
             this.sm = new ServerManager();
             this.um = new UserManager();
-        }
+        } 
 
         /// <summary>
         /// Prueba el sistema de agregar jugadores a UserManager.

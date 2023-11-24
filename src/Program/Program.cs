@@ -19,6 +19,10 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.IO;
+using Library.utils;
+using Library.utils.core;
+using System.Collections.Generic;
+using Game = Library.Game;
 
 namespace NavalBattle   
 {
@@ -39,7 +43,7 @@ namespace NavalBattle
             _ = ServerManager.Instance;
 
             // Save folder setup
-            string folderPath = "../../save";
+            string folderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + "/save";
             if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); }
 
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}"); }
