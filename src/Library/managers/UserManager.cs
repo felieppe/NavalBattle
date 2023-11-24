@@ -47,11 +47,13 @@ namespace Library
         /// </summary>
         public UserManager() {
             List<Player> retrieved = Deserializer.Instance.Deserialize(DataType.Player);
-            foreach (Player player in retrieved) {
-                this.players.Add(player);
-            }
+            if (retrieved != null) {
+                foreach (Player player in retrieved) {
+                    this.players.Add(player);
+                }
 
-            Logger.Instance.Info($"UserManager loaded {retrieved.Count} players.");
+                Logger.Instance.Info($"UserManager loaded {retrieved.Count} players.");
+            }
         }
 
         /// <summary>
