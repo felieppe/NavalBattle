@@ -58,7 +58,10 @@ namespace Library
                     }
                 }
 
-                if (!duplicated) { this.Servers.Add(game); }
+                if (!duplicated) { 
+                    this.Servers.Add(game);
+                    Serializer.Instance.Serialize(DataType.Game, game);
+                }
             }
         }
 
