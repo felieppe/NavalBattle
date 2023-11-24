@@ -24,7 +24,7 @@ namespace Library.utils
 
         #nullable enable
         public void Serialize(DataType opt, Game? game = null, Player? player = null) {
-            string baseFolder = $"../../save/{Configuration.Instance.GetUsername()}";
+            string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
             JObject obj = new JObject();
             switch (opt) {
@@ -62,7 +62,7 @@ namespace Library.utils
 
                     Logger.Instance.Info("A player has just been saved!");
                     break;
-                }
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Library.utils
         public Deserializer() {}
 
         public dynamic Deserialize(DataType opt) {
-            string baseFolder = $"../../save/{Configuration.Instance.GetUsername()}";
+            string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
             switch (opt) {
                 case DataType.Game:
