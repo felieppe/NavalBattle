@@ -13,6 +13,8 @@ namespace Library.utils
     {
         private static Serializer instance;
 
+        public bool Debug;
+
         public static Serializer Instance {
             get {
                 if (instance == null) { instance = new Serializer(); }
@@ -20,10 +22,13 @@ namespace Library.utils
             }
         }
 
-        public Serializer() {}
+        public Serializer(bool? debug = false) {
+            this.Debug = (bool) debug;
+        }
 
         #nullable enable
         public void Serialize(DataType opt, Game? game = null, Player? player = null) {
+            if (this.Debug) { return; }
             string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
             JObject obj = new JObject();

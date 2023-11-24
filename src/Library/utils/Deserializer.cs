@@ -13,6 +13,8 @@ namespace Library.utils
     {
         private static Deserializer instance;
 
+        public bool Debug;
+
         public static Deserializer Instance {
             get {
                 if (instance == null) { instance = new Deserializer(); }
@@ -20,9 +22,12 @@ namespace Library.utils
             }
         }
 
-        public Deserializer() {}
+        public Deserializer(bool? debug = false) {
+            this.Debug = (bool) debug;
+        }
 
         public dynamic Deserialize(DataType opt) {
+            if (this.Debug) { return null; }
             string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
             switch (opt) {
