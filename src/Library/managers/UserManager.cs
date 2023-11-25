@@ -62,8 +62,15 @@ namespace Library
         /// <param name="player"> Player. </param>
         public void AddPlayer(Player player)
         {
-            this.players.Add(player);
-            Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
+            bool found = false;
+            foreach (Player p in this.players) {
+                if (p.GetTelegramId() == player.GetTelegramId() || p.GetId() == player.GetId()) { found = true; }
+            }
+
+            if (!found) {
+                this.players.Add(player);
+                Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
+            }
         }
 
         /// <summary>
