@@ -73,6 +73,7 @@ namespace Library
         public void RemovePlayer(Player player)
         {
             this.players.Remove(player);
+            Serializer.Instance.Serialize(DataType.Player, MethodType.REMOVE, player: player);
         }
 
         /// <summary>
