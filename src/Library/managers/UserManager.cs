@@ -63,7 +63,7 @@ namespace Library
         public void AddPlayer(Player player)
         {
             this.players.Add(player);
-            Serializer.Instance.Serialize(DataType.Player, player: player);
+            Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
         }
 
         /// <summary>
@@ -73,6 +73,7 @@ namespace Library
         public void RemovePlayer(Player player)
         {
             this.players.Remove(player);
+            Serializer.Instance.Serialize(DataType.Player, MethodType.REMOVE, player: player);
         }
 
         /// <summary>

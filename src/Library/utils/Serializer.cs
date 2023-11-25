@@ -27,7 +27,7 @@ namespace Library.utils
         }
 
         #nullable enable
-        public void Serialize(DataType opt, Game? game = null, Player? player = null) {
+        public void Serialize(DataType opt, MethodType method, Game? game = null, Player? player = null) {
             if (this.Debug) { return; }
             string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
@@ -36,36 +36,50 @@ namespace Library.utils
                 case DataType.Game:
                     if (game == null) { return; }
 
-                    obj["id"] = "" + game.GetGameId();
-                    obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
-                    obj["ships"] = JsonConvert.SerializeObject(game.GetShips(), Formatting.Indented);
-                    obj["total_ships"] = game.GetTotalShips();
-                    obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
-                    obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
-                    obj["rows"] = game.rows;
-                    obj["columns"] = game.columns;
-                    obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
-                    obj["board_2"] = JsonConvert.SerializeObject(game.GetBoard2(), Formatting.Indented);
-
                     string file = $"{baseFolder}/servers/{game.GetGameId()}.json";
-                    using (StreamWriter writer = new StreamWriter(file, true)) {
-                        writer.WriteLine(obj.ToString());
-                    }
+                    if (method == MethodType.POST) {
+                        obj["id"] = "" + game.GetGameId();
+                        obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
+                        obj["ships"] = JsonConvert.SerializeObject(game.GetShips(), Formatting.Indented);
+                        obj["total_ships"] = game.GetTotalShips();
+                        obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
+                        obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
+                        obj["rows"] = game.rows;
+                        obj["columns"] = game.columns;
+                        obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
+                        obj["board_2"] = JsonConvert.SerializeObject(game.GetBoard2(), Formatting.Indented);
 
-                    Logger.Instance.Info("A game has just been saved!");
+                        using (StreamWriter writer = new StreamWriter(file, true)) {
+                            writer.WriteLine(obj.ToString());
+                        }
+
+                        Logger.Instance.Info("A game has just been saved!");
+                    } else {
+                        if (File.Exists(file)) { 
+                            File.Delete(file);
+                            Logger.Instance.Info("A game has just been removed!");
+                        }
+                    }
                     break;
                 case DataType.Player:
                     if (player == null) { return; }
 
-                    obj["id"] = player.GetId();
-                    obj["username"] = player.GetUsername();
-
                     string playerFile = $"{baseFolder}/players/{player.GetId()}.json";
-                    using (StreamWriter writer = new StreamWriter(playerFile, true)) {
-                        writer.WriteLine(obj.ToString());
-                    }
+                    if (method == MethodType.POST) {
+                        obj["id"] = player.GetId();
+                        obj["username"] = player.GetUsername();
 
-                    Logger.Instance.Info("A player has just been saved!");
+                        using (StreamWriter writer = new StreamWriter(playerFile, true)) {
+                            writer.WriteLine(obj.ToString());
+                        }
+
+                        Logger.Instance.Info("A player has just been saved!");
+                    } else {
+                        if (File.Exists(playerFile)) { 
+                            File.Delete(playerFile);
+                            Logger.Instance.Info("A player has just been removed!");
+                        }
+                    }
                     break;
             }
         }

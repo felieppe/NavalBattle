@@ -62,7 +62,7 @@ namespace Library
 
                 if (!duplicated) { 
                     this.Servers.Add(game);
-                    Serializer.Instance.Serialize(DataType.Game, game: game);
+                    Serializer.Instance.Serialize(DataType.Game, MethodType.POST, game: game);
                 }
             }
         }
@@ -76,6 +76,7 @@ namespace Library
             Game g = this.Servers.FirstOrDefault(g => g.GetGameId() == id);
             if (g != null) {
                 Servers.Remove(g);
+                Serializer.Instance.Serialize(DataType.Game, MethodType.REMOVE, game: g);
             }           
         }
 
