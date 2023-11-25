@@ -72,7 +72,9 @@ namespace NavalBattle
             var cts = new CancellationTokenSource();
             Handler =
                 new PlayHandler(
-                    new MenuHandler(null));
+                    new MenuHandler(
+                        new ServersListHandler(null)
+            ));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
