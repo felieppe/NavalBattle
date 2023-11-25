@@ -67,6 +67,7 @@ namespace Library.utils
                     string playerFile = $"{baseFolder}/players/{player.GetId()}.json";
                     if (method == MethodType.POST) {
                         obj["id"] = player.GetId();
+                        obj["tid"] = player.GetTelegramId();
                         obj["username"] = player.GetUsername();
 
                         using (StreamWriter writer = new StreamWriter(playerFile, true)) {

@@ -36,7 +36,10 @@ namespace Library
         public ServerManager() {
             List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
             if (retrieved != null) {
-                foreach (Game game in retrieved) { this.Servers.Add(game); }
+                foreach (Game game in retrieved) { 
+                    this.Servers.Add(game);
+                    UserManager.Instance.AddInGamePlayers(game);
+                }
 
                 Logger.Instance.Info($"ServerManager loaded {retrieved.Count} games.");
             }

@@ -15,15 +15,15 @@ namespace Library.handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
     /// </summary>
-    public class PlayHandler : BaseHandler
+    public class MenuHandler : BaseHandler
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PlayHandler"/>.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public PlayHandler(BaseHandler next) : base(next)
+        public MenuHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/play" };
+            this.Keywords = new string[] { "/menu" };
         }
 
         /// <summary>
@@ -35,20 +35,17 @@ namespace Library.handlers
         protected override void InternalHandle(Message message, out Response response)
         {
             User author = message.From;
-            string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
-
-            // Registering user...
-            Library.Player rp = new Library.Player();
-            rp.SetTelegramId("" + author.Id);
-            rp.SetUsername(author.Username);
-
-            UserManager.Instance.AddPlayer(rp);
+            string answr = $"Select an option from the main menu:";
 
             InlineKeyboardMarkup inlineKeyboard = new(new[]
             {
                 new []
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Play 🎮", callbackData: "/menu"),
+                    InlineKeyboardButton.WithCallbackData(text: "Create a game 🆕", callbackData: "/create"),
+                },
+                new []
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "Join a game 🎯", callbackData: "/join"),
                 },
                 new []
                 {

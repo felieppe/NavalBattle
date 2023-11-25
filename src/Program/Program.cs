@@ -70,14 +70,20 @@ namespace NavalBattle
             Setup();
 
             var cts = new CancellationTokenSource();
-            Handler = new PlayHandler(null);
+            Handler =
+                new PlayHandler(
+                    new MenuHandler(
+                        new ServersListHandler(null)
+            ));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
                 new ReceiverOptions()
                 {
-                    AllowedUpdates = Array.Empty<UpdateType>()
+                    AllowedUpdates = new UpdateType[] {
+                        UpdateType.Message, UpdateType.CallbackQuery
+                    }
                 },
                 cts.Token   
             );
@@ -92,9 +98,13 @@ namespace NavalBattle
         {
             try
             {
-                if (update.Type == UpdateType.Message)
-                {
-                    await HandleMessageReceived(botClient, update.Message);
+                switch(update.Type) {
+                    case UpdateType.Message:
+                        await HandleMessageReceived(botClient, update.Message);
+                        break;
+                    case UpdateType.CallbackQuery:
+                        await HandleCallbackReceived(botClient, update);
+                        break;
                 }
             }
             catch(Exception e)
@@ -112,13 +122,32 @@ namespace NavalBattle
             switch(response.GetType())
             {
                 case ResponseType.Message:
-                    if (!string.IsNullOrEmpty(response.GetMessage()))
-                    {
+                    if (!string.IsNullOrEmpty(response.GetMessage())) {
                         await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage());
                     }
                     break;
                 case ResponseType.Keyboard:
                     await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                    break;
+            }
+        }
+        private static async Task HandleCallbackReceived(ITelegramBotClient botClient, Update update) {
+            string data = update.CallbackQuery.Data;
+            Logger.Info($"Received a callback from {update.CallbackQuery.From.FirstName}: {data}");
+
+            Message msg = new Message();
+            msg.Chat = update.CallbackQuery.Message.Chat;
+            msg.MessageId = update.Id;
+            msg.From = update.CallbackQuery.From;
+            msg.Text = data;
+
+            Response response = new Response(ResponseType.None, null); 
+            Handler.Handle(msg, out response);
+
+            switch (response.GetType()) {
+                case ResponseType.Keyboard:
+                    await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                    await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
                     break;
             }
         }

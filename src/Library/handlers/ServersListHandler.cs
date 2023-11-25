@@ -15,15 +15,15 @@ namespace Library.handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
     /// </summary>
-    public class PlayHandler : BaseHandler
+    public class ServersListHandler : BaseHandler
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PlayHandler"/>.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public PlayHandler(BaseHandler next) : base(next)
+        public ServersListHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/play" };
+            this.Keywords = new string[] { "/servers", "/join" };
         }
 
         /// <summary>
@@ -35,26 +35,29 @@ namespace Library.handlers
         protected override void InternalHandle(Message message, out Response response)
         {
             User author = message.From;
-            string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
+            string answr = $"This are the available servers to play! If you want to create one, go back.";
 
-            // Registering user...
-            Library.Player rp = new Library.Player();
-            rp.SetTelegramId("" + author.Id);
-            rp.SetUsername(author.Username);
+            List<Game> availableServers = ServerManager.Instance.GetListing();
+            List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
+            
+            int x = 1;
+            foreach (Game server in availableServers) {
+                buttons.Add(new [] {
+                    InlineKeyboardButton.WithCallbackData(text: $"{x}. Game party ({server.GetPlayers().Count}/2)", callbackData: $"join_server-{server.GetGameId()}")
+                });
+                x += 1;
+            }
 
-            UserManager.Instance.AddPlayer(rp);
+            if (x == 1) {
+                buttons.Add(new [] {
+                    InlineKeyboardButton.WithCallbackData(text: $"No servers avaiable! 🚮", callbackData: $"none")
+                });
+            }
 
-            InlineKeyboardMarkup inlineKeyboard = new(new[]
-            {
-                new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Play 🎮", callbackData: "/menu"),
-                },
-                new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "/quit"),
-                },
+            buttons.Add(new [] {
+                InlineKeyboardButton.WithCallbackData(text: $"Return 🔙", callbackData: $"return-/menu")
             });
+            InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
 
             response = new Response(ResponseType.Keyboard, answr);
             response.SetKeyboard(inlineKeyboard);

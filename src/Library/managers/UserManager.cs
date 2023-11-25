@@ -62,8 +62,15 @@ namespace Library
         /// <param name="player"> Player. </param>
         public void AddPlayer(Player player)
         {
-            this.players.Add(player);
-            Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
+            bool found = false;
+            foreach (Player p in this.players) {
+                if (p.GetTelegramId() == player.GetTelegramId() || p.GetId() == player.GetId()) { found = true; }
+            }
+
+            if (!found) {
+                this.players.Add(player);
+                Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
+            }
         }
 
         /// <summary>
@@ -156,7 +163,7 @@ namespace Library
         /// Añade a los jugadores de un juego a la lista de jugadores en juego.
         /// </summary>
         /// <param name="game"> Ongoing games. </param>
-        private void AddInGamePlayers(Game game)
+        public void AddInGamePlayers(Game game)
         {
             foreach (Player p in game.GetPlayers())
             {

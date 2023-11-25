@@ -89,12 +89,14 @@ namespace Library.utils
 
                         // Retriving player data from JSON object
                         string id = obj["id"].ToString();
+                        string tid = obj["tid"].ToString();
                         string username = obj["username"].ToString();
 
                         // Cloning the player data to a new instance
                         Player player = new Player();
                         
                         player.SetId(id);
+                        player.SetTelegramId(tid);
                         player.SetUsername(username);
 
                         // Adding player to the returnable player list
