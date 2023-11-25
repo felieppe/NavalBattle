@@ -20,6 +20,12 @@ namespace Library
         public string Id { get; private set; }
 
         /// <summary>
+        /// Id del usuario de telegram, vinculado al jugador.
+        /// </summary>
+        /// <value> Id. </value>
+        public string TelegramId { get; private set; }
+
+        /// <summary>
         /// Nombre de usuario del jugador.
         /// </summary>
         /// <value> Username. </value>
@@ -47,6 +53,18 @@ namespace Library
         }
 
         /// <summary>
+        /// Establece el Telegram ID del jugador.
+        /// </summary>
+        /// <param name="id"> Id. </param>
+        public void SetTelegramId(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                this.TelegramId = id;
+            }
+        }
+
+        /// <summary>
         /// Establece el username del jugador.
         /// </summary>
         /// <param name="username"> Username. </param>
@@ -65,6 +83,15 @@ namespace Library
         public string GetId()
         {
             return this.Id;
+        }
+
+        /// <summary>
+        /// Obtiene el Telegram ID del jugador.
+        /// </summary>
+        /// <returns> El Telegram ID del jugador. </returns>
+        public string GetTelegramId()
+        {
+            return this.TelegramId;
         }
 
         /// <summary>

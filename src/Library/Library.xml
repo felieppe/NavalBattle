@@ -460,6 +460,12 @@
             </summary>
             <value> Id. </value>
         </member>
+        <member name="P:Library.Player.TelegramId">
+            <summary>
+            Id del usuario de telegram, vinculado al jugador.
+            </summary>
+            <value> Id. </value>
+        </member>
         <member name="P:Library.Player.Username">
             <summary>
             Nombre de usuario del jugador.
@@ -477,6 +483,12 @@
             </summary>
             <param name="id"> Id. </param>
         </member>
+        <member name="M:Library.Player.SetTelegramId(System.String)">
+            <summary>
+            Establece el Telegram ID del jugador.
+            </summary>
+            <param name="id"> Id. </param>
+        </member>
         <member name="M:Library.Player.SetUsername(System.String)">
             <summary>
             Establece el username del jugador.
@@ -488,6 +500,12 @@
             Obtiene el ID del jugador.
             </summary>
             <returns> El ID del jugador. </returns>
+        </member>
+        <member name="M:Library.Player.GetTelegramId">
+            <summary>
+            Obtiene el Telegram ID del jugador.
+            </summary>
+            <returns> El Telegram ID del jugador. </returns>
         </member>
         <member name="M:Library.Player.GetUsername">
             <summary>
