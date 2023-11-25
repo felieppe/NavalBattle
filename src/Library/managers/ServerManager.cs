@@ -62,7 +62,7 @@ namespace Library
 
                 if (!duplicated) { 
                     this.Servers.Add(game);
-                    Serializer.Instance.Serialize(DataType.Game, game: game);
+                    Serializer.Instance.Serialize(DataType.Game, MethodType.POST, game: game);
                 }
             }
         }
