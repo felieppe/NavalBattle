@@ -156,7 +156,7 @@ namespace Library
         /// Añade a los jugadores de un juego a la lista de jugadores en juego.
         /// </summary>
         /// <param name="game"> Ongoing games. </param>
-        private void AddInGamePlayers(Game game)
+        public void AddInGamePlayers(Game game)
         {
             foreach (Player p in game.GetPlayers())
             {
