@@ -73,8 +73,6 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            this.Admin = new Player();      // solo test esto cambiarlo después por player admin real en param
-
             this.board1 = new Board(rows, columns);
             this.board2 = new Board(rows, columns);
 
@@ -89,14 +87,10 @@ namespace Library
         /// </summary>
         public void AddPlayer(Player player)
         {
-            if (this.players.Count >= 2)
-            {
-                return;
-            }
-            else
-            {
+            if (this.players.Count == 0) {
                 this.players.Add(player);
-            }
+            } else if (this.players.Count >= 1 && this.players.Count <= 2) { this.players.Add(player); }
+            else { return; }
         }
 
         /// <summary>
