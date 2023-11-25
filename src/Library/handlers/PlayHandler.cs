@@ -37,6 +37,13 @@ namespace Library.handlers
             User author = message.From;
             string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
 
+            // Registering user...
+            Library.Player rp = new Library.Player();
+            rp.SetTelegramId("" + author.Id);
+            rp.SetUsername(author.Username);
+
+            UserManager.Instance.AddPlayer(rp);
+
             InlineKeyboardMarkup inlineKeyboard = new(new[]
             {
                 new []
