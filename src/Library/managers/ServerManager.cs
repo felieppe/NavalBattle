@@ -76,6 +76,7 @@ namespace Library
             Game g = this.Servers.FirstOrDefault(g => g.GetGameId() == id);
             if (g != null) {
                 Servers.Remove(g);
+                Serializer.Instance.Serialize(DataType.Game, MethodType.REMOVE, game: g);
             }           
         }
 
