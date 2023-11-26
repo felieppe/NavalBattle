@@ -95,7 +95,10 @@ namespace Library
         {
             if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
                 if (UserManager.Instance.GetPlayers().Equals(player)) {
-                    if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { this.players.Add(player); }
+                    if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { 
+                        this.players.Add(player);
+                        UserManager.Instance.AddInGamePlayer(player);
+                    }
                 }
             } 
         }
