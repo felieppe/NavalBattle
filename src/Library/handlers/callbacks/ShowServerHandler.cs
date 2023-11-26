@@ -48,7 +48,7 @@ namespace Library.handlers
                 // Players count
                 buttons.Add(new []
                 {
-                    InlineKeyboardButton.WithCallbackData(text: $"Players: {game.GetPlayers().Count}/2", callbackData: $"show_players-{game.GetGameId()}")
+                    InlineKeyboardButton.WithCallbackData(text: $"Players: {game.GetPlayers().Count}/2", callbackData: $"show_server_players-{game.GetGameId()}")
                 });
 
                 // Separator
