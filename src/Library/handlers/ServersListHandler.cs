@@ -41,7 +41,7 @@ namespace Library.handlers
             {
                 buttons.Add(new []
                 {
-                    InlineKeyboardButton.WithCallbackData(text: $"{x}. Game party ({server.GetPlayers().Count}/2)", callbackData: $"join_server-{server.GetGameId()}")
+                    InlineKeyboardButton.WithCallbackData(text: $"{x}. Game party ({server.GetPlayers().Count}/2)", callbackData: $"show_server-{server.GetGameId()}")
                 });
                 x += 1;
             }
