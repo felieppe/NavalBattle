@@ -58,10 +58,12 @@ namespace Library.handlers
                 });
 
                 // Join button
-                buttons.Add(new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"Join ⏩", callbackData: $"join_server-{game.GetGameId()}")
-                });
+                if (game.GetPlayers().Count < 2) {
+                    buttons.Add(new []
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Join ⏩", callbackData: $"join_server-{game.GetGameId()}")
+                    });
+                }
 
                 buttons.Add(new []
                 {
