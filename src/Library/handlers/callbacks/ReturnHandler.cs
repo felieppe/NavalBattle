@@ -30,7 +30,7 @@ namespace Library.handlers
         /// <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         protected override void InternalHandle(Message message, out Response response)
         {
-            string whereReturn = message.Text.Split("-")[1];
+            string whereReturn = message.Text.Split("return-")[1];
             response = new Response(ResponseType.Return, "", ret: whereReturn);
         }
     }
