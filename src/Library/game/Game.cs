@@ -20,6 +20,12 @@ namespace Library
         private string gameId;
 
         /// <summary>
+        /// Nombre de la sesión.
+        /// </summary>
+        /// <value> String </value>
+        private string name;
+
+        /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
         /// </summary>
         /// <value> Lista con elementos de tipo Coords. </value>
@@ -106,6 +112,18 @@ namespace Library
                 this.gameId = id;
             }
         }
+
+        /// <summary>
+        /// Establece el nombre de la sesion.
+        /// </summary>
+        /// <param name="name"> Nombre de la sesion. </param>
+        public void SetGameSession(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                this.name = name;
+            }
+        }
         
         /// <summary>
         /// Establece un jugador como administrador de la partida.
@@ -182,6 +200,15 @@ namespace Library
         public string GetGameId()
         {
             return this.gameId;
+        }
+
+        /// <summary>
+        /// Devuelve el nombre de la sesion.
+        /// </summary>
+        /// <returns> String </returns>
+        public string GetSessionName()
+        {
+            return this.name;
         }
 
         /// <summary>

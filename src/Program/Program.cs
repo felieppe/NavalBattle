@@ -67,8 +67,10 @@ namespace NavalBattle
             Handler =
                 new PlayHandler(
                     new MenuHandler(
-                        new ServersListHandler(null)
-            ));
+                        new ServersListHandler(
+                            new ReturnHandler(
+                                new ShowServerHandler(null)
+            ))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -142,6 +144,8 @@ namespace NavalBattle
                 case ResponseType.Keyboard:
                     await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
                     await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                    break;
+                case ResponseType.Return:
                     break;
             }
         }
