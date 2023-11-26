@@ -33,7 +33,6 @@ namespace BattleShip.Tests
             this.rows = 20;
             this.columns = 20;
             this.board = new Board(rows, columns);
-
             this.game = new Game(rows, columns, 3);
         }
 
@@ -45,7 +44,7 @@ namespace BattleShip.Tests
         {
             Submarine sub = new Submarine();
 
-            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
+            GameLogic gameLogic = new GameLogic(this.game, this.board);
             gameLogic.PlaceShip(sub, 'B', 2, "right");
 
             // Realiza el ataque
@@ -72,7 +71,7 @@ namespace BattleShip.Tests
         [Test]
         public void ValidPlaceShipTest()
         {
-            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
+            GameLogic gameLogic = new GameLogic(this.game, this.board);
             
             Submarine sub = new Submarine();
             gameLogic.PlaceShip(sub, 'A', 2, "down"); 
@@ -87,17 +86,12 @@ namespace BattleShip.Tests
         [Test]
         public void FirstMoveTest()
         {
-            GameLogic gameLogic = new GameLogic(this.game, this.board, null);
+            GameLogic gameLogic = new GameLogic(game, board);
 
-            Board board = new Board(rows, columns);
-
-            ServerManager sm = ServerManager.Instance;
-            this.userManager = UserManager.Instance;
             Player player1 = new Player();
             Player player2 = new Player();
-            userManager.AddPlayer(player1);
-            userManager.AddPlayer(player2);
-
+            game.AddPlayer(player1);
+            game.AddPlayer(player2);
             Assert.AreEqual(1, gameLogic.GetNumberAttack());
 
             gameLogic.Attack('A', 1);

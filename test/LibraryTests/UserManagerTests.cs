@@ -35,8 +35,8 @@ namespace Tests
             Deserializer.Instance.Debug = true;
             Serializer.Instance.Debug = true;
 
-            this.sm = new ServerManager();
-            this.um = new UserManager();
+            sm = ServerManager.Instance;
+            um = UserManager.Instance;
         } 
 
         /// <summary>
@@ -45,19 +45,21 @@ namespace Tests
         [Test]
         public void AddPlayersTest()
         {
-            Assert.NotNull(this.um);
+            Assert.NotNull(um);
 
             Player player = new Player();
             Player player2 = new Player();
 
-            List<Player> expectedPlayers = new List<Player>();
-            expectedPlayers.Add(player);
-            expectedPlayers.Add(player2);
+            List<Player> expectedPlayers = new List<Player>
+            {
+                player,
+                player2
+            };
 
-            this.um.AddPlayer(player);
-            this.um.AddPlayer(player2);
+            um.AddPlayer(player);
+            um.AddPlayer(player2);
 
-            List<Player> umPlayers = this.um.GetPlayers();
+            List<Player> umPlayers = um.GetPlayers();
             foreach (Player p in umPlayers)
             {
                 Assert.True(expectedPlayers.Contains(p));
@@ -70,19 +72,21 @@ namespace Tests
         [Test]
         public void NewGameTest()
         {
-            Assert.NotNull(this.um);
+            Assert.NotNull(um);
 
             Player player = new Player();
             Player player2 = new Player();
 
-            List<Player> expectedPlayers = new List<Player>();
-            expectedPlayers.Add(player);
-            expectedPlayers.Add(player2);
+            List<Player> expectedPlayers = new List<Player>
+            {
+                player,
+                player2
+            };
 
-            this.um.AddPlayer(player);
-            this.um.AddPlayer(player2);
+            um.AddPlayer(player);
+            um.AddPlayer(player2);
 
-            Game game = this.um.NewGame(true, this.sm);
+            Game game = um.NewGame(true, sm);
             List<Player> gamePlayers = game.GetPlayers();
 
             foreach (Player p in gamePlayers)

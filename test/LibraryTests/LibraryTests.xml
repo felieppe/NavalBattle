@@ -59,6 +59,26 @@
             Prueba que se establezca correctamente la coordenada Y en Coords.
             </summary>
         </member>
+        <member name="T:Tests.FullGameTest">
+            <summary>
+            Prueba de un juego completo.
+            </summary>
+        </member>
+        <member name="F:Tests.FullGameTest.board">
+            <summary>
+            Tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.FullGameTest.SetUp">
+            <summary>
+            Crea un tablero para probar.
+            </summary>
+        </member>
+        <member name="M:Tests.FullGameTest.GameTest">
+            <summary>
+            Prueba de un juego completo.
+            </summary>
+        </member>
         <member name="T:Tests.GameTests">
             <summary>
             Prueba de la clase <see cref="T:Library.Game"/>.

@@ -79,54 +79,6 @@
             </summary>
             <returns> Las columnas del tablero. </returns>
         </member>
-        <member name="T:Library.BoardSize">
-            <summary>
-            Clase para establecer las dimensiones del tablero.
-            </summary>
-        </member>
-        <member name="M:Library.BoardSize.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.BoardSize"/>.
-            </summary>
-            <param name="rows"> Filas. </param>
-            <param name="columns"> Columnas. </param>
-        </member>
-        <member name="P:Library.BoardSize.rows">
-            <summary>
-            Filas del tablero.
-            </summary>
-        </member>
-        <member name="P:Library.BoardSize.columns">
-            <summary>
-            Columnas del tablero.
-            </summary>
-        </member>
-        <member name="M:Library.BoardSize.SetRows(System.Int32)">
-            <summary>
-            Establece el número de filas.
-            </summary>
-            <param name="rows"> Filas del tablero. </param>
-            <returns> Número par de filas de tablero entre 8 y 20. </returns>
-        </member>
-        <member name="M:Library.BoardSize.SetColumns(System.Int32)">
-            <summary>
-            Establece el número de columnas.
-            </summary>
-            <param name="columns"> Columnas del tablero. </param>
-            <returns> Número par de columnas de tablero entre 8 y 20. </returns>
-        </member>
-        <member name="M:Library.BoardSize.GetRows">
-            <summary>
-            Devuelve las filas del tablero.
-            </summary>
-            <returns> Las filas del tablero. </returns>
-        </member>
-        <member name="M:Library.BoardSize.GetColumns">
-            <summary>
-            Devuelve las columnas del tablero.
-            </summary>
-            <returns> Las columnas del tablero. </returns>
-        </member>
         <member name="T:Library.Coords">
             <summary>
             Clase que representa las coordenadas del barco.
@@ -351,11 +303,6 @@
             Instancia del tablero 1
             </summary>
         </member>
-        <member name="F:Library.GameLogic.board2">
-            <summary>
-            Instancia del tablero 2
-            </summary>
-        </member>
         <member name="F:Library.GameLogic.rows">
             <summary>
             Instancia del boardSize
@@ -371,7 +318,7 @@
             Conteo del numero de ataques
             </summary>
         </member>
-        <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board,Library.Board)">
+        <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
@@ -598,41 +545,41 @@
         </member>
         <member name="T:Library.handlers.PlayHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "play".
             </summary>
         </member>
         <member name="M:Library.handlers.PlayHandler.#ctor(Library.handlers.core.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
             </summary>
-            <param name="next">El próximo "handler".</param>
+            <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.PlayHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
-            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "play" y retorna true; retorna false en caso contrario.
             </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
         <member name="T:Library.handlers.ServersListHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
             </summary>
         </member>
         <member name="M:Library.handlers.ServersListHandler.#ctor(Library.handlers.core.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
             </summary>
-            <param name="next">El próximo "handler".</param>
+            <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.ServersListHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
-            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
         <member name="P:Library.IHandler.Next">
             <summary>
@@ -757,6 +704,11 @@
         <member name="F:Library.UserManager.serverManager">
             <summary>
             Instancia de Server Manager
+            </summary>
+        </member>
+        <member name="P:Library.UserManager.Instance">
+            <summary>
+            Crea una única instancia de la clase UserManager.
             </summary>
         </member>
         <member name="M:Library.UserManager.#ctor">

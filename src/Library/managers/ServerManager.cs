@@ -26,17 +26,22 @@ namespace Library
         /// <value> Lista de partidas</value>
         private List<Game> Servers = new List<Game>();
 
-        public static ServerManager Instance {
-            get {
+        public static ServerManager Instance
+        {
+            get
+            {
                 if (instance == null) { instance = new ServerManager(); }
                 return instance;
             }
         }
 
-        public ServerManager() {
+        public ServerManager()
+        {
             List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
-            if (retrieved != null) {
-                foreach (Game game in retrieved) { 
+            if (retrieved != null)
+            {
+                foreach (Game game in retrieved)
+                { 
                     this.Servers.Add(game);
                     UserManager.Instance.AddInGamePlayers(game);
                 }
@@ -62,8 +67,8 @@ namespace Library
                         break;
                     }
                 }
-
-                if (!duplicated) { 
+                if (!duplicated)
+                { 
                     this.Servers.Add(game);
                     Serializer.Instance.Serialize(DataType.Game, MethodType.POST, game: game);
                 }

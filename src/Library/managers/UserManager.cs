@@ -35,8 +35,13 @@ namespace Library
         /// </summary>
         private ServerManager serverManager = ServerManager.Instance;
 
-        public static UserManager Instance {
-            get {
+        /// <summary>
+        /// Crea una única instancia de la clase UserManager.
+        /// </summary>
+        public static UserManager Instance
+        {
+            get
+            {
                 if (instance == null) { instance = new UserManager(); }
                 return instance;
             }
@@ -45,10 +50,13 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
         /// </summary>
-        public UserManager() {
+        public UserManager()
+        {
             List<Player> retrieved = Deserializer.Instance.Deserialize(DataType.Player);
-            if (retrieved != null) {
-                foreach (Player player in retrieved) {
+            if (retrieved != null)
+            {
+                foreach (Player player in retrieved)
+                {
                     this.players.Add(player);
                 }
 
@@ -63,11 +71,13 @@ namespace Library
         public void AddPlayer(Player player)
         {
             bool found = false;
-            foreach (Player p in this.players) {
+            foreach (Player p in this.players)
+            {
                 if (p.GetTelegramId() == player.GetTelegramId() || p.GetId() == player.GetId()) { found = true; }
             }
 
-            if (!found) {
+            if (!found)
+            {
                 this.players.Add(player);
                 Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
             }
@@ -91,7 +101,8 @@ namespace Library
         /// </returns>
         public Game NewGame(bool matchmaking, ServerManager manager)
         {
-            if (matchmaking) {
+            if (matchmaking)
+            {
                 if (!(this.players.Count >= 1))
                 {
                     return null;
@@ -129,7 +140,9 @@ namespace Library
                 manager.AddGame(game);
 
                 return game;
-            } else {
+            }
+            else
+            {
                 Game game = new Game(8, 8, 6);
                 manager.AddGame(game);
 
@@ -178,9 +191,11 @@ namespace Library
         /// <param name="id"> Id del jugador. </param>
         public void AddPlayerToGame(Player player, string id)
         {
-            if (!String.IsNullOrEmpty(id)) {
+            if (!String.IsNullOrEmpty(id))
+            {
                 Game game = this.FindGameById(id);
-                if (game != null) {
+                if (game != null)
+                {
                     game.AddPlayer(player);
                 }
             }
@@ -193,8 +208,10 @@ namespace Library
         /// <returns> Juego. </returns>
         private Game FindGameById(string gameId)
         {
-            foreach (Game game in this.serverManager.GetListing()) {
-                if (game.GetGameId() == gameId) {
+            foreach (Game game in this.serverManager.GetListing())
+            {
+                if (game.GetGameId() == gameId)
+                {
                     return game;
                 }
             }

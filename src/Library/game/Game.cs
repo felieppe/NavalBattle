@@ -87,9 +87,11 @@ namespace Library
         /// </summary>
         public void AddPlayer(Player player)
         {
-            if (this.players.Count == 0) {
+            if (this.players.Count == 0)
+            {
                 this.players.Add(player);
-            } else if (this.players.Count >= 1 && this.players.Count <= 2) { this.players.Add(player); }
+            } 
+            else if (this.players.Count >= 1 && this.players.Count <= 2) { this.players.Add(player); }
             else { return; }
         }
 
@@ -120,14 +122,16 @@ namespace Library
         /// <summary>
         /// Establece el board1.
         /// </summary>
-        public void SetBoard1(Board b) {
+        public void SetBoard1(Board b)
+        {
             if (b != null) { this.board1 = b; }
         }
 
         /// <summary>
         /// Establece el board2.
         /// </summary>
-        public void SetBoard2(Board b) {
+        public void SetBoard2(Board b)
+        {
             if (b != null) { this.board2 = b; }
         }
 

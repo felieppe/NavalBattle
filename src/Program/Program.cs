@@ -6,9 +6,6 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Globalization;
 using System;
 using Library;
 using Library.handlers;
@@ -19,10 +16,7 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.IO;
-using Library.utils;
-using Library.utils.core;
-using System.Collections.Generic;
-using Game = Library.Game;
+
 
 namespace NavalBattle   
 {

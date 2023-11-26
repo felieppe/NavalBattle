@@ -64,7 +64,7 @@ namespace Tests
         public void ValidBoardSizeTest()
         {
             bool validRows = board.SetRows(16);
-            bool validColumns = board.SetColumns(18);
+            bool validColumns = board.SetColumns(7);
 
             Assert.IsTrue(validRows);
             Assert.IsTrue(validColumns);

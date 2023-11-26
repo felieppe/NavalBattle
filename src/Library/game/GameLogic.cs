@@ -24,11 +24,6 @@ namespace Library
         private Board board;
 
         /// <summary>
-        /// Instancia del tablero 2
-        /// </summary>
-        private Board board2;
-
-        /// <summary>
         /// Instancia del boardSize
         /// </summary>
         private int rows;
@@ -50,11 +45,10 @@ namespace Library
         /// <param name="board"> Tablero del jugador 1.</param>
         /// <param name="board2"> Tablero del jugador 2. </param>
 
-        public GameLogic(Game game, Board board, Board board2)
+        public GameLogic(Game game, Board board)
         {
             this.game = game;
             this.board = board;
-            this.board2 = board2;
             this.rows = this.board.GetRows();
             this.columns = this.board.GetColumns();
         }
@@ -85,8 +79,10 @@ namespace Library
             if (this.board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
             else
             {
-                for (var x = 0; x < ship.Length; x++) {
-                    switch (facing.ToUpper()) {
+                for (var x = 0; x < ship.Length; x++)
+                {
+                    switch (facing.ToUpper())
+                    {
                         case "UP":
                             if (x == 0) {
                                 if (!CheckBoundaries(LetterToNumber(row), column - (ship.Length - 1))) { return false; }
@@ -151,7 +147,8 @@ namespace Library
         /// <param name="column"> Columna ingresada. </param>
         public void Attack(char row, int column)
         {
-            if (this.VerifyAttack(LetterToNumber(row), column)) {
+            if (this.VerifyAttack(LetterToNumber(row), column))
+            {
                 this.DestroyShip(LetterToNumber(row), column);
             }
 
@@ -201,9 +198,11 @@ namespace Library
         /// <returns>true/false</returns>
         private static bool CheckBoundaries(int row, int column)
         {
-            if ((row >= 1 && row <= 20) && ((column >= 1 && column <= 10) || (column >= 11 && column <= 20))) {
+            if (row >= 1 && row <= 20 && ((column >= 1 && column <= 10) || (column >= 11 && column <= 20)))
+            {
                 return true;
-            } else { return false; }
+            }
+            else { return false; }
         }
 
         /// <summary>
@@ -216,29 +215,31 @@ namespace Library
         {
             /*      DEBUG       */
             Console.WriteLine("\nCOORDENADAS: ");
-            foreach (Coords coord in this.game.GetShipsCoords()) {
+            foreach (Coords coord in this.game.GetShipsCoords())
+            {
                 Console.WriteLine("X: " + coord.GetX() + "; Y: " + coord.GetY() + " | " + coord.GetShipId());
             }
 
             Ship foundedShip = null;
             string foundedShipId = null;
-            foreach (Ship ship in this.game.GetShips()) {
+            foreach (Ship ship in this.game.GetShips())
+            {
                 string shipId = ship.GetShipId();
-
                 /*      DEBUG       */
                 Console.WriteLine("\nSHIP ID | " + shipId);
                 Console.WriteLine("STATUS SUNKEN | " + ship.GetSunken());
 
                 if (!ship.GetSunken()) {
-                    foreach (Coords coord in this.game.GetShipsCoords()) {
+                    foreach (Coords coord in this.game.GetShipsCoords())
+                    {
                         Console.WriteLine("IF | " + coord.GetShipId() + " \\ " + shipId);
                         if (coord.GetShipId() != shipId) { continue; }
                         int[] expected = { row, column };
-
                         /*      DEBUG       */
                         Console.WriteLine("EXPECTED | " + coord.GetX() + "/" + coord.GetY() + " -> " + expected[0] + "/" + expected[1]);
-                        
-                        if (coord.GetX() == expected[0] && coord.GetY() == expected[1]) {
+
+                        if (coord.GetX() == expected[0] && coord.GetY() == expected[1])
+                        {
                             /*      DEBUG       */
                             Console.WriteLine("FOUNDED\n");
 

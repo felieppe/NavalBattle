@@ -76,9 +76,9 @@ namespace Tests
         [Test]
         public void NewCustomGame()
         {
-            Game game1 = new Game(20, 20, 9);
-            Assert.AreEqual(20+1, game1.GetBoard1().GetRows());
-            Assert.AreEqual(20+1, game1.GetBoard1().GetColumns());
+            Game game1 = new Game(10, 8, 9);
+            Assert.AreEqual(10+1, game1.GetBoard1().GetRows());
+            Assert.AreEqual(8+1, game1.GetBoard1().GetColumns());
         }
 
         /// <summary>

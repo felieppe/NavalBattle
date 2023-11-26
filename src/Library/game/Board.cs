@@ -40,16 +40,16 @@ namespace Library
             }
             else
             {
-                this.rows = 9;
+                this.rows = 12;
             }
         
-            if ((columns >= 10) && (columns <= 20) && (columns % 2 == 0))
+            if ((columns >= 6) && (columns <= 10))
             {
                 this.columns = columns + 1;
             }
             else
             {
-                this.columns = 9;
+                this.columns = 6;
             }
             this.InitializeBoard();
         }
@@ -117,14 +117,14 @@ namespace Library
         /// <returns> Número par de filas de tablero entre 8 y 20. </returns>
         public bool SetRows(int rows)
         {
-            if ((rows >= 8) && (rows <= 20) && (rows % 2 == 0))
+            if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
             {
                 this.rows = rows + 1;
                 return true;
             }
             else
             {
-                this.rows = 9;
+                this.rows = 12;
                 return false;
             }
         }
@@ -136,14 +136,14 @@ namespace Library
         /// <returns> Número par de columnas de tablero entre 8 y 20. </returns>
         public bool SetColumns(int columns)
         {
-            if ((columns >= 8) && (columns <= 20) && (columns % 2 == 0))
+            if ((columns >= 6) && (columns <= 10))
             {
                 this.columns = columns + 1;
                 return true;
             }
             else
             {
-                this.columns = 9;
+                this.columns = 6;
                 return false;
             }
         }
