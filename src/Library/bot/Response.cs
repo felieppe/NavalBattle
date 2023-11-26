@@ -12,11 +12,14 @@ namespace Library.bot
     {
         private ResponseType Type;
         private string Message;
+        private string Return;
         private InlineKeyboardMarkup Keyboard;
 
-        public Response(ResponseType type, string msg) {
+        public Response(ResponseType type, string msg, string? ret = null, InlineKeyboardMarkup? ikm = null) {
             this.Type = type;
             this.Message = msg;
+            this.Return = ret;
+            this.Keyboard = ikm;
         }
 
         public void SetType(ResponseType type) {
