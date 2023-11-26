@@ -193,29 +193,12 @@ namespace Library
         {
             if (!String.IsNullOrEmpty(id))
             {
-                Game game = this.FindGameById(id);
+                Game game = ServerManager.Instance.GetGame(id);
                 if (game != null)
                 {
                     game.AddPlayer(player);
                 }
             }
-        }
-
-        /// <summary>
-        /// Busca un juego por el Id.
-        /// </summary>
-        /// <param name="gameId"> Id del juego. </param>
-        /// <returns> Juego. </returns>
-        private Game FindGameById(string gameId)
-        {
-            foreach (Game game in this.serverManager.GetListing())
-            {
-                if (game.GetGameId() == gameId)
-                {
-                    return game;
-                }
-            }
-            return null;
         }
     }
 }
