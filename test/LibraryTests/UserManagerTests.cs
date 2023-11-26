@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using Library;
 using Library.utils;
@@ -83,10 +84,12 @@ namespace Tests
                 player2
             };
 
-            um.AddPlayer(player);
-            um.AddPlayer(player2);
+            UserManager.Instance.AddPlayer(player);
+            UserManager.Instance.AddPlayer(player2);
 
-            Game game = um.NewGame(true, sm);
+            Console.WriteLine("count: " + UserManager.Instance.GetPlayers().Count);
+
+            Game game = UserManager.Instance.NewGame(true, ServerManager.Instance);
             List<Player> gamePlayers = game.GetPlayers();
 
             foreach (Player p in gamePlayers)
@@ -134,7 +137,7 @@ namespace Tests
             Player player2 = new Player();
 
             // Creamos un juego y añadimos un jugador, lo oficializamos agregandolo al ServerManager
-            Game game = this.um.NewGame(false, sm);
+            Game game = UserManager.Instance.NewGame(false, ServerManager.Instance);
             game.AddPlayer(player);
             this.sm.AddGame(game);
 
@@ -153,15 +156,17 @@ namespace Tests
         /// </summary>
         [Test]
         public void ConnectTwoPlayersTest(){
-            Assert.NotNull(this.um);
+            Assert.NotNull(UserManager.Instance);
 
             Player player1 = new Player();
             Player player2 = new Player();
 
-            this.um.AddPlayer(player1);
-            this.um.AddPlayer(player2);
+            UserManager.Instance.AddPlayer(player1);
+            UserManager.Instance.AddPlayer(player2);
 
-            Game game = this.um.NewGame(true, this.sm);
+            Game game = new Game(10, 10, 10);
+            game.AddPlayer(player1);
+            game.AddPlayer(player2);
 
             List<Player> gamePlayers = game.GetPlayers();
             Assert.IsTrue(gamePlayers.Contains(player1));

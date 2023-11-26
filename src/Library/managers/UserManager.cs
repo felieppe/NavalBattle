@@ -103,13 +103,13 @@ namespace Library
         {
             if (matchmaking)
             {
-                if (!(this.players.Count >= 1))
+                if (this.players.Count <= 0)
                 {
                     return null;
                 }
 
                 List<Player> availablePlayers = this.players.Except(this.inGamePlayers).ToList();
-                if (!(availablePlayers.Count > 1))
+                if (availablePlayers.Count < 1)
                 {
                     return null;
                 }
