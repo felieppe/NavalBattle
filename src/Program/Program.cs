@@ -70,8 +70,9 @@ namespace NavalBattle
                         new ServersListHandler(
                             new ReturnHandler(
                                 new ShowServerHandler(
-                                    new ShowServerPlayersHandler(null)
-            )))));
+                                    new ShowServerPlayersHandler(
+                                        new JoinServerHandler(null)
+            ))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
