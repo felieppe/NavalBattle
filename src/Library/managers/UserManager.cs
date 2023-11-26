@@ -208,6 +208,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Añade al jugador a la lista de jugadores en juego.
+        /// </summary>
+        /// <param name="player"> Jugador. </param>
+        public void AddInGamePlayer(Player player)
+        {
+            if (player != null) { this.inGamePlayers.Add(player); }
+        }
+
+        /// <summary>
         /// Agrega un jugador a una partida.
         /// </summary>
         /// <param name="player"> Jugador. </param>
