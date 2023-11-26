@@ -97,6 +97,8 @@ namespace Library
                 if (UserManager.Instance.GetPlayers().Equals(player)) {
                     if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { 
                         this.players.Add(player);
+                        if (this.Admin == null) { this.Admin = player; }
+
                         UserManager.Instance.AddInGamePlayer(player);
                     }
                 }
