@@ -31,6 +31,9 @@ namespace Library.bot
         public void SetKeyboard(InlineKeyboardMarkup kb) {
             this.Keyboard = kb;
         }
+        public void SetReturn (string ret) {
+            this.Return = ret;
+        }
 
         public ResponseType GetType() {
             return this.Type;
@@ -40,6 +43,9 @@ namespace Library.bot
         }
         public InlineKeyboardMarkup GetKeyboard() {
             return this.Keyboard;
+        }
+        public string GetReturn() {
+            return this.Return;
         }
     }
 }
