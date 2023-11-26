@@ -478,6 +478,25 @@
             </summary>
             <returns> El Username del jugador. </returns>
         </member>
+        <member name="T:Library.handlers.JoinServerHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.JoinServerHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.JoinServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
         <member name="T:Library.handlers.ReturnHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
@@ -509,6 +528,25 @@
             <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.ShowServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.ShowServerPlayersHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.ShowServerPlayersHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.ShowServerPlayersHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
@@ -827,6 +865,14 @@
             Una lista con elementos de tipo Player.
             </returns>
         </member>
+        <member name="M:Library.UserManager.GetPlayerById(Library.utils.core.IdType,System.String)">
+            <summary>
+            Obtiene un jugador mediante su id proporcionado.
+            </summary>
+            <returns>
+            Player
+            </returns>
+        </member>
         <member name="M:Library.UserManager.AddInGamePlayers(Library.Game)">
             <summary>
             Añade a los jugadores de un juego a la lista de jugadores en juego.
@@ -839,13 +885,6 @@
             </summary>
             <param name="player"> Jugador. </param>
             <param name="id"> Id del jugador. </param>
-        </member>
-        <member name="M:Library.UserManager.FindGameById(System.String)">
-            <summary>
-            Busca un juego por el Id.
-            </summary>
-            <param name="gameId"> Id del juego. </param>
-            <returns> Juego. </returns>
         </member>
         <member name="F:Library.Configuration.instance">
             <summary>

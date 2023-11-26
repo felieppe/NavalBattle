@@ -5,21 +5,22 @@ using Telegram.Bot.Types.ReplyMarkups;
 using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
+using Library.utils.core;
 
 namespace Library.handlers
 {
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
     /// </summary>
-    public class ReturnHandler : BaseHandler
+    public class JoinServerHandler : BaseHandler
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PlayHandler"/>.
         /// </summary>
         /// <param name="next"> El próximo "handler". </param>
-        public ReturnHandler(BaseHandler next) : base(next)
+        public JoinServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "return" };
+            this.Keywords = new string[] { "join_server" };
         }
 
         /// <summary>
@@ -30,8 +31,23 @@ namespace Library.handlers
         /// <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         protected override void InternalHandle(Message message, out Response response)
         {
-            string whereReturn = message.Text.Split("return-")[1];
-            response = new Response(ResponseType.Return, "", ret: whereReturn);
+            string serverID = message.Text.Split("join_server-")[1];
+            Logger.Instance.Debug("Want to join the game: " + serverID);
+
+            Game game = ServerManager.Instance.GetGame(serverID);
+            if (game != null) {
+                string answr = "";
+
+                string tid = message.From.Id.ToString();
+                Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
+
+                if (player != null) {
+                    game.AddPlayer(player);
+
+                    // Redirect a gamemenu-sessionid
+                    response = new Response(ResponseType.None, answr);
+                } else { response = new Response(ResponseType.None, ""); }
+            } else { response = new Response(ResponseType.None, ""); }
         }
     }
 }
