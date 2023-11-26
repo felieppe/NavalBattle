@@ -173,6 +173,29 @@ namespace Library
         }
 
         /// <summary>
+        /// Obtiene un jugador mediante su id proporcionado.
+        /// </summary>
+        /// <returns>
+        /// Player
+        /// </returns>
+        public Player GetPlayerById(IdType type, string id) {
+            switch (type) {
+                case IdType.Normal:
+                    foreach (Player p in this.players) {
+                        if (p.GetId() == id) { return  p; }
+                    }
+                    break;
+                case IdType.Telegram:
+                    foreach (Player p in this.players) {
+                        if (p.GetTelegramId() == id) { return  p; }
+                    }
+                    break;
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Añade a los jugadores de un juego a la lista de jugadores en juego.
         /// </summary>
         /// <param name="game"> Ongoing games. </param>
