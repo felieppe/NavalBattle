@@ -879,6 +879,12 @@
             </summary>
             <param name="game"> Ongoing games. </param>
         </member>
+        <member name="M:Library.UserManager.AddInGamePlayer(Library.Player)">
+            <summary>
+            Añade al jugador a la lista de jugadores en juego.
+            </summary>
+            <param name="player"> Jugador. </param>
+        </member>
         <member name="M:Library.UserManager.AddPlayerToGame(Library.Player,System.String)">
             <summary>
             Agrega un jugador a una partida.

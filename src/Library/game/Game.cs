@@ -93,12 +93,14 @@ namespace Library
         /// </summary>
         public void AddPlayer(Player player)
         {
-            if (this.players.Count == 0)
-            {
-                this.players.Add(player);
+            if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
+                if (UserManager.Instance.GetPlayers().Equals(player)) {
+                    if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { 
+                        this.players.Add(player);
+                        UserManager.Instance.AddInGamePlayer(player);
+                    }
+                }
             } 
-            else if (this.players.Count >= 1 && this.players.Count <= 2) { this.players.Add(player); }
-            else { return; }
         }
 
         /// <summary>
