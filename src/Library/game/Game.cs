@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using Library.utils.core;
 
 namespace Library
 {
@@ -24,6 +25,12 @@ namespace Library
         /// </summary>
         /// <value> String </value>
         private string name;
+
+        /// <summary>
+        /// Estado de la sesión.
+        /// </summary>
+        /// <value> GameStatusType </value>
+        private GameStatusType status;
 
         /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
@@ -128,6 +135,15 @@ namespace Library
                 this.name = name;
             }
         }
+
+        /// <summary>
+        /// Establece el estado de la sesion.
+        /// </summary>
+        /// <param name="status"> Estado de la sesion </param>
+        public void SetStatus(GameStatusType status)
+        {
+            this.status = status;
+        }
         
         /// <summary>
         /// Establece un jugador como administrador de la partida.
@@ -213,6 +229,15 @@ namespace Library
         public string GetSessionName()
         {
             return this.name;
+        }
+
+        /// <summary>
+        /// Devuelve el estado de la sesion.
+        /// </summary>
+        /// <returns> GameStatusType </returns>
+        public GameStatusType GetStatus()
+        {
+            return this.status;
         }
 
         /// <summary>
