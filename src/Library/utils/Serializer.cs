@@ -50,7 +50,7 @@ namespace Library.utils
                         obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
                         obj["board_2"] = JsonConvert.SerializeObject(game.GetBoard2(), Formatting.Indented);
 
-                        using (StreamWriter writer = new StreamWriter(file, true)) {
+                        using (StreamWriter writer = new StreamWriter(file, false)) {
                             writer.WriteLine(obj.ToString());
                         }
 
@@ -71,7 +71,7 @@ namespace Library.utils
                         obj["tid"] = player.GetTelegramId();
                         obj["username"] = player.GetUsername();
 
-                        using (StreamWriter writer = new StreamWriter(playerFile, true)) {
+                        using (StreamWriter writer = new StreamWriter(playerFile, false)) {
                             writer.WriteLine(obj.ToString());
                         }
 
@@ -92,7 +92,7 @@ namespace Library.utils
                         obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);
                         obj["last_commands"] = JsonConvert.SerializeObject(chat.GetLastCommands(), Formatting.Indented);
 
-                        using (StreamWriter writer = new StreamWriter(chatFile, true)) {
+                        using (StreamWriter writer = new StreamWriter(chatFile, false)) {
                             writer.WriteLine(obj.ToString());
                         }
 
