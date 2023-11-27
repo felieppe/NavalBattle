@@ -135,7 +135,6 @@ namespace Library
                                     if (board.GetBoard()[column][LetterToNumber(row) - y] == 'S') { return false; }
                                 }
                             }
-
                             game.AddShipCoords(ship.GetShipId(), LetterToNumber(row) - x, column);
                             board.GetBoard()[column][LetterToNumber(row) - x] = 'S';
                             break;
@@ -143,7 +142,6 @@ namespace Library
                 }
             }
             game.AddShip(ship);
-            if (game.GetShips().Count == game.GetTotalShips())
             return true;
         }
         

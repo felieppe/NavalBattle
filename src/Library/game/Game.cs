@@ -100,25 +100,19 @@ namespace Library
         /// <param name="player"> Jugador. </param>
         public void AddPlayer(Player player)
         {
-<<<<<<< HEAD
-            if (players.Count == 0)
+            if (players.Count == 0 || (players.Count >= 1 && players.Count <= 2))
             {
-                players.Add(player);
-            } 
-            else if (players.Count >= 1 && players.Count <= 2) { players.Add(player); }
-            else { return; }
-=======
-            if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
-                if (UserManager.Instance.GetPlayers().Contains(player)) {
-                    if (!UserManager.Instance.GetInGamePlayers().Contains(player)) { 
-                        this.players.Add(player);
-                        if (this.Admin == null) { this.Admin = player; }
+                if (UserManager.Instance.GetPlayers().Contains(player))
+                {
+                    if (!UserManager.Instance.GetInGamePlayers().Contains(player))
+                    { 
+                        players.Add(player);
+                        if (Admin == null) { Admin = player; }
                         
                         UserManager.Instance.AddInGamePlayer(player);
                     }
                 }
             } 
->>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
         }
 
         /// <summary>
