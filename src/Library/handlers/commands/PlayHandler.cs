@@ -70,7 +70,7 @@ namespace Library.handlers
 
             if (!founded) {
                 Library.bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type);
-                Serializer.Instance.Serialize(DataType.Chat, MethodType.POST, chat: chat);
+                ChatManager.Instance.AddChat(chat);
             }
         }
     }
