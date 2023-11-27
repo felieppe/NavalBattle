@@ -88,8 +88,9 @@ namespace NavalBattle
                                                 new WaitGameHandler(
                                                     new LeaveServerHandler(
                                                         new StartServerHandler(
-                                                            new GameHandler(null)
-            )))))))))));
+                                                            new GameHandler(
+                                                                new PlaceShipHandler(null)
+            ))))))))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
