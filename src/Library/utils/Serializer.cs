@@ -92,6 +92,7 @@ namespace Library.utils
                     if (method == MethodType.POST) {
                         obj["id"] = chat.Id;
                         obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);
+                        obj["user"] = JsonConvert.SerializeObject(chat.User, Formatting.Indented);
                         obj["last_commands"] = JsonConvert.SerializeObject(chat.GetLastCommands(), Formatting.Indented);
 
                         using (StreamWriter writer = new StreamWriter(chatFile, false)) {

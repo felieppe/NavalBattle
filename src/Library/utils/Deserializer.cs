@@ -124,10 +124,11 @@ namespace Library.utils
                         // Retriving chat data from JSON object
                         long id = obj["id"].Value<long>();
                         ChatType type = JsonConvert.DeserializeObject<ChatType>(obj["type"].ToString());
+                        Player user = JsonConvert.DeserializeObject<Player>(obj["user"].ToString());
                         List<string> lastCmds = JsonConvert.DeserializeObject<List<string>>(obj["last_commands"].ToString());
 
                         // Cloning the chat data to a new instance
-                        Chat chat = new Chat(id, type);
+                        Chat chat = new Chat(id, type, user);
                         
                         foreach (string cmd in lastCmds) {
                             chat.AddLastCmd(cmd);
