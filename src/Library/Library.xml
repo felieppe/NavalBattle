@@ -881,11 +881,6 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="F:Library.UserManager.serverManager">
-            <summary>
-            Instancia de Server Manager
-            </summary>
-        </member>
         <member name="P:Library.UserManager.Instance">
             <summary>
             Crea una única instancia de la clase UserManager.
