@@ -173,14 +173,6 @@ namespace NavalBattle
         private static int rows;
         private static int columns;
         private static Printer p;
-        public static void Main()
-        {
-            rows = 12;
-            columns = 6;
-            board = new Board(rows, columns);
-            p = new Printer();
-            p.Print(board);
-        }
         private static string[] bypass = {"start_server", "leave_server", "wait_game"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
