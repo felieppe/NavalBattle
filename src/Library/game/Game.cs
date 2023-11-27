@@ -30,7 +30,7 @@ namespace Library
         /// Estado de la sesión.
         /// </summary>
         /// <value> GameStatusType </value>
-        private GameStatusType status;
+        private GameStatusType status = GameStatusType.WAITING;
 
         /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
@@ -101,11 +101,11 @@ namespace Library
         public void AddPlayer(Player player)
         {
             if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
-                if (UserManager.Instance.GetPlayers().Equals(player)) {
-                    if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { 
+                if (UserManager.Instance.GetPlayers().Contains(player)) {
+                    if (!UserManager.Instance.GetInGamePlayers().Contains(player)) { 
                         this.players.Add(player);
                         if (this.Admin == null) { this.Admin = player; }
-
+                        
                         UserManager.Instance.AddInGamePlayer(player);
                     }
                 }
