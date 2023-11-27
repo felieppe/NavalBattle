@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Library.bot;
+using Library.utils;
+using Library.utils.core;
 
 namespace Library.managers
 {
@@ -25,7 +27,10 @@ namespace Library.managers
             }
         }
 
-        public ChatManager() {}
+        public ChatManager() {
+            List<Chat> retrieved = Deserializer.Instance.Deserialize(DataType.Chat);
+            if (retrieved != null) { this.Chats = retrieved; }
+        }
 
         public void AddChat(Chat chat) {
             if (chat != null) {
