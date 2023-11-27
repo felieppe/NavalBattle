@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Library.Exceptions
-{
+{   /// <summary>
+    /// Excepción por si no se encuentra el token del bot
+    /// </summary>
     public class TokenNotFoundException : Exception
     {
         public TokenNotFoundException() : base() {}
