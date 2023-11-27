@@ -25,7 +25,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.player = new Player();
+            player = new Player();
         }
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace Tests
             Assert.NotNull(this.player);
 
             string newId = "5e5eb7ee-6600-11ee-8c99-0242ac120002";
-            this.player.SetId(newId);
+            player.SetId(newId);
 
-            Assert.AreEqual(newId, this.player.GetId());
+            Assert.AreEqual(newId, player.GetId());
         }
 
         /// <summary>
@@ -48,12 +48,12 @@ namespace Tests
         [Test]
         public void SetUsernameTest()
         {
-            Assert.NotNull(this.player);
+            Assert.NotNull(player);
 
             string newUsername = "Alfred000";
-            this.player.SetUsername(newUsername);
+            player.SetUsername(newUsername);
 
-            Assert.AreEqual(newUsername, this.player.GetUsername());
+            Assert.AreEqual(newUsername, player.GetUsername());
         }
     }
 }

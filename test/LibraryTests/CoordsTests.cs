@@ -24,8 +24,8 @@ namespace Tests
         /// </summary>
         [Test]
         public void ShipIdTest() {
-            this.coordinates = new Coords("123", 2, 2);
-            Assert.AreEqual("123", this.coordinates.GetShipId());
+            coordinates = new Coords("123", 2, 2);
+            Assert.AreEqual("123", coordinates.GetShipId());
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace Tests
         /// </summary>
         [Test]
         public void XTest() {
-            this.coordinates = new Coords("456", 5, 10);
-            Assert.AreEqual(5, this.coordinates.GetX());
+            coordinates = new Coords("456", 5, 10);
+            Assert.AreEqual(5, coordinates.GetX());
         }
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Tests
         /// </summary>
         [Test]
         public void YTest() {
-            this.coordinates = new Coords("789", 50, 15);
-            Assert.AreEqual(15, this.coordinates.GetY());
+            coordinates = new Coords("789", 50, 15);
+            Assert.AreEqual(15, coordinates.GetY());
         }
     }
 }

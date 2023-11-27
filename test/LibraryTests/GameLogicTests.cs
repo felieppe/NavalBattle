@@ -30,10 +30,10 @@ namespace BattleShip.Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 20;
-            this.columns = 20;
-            this.board = new Board(rows, columns);
-            this.game = new Game(rows, columns, 3);
+            rows = 20;
+            columns = 20;
+            board = new Board(rows, columns);
+            game = new Game(rows, columns, 3);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace BattleShip.Tests
         {
             Submarine sub = new Submarine();
 
-            GameLogic gameLogic = new GameLogic(this.game, this.board);
+            GameLogic gameLogic = new GameLogic(game, board);
             gameLogic.PlaceShip(sub, 'B', 2, "right");
 
             // Realiza el ataque
@@ -71,7 +71,7 @@ namespace BattleShip.Tests
         [Test]
         public void ValidPlaceShipTest()
         {
-            GameLogic gameLogic = new GameLogic(this.game, this.board);
+            GameLogic gameLogic = new GameLogic(game, board);
             
             Submarine sub = new Submarine();
             gameLogic.PlaceShip(sub, 'A', 2, "down"); 

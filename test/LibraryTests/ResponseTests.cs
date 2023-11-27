@@ -38,8 +38,8 @@ namespace Tests
         public void SetTypeTest() {
             ResponseType type = ResponseType.Message;
 
-            this.res.SetType(type);
-            Assert.AreEqual(type, this.res.GetType());
+            res.SetType(type);
+            Assert.AreEqual(type, res.GetType());
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Tests
         public void SetMessageTest() {
             string msg = "Hola!";
 
-            this.res.SetMessage(msg);
-            Assert.AreEqual(msg, this.res.GetMessage());
+            res.SetMessage(msg);
+            Assert.AreEqual(msg, res.GetMessage());
         }
 
         /// <summary>
@@ -70,8 +70,8 @@ namespace Tests
                 },
             });
 
-            this.res.SetKeyboard(keyboard);
-            Assert.AreEqual(keyboard, this.res.GetKeyboard());
+            res.SetKeyboard(keyboard);
+            Assert.AreEqual(keyboard, res.GetKeyboard());
         }
     }
 }

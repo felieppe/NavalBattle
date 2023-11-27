@@ -39,10 +39,10 @@ namespace Tests
         [Test]
         public void AddGameTest() {
             Game game = new Game(10, 10, 5);
-            this.sm.AddGame(game);
+            sm.AddGame(game);
 
             string expectedGameId = game.GetGameId();
-            Assert.IsNotNull(this.sm.GetGame(expectedGameId));
+            Assert.IsNotNull(sm.GetGame(expectedGameId));
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Tests
             List<Game> expectedGames = new List<Game>();
             expectedGames.Add(game);
 
-            List<Game> games = this.sm.GetListing();
+            List<Game> games = sm.GetListing();
             Assert.AreEqual(games, expectedGames);
         }
 
@@ -88,7 +88,7 @@ namespace Tests
             Game game2 = new Game(15, 15, 10);
             this.sm.AddGame(game2);
 
-            Assert.AreEqual(game2, this.sm.GetGame(game2.GetGameId()));
+            Assert.AreEqual(game2, sm.GetGame(game2.GetGameId()));
         }
     }
 }
