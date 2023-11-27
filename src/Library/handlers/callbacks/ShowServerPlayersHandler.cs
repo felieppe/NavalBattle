@@ -34,14 +34,16 @@ namespace Library.handlers
             Logger.Instance.Debug("Want to show the players list of: " + serverID);
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string answr = "This is the player list of the game you selected.";
 
                 List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
                 // Showing players
                 int x = 1;
-                foreach (Player p in game.GetPlayers()) {
+                foreach (Player p in game.GetPlayers())
+                {
                     buttons.Add(new []
                     {
                         InlineKeyboardButton.WithCallbackData(text: $"{x}. @{p.GetUsername()}", callbackData: $"none")
@@ -55,7 +57,8 @@ namespace Library.handlers
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
 
                 response = new Response(ResponseType.Keyboard, answr, ikm: inlineKeyboard);
-            } else { response = new Response(ResponseType.None, ""); }
+            }
+            else { response = new Response(ResponseType.None, ""); }
         }
     }
 }

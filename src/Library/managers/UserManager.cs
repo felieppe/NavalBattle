@@ -66,7 +66,7 @@ namespace Library
         public void AddPlayer(Player player)
         {
             bool found = false;
-            foreach (Player p in this.players)
+            foreach (Player p in players)
             {
                 if (p.GetTelegramId() == player.GetTelegramId() || p.GetId() == player.GetId()) { found = true; }
             }
@@ -182,15 +182,27 @@ namespace Library
         /// <returns>
         /// Player
         /// </returns>
-        public Player GetPlayerById(IdType type, string id) {
-            switch (type) {
+        public Player GetPlayerById(IdType type, string id)
+        {
+            switch (type)
+            {
                 case IdType.Normal:
+<<<<<<< HEAD
+                    foreach (Player p in players)
+                    {
+=======
                     foreach (Player p in players) {
+>>>>>>> c23c906be13acf556fca5672e0067afe1a031dce
                         if (p.GetId() == id) { return  p; }
                     }
                     break;
                 case IdType.Telegram:
+<<<<<<< HEAD
+                    foreach (Player p in players)
+                    {
+=======
                     foreach (Player p in players) {
+>>>>>>> c23c906be13acf556fca5672e0067afe1a031dce
                         if (p.GetTelegramId() == id) { return  p; }
                     }
                     break;
@@ -217,7 +229,7 @@ namespace Library
         /// <param name="player"> Jugador. </param>
         public void AddInGamePlayer(Player player)
         {
-            if (player != null) {inGamePlayers.Add(player); }
+            if (player != null) { inGamePlayers.Add(player); }
         }
 
         /// <summary>
@@ -227,7 +239,7 @@ namespace Library
         /// <param name="id"> Id del jugador. </param>
         public void AddPlayerToGame(Player player, string id)
         {
-            if (!String.IsNullOrEmpty(id))
+            if (!string.IsNullOrEmpty(id))
             {
                 Game game = ServerManager.Instance.GetGame(id);
                 if (game != null)

@@ -37,11 +37,13 @@ namespace Library.handlers
             List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
 
-                if (player.Equals(game.GetAdmin())) {
+                if (player.Equals(game.GetAdmin()))
+                {
                     buttons.Add(new []
                     {
                         InlineKeyboardButton.WithCallbackData(text: $"Start game ▶", callbackData: $"start_server-{game.GetGameId()}")
@@ -52,7 +54,8 @@ namespace Library.handlers
                 {
                     InlineKeyboardButton.WithCallbackData(text: $"Leave game ❌", callbackData: $"leave_server-{game.GetGameId()}")
                 });
-            } else { response = new Response(ResponseType.None, ""); }
+            }
+            else { response = new Response(ResponseType.None, ""); }
 
             InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
             response = new Response(ResponseType.Keyboard, answr);

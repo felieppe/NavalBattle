@@ -247,7 +247,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el nombre de la sesion.
+        /// Devuelve el nombre de la sesión.
         /// </summary>
         /// <returns> String </returns>
         public string GetSessionName()
@@ -256,7 +256,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve el estado de la sesion.
+        /// Devuelve el estado de la sesión.
         /// </summary>
         /// <returns> GameStatusType </returns>
         public GameStatusType GetStatus()

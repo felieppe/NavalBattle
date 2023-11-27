@@ -27,6 +27,11 @@ namespace Library
         public int Length { get; set; }
 
         /// <summary>
+        /// Dueño del barco.
+        /// </summary>
+        private bool Owner;
+
+        /// <summary>
         /// Estado del hundimiento del barco.
         /// </summary>
         /// <value><c>true</c> si el barco está hundido, <c>false</c> en caso contrario.</value>
@@ -35,15 +40,17 @@ namespace Library
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Ship"/>.
         /// </summary>
-        /// <param name="name">Nombre del barco.</param>
-        /// <param name="length">Tamaño del barco.</param>
+        /// <param name="name"> Nombre del barco. </param>
+        /// <param name="length"> Tamaño del barco. </param>
+        /// <param name="owner"> Dueño del barco. </param>
         public Ship(string name, int length)
         {
-            this.Name = name;
-            this.Length = length;
+            Name = name;
+            Length = length;
+            Owner = true;
 
             Guid uuid = Guid.NewGuid();
-            this.ShipId = uuid.ToString();
+            ShipId = uuid.ToString();
         }
 
         /// <summary>
@@ -51,7 +58,7 @@ namespace Library
         /// </summary>
         public void Sink()
         {
-            this.Sunken = true;
+            Sunken = true;
         }
 
         /// <summary>
@@ -62,7 +69,7 @@ namespace Library
         /// </returns>
         public bool GetSunken()
         {
-            return this.Sunken;
+            return Sunken;
         }
 
         /// <summary>
@@ -71,7 +78,16 @@ namespace Library
         /// <returns> Id del barco. </returns>
         public string GetShipId()
         {
-            return this.ShipId;
+            return ShipId;
+        }
+
+        /// <summary>
+        /// Devuelve el dueño del barco.
+        /// </summary>
+        /// <returns> Dueño del barco. </returns>
+        public bool GetOwner()
+        {
+            return Owner;
         }
     }
 }

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Telegram.Bot.Requests;
 
 namespace Library
 {
@@ -39,16 +40,14 @@ namespace Library
         /// </summary>
         private int numberAttack = 1;
 
-        /// <summary>
-        /// Verifica que se hayan hundido todos los barcos.
-        /// </summary>
-        private bool allShipsSunk;
+        private int sunkShip1;
+        private int sunkShip2;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
         /// <param name="game"> Juego. </param>
-        /// <param name="board"> Tablero del jugador 1. </param>
+        /// <param name="board"> Tablero. </param>
         public GameLogic(Game game, Board board)
         {
             this.game = game;
@@ -170,20 +169,23 @@ namespace Library
             Turn();
             foreach (Ship ship in game.GetShips())
             {
-                if (ship.GetSunken() == false)
+                if (ship.GetSunken() == true)
                 {
-                    allShipsSunk = false;
-                    break;
-                }
-                else
-                {
-                    allShipsSunk = true;
-                    game.SetStatus(utils.core.GameStatusType.FINISHED);
-                    if (numberAttack % 2 == 0)
+                    if (ship.GetOwner() == true)
                     {
-                        Console.WriteLine("Ganó el jugador 2! 🏆");
+                        sunkShip1 += 1;
                     }
-                    else { Console.WriteLine("Ganó el jugador 1! 🏆"); }
+                    else { sunkShip2 += 1; }
+                }
+                if (sunkShip1 == (game.GetTotalShips() / 2))
+                {
+                    game.SetStatus(utils.core.GameStatusType.FINISHED);
+                    Console.WriteLine("ha finalizado el juego");
+                }
+                if (sunkShip2 == (game.GetTotalShips() / 2))
+                {
+                    game.SetStatus(utils.core.GameStatusType.FINISHED);
+                    Console.WriteLine("ha finalizado el juego");
                 }
             }
         }

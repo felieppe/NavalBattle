@@ -104,21 +104,22 @@ namespace Tests
         [Test]
         public void InGamePlayersTest()
         {
-            Assert.NotNull(this.um);
+            Assert.NotNull(um);
 
             Player player = new Player();
             Player player2 = new Player();
 
-            List<Player> expectedInGamePlayers = new List<Player>();
-            expectedInGamePlayers.Add(player);
-            expectedInGamePlayers.Add(player2);
+            List<Player> expectedInGamePlayers = new List<Player>
+            {
+                player,
+                player2
+            };
 
-            this.um.AddPlayer(player);
-            this.um.AddPlayer(player2);
+            um.AddPlayer(player);
+            um.AddPlayer(player2);
+            Game game = um.NewGame(true, sm);
 
-            Game game = this.um.NewGame(true, this.sm);
-
-            List<Player> inGamePlayersList = this.um.GetInGamePlayers();
+            List<Player> inGamePlayersList = um.GetInGamePlayers();
             foreach (Player p in inGamePlayersList)
             {
                 Assert.True(expectedInGamePlayers.Contains(p));
@@ -139,23 +140,24 @@ namespace Tests
             // Creamos un juego y añadimos un jugador, lo oficializamos agregandolo al ServerManager
             Game game = UserManager.Instance.NewGame(false, ServerManager.Instance);
             game.AddPlayer(player);
-            this.sm.AddGame(game);
+            sm.AddGame(game);
 
             // Revisamos que los valores esten bien.
-            Assert.AreEqual(1, this.sm.GetGame(game.GetGameId()).GetPlayers().Count);
-            Assert.True(this.sm.GetGame(game.GetGameId()).GetPlayers().Contains(player));
+            Assert.AreEqual(1, sm.GetGame(game.GetGameId()).GetPlayers().Count);
+            Assert.True(sm.GetGame(game.GetGameId()).GetPlayers().Contains(player));
 
             // Agregamos otro jugador obteniendo el juego desde ServerManager y revisamos que se haya agregado correctamente.
-            this.sm.GetGame(game.GetGameId()).AddPlayer(player2);
-            Assert.AreEqual(2, this.sm.GetGame(game.GetGameId()).GetPlayers().Count);
-            Assert.True(this.sm.GetGame(game.GetGameId()).GetPlayers().Contains(player2));
+            sm.GetGame(game.GetGameId()).AddPlayer(player2);
+            Assert.AreEqual(2, sm.GetGame(game.GetGameId()).GetPlayers().Count);
+            Assert.True(sm.GetGame(game.GetGameId()).GetPlayers().Contains(player2));
         }
 
         /// <summary>
         /// Test que verifica que user manager conecta dos jugadores en un juego de manera satisfactoria.
         /// </summary>
         [Test]
-        public void ConnectTwoPlayersTest(){
+        public void ConnectTwoPlayersTest()
+        {
             Assert.NotNull(UserManager.Instance);
 
             Player player1 = new Player();
