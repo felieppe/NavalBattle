@@ -128,9 +128,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Establece el nombre de la sesion.
+        /// Establece el nombre de la sesión.
         /// </summary>
-        /// <param name="name"> Nombre de la sesion. </param>
+        /// <param name="name"> Nombre de la sesión. </param>
         public void SetGameSession(string name)
         {
             if (!string.IsNullOrEmpty(name))
@@ -140,9 +140,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Establece el estado de la sesion.
+        /// Establece el estado de la sesión.
         /// </summary>
-        /// <param name="status"> Estado de la sesion </param>
+        /// <param name="status"> Estado de la sesión. </param>
         public void SetStatus(GameStatusType status)
         {
             this.status = status;

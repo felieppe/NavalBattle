@@ -40,6 +40,11 @@ namespace Library
         private int numberAttack = 1;
 
         /// <summary>
+        /// Verifica que se hayan hundido todos los barcos.
+        /// </summary>
+        private bool allShipsSunk;
+
+        /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
         /// <param name="game"> Juego. </param>
@@ -50,6 +55,7 @@ namespace Library
             this.board = board;
             rows = this.board.GetRows();
             columns = this.board.GetColumns();
+            this.game.SetStatus(utils.core.GameStatusType.WAITING);
         }
 
         /// <summary>
@@ -142,6 +148,10 @@ namespace Library
                 }
             }
             game.AddShip(ship);
+            if (game.GetShips().Count == game.GetTotalShips())
+            {
+                game.SetStatus(utils.core.GameStatusType.INGAME);
+            }
             return true;
         }
         
@@ -157,19 +167,23 @@ namespace Library
                 DestroyShip(LetterToNumber(row), column);
             }
             numberAttack += 1;
-
+            Turn();
             foreach (Ship ship in game.GetShips())
             {
-                if (ship.Sunken != false)
+                if (ship.GetSunken() == false)
                 {
+                    allShipsSunk = false;
+                    break;
+                }
+                else
+                {
+                    allShipsSunk = true;
+                    game.SetStatus(utils.core.GameStatusType.FINISHED);
                     if (numberAttack % 2 == 0)
                     {
-                        Console.WriteLine("Ha ganado el jugador 2!");
+                        Console.WriteLine("Ganó el jugador 2! 🏆");
                     }
-                    else
-                    {
-                        Console.WriteLine("Ha ganado el jugador 1!");
-                    }
+                    else { Console.WriteLine("Ganó el jugador 1! 🏆"); }
                 }
             }
         }
@@ -181,11 +195,13 @@ namespace Library
         {
             if (numberAttack % 2 == 0)
             {
-                Console.WriteLine(numberAttack + " es par, turno del Jugador 2");
+                game.SetStatus(utils.core.GameStatusType.WAITINGP2);
+                Console.WriteLine("Turno del Jugador 2.");
             }
             else
             {
-                Console.WriteLine(numberAttack + " es impar, turno del Jugador 1");
+                game.SetStatus(utils.core.GameStatusType.WAITINGP1);
+                Console.WriteLine("Turno del Jugador 1.");
             }
         }
 

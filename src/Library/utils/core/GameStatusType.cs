@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 namespace Library.utils.core
 {
     public enum GameStatusType {
-        INGAME, WAITING, FINISHED
+        INGAME, WAITING, WAITINGP1, WAITINGP2, FINISHED
     }
 }

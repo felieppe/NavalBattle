@@ -20,23 +20,19 @@ namespace Library.bot
         private string Return;
         private InlineKeyboardMarkup Keyboard;
 
-<<<<<<< HEAD
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Response"/>.
         /// </summary>
         /// <param name="type"> Tipo de respuesta. </param>
         /// <param name="msg"> Mensaje. </param>
-        public Response(ResponseType type, string msg)
+        /// <param name="ret"> Lo que devuelve. </param>
+        /// <param name="ikm"> Teclado. </param>
+        public Response(ResponseType type, string msg, string? ret = null, InlineKeyboardMarkup? ikm = null)
         {
             Type = type;
             Message = msg;
-=======
-        public Response(ResponseType type, string msg, string? ret = null, InlineKeyboardMarkup? ikm = null) {
-            this.Type = type;
-            this.Message = msg;
-            this.Return = ret;
-            this.Keyboard = ikm;
->>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
+            Return = ret;
+            Keyboard = ikm;
         }
 
         /// <summary>

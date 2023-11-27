@@ -5,10 +5,10 @@
 //---------------------------------------------------------------------------------
 
 using System;
-using System.Linq;
 using Telegram.Bot.Types;
 using Library.bot;
 using Library.bot.core;
+using System.Collections.Generic;
 
 namespace Library.handlers.core
 {
@@ -82,10 +82,6 @@ namespace Library.handlers.core
             {
                 throw new InvalidOperationException("No hay palabras clave que puedan ser procesadas");
             }
-
-<<<<<<< HEAD
-            return Keywords.Any(s => message.Text.Equals(s, StringComparison.InvariantCultureIgnoreCase));
-=======
             List<string> kws = new List<string>();
             string[] splitted = message.Text.Split(" ");
             foreach (string s in splitted) {
@@ -96,7 +92,6 @@ namespace Library.handlers.core
                 foreach (string handled in this.Keywords) { if (keyword == handled) { return true; } }
             }
             return false;
->>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
         }
 
         /// <summary>

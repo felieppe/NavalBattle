@@ -14,12 +14,14 @@
             Respuestas del bot.
             </summary>
         </member>
-        <member name="M:Library.bot.Response.#ctor(Library.bot.core.ResponseType,System.String)">
+        <member name="M:Library.bot.Response.#ctor(Library.bot.core.ResponseType,System.String,System.String,Telegram.Bot.Types.ReplyMarkups.InlineKeyboardMarkup)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.bot.Response"/>.
             </summary>
             <param name="type"> Tipo de respuesta. </param>
             <param name="msg"> Mensaje. </param>
+            <param name="ret"> Lo que devuelve. </param>
+            <param name="ikm"> Teclado. </param>
         </member>
         <member name="M:Library.bot.Response.SetType(Library.bot.core.ResponseType)">
             <summary>
@@ -278,15 +280,15 @@
         </member>
         <member name="M:Library.Game.SetGameSession(System.String)">
             <summary>
-            Establece el nombre de la sesion.
+            Establece el nombre de la sesión.
             </summary>
-            <param name="name"> Nombre de la sesion. </param>
+            <param name="name"> Nombre de la sesión. </param>
         </member>
         <member name="M:Library.Game.SetStatus(Library.utils.core.GameStatusType)">
             <summary>
-            Establece el estado de la sesion.
+            Establece el estado de la sesión.
             </summary>
-            <param name="status"> Estado de la sesion </param>
+            <param name="status"> Estado de la sesión. </param>
         </member>
         <member name="M:Library.Game.SetAdmin(Library.Player)">
             <summary>
@@ -370,9 +372,9 @@
         </member>
         <member name="M:Library.Game.GetTotalShips">
             <summary>
-            Devuelve la cantidad total de barcos.
+            Devuelve la cantidad de barcos.
             </summary>
-            <returns> Cantidad total de barcos. </returns>
+            <returns> Cantidad de barcos. </returns>
         </member>
         <member name="M:Library.Game.GetBoard1">
             <summary>
@@ -422,9 +424,9 @@
             Conteo del numero de ataques
             </summary>
         </member>
-        <member name="F:Library.GameLogic.gameStatus">
+        <member name="F:Library.GameLogic.allShipsSunk">
             <summary>
-            Estado del juego.
+            Verifica que se hayan hundido todos los barcos.
             </summary>
         </member>
         <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board)">
@@ -568,11 +570,6 @@
             </summary>
             <returns> Username del jugador. </returns>
         </member>
-        <member name="T:Library.handlers.core.BaseHandler">
-            <summary>
-            Base para los Handlers.
-            </summary>
-        </member>
         <member name="T:Library.handlers.JoinServerHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
@@ -708,22 +705,22 @@
         </member>
         <member name="T:Library.handlers.MenuHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            Un "Handler" del patrón Chain of Responsibility que implementa el comando "hola".
             </summary>
         </member>
         <member name="M:Library.handlers.MenuHandler.#ctor(Library.handlers.core.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
             </summary>
-            <param name="next">El próximo "handler".</param>
+            <param name="next"> El próximo "Handler". </param>
         </member>
         <member name="M:Library.handlers.MenuHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+            <param name="message"> Mensaje a procesar. </param>
+            <param name="response"> Respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
         <member name="T:Library.handlers.PlayHandler">
             <summary>
@@ -734,34 +731,39 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
             </summary>
-            <param name="next"> El próximo "handler". </param>
+            <param name="next"> El próximo "Handler". </param>
         </member>
         <member name="M:Library.handlers.PlayHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "play" y retorna true; retorna false en caso contrario.
             </summary>
-            <param name="message"> El mensaje a procesar. </param>
-            <param name="response"> La respuesta al mensaje procesado. </param>
+            <param name="message"> Mensaje a procesar. </param>
+            <param name="response"> Respuesta al mensaje procesado. </param>
             <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
         <member name="T:Library.handlers.ServersListHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            Un "Handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
             </summary>
         </member>
         <member name="M:Library.handlers.ServersListHandler.#ctor(Library.handlers.core.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
             </summary>
-            <param name="next"> El próximo "handler". </param>
+            <param name="next"> El próximo "Handler". </param>
         </member>
         <member name="M:Library.handlers.ServersListHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
-            <param name="message"> El mensaje a procesar. </param>
-            <param name="response"> La respuesta al mensaje procesado. </param>
+            <param name="message"> Mensaje a procesar. </param>
+            <param name="response"> Respuesta al mensaje procesado. </param>
             <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.core.BaseHandler">
+            <summary>
+            Base para los Handlers.
+            </summary>
         </member>
         <member name="P:Library.handlers.core.BaseHandler.Next">
             <summary>
@@ -827,71 +829,11 @@
             estado inicial.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Library.handlers.MenuHandler">
-            <summary>
-            Un "Handler" del patrón Chain of Responsibility que implementa el comando "hola".
-            </summary>
-        </member>
-        <member name="M:Library.handlers.MenuHandler.#ctor(Library.handlers.core.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
-            </summary>
-            <param name="next"> El próximo "Handler". </param>
-        </member>
-        <member name="M:Library.handlers.MenuHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
-            <summary>
-            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message"> Mensaje a procesar. </param>
-            <param name="response"> Respuesta al mensaje procesado. </param>
-            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
-        </member>
-        <member name="T:Library.handlers.PlayHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "play".
-            </summary>
-        </member>
-        <member name="M:Library.handlers.PlayHandler.#ctor(Library.handlers.core.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
-            </summary>
-            <param name="next"> El próximo "Handler". </param>
-        </member>
-        <member name="M:Library.handlers.PlayHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
-            <summary>
-            Procesa el mensaje "play" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message"> Mensaje a procesar. </param>
-            <param name="response"> Respuesta al mensaje procesado. </param>
-            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
-        </member>
-        <member name="T:Library.handlers.ServersListHandler">
-            <summary>
-            Un "Handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
-            </summary>
-        </member>
-        <member name="M:Library.handlers.ServersListHandler.#ctor(Library.handlers.core.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
-            </summary>
-            <param name="next"> El próximo "Handler". </param>
-        </member>
-        <member name="M:Library.handlers.ServersListHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
-            <summary>
-            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message"> Mensaje a procesar. </param>
-            <param name="response"> Respuesta al mensaje procesado. </param>
-            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
-        </member>
         <member name="T:Library.IHandler">
             <summary>
             Interfaz IHandler.
             </summary>
         </member>
-=======
->>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
         <member name="P:Library.IHandler.Next">
             <summary>
             Obtiene el próximo "Handler".
