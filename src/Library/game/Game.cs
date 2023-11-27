@@ -86,8 +86,11 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            board1 = new Board(rows, columns);
-            board2 = new Board(rows, columns);
+            this.rows = rows;
+            this.columns = columns;
+
+            board1 = new Board(rows/2, columns/2);
+            board2 = new Board(rows/2, columns/2);
             this.totalShips = totalShips;
 
             Guid uuid = Guid.NewGuid();
