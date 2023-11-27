@@ -28,7 +28,7 @@ namespace NavalBattle
     /// Programa de consola de demostración.
     /// </summary>
     public static class Program
-    {/*
+    {
         private static Configuration Config;
         private static Logger Logger = Logger.Instance;
         private static TelegramBotClient Bot;
@@ -168,7 +168,7 @@ namespace NavalBattle
         {
             Logger.Error(exception.Message);
             return Task.CompletedTask;
-        }*/
+        }
         private static Board board;
         private static int rows;
         private static int columns;
@@ -181,9 +181,6 @@ namespace NavalBattle
             p = new Printer();
             p.Print(board);
         }
-
-<<<<<<< HEAD
-=======
         private static string[] bypass = {"start_server", "leave_server", "wait_game"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
@@ -216,6 +213,5 @@ namespace NavalBattle
 
             final = message;
         }
->>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
     }
 }
