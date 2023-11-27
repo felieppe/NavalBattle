@@ -131,6 +131,8 @@ namespace NavalBattle
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
+            SaveLastCommand(message, response);
+
             switch(response.GetType())
             {
                 case ResponseType.Message:
@@ -158,6 +160,8 @@ namespace NavalBattle
 
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(msg, out response);
+
+            SaveLastCommand(msg, response);
 
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
@@ -205,6 +209,16 @@ namespace NavalBattle
             }
 
             final = message;
+        }
+
+        private static void SaveLastCommand(Message message, Response res) {
+            Logger.Instance.Debug("Supposed last cmd: " + message.Text);
+            if (res.GetType() != ResponseType.None) {
+                Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
+                if (chat != null) {
+                    chat.AddLastCmd(message.Text);
+                }
+            }
         }
     }
 }
