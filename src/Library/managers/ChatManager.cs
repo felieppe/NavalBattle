@@ -8,15 +8,26 @@ using Library.utils.core;
 
 namespace Library.managers
 {
+    /// <summary>
+    /// Clase que 
+    /// </summary>
     public class ChatManager
     {
         /// <summary>
         /// Instancia de Singleton
         /// </summary>
-        /// <value> Instancia de ServerManager</value>
+        /// <value> Instancia de ChatManager</value>
         private static ChatManager instance;
-
+        /// <summary>
+        /// Lista de partidas.
+        /// </summary>
+        /// <value> Lista de partidas. </value>
+    
         public List<Chat> Chats {get; private set;}
+         /// <summary>
+        /// Inicializa una instancia de la clase <see cref="ChatManager"/> si no existe una, de lo contrario devuelve esa instancia.
+        /// </summary>
+        /// <value></value>
 
         public static ChatManager Instance
         {
@@ -31,6 +42,11 @@ namespace Library.managers
             List<Chat> retrieved = Deserializer.Instance.Deserialize(DataType.Chat);
             if (retrieved != null) { Chats = retrieved; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"> Id del juego. </param>
+        /// <returns>  </returns>
 
         public void AddChat(Chat chat) {
             if (chat != null) {
@@ -40,7 +56,11 @@ namespace Library.managers
                 }
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"> Id del juego. </param>
+        /// <returns>. </returns>
         public Chat GetChat(long id) {
             Chat chat = null;
             foreach (Chat c in Chats) {
