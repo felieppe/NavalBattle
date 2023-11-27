@@ -45,6 +45,8 @@ namespace Library.utils
 
                         // Retriving game data from JSON object
                         string id = obj["id"].ToString();
+                        string name = obj["name"].ToString();
+                        GameStatusType status = JsonConvert.DeserializeObject<GameStatusType>(obj["status"].ToString());
                         List<Coords> shipsCoords = JsonConvert.DeserializeObject<List<Coords>>(obj["ships_coords"].ToString());
                         List<Ship> ships = JsonConvert.DeserializeObject<List<Ship>>(obj["ships"].ToString());
                         int totalShips = obj["total_ships"].Value<int>();
@@ -59,6 +61,8 @@ namespace Library.utils
                         Game game = new Game(rows, columns, totalShips);
                         
                         game.SetGameId(id);
+                        game.SetGameSession(name);
+                        game.SetStatus(status);
                         game.SetAdmin(admin);
                         game.SetBoard1(board1);
                         game.SetBoard2(board2);

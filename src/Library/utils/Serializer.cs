@@ -40,6 +40,8 @@ namespace Library.utils
                     string file = $"{baseFolder}/servers/{game.GetGameId()}.json";
                     if (method == MethodType.POST) {
                         obj["id"] = "" + game.GetGameId();
+                        obj["name"] = game.GetSessionName();
+                        obj["status"] = JsonConvert.SerializeObject(game.GetStatus(), Formatting.Indented);
                         obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
                         obj["ships"] = JsonConvert.SerializeObject(game.GetShips(), Formatting.Indented);
                         obj["total_ships"] = game.GetTotalShips();
