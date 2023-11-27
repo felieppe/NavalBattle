@@ -19,7 +19,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public ShowServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "show_server" };
+            Keywords = new string[] { "show_server" };
         }
 
         /// <summary>

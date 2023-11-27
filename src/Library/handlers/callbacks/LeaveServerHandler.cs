@@ -20,7 +20,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public LeaveServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "leave_server" };
+            Keywords = new string[] { "leave_server" };
         }
 
         /// <summary>
