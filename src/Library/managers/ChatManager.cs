@@ -39,5 +39,14 @@ namespace Library.managers
                 }
             }
         }
+
+        public Chat GetChat(long id) {
+            Chat chat = null;
+            foreach (Chat c in this.Chats) {
+                if (c.Id == id) { chat = c; break; }
+            }
+
+            return chat;
+        }
     }
 }
