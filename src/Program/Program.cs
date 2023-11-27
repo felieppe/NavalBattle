@@ -156,7 +156,7 @@ namespace NavalBattle
             msg.Text = data;
 
             CheckIfUserBusy(msg, out msg);
-            Logger.Debug("cllbk final: " + msg.Text);
+            HandleReturn(msg, out msg);
 
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(msg, out response);
@@ -178,7 +178,7 @@ namespace NavalBattle
             return Task.CompletedTask;
         }
 
-        private static string[] bypass = {"start_server", "leave_server", "wait_game"};
+        private static string[] bypass = {"start_server", "leave_server", "wait_game", "return"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
             if (!bypass.Contains(cmd)) {
@@ -212,13 +212,28 @@ namespace NavalBattle
         }
 
         private static void SaveLastCommand(Message message, Response res) {
-            Logger.Instance.Debug("Supposed last cmd: " + message.Text);
+            if (message.Text.Split("-")[0] == "return") { return; }
             if (res.GetType() != ResponseType.None) {
                 Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
                 if (chat != null) {
                     chat.AddLastCmd(message.Text);
                 }
             }
+        }
+
+        private static void HandleReturn(Message message, out Message final) {
+            if (message.Text.Split("-")[0] == "return") {
+                string whereReturn = message.Text.Split("return-")[1];
+                
+                Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
+                List<string> lastCommands = chat.GetLastCommands();
+
+                if (lastCommands.ToArray()[0] == whereReturn) {
+                    message.Text = whereReturn;
+                }
+            }
+            
+            final = message;
         }
     }
 }
