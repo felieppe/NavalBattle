@@ -38,10 +38,6 @@ namespace NavalBattle
         private static void Setup() {
             Bot = new TelegramBotClient(Config.GetToken());
 
-            _ = UserManager.Instance;
-            _ = ServerManager.Instance;
-            _ = ChatManager.Instance;
-
             // Save folder setup
             string folderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + "/save";
             if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); }
@@ -50,6 +46,11 @@ namespace NavalBattle
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/players")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/players"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/servers")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/servers"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/chats")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/chats"); }
+        
+            // Starting new instances
+            _ = UserManager.Instance;
+            _ = ServerManager.Instance;
+            _ = ChatManager.Instance;
         }
 
         /// <summary>
