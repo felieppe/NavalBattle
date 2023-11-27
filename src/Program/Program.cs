@@ -49,6 +49,7 @@ namespace NavalBattle
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/players")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/players"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/servers")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/servers"); }
+            if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/chats")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/chats"); }
         }
 
         /// <summary>
