@@ -39,7 +39,6 @@ namespace Library
         /// </summary>
         private int numberAttack = 1;
 
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>

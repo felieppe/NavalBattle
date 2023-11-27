@@ -94,6 +94,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Elimina un jugador en especifico de la lista de jugadores in-game.
+        /// </summary>
+        /// <param name="player"> Player. </param>
+        public void RemoveInGamePlayer(Player player)
+        {
+            if (player != null) { this.inGamePlayers.Remove(player); }
+        }
+
+        /// <summary>
         /// Crea una partida con dos jugadores al azar que estén disponibles.
         /// </summary>
         /// <returns>
@@ -173,6 +182,29 @@ namespace Library
         }
 
         /// <summary>
+        /// Obtiene un jugador mediante su id proporcionado.
+        /// </summary>
+        /// <returns>
+        /// Player
+        /// </returns>
+        public Player GetPlayerById(IdType type, string id) {
+            switch (type) {
+                case IdType.Normal:
+                    foreach (Player p in this.players) {
+                        if (p.GetId() == id) { return  p; }
+                    }
+                    break;
+                case IdType.Telegram:
+                    foreach (Player p in this.players) {
+                        if (p.GetTelegramId() == id) { return  p; }
+                    }
+                    break;
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Añade a los jugadores de un juego a la lista de jugadores en juego.
         /// </summary>
         /// <param name="game"> Ongoing games. </param>
@@ -185,6 +217,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Añade al jugador a la lista de jugadores en juego.
+        /// </summary>
+        /// <param name="player"> Jugador. </param>
+        public void AddInGamePlayer(Player player)
+        {
+            if (player != null) { this.inGamePlayers.Add(player); }
+        }
+
+        /// <summary>
         /// Agrega un jugador a una partida.
         /// </summary>
         /// <param name="player"> Jugador. </param>
@@ -193,29 +234,12 @@ namespace Library
         {
             if (!String.IsNullOrEmpty(id))
             {
-                Game game = this.FindGameById(id);
+                Game game = ServerManager.Instance.GetGame(id);
                 if (game != null)
                 {
                     game.AddPlayer(player);
                 }
             }
-        }
-
-        /// <summary>
-        /// Busca un juego por el Id.
-        /// </summary>
-        /// <param name="gameId"> Id del juego. </param>
-        /// <returns> Juego. </returns>
-        private Game FindGameById(string gameId)
-        {
-            foreach (Game game in this.serverManager.GetListing())
-            {
-                if (game.GetGameId() == gameId)
-                {
-                    return game;
-                }
-            }
-            return null;
         }
     }
 }

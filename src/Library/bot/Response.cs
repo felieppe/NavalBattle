@@ -17,8 +17,10 @@ namespace Library.bot
     {
         private ResponseType Type;
         private string Message;
+        private string Return;
         private InlineKeyboardMarkup Keyboard;
 
+<<<<<<< HEAD
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Response"/>.
         /// </summary>
@@ -28,6 +30,13 @@ namespace Library.bot
         {
             Type = type;
             Message = msg;
+=======
+        public Response(ResponseType type, string msg, string? ret = null, InlineKeyboardMarkup? ikm = null) {
+            this.Type = type;
+            this.Message = msg;
+            this.Return = ret;
+            this.Keyboard = ikm;
+>>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
         }
 
         /// <summary>
@@ -37,6 +46,9 @@ namespace Library.bot
         public void SetType(ResponseType type)
         {
             if (type != null) { Type = type; }
+        }
+        public void SetReturn (string ret) {
+            this.Return = ret;
         }
 
         /// <summary>
@@ -82,6 +94,9 @@ namespace Library.bot
         public InlineKeyboardMarkup GetKeyboard()
         {
             return Keyboard;
+        }
+        public string GetReturn() {
+            return this.Return;
         }
     }
 }

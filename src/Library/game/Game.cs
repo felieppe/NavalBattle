@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Library.utils.core;
 
 namespace Library
 {
@@ -19,6 +20,18 @@ namespace Library
         /// </summary>
         /// <value> Id. </value>
         private string gameId;
+
+        /// <summary>
+        /// Nombre de la sesión.
+        /// </summary>
+        /// <value> String </value>
+        private string name;
+
+        /// <summary>
+        /// Estado de la sesión.
+        /// </summary>
+        /// <value> GameStatusType </value>
+        private GameStatusType status = GameStatusType.WAITING;
 
         /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
@@ -87,12 +100,25 @@ namespace Library
         /// <param name="player"> Jugador. </param>
         public void AddPlayer(Player player)
         {
+<<<<<<< HEAD
             if (players.Count == 0)
             {
                 players.Add(player);
             } 
             else if (players.Count >= 1 && players.Count <= 2) { players.Add(player); }
             else { return; }
+=======
+            if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
+                if (UserManager.Instance.GetPlayers().Contains(player)) {
+                    if (!UserManager.Instance.GetInGamePlayers().Contains(player)) { 
+                        this.players.Add(player);
+                        if (this.Admin == null) { this.Admin = player; }
+                        
+                        UserManager.Instance.AddInGamePlayer(player);
+                    }
+                }
+            } 
+>>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
         }
 
         /// <summary>
@@ -106,6 +132,27 @@ namespace Library
                 gameId = id;
             }
         }
+
+        /// <summary>
+        /// Establece el nombre de la sesion.
+        /// </summary>
+        /// <param name="name"> Nombre de la sesion. </param>
+        public void SetGameSession(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                this.name = name;
+            }
+        }
+
+        /// <summary>
+        /// Establece el estado de la sesion.
+        /// </summary>
+        /// <param name="status"> Estado de la sesion </param>
+        public void SetStatus(GameStatusType status)
+        {
+            this.status = status;
+        }
         
         /// <summary>
         /// Establece un jugador como administrador de la partida.
@@ -117,6 +164,17 @@ namespace Library
             if (!players.Contains(admin))
             {
                 players.Add(admin);
+            }
+        }
+
+        /// <summary>
+        /// Elimina un jugador del game.
+        /// </summary>
+        public void RemovePlayer(Player rp)
+        {
+            if (rp != null) { 
+                this.players.Remove(rp);
+                UserManager.Instance.RemovePlayer(rp);
             }
         }
 
@@ -185,6 +243,24 @@ namespace Library
         public string GetGameId()
         {
             return gameId;
+        }
+
+        /// <summary>
+        /// Devuelve el nombre de la sesion.
+        /// </summary>
+        /// <returns> String </returns>
+        public string GetSessionName()
+        {
+            return this.name;
+        }
+
+        /// <summary>
+        /// Devuelve el estado de la sesion.
+        /// </summary>
+        /// <returns> GameStatusType </returns>
+        public GameStatusType GetStatus()
+        {
+            return this.status;
         }
 
         /// <summary>

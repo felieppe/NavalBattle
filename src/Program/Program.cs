@@ -16,6 +16,10 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.IO;
+using Library.utils.core;
+using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
+using System.Linq;
 
 
 namespace NavalBattle   
@@ -67,8 +71,15 @@ namespace NavalBattle
             Handler =
                 new PlayHandler(
                     new MenuHandler(
-                        new ServersListHandler(null)
-            ));
+                        new ServersListHandler(
+                            new ReturnHandler(
+                                new ShowServerHandler(
+                                    new ShowServerPlayersHandler(
+                                        new JoinServerHandler(
+                                            new CreateHandler(
+                                                new WaitGameHandler(
+                                                    new LeaveServerHandler(null)
+            )))))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -110,6 +121,9 @@ namespace NavalBattle
         {
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
+            CheckIfUserBusy(message, out message);
+            Logger.Debug("final: " + message.Text);
+
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
@@ -135,6 +149,9 @@ namespace NavalBattle
             msg.From = update.CallbackQuery.From;
             msg.Text = data;
 
+            CheckIfUserBusy(msg, out msg);
+            Logger.Debug("cllbk final: " + msg.Text);
+
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(msg, out response);
 
@@ -142,6 +159,8 @@ namespace NavalBattle
                 case ResponseType.Keyboard:
                     await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
                     await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                    break;
+                case ResponseType.Return:
                     break;
             }
         }
@@ -163,5 +182,40 @@ namespace NavalBattle
             p.Print(board);
         }
 
+<<<<<<< HEAD
+=======
+        private static string[] bypass = {"start_server", "leave_server", "wait_game"};
+        private static void CheckIfUserBusy(Message message, out Message final) {
+            string cmd = message.Text.Split("-")[0];
+            if (!bypass.Contains(cmd)) {
+                Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, message.From.Id.ToString());
+                if (player != null) {
+                    foreach (Player p in UserManager.Instance.GetInGamePlayers()) {
+                    }
+                    if (UserManager.Instance.GetInGamePlayers().Contains(player)) { 
+                        List<Library.Game> games = ServerManager.Instance.GetListing();
+                        
+                        Library.Game founded = null;
+                        foreach (Library.Game game in games) {
+                            if (game.GetPlayers().Contains(player)) { founded = game; Logger.Instance.Debug("Game founded!");}
+                        }
+
+                        if (founded != null) {
+                            switch (founded.GetStatus()) {
+                                case GameStatusType.INGAME:
+                                    // Redirect to playable game. (WIP)
+                                    break;
+                                case GameStatusType.WAITING:
+                                    message.Text = $"wait_game-{founded.GetGameId()}";
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            final = message;
+        }
+>>>>>>> 130e6caf9191761934f45e25028bd936745bdf3c
     }
 }
