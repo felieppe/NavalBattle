@@ -10,11 +10,13 @@ namespace Library.bot
 {
     public class Chat : Telegram.Bot.Types.Chat
     {
+        public Player User {get; private set;}
         private List<string> LastCommands = new List<string>();
 
-        public Chat(long id, ChatType type) {
+        public Chat(long id, ChatType type, Player player) {
             this.Id = id;
             this.Type = type;
+            this.User = player;
         }
 
         public void AddLastCmd(string cmd) {
