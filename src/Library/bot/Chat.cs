@@ -10,18 +10,19 @@ namespace Library.bot
 {
     public class Chat : Telegram.Bot.Types.Chat
     {
-        public string LastCommand { get; private set; }
+        private List<string> LastCommands = new List<string>();
 
         public Chat(long id, ChatType type) {
             this.Id = id;
             this.Type = type;
         }
 
-        public void SetLastCmd(string cmd) {
+        public void AddLastCmd(string cmd) {
             if (!String.IsNullOrEmpty(cmd)) {
-                this.LastCommand = cmd;
-            
-                // Update Chat in ChatManager
+                if (this.LastCommands.Count >= 2) {this.LastCommands.RemoveAt(0); }
+                this.LastCommands.Add(cmd);
+
+                // Update this instance w/ Serializer
                 Serializer.Instance.Serialize(DataType.Chat, method: MethodType.POST, chat: this);
             }
         }
