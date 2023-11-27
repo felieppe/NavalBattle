@@ -16,6 +16,8 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.IO;
+using Library.utils.core;
+using System.Collections.Generic;
 
 
 namespace NavalBattle   
@@ -71,8 +73,9 @@ namespace NavalBattle
                             new ReturnHandler(
                                 new ShowServerHandler(
                                     new ShowServerPlayersHandler(
-                                        new JoinServerHandler(null)
-            ))))));
+                                        new JoinServerHandler(
+                                            new CreateHandler(null)
+            )))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -114,6 +117,8 @@ namespace NavalBattle
         {
             Logger.Info($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
+            CheckIfUserBusy(message, out message);
+            
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
@@ -139,6 +144,8 @@ namespace NavalBattle
             msg.From = update.CallbackQuery.From;
             msg.Text = data;
 
+            CheckIfUserBusy(msg, out msg);
+
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(msg, out response);
 
@@ -155,6 +162,35 @@ namespace NavalBattle
         {
             Logger.Error(exception.Message);
             return Task.CompletedTask;
+        }
+
+        private static void CheckIfUserBusy(Message message, out Message final) {
+            Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, message.From.Id.ToString());
+            if (player != null) {
+                foreach (Player p in UserManager.Instance.GetInGamePlayers()) {
+                }
+                if (UserManager.Instance.GetInGamePlayers().Contains(player)) { 
+                    List<Library.Game> games = ServerManager.Instance.GetListing();
+                    
+                    Library.Game founded = null;
+                    foreach (Library.Game game in games) {
+                        if (game.GetPlayers().Contains(player)) { founded = game; Logger.Instance.Debug("Game founded!");}
+                    }
+
+                    if (founded != null) {
+                        switch (founded.GetStatus()) {
+                            case GameStatusType.INGAME:
+                                // Redirect to playable game. (WIP)
+                                break;
+                            case GameStatusType.WAITING:
+                                message.Text = $"wait_game-{founded.GetGameId()}";
+                                break;
+                        }
+                    }
+                }
+            }
+
+            final = message;
         }
     }
 }

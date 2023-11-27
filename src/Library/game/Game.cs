@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using Library.utils.core;
 
 namespace Library
 {
@@ -24,6 +25,12 @@ namespace Library
         /// </summary>
         /// <value> String </value>
         private string name;
+
+        /// <summary>
+        /// Estado de la sesión.
+        /// </summary>
+        /// <value> GameStatusType </value>
+        private GameStatusType status = GameStatusType.WAITING;
 
         /// <summary>
         /// Lista de coordenadas de los barcos en el juego.
@@ -94,9 +101,11 @@ namespace Library
         public void AddPlayer(Player player)
         {
             if (this.players.Count == 0 || (this.players.Count >= 1 && this.players.Count <= 2)) {
-                if (UserManager.Instance.GetPlayers().Equals(player)) {
-                    if (!UserManager.Instance.GetInGamePlayers().Equals(player)) { 
+                if (UserManager.Instance.GetPlayers().Contains(player)) {
+                    if (!UserManager.Instance.GetInGamePlayers().Contains(player)) { 
                         this.players.Add(player);
+                        if (this.Admin == null) { this.Admin = player; }
+                        
                         UserManager.Instance.AddInGamePlayer(player);
                     }
                 }
@@ -125,6 +134,15 @@ namespace Library
             {
                 this.name = name;
             }
+        }
+
+        /// <summary>
+        /// Establece el estado de la sesion.
+        /// </summary>
+        /// <param name="status"> Estado de la sesion </param>
+        public void SetStatus(GameStatusType status)
+        {
+            this.status = status;
         }
         
         /// <summary>
@@ -211,6 +229,15 @@ namespace Library
         public string GetSessionName()
         {
             return this.name;
+        }
+
+        /// <summary>
+        /// Devuelve el estado de la sesion.
+        /// </summary>
+        /// <returns> GameStatusType </returns>
+        public GameStatusType GetStatus()
+        {
+            return this.status;
         }
 
         /// <summary>
