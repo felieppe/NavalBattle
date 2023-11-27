@@ -19,9 +19,9 @@ namespace Library.managers
         /// <value> Instancia de ChatManager</value>
         private static ChatManager instance;
         /// <summary>
-        /// Lista de partidas.
+        /// Lista de chats.
         /// </summary>
-        /// <value> Lista de partidas. </value>
+        /// <value> Lista de chats</value>
     
         public List<Chat> Chats {get; private set;}
          /// <summary>
@@ -43,7 +43,7 @@ namespace Library.managers
             if (retrieved != null) { Chats = retrieved; }
         }
         /// <summary>
-        /// 
+        /// Agrega un chat al servidor
         /// </summary>
         /// <param name="id"> Id del juego. </param>
         /// <returns>  </returns>
@@ -57,7 +57,7 @@ namespace Library.managers
             }
         }
         /// <summary>
-        /// 
+        /// Devuelve un chat a partir de la id
         /// </summary>
         /// <param name="id"> Id del juego. </param>
         /// <returns>. </returns>

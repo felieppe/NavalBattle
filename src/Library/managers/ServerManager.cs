@@ -40,10 +40,7 @@ namespace Library
                 return instance;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public ServerManager()
         {
             List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
