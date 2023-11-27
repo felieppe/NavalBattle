@@ -19,7 +19,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public ReturnHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "return" };
+            Keywords = new string[] { "return" };
         }
 
         /// <summary>

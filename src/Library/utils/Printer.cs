@@ -21,10 +21,11 @@ namespace Library
         /// Imprime una linea horizontal que divide el tablero en dos.
         /// </summary>
         /// <param name="rows"> Número de filas del tablero. </param>
-        private static void SplitBoardVisually(int rows) {
+        private static void SplitBoardVisually(int rows)
+        {
             string border = "";
-
-            for (int x = 0; x < rows; x++) {
+            for (int x = 0; x < rows; x++)
+            {
                 border += "==";
             }
 
@@ -37,7 +38,7 @@ namespace Library
         /// <param name="board">Tablero</param>
         public void Print(Board board)
         {
-            Console.Clear();
+            //Console.Clear();
             for (int row = 0; row < board.GetRows(); row++)
             {
                 if ((board.GetRows() / 2) + 1 == row) { SplitBoardVisually(board.GetRows()); }
@@ -46,7 +47,6 @@ namespace Library
                 {
                     Console.Write(board.GetBoard()[row][col] + " ");
                 }
-
                 Console.WriteLine();
             }
         }

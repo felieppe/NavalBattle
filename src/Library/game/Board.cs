@@ -12,19 +12,21 @@ namespace Library
     public class Board
     {
         /// <summary>
-        /// Valor de las filas
+        /// Filas del tablero.
         /// </summary>
-        /// <value> Valor de las filas </value>
+        /// <value> Filas. </value>
         public int rows { get; private set; }
+
         /// <summary>
-        /// Valor de las columnas.
+        /// columnas del tablero.
         /// </summary>
-        /// <value> Valor de las columnas </value>
+        /// <value> Columnas. </value>
         public int columns { get; private set; }
+
         /// <summary>
         /// Formato del tablero.
         /// </summary>
-        /// <value> Formato del tablero </value>
+        /// <value> Formato del tablero. </value>
         public char[][] board { get; private set; }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace Library
             {
                 this.columns = 6;
             }
-            this.InitializeBoard();
+            InitializeBoard();
         }
 
         /// <summary>
@@ -59,30 +61,30 @@ namespace Library
         /// </summary>
         public void InitializeBoard()
         {
-            int rows = this.GetRows();
-            int columns = this.GetColumns();
+            int rows = GetRows();
+            int columns = GetColumns();
 
-            this.board = new char[rows + 1][];
+            board = new char[rows + 1][];
             for (int i = 0; i <= rows; i++)
             {
-                this.board[i] = new char[columns + 1];
+                board[i] = new char[columns + 1];
                 for (int j = 0; j <= columns; j++)
                 {
                     if (i == 0 && j == 0)
                     {
-                        this.board[i][j] = ' ';
+                        board[i][j] = ' ';
                     }
                     else if (i == 0)
                     {
-                        this.board[i][j] = (char)('A' + j - 1);
+                        board[i][j] = (char)('A' + j - 1);
                     }
                     else if (j == 0)
                     {
-                        this.board[i][j] = (char)('0' + i);
+                        board[i][j] = (char)('0' + i);
                     }
                     else
                     {
-                        this.board[i][j] = ' ';
+                        board[i][j] = ' ';
                     }
                 }
             }
@@ -96,7 +98,7 @@ namespace Library
         /// <param name="columns"> Columnas. </param>
         public void SetBoard(Board b, int rows, int columns)
         {
-            this.board = b.GetBoard();
+            board = b.GetBoard();
             this.rows = rows;
             this.columns = columns;
         }
@@ -107,14 +109,14 @@ namespace Library
         /// <returns> Tablero. </returns>
         public char[][] GetBoard()
         {
-            return this.board; // Devuelve el tablero.
+            return board;
         }
 
         /// <summary>
         /// Establece el número de filas.
         /// </summary>
         /// <param name="rows"> Filas del tablero. </param>
-        /// <returns> Número par de filas de tablero entre 8 y 20. </returns>
+        /// <returns> Número par de filas de tablero entre 10 y 20. </returns>
         public bool SetRows(int rows)
         {
             if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
@@ -133,7 +135,7 @@ namespace Library
         /// Establece el número de columnas.
         /// </summary>
         /// <param name="columns"> Columnas del tablero. </param>
-        /// <returns> Número par de columnas de tablero entre 8 y 20. </returns>
+        /// <returns> Número par de columnas de tablero entre 6 y 10. </returns>
         public bool SetColumns(int columns)
         {
             if ((columns >= 6) && (columns <= 10))
@@ -151,19 +153,19 @@ namespace Library
         /// <summary>
         /// Devuelve las filas del tablero.
         /// </summary>
-        /// <returns> Las filas del tablero. </returns>
+        /// <returns> Filas del tablero. </returns>
         public int GetRows()
         {
-            return this.rows;
+            return rows;
         }
 
         /// <summary>
         /// Devuelve las columnas del tablero.
         /// </summary>
-        /// <returns> Las columnas del tablero. </returns>
+        /// <returns> Columnas del tablero. </returns>
         public int GetColumns()
         {
-            return this.columns;
+            return columns;
         }
     }
 }

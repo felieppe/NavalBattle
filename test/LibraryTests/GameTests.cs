@@ -30,12 +30,12 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.player = new Player();
-            this.player2 = new Player();
-            this.game = new Game(10, 10, 6);
+            player = new Player();
+            player2 = new Player();
+            game = new Game(10, 10, 6);
 
-            this.game.AddPlayer(player);
-            this.game.SetAdmin(player2);
+            game.AddPlayer(player);
+            game.SetAdmin(player2);
         }
 
         /// <summary>
@@ -44,15 +44,15 @@ namespace Tests
         [Test]
         public void InitGameTest()
         {
-            Assert.NotNull(this.game);
-            Assert.NotNull(this.player);
-            Assert.NotNull(this.player2);
+            Assert.NotNull(game);
+            Assert.NotNull(player);
+            Assert.NotNull(player2);
 
             List<Player> expectedPlayers = new List<Player>();
-            expectedPlayers.Add(this.player);
-            expectedPlayers.Add(this.player2);
+            expectedPlayers.Add(player);
+            expectedPlayers.Add(player2);
 
-            List<Player> gamePlayers = this.game.GetPlayers();
+            List<Player> gamePlayers = game.GetPlayers();
             foreach (Player p in gamePlayers)
             {
                 Assert.True(expectedPlayers.Contains(p));
@@ -66,8 +66,8 @@ namespace Tests
         public void NewPresetGame()
         {
             // Se busca que sea 10+1 porque el proyecto está pensado para que arranque a contar de uno y no de cero.
-            Assert.AreEqual(10+1, this.game.GetBoard1().GetRows());
-            Assert.AreEqual(10+1, this.game.GetBoard1().GetColumns());
+            Assert.AreEqual(10+1, game.GetBoard1().GetRows());
+            Assert.AreEqual(10+1, game.GetBoard1().GetColumns());
         }
 
         /// <summary>
@@ -88,11 +88,11 @@ namespace Tests
         public void SetAdminTest()
         {
             Player admin = new Player(); // Crea un nuevo jugador para el administrador
-            this.game.SetAdmin(admin);
+            game.SetAdmin(admin);
 
-            Assert.AreEqual(admin, this.game.Admin);
+            Assert.AreEqual(admin, game.Admin);
 
-            List<Player> gamePlayers = this.game.GetPlayers();
+            List<Player> gamePlayers = game.GetPlayers();
             Assert.Contains(admin, gamePlayers);
         }
     }

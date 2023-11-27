@@ -20,7 +20,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public WaitGameHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "wait_game" };
+            Keywords = new string[] { "wait_game" };
         }
 
         /// <summary>

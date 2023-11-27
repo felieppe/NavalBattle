@@ -24,8 +24,8 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 10;
-            this.columns = 10;
+            rows = 10;
+            columns = 10;
             board = new Board(rows, columns);
         }
 

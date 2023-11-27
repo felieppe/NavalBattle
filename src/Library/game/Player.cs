@@ -37,70 +37,70 @@ namespace Library
         public Player()
         {
             Guid uuid = Guid.NewGuid();
-            this.SetId(uuid.ToString());
+            SetId(uuid.ToString());
         }
 
         /// <summary>
         /// Establece el ID del jugador.
         /// </summary>
-        /// <param name="id"> Id. </param>
+        /// <param name="id"> Id del jugador. </param>
         public void SetId(string id)
         {
             if (!string.IsNullOrEmpty(id))
             {
-                this.Id = id;
+                Id = id;
             }
         }
 
         /// <summary>
         /// Establece el Telegram ID del jugador.
         /// </summary>
-        /// <param name="id"> Id. </param>
+        /// <param name="id"> Id de Telegram del jugador. </param>
         public void SetTelegramId(string id)
         {
             if (!string.IsNullOrEmpty(id))
             {
-                this.TelegramId = id;
+                TelegramId = id;
             }
         }
 
         /// <summary>
         /// Establece el username del jugador.
         /// </summary>
-        /// <param name="username"> Username. </param>
+        /// <param name="username"> Username del jugador. </param>
         public void SetUsername(string username)
         {
             if (!string.IsNullOrEmpty(username))
             {
-                this.Username = username;
+                Username = username;
             }
         }
 
         /// <summary>
         /// Obtiene el ID del jugador.
         /// </summary>
-        /// <returns> El ID del jugador. </returns>
+        /// <returns> ID del jugador. </returns>
         public string GetId()
         {
-            return this.Id;
+            return Id;
         }
 
         /// <summary>
         /// Obtiene el Telegram ID del jugador.
         /// </summary>
-        /// <returns> El Telegram ID del jugador. </returns>
+        /// <returns> Telegram ID del jugador. </returns>
         public string GetTelegramId()
         {
-            return this.TelegramId;
+            return TelegramId;
         }
 
         /// <summary>
         /// Obtiene el username del jugador.
         /// </summary>
-        /// <returns> El Username del jugador. </returns>
+        /// <returns> Username del jugador. </returns>
         public string GetUsername()
         {
-            return this.Username;
+            return Username;
         }
     }
 }

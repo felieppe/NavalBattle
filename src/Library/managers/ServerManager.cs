@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+
 using System.Collections.Generic;
 using System.Linq;
 using Library.utils;
@@ -16,16 +17,21 @@ namespace Library
     public class ServerManager
     {
         /// <summary>
-        /// Instancia de Singleton
+        /// Instancia de Singleton.
         /// </summary>
-        /// <value> Instancia de ServerManager</value>
+        /// <value> Instancia de ServerManager. </value>
         private static ServerManager instance;
+
         /// <summary>
         /// Lista de partidas.
         /// </summary>
-        /// <value> Lista de partidas</value>
+        /// <value> Lista de partidas. </value>
         private List<Game> Servers = new List<Game>();
 
+        /// <summary>
+        /// Inicializa una instancia de la clase <see cref="ServerManager"/> si no existe una, de lo contrario devuelve esa instancia.
+        /// </summary>
+        /// <value></value>
         public static ServerManager Instance
         {
             get
@@ -35,6 +41,9 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ServerManager()
         {
             List<Game> retrieved = Deserializer.Instance.Deserialize(DataType.Game);
@@ -42,7 +51,7 @@ namespace Library
             {
                 foreach (Game game in retrieved)
                 { 
-                    this.Servers.Add(game);
+                    Servers.Add(game);
                     UserManager.Instance.AddInGamePlayers(game);
                 }
 
@@ -59,7 +68,7 @@ namespace Library
             if (game != null)
             {
                 bool duplicated = false;
-                foreach (Game server in this.Servers)
+                foreach (Game server in Servers)
                 {
                     if (server.GetGameId() == game.GetGameId())
                     {
@@ -69,7 +78,7 @@ namespace Library
                 }
                 if (!duplicated)
                 { 
-                    this.Servers.Add(game);
+                    Servers.Add(game);
                     Serializer.Instance.Serialize(DataType.Game, MethodType.POST, game: game);
                 }
             }
@@ -81,7 +90,7 @@ namespace Library
         /// <param name="id"> Id del juego. </param>
         public void RemoveGame(string id)
         {
-            Game g = this.Servers.FirstOrDefault(g => g.GetGameId() == id);
+            Game g = Servers.FirstOrDefault(g => g.GetGameId() == id);
             if (g != null) {
                 Servers.Remove(g);
                 Serializer.Instance.Serialize(DataType.Game, MethodType.REMOVE, game: g);
@@ -94,7 +103,7 @@ namespace Library
         /// <returns> Lista de juegos. </returns>
         public List<Game> GetListing()
         {
-            return this.Servers;
+            return Servers;
         }
 
         /// <summary>
@@ -104,10 +113,11 @@ namespace Library
         /// <returns> Juego. </returns>
         public Game GetGame(string id)
         {
-            return this.Servers.FirstOrDefault(g => g.GetGameId() == id);
+            return Servers.FirstOrDefault(g => g.GetGameId() == id);
         }
     }
 }
 
-///Cumple con el patrón Expert porque tiene todos los datos que se necesitan para manejar los juegos.
-///Cumple con el principio de responsabilidad única porque solo tiene la responsabilidad de administrar las partidas en curso.
+/// Cumple con el patrón Expert porque tiene todos los datos que se necesitan para manejar los juegos.
+/// Cumple con el principio de responsabilidad única porque solo tiene la responsabilidad de administrar las partidas en curso.
+/// Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.

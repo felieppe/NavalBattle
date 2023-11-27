@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Library.Exceptions
-{
+{   /// <summary>
+    /// Excepción por si no se encuentra información para hacer debug
+    /// </summary>
     public class DebugNotFoundException : Exception
     {
         public DebugNotFoundException() : base() {}
