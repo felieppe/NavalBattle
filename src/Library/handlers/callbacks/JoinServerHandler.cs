@@ -20,7 +20,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public JoinServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "join_server" };
+            Keywords = new string[] { "join_server" };
         }
 
         /// <summary>
@@ -35,19 +35,23 @@ namespace Library.handlers
             Logger.Instance.Debug("Want to join the game: " + serverID);
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string answr = "";
 
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
 
-                if (player != null) {
+                if (player != null)
+                {
                     game.AddPlayer(player);
 
                     // Redirect a gamemenu-sessionid
                     response = new Response(ResponseType.None, answr);
-                } else { response = new Response(ResponseType.None, ""); }
-            } else { response = new Response(ResponseType.None, ""); }
+                }
+                else { response = new Response(ResponseType.None, ""); }
+            }
+            else { response = new Response(ResponseType.None, ""); }
         }
     }
 }

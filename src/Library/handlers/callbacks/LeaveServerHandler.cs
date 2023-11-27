@@ -20,7 +20,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public LeaveServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "leave_server" };
+            Keywords = new string[] { "leave_server" };
         }
 
         /// <summary>
@@ -37,15 +37,18 @@ namespace Library.handlers
             List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
 
-                if (UserManager.Instance.GetInGamePlayers().Contains(player)) {
+                if (UserManager.Instance.GetInGamePlayers().Contains(player))
+                {
                     int before_count = game.GetPlayers().Count;
                     game.RemovePlayer(player);
 
-                    if (before_count > game.GetPlayers().Count) {
+                    if (before_count > game.GetPlayers().Count)
+                    {
                         buttons.Add(new []
                         {
                             InlineKeyboardButton.WithCallbackData(text: $"Return to menu", callbackData: $"/menu")
@@ -54,9 +57,12 @@ namespace Library.handlers
                         InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                         response = new Response(ResponseType.Keyboard, answr);
                         response.SetKeyboard(inlineKeyboard);
-                    } else { response = new Response(ResponseType.None, ""); }
-                } else { response = new Response(ResponseType.None, ""); }
-            } else { response = new Response(ResponseType.None, ""); }
+                    }
+                    else { response = new Response(ResponseType.None, ""); }
+                }
+                else { response = new Response(ResponseType.None, ""); }
+            }
+            else { response = new Response(ResponseType.None, ""); }
         }
     }
 }

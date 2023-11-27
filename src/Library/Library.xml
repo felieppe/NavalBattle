@@ -348,13 +348,13 @@
         </member>
         <member name="M:Library.Game.GetSessionName">
             <summary>
-            Devuelve el nombre de la sesion.
+            Devuelve el nombre de la sesión.
             </summary>
             <returns> String </returns>
         </member>
         <member name="M:Library.Game.GetStatus">
             <summary>
-            Devuelve el estado de la sesion.
+            Devuelve el estado de la sesión.
             </summary>
             <returns> GameStatusType </returns>
         </member>
@@ -424,17 +424,12 @@
             Conteo del numero de ataques
             </summary>
         </member>
-        <member name="F:Library.GameLogic.allShipsSunk">
-            <summary>
-            Verifica que se hayan hundido todos los barcos.
-            </summary>
-        </member>
         <member name="M:Library.GameLogic.#ctor(Library.Game,Library.Board)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.GameLogic"/>.
             </summary>
             <param name="game"> Juego. </param>
-            <param name="board"> Tablero del jugador 1. </param>
+            <param name="board"> Tablero. </param>
         </member>
         <member name="M:Library.GameLogic.VerifyAttack(System.Int32,System.Int32)">
             <summary>
@@ -965,11 +960,6 @@
             </summary>
             <value> Lista con elementos de tipo Player. </value>
         </member>
-        <member name="F:Library.UserManager.serverManager">
-            <summary>
-            Instancia de Server Manager
-            </summary>
-        </member>
         <member name="P:Library.UserManager.Instance">
             <summary>
             Crea una única instancia de la clase UserManager.
@@ -1215,6 +1205,11 @@
             </summary>
             <value> Tamaño. </value>
         </member>
+        <member name="F:Library.Ship.Owner">
+            <summary>
+            Dueño del barco.
+            </summary>
+        </member>
         <member name="P:Library.Ship.Sunken">
             <summary>
             Estado del hundimiento del barco.
@@ -1225,8 +1220,9 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Ship"/>.
             </summary>
-            <param name="name">Nombre del barco.</param>
-            <param name="length">Tamaño del barco.</param>
+            <param name="name"> Nombre del barco. </param>
+            <param name="length"> Tamaño del barco. </param>
+            <param name="owner"> Dueño del barco. </param>
         </member>
         <member name="M:Library.Ship.Sink">
             <summary>
@@ -1246,6 +1242,12 @@
             Devuelve el Id del barco.
             </summary>
             <returns> Id del barco. </returns>
+        </member>
+        <member name="M:Library.Ship.GetOwner">
+            <summary>
+            Devuelve el dueño del barco.
+            </summary>
+            <returns> Dueño del barco. </returns>
         </member>
         <member name="T:Library.Cruise">
             <summary>

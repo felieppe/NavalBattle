@@ -19,7 +19,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "handler". </param>
         public ShowServerHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "show_server" };
+            Keywords = new string[] { "show_server" };
         }
 
         /// <summary>
@@ -34,28 +34,30 @@ namespace Library.handlers
             Logger.Instance.Debug("Want to show the game: " + serverID);
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string answr = "This is the information about the game session you want to join.";
 
-                List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
-
-                // Session name
-                buttons.Add(new []
+                List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>
+                {
+                    // Session name
+                    new[]
                 {
                     InlineKeyboardButton.WithCallbackData(text: $"Session name: {game.GetSessionName()}", callbackData: $"none")
-                });
+                },
 
-                // Players count
-                buttons.Add(new []
+                    // Players count
+                    new[]
                 {
                     InlineKeyboardButton.WithCallbackData(text: $"Players: {game.GetPlayers().Count}/2", callbackData: $"show_server_players-{game.GetGameId()}")
-                });
+                },
 
-                // Separator
-                buttons.Add(new []
+                    // Separator
+                    new[]
                 {
                     InlineKeyboardButton.WithCallbackData(text: $"------------------", callbackData: $"join_server-{game.GetGameId()}")
-                });
+                }
+                };
 
                 // Join button
                 if (game.GetPlayers().Count < 2) {
@@ -72,7 +74,8 @@ namespace Library.handlers
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
 
                 response = new Response(ResponseType.Keyboard, answr, ikm: inlineKeyboard);
-            } else { response = new Response(ResponseType.None, ""); }
+            }
+            else { response = new Response(ResponseType.None, ""); }
         }
     }
 }
