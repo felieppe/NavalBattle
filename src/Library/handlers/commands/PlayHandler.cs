@@ -37,8 +37,6 @@ namespace Library.handlers
         /// <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         protected override void InternalHandle(Message message, out Response response)
         {
-            RegisterChatIfNecessary(message);
-
             User author = message.From;
             string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
 
@@ -47,6 +45,7 @@ namespace Library.handlers
             rp.SetTelegramId("" + author.Id);
             rp.SetUsername(author.Username);
 
+            RegisterChatIfNecessary(message, rp);
             UserManager.Instance.AddPlayer(rp);
 
             InlineKeyboardMarkup inlineKeyboard = new(new[]
@@ -65,7 +64,7 @@ namespace Library.handlers
             response.SetKeyboard(inlineKeyboard);
         }
 
-        private static void RegisterChatIfNecessary(Message message) {
+        private static void RegisterChatIfNecessary(Message message, Player player) {
             long id = message.Chat.Id;
 
             bool founded = false;
@@ -74,7 +73,7 @@ namespace Library.handlers
             }
 
             if (!founded) {
-                Library.bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type);
+                Library.bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type, player);
                 ChatManager.Instance.AddChat(chat);
             }
         }
