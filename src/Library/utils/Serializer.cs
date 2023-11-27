@@ -89,8 +89,8 @@ namespace Library.utils
                     string chatFile = $"{baseFolder}/chats/{chat.Id}.json";
                     if (method == MethodType.POST) {
                         obj["id"] = chat.Id;
-                        obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);;
-                        obj["last_command"] = chat.LastCommand;
+                        obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);
+                        obj["last_commands"] = JsonConvert.SerializeObject(chat.GetLastCommands(), Formatting.Indented);
 
                         using (StreamWriter writer = new StreamWriter(chatFile, true)) {
                             writer.WriteLine(obj.ToString());
