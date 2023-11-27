@@ -29,13 +29,13 @@ namespace Library.managers
 
         public ChatManager() {
             List<Chat> retrieved = Deserializer.Instance.Deserialize(DataType.Chat);
-            if (retrieved != null) { this.Chats = retrieved; }
+            if (retrieved != null) { Chats = retrieved; }
         }
 
         public void AddChat(Chat chat) {
             if (chat != null) {
-                if (!this.Chats.Contains(chat)) {
-                    this.Chats.Add(chat);
+                if (!Chats.Contains(chat)) {
+                    Chats.Add(chat);
                     Serializer.Instance.Serialize(DataType.Chat, MethodType.POST, chat: chat);
                 }
             }
@@ -43,7 +43,7 @@ namespace Library.managers
 
         public Chat GetChat(long id) {
             Chat chat = null;
-            foreach (Chat c in this.Chats) {
+            foreach (Chat c in Chats) {
                 if (c.Id == id) { chat = c; break; }
             }
 

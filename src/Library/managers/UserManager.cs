@@ -52,7 +52,7 @@ namespace Library
             {
                 foreach (Player player in retrieved)
                 {
-                    this.players.Add(player);
+                    players.Add(player);
                 }
 
                 Logger.Instance.Info($"UserManager loaded {retrieved.Count} players.");
@@ -73,7 +73,7 @@ namespace Library
 
             if (!found)
             {
-                this.players.Add(player);
+                players.Add(player);
                 Serializer.Instance.Serialize(DataType.Player, MethodType.POST, player: player);
             }
         }
@@ -84,7 +84,7 @@ namespace Library
         /// <param name="player"> Player. </param>
         public void RemovePlayer(Player player)
         {
-            this.players.Remove(player);
+            players.Remove(player);
             Serializer.Instance.Serialize(DataType.Player, MethodType.REMOVE, player: player);
         }
 
@@ -94,7 +94,7 @@ namespace Library
         /// <param name="player"> Player. </param>
         public void RemoveInGamePlayer(Player player)
         {
-            if (player != null) { this.inGamePlayers.Remove(player); }
+            if (player != null) { inGamePlayers.Remove(player); }
         }
 
         /// <summary>
@@ -107,12 +107,12 @@ namespace Library
         {
             if (matchmaking)
             {
-                if (this.players.Count <= 0)
+                if (players.Count <= 0)
                 {
                     return null;
                 }
 
-                List<Player> availablePlayers = this.players.Except(this.inGamePlayers).ToList();
+                List<Player> availablePlayers = players.Except(inGamePlayers).ToList();
                 if (availablePlayers.Count < 1)
                 {
                     return null;
@@ -140,7 +140,7 @@ namespace Library
                 game.AddPlayer(player1);
                 game.AddPlayer(player2);
 
-                this.AddInGamePlayers(game);
+                AddInGamePlayers(game);
                 manager.AddGame(game);
 
                 return game;
@@ -162,7 +162,7 @@ namespace Library
         /// </returns>
         public List<Player> GetPlayers()
         {
-            return this.players;
+            return players;
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Library
         /// </returns>
         public List<Player> GetInGamePlayers()
         {
-            return this.inGamePlayers;
+            return inGamePlayers;
         }
 
         /// <summary>
@@ -185,12 +185,12 @@ namespace Library
         public Player GetPlayerById(IdType type, string id) {
             switch (type) {
                 case IdType.Normal:
-                    foreach (Player p in this.players) {
+                    foreach (Player p in players) {
                         if (p.GetId() == id) { return  p; }
                     }
                     break;
                 case IdType.Telegram:
-                    foreach (Player p in this.players) {
+                    foreach (Player p in players) {
                         if (p.GetTelegramId() == id) { return  p; }
                     }
                     break;
@@ -207,7 +207,7 @@ namespace Library
         {
             foreach (Player p in game.GetPlayers())
             {
-                this.inGamePlayers.Add(p);
+                inGamePlayers.Add(p);
             }
         }
 
@@ -217,7 +217,7 @@ namespace Library
         /// <param name="player"> Jugador. </param>
         public void AddInGamePlayer(Player player)
         {
-            if (player != null) { this.inGamePlayers.Add(player); }
+            if (player != null) {inGamePlayers.Add(player); }
         }
 
         /// <summary>

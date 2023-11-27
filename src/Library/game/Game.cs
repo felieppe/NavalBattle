@@ -252,7 +252,7 @@ namespace Library
         /// <returns> String </returns>
         public string GetSessionName()
         {
-            return this.name;
+            return name;
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace Library
         /// <returns> GameStatusType </returns>
         public GameStatusType GetStatus()
         {
-            return this.status;
+            return status;
         }
 
         /// <summary>
