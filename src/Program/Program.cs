@@ -20,6 +20,7 @@ using Library.utils.core;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using System.Linq;
+using Library.managers;
 
 
 namespace NavalBattle   
@@ -39,6 +40,7 @@ namespace NavalBattle
 
             _ = UserManager.Instance;
             _ = ServerManager.Instance;
+            _ = ChatManager.Instance;
 
             // Save folder setup
             string folderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + "/save";
