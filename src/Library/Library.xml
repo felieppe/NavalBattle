@@ -816,6 +816,12 @@
             Establece el estado del barco.
             </summary>
         </member>
+        <member name="F:Library.managers.ChatManager.instance">
+            <summary>
+            Instancia de Singleton
+            </summary>
+            <value> Instancia de ServerManager</value>
+        </member>
         <member name="T:Library.ServerManager">
             <summary>
             Clase que administra las partidas en curso.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.bot;
 using Library.utils.core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -27,7 +28,7 @@ namespace Library.utils
         }
 
         #nullable enable
-        public void Serialize(DataType opt, MethodType method, Game? game = null, Player? player = null) {
+        public void Serialize(DataType opt, MethodType method, Game? game = null, Player? player = null, Chat? chat = null) {
             if (this.Debug) { return; }
             string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
@@ -81,6 +82,28 @@ namespace Library.utils
                             Logger.Instance.Info("A player has just been removed!");
                         }
                     }
+                    break;
+                case DataType.Chat:
+                    if (chat == null) { return; }
+
+                    string chatFile = $"{baseFolder}/chats/{chat.Id}.json";
+                    if (method == MethodType.POST) {
+                        obj["id"] = chat.Id;
+                        obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);;
+                        obj["last_command"] = chat.LastCommand;
+
+                        using (StreamWriter writer = new StreamWriter(chatFile, true)) {
+                            writer.WriteLine(obj.ToString());
+                        }
+
+                        Logger.Instance.Info("A chat has just been saved!");
+                    } else {
+                        if (File.Exists(chatFile)) { 
+                            File.Delete(chatFile);
+                            Logger.Instance.Info("A chat has just been removed!");
+                        }
+                    }
+
                     break;
             }
         }
