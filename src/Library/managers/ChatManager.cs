@@ -36,6 +36,7 @@ namespace Library.managers
             if (chat != null) {
                 if (!this.Chats.Contains(chat)) {
                     this.Chats.Add(chat);
+                    Serializer.Instance.Serialize(DataType.Chat, MethodType.POST, chat: chat);
                 }
             }
         }
