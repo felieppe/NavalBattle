@@ -1,11 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//---------------------------------------------------------------------------------
+// <copyright file="ResponseType.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 namespace Library.bot.core
 {
-    public enum ResponseType {
+    /// <summary>
+    /// Tipos de respuestas del bot.
+    /// </summary>
+    public enum ResponseType
+    {
         Message, Image, Video, Sticker, Keyboard, None
     }
 }

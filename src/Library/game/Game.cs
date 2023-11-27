@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +17,7 @@ namespace Library
         /// <summary>
         /// Id del juego.
         /// </summary>
-        /// <value> Id </value>
+        /// <value> Id. </value>
         private string gameId;
 
         /// <summary>
@@ -34,7 +35,6 @@ namespace Library
         /// <summary>
         /// Conteo de la cantidad de barcos que se pueden colocar
         /// </summary>
-        /// <value> Integer </value>
         private int totalShips = 0;
 
         /// <summary>
@@ -73,25 +73,25 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            this.board1 = new Board(rows, columns);
-            this.board2 = new Board(rows, columns);
-
+            board1 = new Board(rows, columns);
+            board2 = new Board(rows, columns);
             this.totalShips = totalShips;
 
             Guid uuid = Guid.NewGuid();
-            this.SetGameId(uuid.ToString());
+            SetGameId(uuid.ToString());
         }
 
         /// <summary>
         /// Agrega jugadores a la partida.
         /// </summary>
+        /// <param name="player"> Jugador. </param>
         public void AddPlayer(Player player)
         {
-            if (this.players.Count == 0)
+            if (players.Count == 0)
             {
-                this.players.Add(player);
+                players.Add(player);
             } 
-            else if (this.players.Count >= 1 && this.players.Count <= 2) { this.players.Add(player); }
+            else if (players.Count >= 1 && players.Count <= 2) { players.Add(player); }
             else { return; }
         }
 
@@ -103,48 +103,51 @@ namespace Library
         {
             if (!string.IsNullOrEmpty(id))
             {
-                this.gameId = id;
+                gameId = id;
             }
         }
         
         /// <summary>
         /// Establece un jugador como administrador de la partida.
         /// </summary>
+        /// <param name="admin"> Jugador administrador de la partida. </param>
         public void SetAdmin(Player admin)
         {
-            this.Admin = admin;
-            if (!this.players.Contains(admin))
+            Admin = admin;
+            if (!players.Contains(admin))
             {
-                this.players.Add(admin);
+                players.Add(admin);
             }
         }
 
         /// <summary>
         /// Establece el board1.
         /// </summary>
+        /// <param name="b"> Tablero. </param>
         public void SetBoard1(Board b)
         {
-            if (b != null) { this.board1 = b; }
+            if (b != null) { board1 = b; }
         }
 
         /// <summary>
         /// Establece el board2.
         /// </summary>
+        /// <param name="b"> Tablero. </param>
         public void SetBoard2(Board b)
         {
-            if (b != null) { this.board2 = b; }
+            if (b != null) { board2 = b; }
         }
 
         /// <summary>
         /// Agrega las coordenadas del barco.
         /// </summary>
         /// <param name="id"> Id del barco. </param>
-        /// <param name="x"> Coordenada x. </param>
-        /// <param name="y"> Coordenada y. </param>
+        /// <param name="x"> Coordenada X. </param>
+        /// <param name="y"> Coordenada Y. </param>
         public void AddShipCoords(string id, int x, int y)
         {
             Coords cs = new Coords(id, x, y);
-            this.shipsCoords.Add(cs);
+            shipsCoords.Add(cs);
         }
 
         /// <summary>
@@ -153,7 +156,7 @@ namespace Library
         /// <param name="ship"> Agrega un barco. </param>
         public void AddShip(Ship ship)
         {
-            this.ships.Add(ship);
+            ships.Add(ship);
         }
 
         /// <summary>
@@ -163,7 +166,7 @@ namespace Library
         /// <param name="updated"> Barco actualizado. </param>
         public void UpdateShip(Ship ship, Ship updated)
         {
-            this.ships[this.ships.IndexOf(ship)] = updated;
+            ships[ships.IndexOf(ship)] = updated;
         }
 
         /// <summary>
@@ -172,7 +175,7 @@ namespace Library
         /// <returns> Lista de jugadores. </returns>
         public List<Player> GetPlayers()
         {
-            return this.players;
+            return players;
         }
 
         /// <summary>
@@ -181,7 +184,7 @@ namespace Library
         /// <returns> Id del juego. </returns>
         public string GetGameId()
         {
-            return this.gameId;
+            return gameId;
         }
 
         /// <summary>
@@ -190,7 +193,7 @@ namespace Library
         /// <returns> Coordenadas del barco. </returns>
         public List<Coords> GetShipsCoords()
         {
-            return this.shipsCoords;
+            return shipsCoords;
         }
 
         /// <summary>
@@ -199,34 +202,34 @@ namespace Library
         /// <returns> Lista de barcos. </returns>
         public List<Ship> GetShips()
         {
-            return this.ships;
+            return ships;
         }
 
         /// <summary>
         /// Devuelve la cantidad de barcos.
         /// </summary>
-        /// <returns> La cantidad de barcos. </returns>
+        /// <returns> Cantidad de barcos. </returns>
         public int GetTotalShips()
         {
-            return this.totalShips;
+            return totalShips;
         }
 
         /// <summary>
         /// Devuelve el tablero 1.
         /// </summary>
-        /// <returns> El tablero 1. </returns>
+        /// <returns> Tablero 1. </returns>
         public Board GetBoard1()
         {
-            return this.board1;
+            return board1;
         }
 
         /// <summary>
         /// Devuelve el tablero 2.
         /// </summary>
-        /// <returns> El tablero 2. </returns>
+        /// <returns> Tablero 2. </returns>
         public Board GetBoard2()
         {
-            return this.board2;
+            return board2;
         }
 
         /// <summary>
@@ -235,7 +238,7 @@ namespace Library
         /// <returns> Administrador de la partida. </returns>
         public Player GetAdmin()
         {
-            return this.Admin;
+            return Admin;
         }
     }
 }

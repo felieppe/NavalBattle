@@ -30,7 +30,7 @@ namespace Tests
         private Destroyer destroyer2;
         private Submarine sub1;
         private Submarine sub2;
-
+        private Printer printer;
 
         /// <summary>
         /// Crea un tablero para probar.
@@ -38,15 +38,22 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 12;
-            this.columns = 6;
-            this.board = new Board(rows, columns);
-            this.game = new Game(rows, columns, 3);
+            rows = 12;
+            columns = 6;
+            cruise1 = new Cruise();
+            cruise2 = new Cruise();
+            destroyer1 = new Destroyer();
+            destroyer2 = new Destroyer();
+            sub1 = new Submarine();
+            sub2 = new Submarine();
+            board = new Board(rows, columns);
+            game = new Game(rows, columns, 6);
             game.AddPlayer(player1);
             game.AddPlayer(player2);
             game.SetAdmin(player1);
             game.SetBoard1(board);
-            this.gl = new GameLogic(game, board);
+            gl = new GameLogic(game, board);
+            printer = new Printer();
         }
 
         /// <summary>
@@ -56,27 +63,51 @@ namespace Tests
         public void GameTest()
         {
             gl.PlaceShip(cruise1, 'C', 3, "down");
-            gl.PlaceShip(cruise2, 'I', 1, "right");
+            printer.Print(board);
+            gl.PlaceShip(cruise2, 'A', 9, "right");
+            printer.Print(board);
             gl.PlaceShip(destroyer1, 'A', 1, "down");
-            gl.PlaceShip(destroyer2, 'J', 4, "right");
-            gl.PlaceShip(sub1, 'B', 5, "down");
-            gl.PlaceShip(sub2, 'G', 6, "down");
-            gl.Attack('G', 6);
+            printer.Print(board);
+            gl.PlaceShip(destroyer2, 'A', 10, "right");
+            printer.Print(board);
+            gl.PlaceShip(sub1, 'E', 2, "down");
+            printer.Print(board);
+            gl.PlaceShip(sub2, 'F', 7, "down");
+            printer.Print(board);
+            gl.Attack('F', 7);
+            printer.Print(board);
             gl.Attack('A', 1);
+            printer.Print(board);
             gl.Attack('B', 3);
-            gl.Attack('I', 2);
-            gl.Attack('B', 1);
-            gl.Attack('I', 3);
-            gl.Attack('B', 3);
-            gl.Attack('I', 1);
+            printer.Print(board);
+            gl.Attack('B', 9);
+            printer.Print(board);
+            gl.Attack('A', 2);
+            printer.Print(board);
+            gl.Attack('C', 9);
+            printer.Print(board);
             gl.Attack('C', 3);
-            gl.Attack('G', 4);
-            gl.Attack('D', 3);
-            gl.Attack('J', 4);
-            gl.Attack('E', 3);
-            gl.Attack('J', 5);
+            printer.Print(board);
+            gl.Attack('A', 9);
+            printer.Print(board);
+            gl.Attack('C', 3);
+            printer.Print(board);
+            gl.Attack('F', 7);
+            printer.Print(board);
+            gl.Attack('C', 4);
+            printer.Print(board);
+            gl.Attack('A', 10);
+            printer.Print(board);
+            gl.Attack('C', 5);
+            printer.Print(board);
+            gl.Attack('B', 10);
+            printer.Print(board);
+            gl.Attack('B', 5);
+            printer.Print(board);
+            gl.Attack('A', 8);
+            printer.Print(board);
             gl.Attack('E', 2);
-            gl.Attack('H', 1);
+            printer.Print(board);
         }
     }
 }

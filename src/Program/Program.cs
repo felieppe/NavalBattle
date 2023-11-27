@@ -24,7 +24,7 @@ namespace NavalBattle
     /// Programa de consola de demostración.
     /// </summary>
     public static class Program
-    {
+    {/*
         private static Configuration Config;
         private static Logger Logger = Logger.Instance;
         private static TelegramBotClient Bot;
@@ -149,6 +149,19 @@ namespace NavalBattle
         {
             Logger.Error(exception.Message);
             return Task.CompletedTask;
+        }*/
+        private static Board board;
+        private static int rows;
+        private static int columns;
+        private static Printer p;
+        public static void Main()
+        {
+            rows = 12;
+            columns = 6;
+            board = new Board(rows, columns);
+            p = new Printer();
+            p.Print(board);
         }
+
     }
 }
