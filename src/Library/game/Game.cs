@@ -162,7 +162,10 @@ namespace Library
         /// </summary>
         public void RemovePlayer(Player rp)
         {
-            if (rp != null) { this.players.Remove(rp); }
+            if (rp != null) { 
+                this.players.Remove(rp);
+                UserManager.Instance.RemovePlayer(rp);
+            }
         }
 
         /// <summary>
