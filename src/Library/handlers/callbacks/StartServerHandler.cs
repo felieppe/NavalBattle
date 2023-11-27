@@ -65,6 +65,12 @@ namespace Library.handlers
                         InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                         response = new Response(ResponseType.Keyboard, answr);
                         response.SetKeyboard(inlineKeyboard);
+
+                        /*
+
+                            HAY QUE HACER QUE SE ENVIE EL game- para el otro usuario cargado
+
+                        */
                     } else {response = new Response(ResponseType.None, "");}
                 } else {response = new Response(ResponseType.None, "");}
             } else {response = new Response(ResponseType.None, "");}
