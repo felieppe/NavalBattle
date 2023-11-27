@@ -26,5 +26,9 @@ namespace Library.bot
                 Serializer.Instance.Serialize(DataType.Chat, method: MethodType.POST, chat: this);
             }
         }
+
+        public List<string> GetLastCommands() {
+            return this.LastCommands;
+        }
     }
 }
