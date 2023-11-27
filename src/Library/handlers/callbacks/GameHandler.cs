@@ -61,11 +61,19 @@ namespace Library.handlers
                                 string buttonText = "";
                                 string callbackData = "none";
 
-                                if (game.GetBoard1().GetBoard()[row][col] == ' ') { 
-                                    buttonText = "🌊";
-                                    callbackData = $"place_ship-{game.GetGameId()},{row}/{col}";
+                                switch (board.GetBoard()[row][col]) {
+                                    case ' ':
+                                        buttonText = "🌊";
+                                        callbackData = $"place_ship-{game.GetGameId()},{row}/{col}";
+                                        break;
+                                    case 'S':
+                                        buttonText = "🚢";
+                                        callbackData = $"none";
+                                        break;
+                                    default:
+                                        buttonText = game.GetBoard1().GetBoard()[row][col].ToString();
+                                        break;
                                 }
-                                else {buttonText = game.GetBoard1().GetBoard()[row][col].ToString();}
 
                                 if (row == 0 && col == 0) {
                                     buttonText = "⚫";
@@ -81,10 +89,11 @@ namespace Library.handlers
                         break;
                 }
 
+                // Chequear si es el ultimo barquito q puede poner el jugador
+
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                 response = new Response(ResponseType.Keyboard, answr);
                 response.SetKeyboard(inlineKeyboard);
-                
             } else {response = new Response(ResponseType.None, "");}
         }
     }
