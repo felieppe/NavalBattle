@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.bot;
 
 namespace Library.managers
 {
@@ -13,6 +14,8 @@ namespace Library.managers
         /// <value> Instancia de ServerManager</value>
         private static ChatManager instance;
 
+        public List<Chat> Chats {get; private set;}
+
         public static ChatManager Instance
         {
             get
@@ -23,5 +26,13 @@ namespace Library.managers
         }
 
         public ChatManager() {}
+
+        public void AddChat(Chat chat) {
+            if (chat != null) {
+                if (!this.Chats.Contains(chat)) {
+                    this.Chats.Add(chat);
+                }
+            }
+        }
     }
 }
