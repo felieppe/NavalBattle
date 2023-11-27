@@ -36,23 +36,8 @@ namespace Library
         /// <param name="columns"> Columnas. </param> 
         public Board(int rows, int columns)
         {
-            if ((rows >= 10) && (rows <= 20) && (rows % 2 == 0))
-            {
-                this.rows = rows + 1;
-            }
-            else
-            {
-                this.rows = 12;
-            }
-        
-            if ((columns >= 6) && (columns <= 10))
-            {
-                this.columns = columns + 1;
-            }
-            else
-            {
-                this.columns = 6;
-            }
+            this.rows = rows + 1;
+            this.columns = columns + 1;
             InitializeBoard();
         }
 
