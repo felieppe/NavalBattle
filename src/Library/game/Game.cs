@@ -158,6 +158,17 @@ namespace Library
         }
 
         /// <summary>
+        /// Elimina un jugador del game.
+        /// </summary>
+        public void RemovePlayer(Player rp)
+        {
+            if (rp != null) { 
+                this.players.Remove(rp);
+                UserManager.Instance.RemovePlayer(rp);
+            }
+        }
+
+        /// <summary>
         /// Establece el board1.
         /// </summary>
         public void SetBoard1(Board b)

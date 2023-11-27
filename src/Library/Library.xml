@@ -233,6 +233,11 @@
             Establece un jugador como administrador de la partida.
             </summary>
         </member>
+        <member name="M:Library.Game.RemovePlayer(Library.Player)">
+            <summary>
+            Elimina un jugador del game.
+            </summary>
+        </member>
         <member name="M:Library.Game.SetBoard1(Library.Board)">
             <summary>
             Establece el board1.
@@ -515,6 +520,25 @@
             <param name="response"> La respuesta al mensaje procesado. </param>
             <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
+        <member name="T:Library.handlers.LeaveServerHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.LeaveServerHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.LeaveServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
         <member name="T:Library.handlers.ReturnHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
@@ -565,6 +589,25 @@
             <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.ShowServerPlayersHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.WaitGameHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.WaitGameHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.WaitGameHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
@@ -856,6 +899,12 @@
         <member name="M:Library.UserManager.RemovePlayer(Library.Player)">
             <summary>
             Elimina un jugador en especifico de la lista de jugadores.
+            </summary>
+            <param name="player"> Player. </param>
+        </member>
+        <member name="M:Library.UserManager.RemoveInGamePlayer(Library.Player)">
+            <summary>
+            Elimina un jugador en especifico de la lista de jugadores in-game.
             </summary>
             <param name="player"> Player. </param>
         </member>
