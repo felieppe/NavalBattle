@@ -9,6 +9,9 @@ using Telegram.Bot.Types.ReplyMarkups;
 using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
+using Library.managers;
+using Library.utils;
+using Library.utils.core;
 
 namespace Library.handlers
 {
@@ -23,7 +26,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "Handler". </param>
         public PlayHandler(BaseHandler next) : base(next)
         {
-            Keywords = new string[] { "/play" };
+            this.Keywords = new string[] { "/play", "/start" };
         }
 
         /// <summary>
@@ -34,6 +37,8 @@ namespace Library.handlers
         /// <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         protected override void InternalHandle(Message message, out Response response)
         {
+            RegisterChatIfNecessary(message);
+
             User author = message.From;
             string answr = $"Welcome @{author.Username}! I am Alfred the Chief and I invite you to play Naval Battle! 🤓";
 
@@ -58,6 +63,20 @@ namespace Library.handlers
 
             response = new Response(ResponseType.Keyboard, answr);
             response.SetKeyboard(inlineKeyboard);
+        }
+
+        private static void RegisterChatIfNecessary(Message message) {
+            long id = message.Chat.Id;
+
+            bool founded = false;
+            foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
+                if (c.Id == id) { founded = true; }
+            }
+
+            if (!founded) {
+                Library.bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type);
+                ChatManager.Instance.AddChat(chat);
+            }
         }
     }
 }

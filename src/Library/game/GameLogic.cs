@@ -243,11 +243,14 @@ namespace Library
         }
 
         /// <summary>
-        /// Destruye el barco del tablero.
+        /// Este método se encarga de buscar y destruir un barco en el tablero de juego en base a una coordenada dada.
         /// </summary>
         /// <param name="row"> Fila. </param>
         /// <param name="column"> Columna. </param>
-        /// <returns> true/false </returns>
+        /// <returns> 
+        /// Devuelve verdadero (true) si se destruye el barco en la coordenada especificada; 
+        /// de lo contrario, devuelve falso (false). 
+        /// </returns>
         private bool DestroyShip(int row, int column)
         {
             /*      DEBUG       */

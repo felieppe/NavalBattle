@@ -187,14 +187,22 @@ namespace Library
             switch (type)
             {
                 case IdType.Normal:
+<<<<<<< HEAD
                     foreach (Player p in players)
                     {
+=======
+                    foreach (Player p in players) {
+>>>>>>> c23c906be13acf556fca5672e0067afe1a031dce
                         if (p.GetId() == id) { return  p; }
                     }
                     break;
                 case IdType.Telegram:
+<<<<<<< HEAD
                     foreach (Player p in players)
                     {
+=======
+                    foreach (Player p in players) {
+>>>>>>> c23c906be13acf556fca5672e0067afe1a031dce
                         if (p.GetTelegramId() == id) { return  p; }
                     }
                     break;

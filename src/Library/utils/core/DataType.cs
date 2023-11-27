@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 namespace Library.utils.core
 {
     public enum DataType {
-        Game, Player
+        Game, Player, Chat
     }
 }

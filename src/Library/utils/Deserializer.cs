@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.bot;
 using Library.utils.core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Telegram.Bot.Types.Enums;
 
 namespace Library.utils
 {
@@ -43,6 +45,8 @@ namespace Library.utils
 
                         // Retriving game data from JSON object
                         string id = obj["id"].ToString();
+                        string name = obj["name"].ToString();
+                        GameStatusType status = JsonConvert.DeserializeObject<GameStatusType>(obj["status"].ToString());
                         List<Coords> shipsCoords = JsonConvert.DeserializeObject<List<Coords>>(obj["ships_coords"].ToString());
                         List<Ship> ships = JsonConvert.DeserializeObject<List<Ship>>(obj["ships"].ToString());
                         int totalShips = obj["total_ships"].Value<int>();
@@ -57,6 +61,8 @@ namespace Library.utils
                         Game game = new Game(rows, columns, totalShips);
                         
                         game.SetGameId(id);
+                        game.SetGameSession(name);
+                        game.SetStatus(status);
                         game.SetAdmin(admin);
                         game.SetBoard1(board1);
                         game.SetBoard2(board2);
@@ -105,6 +111,34 @@ namespace Library.utils
 
                     Logger.Instance.Info($"Has been retrieved {playersList.Count} players!");
                     return playersList;
+                case DataType.Chat:
+                    string chatsFolder = $"{baseFolder}/chats/";
+                    files = Directory.GetFiles(chatsFolder, "*.json");
+
+                    List<Chat> chats = new List<Chat>();
+
+                    foreach (var file in files) {
+                        string json = File.ReadAllText(file);
+                        JObject obj = JObject.Parse(json);
+
+                        // Retriving chat data from JSON object
+                        long id = obj["id"].Value<long>();
+                        ChatType type = JsonConvert.DeserializeObject<ChatType>(obj["type"].ToString());
+                        List<string> lastCmds = JsonConvert.DeserializeObject<List<string>>(obj["last_commands"].ToString());
+
+                        // Cloning the chat data to a new instance
+                        Chat chat = new Chat(id, type);
+                        
+                        foreach (string cmd in lastCmds) {
+                            chat.AddLastCmd(cmd);
+                        }
+
+                        // Adding chat to the returnable chat list
+                        chats.Add(chat);
+                    }
+
+                    Logger.Instance.Info($"Has been retrieved {chats.Count} chats!");
+                    return chats;
             }
 
             return null;
