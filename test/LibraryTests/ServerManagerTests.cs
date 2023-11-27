@@ -30,7 +30,7 @@ namespace Tests
             Deserializer.Instance.Debug = true;
             Serializer.Instance.Debug = true;
             
-            this.sm = new ServerManager();
+            sm = new ServerManager();
         }
 
         /// <summary>
@@ -52,13 +52,13 @@ namespace Tests
         public void RemoveGameTest() {
             Game game = new Game(10, 10, 5);
             string gameId = game.GetGameId();
-            this.sm.AddGame(game);
+            sm.AddGame(game);
 
-            int len = this.sm.GetListing().Count;
+            int len = sm.GetListing().Count;
             Assert.AreEqual(1, len);
 
-            this.sm.RemoveGame(gameId);
-            len = this.sm.GetListing().Count;
+            sm.RemoveGame(gameId);
+            len = sm.GetListing().Count;
             Assert.AreEqual(0, len);
         }
 
@@ -68,7 +68,7 @@ namespace Tests
         [Test]
         public void GetListingTest() {
             Game game = new Game(10, 10, 5);
-            this.sm.AddGame(game);
+            sm.AddGame(game);
 
             List<Game> expectedGames = new List<Game>();
             expectedGames.Add(game);
@@ -83,10 +83,10 @@ namespace Tests
         [Test]
         public void GetGameByIdTest() {
             Game game = new Game(10, 10, 5);
-            this.sm.AddGame(game);
+            sm.AddGame(game);
 
             Game game2 = new Game(15, 15, 10);
-            this.sm.AddGame(game2);
+            sm.AddGame(game2);
 
             Assert.AreEqual(game2, sm.GetGame(game2.GetGameId()));
         }

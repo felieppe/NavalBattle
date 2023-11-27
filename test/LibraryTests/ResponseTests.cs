@@ -28,7 +28,7 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.res = new Response(ResponseType.None, null);
+            res = new Response(ResponseType.None, null);
         }
 
         /// <summary>
