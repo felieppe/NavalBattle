@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.bot;
 using Library.utils.core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Telegram.Bot.Types.Enums;
 
 namespace Library.utils
 {
@@ -105,6 +107,31 @@ namespace Library.utils
 
                     Logger.Instance.Info($"Has been retrieved {playersList.Count} players!");
                     return playersList;
+                case DataType.Chat:
+                    string chatsFolder = $"{baseFolder}/chats/";
+                    files = Directory.GetFiles(chatsFolder, "*.json");
+
+                    List<Chat> chats = new List<Chat>();
+
+                    foreach (var file in files) {
+                        string json = File.ReadAllText(file);
+                        JObject obj = JObject.Parse(json);
+
+                        // Retriving chat data from JSON object
+                        long id = obj["id"].Value<long>();
+                        ChatType type = JsonConvert.DeserializeObject<ChatType>(obj["type"].ToString());
+                        string lastCmd = obj["last_command"].ToString();
+
+                        // Cloning the chat data to a new instance
+                        Chat chat = new Chat(id, type);
+                        chat.SetLastCmd(lastCmd);
+
+                        // Adding chat to the returnable chat list
+                        chats.Add(chat);
+                    }
+
+                    Logger.Instance.Info($"Has been retrieved {chats.Count} chats!");
+                    return chats;
             }
 
             return null;
