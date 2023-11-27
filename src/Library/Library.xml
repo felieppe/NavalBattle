@@ -895,6 +895,12 @@
             Establece el estado del barco.
             </summary>
         </member>
+        <member name="F:Library.managers.ChatManager.instance">
+            <summary>
+            Instancia de Singleton
+            </summary>
+            <value> Instancia de ServerManager</value>
+        </member>
         <member name="T:Library.ServerManager">
             <summary>
             Clase que administra las partidas en curso.
@@ -964,11 +970,6 @@
             Lista de jugadores que actualmente están jugando.
             </summary>
             <value> Lista con elementos de tipo Player. </value>
-        </member>
-        <member name="F:Library.UserManager.serverManager">
-            <summary>
-            Instancia de Server Manager
-            </summary>
         </member>
         <member name="P:Library.UserManager.Instance">
             <summary>

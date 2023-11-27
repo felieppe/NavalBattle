@@ -20,6 +20,8 @@ using Library.utils.core;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using System.Linq;
+using Library.managers;
+using Library.utils;
 
 
 namespace NavalBattle   
@@ -37,9 +39,6 @@ namespace NavalBattle
         private static void Setup() {
             Bot = new TelegramBotClient(Config.GetToken());
 
-            _ = UserManager.Instance;
-            _ = ServerManager.Instance;
-
             // Save folder setup
             string folderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + "/save";
             if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); }
@@ -47,6 +46,15 @@ namespace NavalBattle
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/players")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/players"); }
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/servers")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/servers"); }
+            if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/chats")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/chats"); }
+        
+            // Starting new instances
+            _ = Deserializer.Instance;
+            _ = Serializer.Instance;
+        
+            _ = UserManager.Instance;
+            _ = ServerManager.Instance;
+            _ = ChatManager.Instance;
         }
 
         /// <summary>
@@ -127,6 +135,8 @@ namespace NavalBattle
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(message, out response);
 
+            SaveLastCommand(message, response);
+
             switch(response.GetType())
             {
                 case ResponseType.Message:
@@ -150,10 +160,12 @@ namespace NavalBattle
             msg.Text = data;
 
             CheckIfUserBusy(msg, out msg);
-            Logger.Debug("cllbk final: " + msg.Text);
+            HandleReturn(msg, out msg);
 
             Response response = new Response(ResponseType.None, null); 
             Handler.Handle(msg, out response);
+
+            SaveLastCommand(msg, response);
 
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
@@ -169,11 +181,8 @@ namespace NavalBattle
             Logger.Error(exception.Message);
             return Task.CompletedTask;
         }
-        private static Board board;
-        private static int rows;
-        private static int columns;
-        private static Printer p;
-        private static string[] bypass = {"start_server", "leave_server", "wait_game"};
+
+        private static string[] bypass = {"start_server", "leave_server", "wait_game", "return"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
             if (!bypass.Contains(cmd)) {
@@ -203,6 +212,31 @@ namespace NavalBattle
                 }
             }
 
+            final = message;
+        }
+
+        private static void SaveLastCommand(Message message, Response res) {
+            if (message.Text.Split("-")[0] == "return") { return; }
+            if (res.GetType() != ResponseType.None) {
+                Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
+                if (chat != null) {
+                    chat.AddLastCmd(message.Text);
+                }
+            }
+        }
+
+        private static void HandleReturn(Message message, out Message final) {
+            if (message.Text.Split("-")[0] == "return") {
+                string whereReturn = message.Text.Split("return-")[1];
+                
+                Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
+                List<string> lastCommands = chat.GetLastCommands();
+
+                if (lastCommands.ToArray()[0] == whereReturn) {
+                    message.Text = whereReturn;
+                }
+            }
+            
             final = message;
         }
     }

@@ -31,11 +31,6 @@ namespace Library
         private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
-        /// Instancia de Server Manager
-        /// </summary>
-        private ServerManager serverManager = ServerManager.Instance;
-
-        /// <summary>
         /// Crea una única instancia de la clase UserManager.
         /// </summary>
         public static UserManager Instance

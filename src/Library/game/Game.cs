@@ -169,6 +169,13 @@ namespace Library
             if (rp != null) { 
                 this.players.Remove(rp);
                 UserManager.Instance.RemovePlayer(rp);
+
+                if (this.players.Count == 0) {
+                    this.SetStatus(GameStatusType.FINISHED);
+                    ServerManager.Instance.RemoveGame(this.gameId);
+                } else {
+                    this.SetAdmin(this.players.ToArray()[0]);
+                }
             }
         }
 
