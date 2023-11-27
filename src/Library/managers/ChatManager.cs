@@ -51,3 +51,6 @@ namespace Library.managers
         }
     }
 }
+
+///Cumple con el principio de responsabilidad única, la clase tiene una única razón para cambiar que es gestionar la lógica de los chats y no tiene responsabilidades adicionales.
+///Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.
