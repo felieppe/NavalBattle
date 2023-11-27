@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using System.Linq;
 using Library.managers;
+using Library.utils;
 
 
 namespace NavalBattle   
@@ -48,6 +49,9 @@ namespace NavalBattle
             if (!Directory.Exists(folderPath + $"/{Config.GetUsername()}/chats")) { Directory.CreateDirectory(folderPath + $"/{Config.GetUsername()}/chats"); }
         
             // Starting new instances
+            _ = Deserializer.Instance;
+            _ = Serializer.Instance;
+        
             _ = UserManager.Instance;
             _ = ServerManager.Instance;
             _ = ChatManager.Instance;
