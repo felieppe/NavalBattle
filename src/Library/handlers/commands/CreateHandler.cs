@@ -9,6 +9,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
+using Library.utils.core;
 
 namespace Library.handlers
 {
@@ -23,7 +24,7 @@ namespace Library.handlers
         /// <param name="next">El próximo "handler".</param>
         public CreateHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/menu" };
+            this.Keywords = new string[] { "/create" };
         }
 
         /// <summary>
@@ -35,26 +36,29 @@ namespace Library.handlers
         protected override void InternalHandle(Message message, out Response response)
         {
             User author = message.From;
-            string answr = $"Excellent! Creating a new game session is easy, please write the name of the session below.";
+            string answr = $"Game session was created successfully! Redirect you to the waiting room.";
 
-            InlineKeyboardMarkup inlineKeyboard = new(new[]
-            {
-                new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Create a game 🆕", callbackData: "/create"),
-                },
-                new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Join a game 🎯", callbackData: "/join"),
-                },
-                new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "/quit"),
-                },
-            });
+            // Getting player from UM by TID.
+            Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, author.Id.ToString());
 
-            response = new Response(ResponseType.Keyboard, answr);
-            response.SetKeyboard(inlineKeyboard);
+            if (!UserManager.Instance.GetInGamePlayers().Contains(player)) {
+                // Creating game...
+                Game game = new Game(10, 10, 3);
+                game.SetGameSession($"{author.FirstName} game");
+                game.AddPlayer(player); // Player will be admin of this game.
+
+                ServerManager.Instance.AddGame(game);
+
+                List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
+                buttons.Add(new []
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Waiting room 🚻", callbackData: $"wait_game-{game.GetGameId()}")
+                    });
+                InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
+
+                response = new Response(ResponseType.Keyboard, answr);
+                response.SetKeyboard(inlineKeyboard);
+            } else { response = new Response(ResponseType.Message, "You already joined a game!"); }
         }
     }
 }

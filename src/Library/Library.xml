@@ -145,6 +145,12 @@
             </summary>
             <value> String </value>
         </member>
+        <member name="F:Library.Game.status">
+            <summary>
+            Estado de la sesión.
+            </summary>
+            <value> GameStatusType </value>
+        </member>
         <member name="F:Library.Game.shipsCoords">
             <summary>
             Lista de coordenadas de los barcos en el juego.
@@ -216,6 +222,12 @@
             </summary>
             <param name="name"> Nombre de la sesion. </param>
         </member>
+        <member name="M:Library.Game.SetStatus(Library.utils.core.GameStatusType)">
+            <summary>
+            Establece el estado de la sesion.
+            </summary>
+            <param name="status"> Estado de la sesion </param>
+        </member>
         <member name="M:Library.Game.SetAdmin(Library.Player)">
             <summary>
             Establece un jugador como administrador de la partida.
@@ -269,6 +281,12 @@
             Devuelve el nombre de la sesion.
             </summary>
             <returns> String </returns>
+        </member>
+        <member name="M:Library.Game.GetStatus">
+            <summary>
+            Devuelve el estado de la sesion.
+            </summary>
+            <returns> GameStatusType </returns>
         </member>
         <member name="M:Library.Game.GetShipsCoords">
             <summary>
