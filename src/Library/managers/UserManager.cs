@@ -94,6 +94,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Elimina un jugador en especifico de la lista de jugadores in-game.
+        /// </summary>
+        /// <param name="player"> Player. </param>
+        public void RemoveInGamePlayer(Player player)
+        {
+            if (player != null) { this.inGamePlayers.Remove(player); }
+        }
+
+        /// <summary>
         /// Crea una partida con dos jugadores al azar que estén disponibles.
         /// </summary>
         /// <returns>
