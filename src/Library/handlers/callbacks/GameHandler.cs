@@ -43,13 +43,10 @@ namespace Library.handlers
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(utils.core.IdType.Telegram, tid);
 
-
                 Board board = null;
                 if (game.GetAdmin() == player) {
                     board = game.GetBoard1();
                 } else { board = game.GetBoard2(); }
-
-                Logger.Instance.Debug("rows; " + game.GetBoard1().rows + " ; col: " + game.GetBoard1().columns);
 
                 switch (game.GetStatus()) {
                     case GameStatusType.INGAME:
@@ -63,7 +60,6 @@ namespace Library.handlers
                     case GameStatusType.WAITINGP2:
                         answr = "Make your attack! Select the coordinate you want to try your luck.";
 
-                        // aca hay q imprimir el tablero enemigo, pero sin mostrar los barcos sin hundir, solo los hundidos, por ello hay q hacer una distincion.
                         if (game.GetAdmin() == player) {
                             board = game.GetBoard2();
                         } else { board = game.GetBoard1(); }
@@ -72,6 +68,12 @@ namespace Library.handlers
                         break; 
                     case GameStatusType.FINISHED:
                         answr = $"This game has finished! The winner of the game is @{game.Winner.GetUsername()}, thank you for playing.";
+
+                        if (game.GetAdmin() == player) {
+                            board = game.GetBoard2();
+                        } else { board = game.GetBoard1(); }
+
+                        this.Printer(game, board, buttons, out buttons);
 
                         buttons.Add(new []
                         {
@@ -106,7 +108,7 @@ namespace Library.handlers
                                 buttonText = "🚢";
                                 callbackData = $"none";
                             } else if (game.GetStatus() == GameStatusType.WAITINGP1 || game.GetStatus() == GameStatusType.WAITINGP2) {
-                                buttonText = "🌊";
+                                buttonText = "💦";
                                 callbackData = $"attack_ship-{game.GetGameId()},{row}/{col}";
                             }
                             break;

@@ -245,6 +245,12 @@
             </summary>
             <value> Lista con elementos de tipo Ship. </value>
         </member>
+        <member name="F:Library.Game.Ownership">
+            <summary>
+            Lista de barcos ubicados en el tablero del juego.
+            </summary>
+            <value> Lista con elementos de tipo Ship. </value>
+        </member>
         <member name="F:Library.Game.totalShips">
             <summary>
             Conteo de la cantidad de barcos que se pueden colocar
@@ -259,6 +265,11 @@
         <member name="P:Library.Game.Admin">
             <summary>
             Jugador administrador de la partida.
+            </summary>
+        </member>
+        <member name="P:Library.Game.Winner">
+            <summary>
+            Jugador ganador de la partida.
             </summary>
         </member>
         <member name="P:Library.Game.rows">
@@ -315,6 +326,18 @@
             Establece un jugador como administrador de la partida.
             </summary>
             <param name="admin"> Jugador administrador de la partida. </param>
+        </member>
+        <member name="M:Library.Game.SetWinner(Library.Player)">
+            <summary>
+            Establece un jugador como ganador de la partida.
+            </summary>
+            <param name="winner"> Jugador ganador de la partida. </param>
+        </member>
+        <member name="M:Library.Game.AddOwnership(System.String,Library.Player)">
+            <summary>
+            Añade una propiedad a un jugador sobre un barco.
+            </summary>
+            <param name="winner"> Jugador ganador de la partida. </param>
         </member>
         <member name="M:Library.Game.RemovePlayer(Library.Player)">
             <summary>
@@ -385,6 +408,12 @@
             <returns> Coordenadas del barco. </returns>
         </member>
         <member name="M:Library.Game.GetShips">
+            <summary>
+            Devuelve la lista de barcos.
+            </summary>
+            <returns> Lista de barcos. </returns>
+        </member>
+        <member name="M:Library.Game.GetOwnership">
             <summary>
             Devuelve la lista de barcos.
             </summary>
@@ -479,6 +508,11 @@
             </summary>
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
+        </member>
+        <member name="M:Library.GameLogic.CheckIfWinner">
+            <summary>
+            Determina el turno del jugador.
+            </summary>
         </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
