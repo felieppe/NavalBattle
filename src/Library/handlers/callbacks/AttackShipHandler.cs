@@ -80,8 +80,6 @@ namespace Library.handlers
             gl.Attack(letter, row);
 
             answr = $"You attacked the {letter}{row} coordinate. Go back to the board and check if you did well with your attack!";
-            Logger.Instance.Debug("game status typE: " + game.GetStatus());
-
             final = answr;
         }
     }

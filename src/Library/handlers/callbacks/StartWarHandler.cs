@@ -40,7 +40,7 @@ namespace Library.handlers
                 string answr = "";
                 List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
                 if (game.GetPlayers().Count == 2) {
-                    answr = $"You started the war against @WIP. Make your first attack!";
+                    answr = $"The war between {game.GetPlayers().ToArray()[0]} vs {game.GetPlayers().ToArray()[1]   } has started. Make yours attacks!";
                     game.SetStatus(utils.core.GameStatusType.WAITINGP1);
 
                     buttons.Add(new []
@@ -58,12 +58,6 @@ namespace Library.handlers
 
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                 response = new Response(ResponseType.Keyboard, answr, ikm: inlineKeyboard);
-
-                /*
-                
-                    Aca hay que mandarle un mensaje al otro jugador de que ya inició la partida.
-
-                */
             } else { response = new Response(ResponseType.None, ""); }
         }
     }
