@@ -185,7 +185,7 @@ namespace NavalBattle
             return Task.CompletedTask;
         }
 
-        private static string[] bypass = {"start_server", "leave_server", "wait_game", "return"};
+        private static string[] bypass = {"start_server", "leave_server", "wait_game", "start_war", "place_ship", "return"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
             if (!bypass.Contains(cmd)) {
