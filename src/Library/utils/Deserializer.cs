@@ -49,6 +49,7 @@ namespace Library.utils
                         GameStatusType status = JsonConvert.DeserializeObject<GameStatusType>(obj["status"].ToString());
                         List<Coords> shipsCoords = JsonConvert.DeserializeObject<List<Coords>>(obj["ships_coords"].ToString());
                         List<Ship> ships = JsonConvert.DeserializeObject<List<Ship>>(obj["ships"].ToString());
+                        Dictionary<string, Player> ownership = JsonConvert.DeserializeObject<Dictionary<string, Player>>(obj["ownership"].ToString());
                         int totalShips = obj["total_ships"].Value<int>();
                         List<Player> players = JsonConvert.DeserializeObject<List<Player>>(obj["players"].ToString());
                         Player admin = JsonConvert.DeserializeObject<Player>(obj["admin"].ToString());
@@ -79,6 +80,9 @@ namespace Library.utils
                         }
                         foreach (Player player in players) {
                             game.AddPlayer(player);
+                        }
+                        foreach (var dic in ownership) {
+                            game.AddOwnership(dic.Key, dic.Value);
                         }
 
                         // Adding game to the returnable games list

@@ -46,6 +46,12 @@ namespace Library
         private List<Ship> ships = new List<Ship>();
 
         /// <summary>
+        /// Lista de barcos ubicados en el tablero del juego.
+        /// </summary>
+        /// <value> Lista con elementos de tipo Ship. </value>
+        private Dictionary<string, Player> Ownership = new Dictionary<string, Player>();
+
+        /// <summary>
         /// Conteo de la cantidad de barcos que se pueden colocar
         /// </summary>
         private int totalShips = 0;
@@ -183,6 +189,19 @@ namespace Library
         }
 
         /// <summary>
+        /// Añade una propiedad a un jugador sobre un barco.
+        /// </summary>
+        /// <param name="winner"> Jugador ganador de la partida. </param>
+        public void AddOwnership(string id, Player owner)
+        {
+            if (owner != null) {
+                if (players.Contains(owner)) {
+                    this.Ownership.Add(id, owner);
+                }
+            }
+        }
+
+        /// <summary>
         /// Elimina un jugador del game.
         /// </summary>
         public void RemovePlayer(Player rp)
@@ -301,6 +320,15 @@ namespace Library
         public List<Ship> GetShips()
         {
             return ships;
+        }
+
+        /// <summary>
+        /// Devuelve la lista de barcos.
+        /// </summary>
+        /// <returns> Lista de barcos. </returns>
+        public Dictionary<string, Player> GetOwnership()
+        {
+            return this.Ownership;
         }
 
         /// <summary>
