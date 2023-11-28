@@ -34,6 +34,8 @@ namespace Library.handlers
             string serverID = message.Text.Split("join_server-")[1];
             Logger.Instance.Debug("Want to join the game: " + serverID);
 
+            List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
+
             Game game = ServerManager.Instance.GetGame(serverID);
             if (game != null)
             {
@@ -47,7 +49,25 @@ namespace Library.handlers
                     game.AddPlayer(player);
 
                     // Redirect a gamemenu-sessionid
-                    response = new Response(ResponseType.None, answr);
+                    if (game.GetPlayers().Contains(player)) {
+                        answr = $"You successfully joined the game {game.GetSessionName()}! Please, go to the waiting room.";
+
+                        buttons.Add(new []
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: $"Go to the waiting room!", callbackData: $"wait_game-{game.GetGameId()}")
+                        });
+                    } else {
+                        answr = "Somehow, it was not possible to join you to the game. Go back to the menu.";
+
+                        buttons.Add(new []
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: $"Go back to the menu", callbackData: $"/menu")
+                        });
+                    }
+
+                    InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
+                    response = new Response(ResponseType.Keyboard, answr);
+                    response.SetKeyboard(inlineKeyboard);
                 }
                 else { response = new Response(ResponseType.None, ""); }
             }

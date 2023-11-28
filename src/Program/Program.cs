@@ -22,6 +22,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Linq;
 using Library.managers;
 using Library.utils;
+using System.Diagnostics;
 
 
 namespace NavalBattle   
@@ -174,8 +175,28 @@ namespace NavalBattle
 
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
-                    await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
-                    await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                    switch (msg.Text.Split("-")[0]) {
+                        case "start_war":
+                        case "start_server":
+                            Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0])[1]);
+
+                            foreach (Player p in game.GetPlayers()) {
+                                foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
+                                    if (c.User.TelegramId == p.GetTelegramId()) {
+                                        await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                                        await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                                    }
+                                }
+                            }
+                            break;
+                        default:
+                            await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                            await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                            break;
+                    }
+
+                    //await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                    //await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
                     break;
                 case ResponseType.Return:
                     break;
