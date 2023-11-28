@@ -86,6 +86,8 @@ namespace Library.handlers
                             buttons.Add(line.ToArray());
                         }
 
+                        if (game.GetAdmin() == player) { buttons.Add(new [] { InlineKeyboardButton.WithCallbackData(text: "▶️ WAR! ◀️", callbackData: $"start_war-{game.GetGameId()}") }); }
+
                         break;
                 }
 
