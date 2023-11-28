@@ -44,7 +44,8 @@ namespace Library.handlers
             int x = 1;
             foreach (Game server in availableServers)
             {
-                if (server.GetStatus() != utils.core.GameStatusType.FINISHED) {
+                if (server.GetStatus() != utils.core.GameStatusType.FINISHED)
+                {
                     buttons.Add(new []
                     {
                         InlineKeyboardButton.WithCallbackData(text: $"{x}. {server.GetSessionName()} ({server.GetPlayers().Count}/2)", callbackData: $"show_server-{server.GetGameId()}")
@@ -66,7 +67,6 @@ namespace Library.handlers
                 InlineKeyboardButton.WithCallbackData(text: $"Return 🔙", callbackData: $"return-/menu")
             });
             InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
-
             response = new Response(ResponseType.Keyboard, answr);
             response.SetKeyboard(inlineKeyboard);
         }

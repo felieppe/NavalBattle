@@ -1,11 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//---------------------------------------------------------------------------------
+// <copyright file="MethodType.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 namespace Library.utils.core
 {
-    public enum MethodType {
+    /// <summary>
+    /// Tipos de métodos.
+    /// </summary>
+    public enum MethodType
+    {
         POST, REMOVE
     }
 }

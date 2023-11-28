@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="ShowServerHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Telegram.Bot.Types;
@@ -9,7 +14,7 @@ using Library.bot.core;
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "show_server".
     /// </summary>
     public class ShowServerHandler : BaseHandler
     {
@@ -23,7 +28,7 @@ namespace Library.handlers
         }
 
         /// <summary>
-        /// Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "show_server" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message"> El mensaje a procesar. </param>
         /// <param name="response"> La respuesta al mensaje procesado. </param>
@@ -60,7 +65,8 @@ namespace Library.handlers
                 };
 
                 // Join button
-                if (game.GetPlayers().Count < 2) {
+                if (game.GetPlayers().Count < 2)
+                {
                     buttons.Add(new []
                     {
                         InlineKeyboardButton.WithCallbackData(text: $"Join ⏩", callbackData: $"join_server-{game.GetGameId()}")

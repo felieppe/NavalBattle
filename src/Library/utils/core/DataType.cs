@@ -1,11 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//---------------------------------------------------------------------------------
+// <copyright file="DataType.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 namespace Library.utils.core
 {
-    public enum DataType {
+    /// <summary>
+    /// Tipos de datos.
+    /// </summary>
+    public enum DataType
+    {
         Game, Player, Chat
     }
 }

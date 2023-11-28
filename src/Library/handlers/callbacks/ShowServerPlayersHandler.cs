@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="ShowServerPlayersHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Telegram.Bot.Types;
@@ -9,7 +14,7 @@ using Library.bot.core;
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "show_server_players".
     /// </summary>
     public class ShowServerPlayersHandler : BaseHandler
     {
@@ -23,7 +28,7 @@ namespace Library.handlers
         }
 
         /// <summary>
-        /// Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "show_server_players" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message"> El mensaje a procesar. </param>
         /// <param name="response"> La respuesta al mensaje procesado. </param>

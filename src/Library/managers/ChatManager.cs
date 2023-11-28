@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="ChatManager.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Library.bot;
@@ -19,14 +24,12 @@ namespace Library.managers
         /// <summary>
         /// Lista de chats.
         /// </summary>
-        /// <value> Lista de chats</value>
-    
+        /// <value> Lista de chats. </value>
         public List<Chat> Chats {get; private set;}
+
          /// <summary>
         /// Inicializa una instancia de la clase <see cref="ChatManager"/> si no existe una, de lo contrario devuelve la instancia que existe.
         /// </summary>
-        /// <value></value>
-
         public static ChatManager Instance
         {
             get
@@ -36,35 +39,43 @@ namespace Library.managers
             }
         }
 
-        public ChatManager() {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public ChatManager()
+        {
             List<Chat> retrieved = Deserializer.Instance.Deserialize(DataType.Chat);
             if (retrieved != null) { Chats = retrieved; }
         }
-        /// <summary>
-        /// Agrega un chat al servidor
-        /// </summary>
-        /// <param name="id"> Id del juego. </param>
-        /// <returns>  </returns>
 
-        public void AddChat(Chat chat) {
-            if (chat != null) {
-                if (!Chats.Contains(chat)) {
+        /// <summary>
+        /// Agrega un chat al servidor.
+        /// </summary>
+        /// <param name="chat"> Chat. </param>
+        public void AddChat(Chat chat)
+        {
+            if (chat != null)
+            {
+                if (!Chats.Contains(chat))
+                {
                     Chats.Add(chat);
                     Serializer.Instance.Serialize(DataType.Chat, MethodType.POST, chat: chat);
                 }
             }
         }
+
         /// <summary>
-        /// Devuelve un chat a partir de la id
+        /// Devuelve un chat a partir del Id.
         /// </summary>
         /// <param name="id"> Id del juego. </param>
         /// <returns>. </returns>
-        public Chat GetChat(long id) {
+        public Chat GetChat(long id)
+        {
             Chat chat = null;
-            foreach (Chat c in Chats) {
+            foreach (Chat c in Chats)
+            {
                 if (c.Id == id) { chat = c; break; }
             }
-
             return chat;
         }
     }

@@ -84,12 +84,14 @@ namespace Library.handlers.core
             }
             List<string> kws = new List<string>();
             string[] splitted = message.Text.Split(" ");
-            foreach (string s in splitted) {
+            foreach (string s in splitted)
+            {
                 kws.Add(s.Split("-")[0]);
             }
 
-            foreach (string keyword in kws) {
-                foreach (string handled in this.Keywords) { if (keyword == handled) { return true; } }
+            foreach (string keyword in kws)
+            {
+                foreach (string handled in Keywords) { if (keyword == handled) { return true; } }
             }
             return false;
         }

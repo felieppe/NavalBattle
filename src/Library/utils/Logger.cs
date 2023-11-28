@@ -1,24 +1,28 @@
-using System.Net;
+//---------------------------------------------------------------------------------
+// <copyright file="Logger.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+
 using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Library;
 
 namespace Library
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Logger
     {
          /// <summary>
         /// Instancia de singleton.
         /// </summary>
-        /// <value> Logger <</value>
+        /// <value> Logger. </value>
         private static Logger instance;
+
          /// <summary>
-        /// Instacia de la clase Configuration.
+        /// Instancia de la clase Configuration.
         /// </summary>
-        /// <value> </value>
         private Configuration Config = Configuration.Instance;
         private string LogPath;
         
@@ -26,57 +30,62 @@ namespace Library
         /// Crea las carpetas que necesita el Logger para funcionar.
         /// </summary>
         /// <returns> . </returns>
-
-        private void Setup() {
+        private void Setup()
+        {
             string folderPath = "../../logs";
             if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); }
 
-            string GenerateLogfile() {
+            string GenerateLogfile()
+            {
                 DateTime currentTime = DateTime.UtcNow;
-                int timestamp = (int)(currentTime.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                int timestamp = (int)currentTime.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 
-                return $"{timestamp}_@{this.Config.GetUsername()}.log";
+                return $"{timestamp}_@{Config.GetUsername()}.log";
             }
             string logFile = GenerateLogfile();
             
             string logPath = $"{folderPath}/{logFile}";
-            if (!File.Exists(logPath)) { 
+            if (!File.Exists(logPath))
+            { 
                 FileStream fs = File.Create(logPath); 
                 fs.Close();
             }
-        
-            this.LogPath = logPath;
+            LogPath = logPath;
         }
         
         /// <summary>
         /// Escribe un mensaje en el archivo del registro.
         /// </summary>
-        /// <returns>  </returns>
-        private void Log(string log) {
-            try {
-                using (StreamWriter writer = new StreamWriter(this.LogPath, true)) {
-                    string GenerateTimestamp() {
+        private void Log(string log)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(LogPath, true))
+                {
+                    string GenerateTimestamp()
+                    {
                         DateTime now = DateTime.Now;
                         string formatted = now.ToString("dd/MM/yy | HH:mm:ss");
-                        
                         return formatted;
                     }
 
                     writer.WriteLine($"[{GenerateTimestamp()}] {log}");
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine("ERROR! Impossible to write in logfile.");
                 Console.WriteLine(ex.Message);
             }
         }
         
         /// <summary>
-        /// Constructor unico.
+        /// Constructor único.
         /// </summary>
-        /// <returns> </returns>
-
-        public static Logger Instance {
-            get {
+        public static Logger Instance
+        {
+            get
+            {
                 if (instance == null) { instance = new Logger(); }
                 return instance;
             }
@@ -85,47 +94,42 @@ namespace Library
         /// <summary>
         /// Constructor de la clase.
         /// </summary>
-        /// <returns>  </returns>
-
-        public Logger() {
-            this.Setup();
-
-            this.Info("Logger has been configured correctly!");
+        public Logger()
+        {
+            Setup();
+            Info("Logger has been configured correctly!");
         }
         
         /// <summary>
-        /// Escribe un mensaje de tipo informacion en la consola.
+        /// Escribe un mensaje de tipo información en la consola.
         /// </summary>
-        /// <returns>  </returns>
-
-        public void Info(string msg) {
+        public void Info(string msg)
+        {
             string output = $"[@{Config.GetUsername()}/INFO]: {msg}";
             Console.WriteLine(output);
-
-            this.Log(output);
+            Log(output);
         }
         
         /// <summary>
         /// Escribe un mensaje de tipo Debug en la consola.
         /// </summary>
-        /// <returns> </returns>
-        public void Debug(string msg) {
-            if (this.Config.GetDebug()) {
+        public void Debug(string msg)
+        {
+            if (Config.GetDebug())
+            {
                 string output = $"[@{Config.GetUsername()}/DEBUG]: {msg}";
                 Console.WriteLine(output);
-
-                this.Log(output);
+                Log(output);
             }
         }
         /// <summary>
         /// Escribe un mensaje de tipo Error en la consola.
         /// </summary>
-        /// <returns> </returns>
-        public void Error(string msg) {
+        public void Error(string msg)
+        {
             string output = $"[@{Config.GetUsername()}/ERROR]: {msg}";
             Console.WriteLine(output);
-
-            this.Log(output);
+            Log(output);
         }
     }
 }

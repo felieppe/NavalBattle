@@ -10,13 +10,11 @@ using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
 using Library.managers;
-using Library.utils;
-using Library.utils.core;
 
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "play".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa los comandos "play" y "start".
     /// </summary>
     public class PlayHandler : BaseHandler
     {
@@ -26,7 +24,7 @@ namespace Library.handlers
         /// <param name="next"> El próximo "Handler". </param>
         public PlayHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/play", "/start" };
+            Keywords = new string[] { "/play", "/start" };
         }
 
         /// <summary>
@@ -59,21 +57,23 @@ namespace Library.handlers
                     InlineKeyboardButton.WithCallbackData(text: "Quit ❌", callbackData: "/quit"),
                 },
             });
-
             response = new Response(ResponseType.Keyboard, answr);
             response.SetKeyboard(inlineKeyboard);
         }
 
-        private static void RegisterChatIfNecessary(Message message, Player player) {
+        private static void RegisterChatIfNecessary(Message message, Player player)
+        {
             long id = message.Chat.Id;
 
             bool founded = false;
-            foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
+            foreach (bot.Chat c in ChatManager.Instance.Chats)
+            {
                 if (c.Id == id) { founded = true; }
             }
 
-            if (!founded) {
-                Library.bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type, player);
+            if (!founded)
+            {
+                bot.Chat chat = new bot.Chat(message.Chat.Id, message.Chat.Type, player);
                 ChatManager.Instance.AddChat(chat);
             }
         }

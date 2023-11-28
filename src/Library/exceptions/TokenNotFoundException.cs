@@ -8,7 +8,7 @@ using System;
 
 namespace Library.Exceptions
 {   /// <summary>
-    /// Excepción por si no se encuentra el token del bot
+    /// Excepción por si no se encuentra el token del bot en el archivo de configuración.
     /// </summary>
     public class TokenNotFoundException : Exception
     {

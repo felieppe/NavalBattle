@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------------
+// <copyright file="StartServerHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Telegram.Bot.Types;
@@ -11,21 +16,21 @@ using Library.managers;
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "start_server".
     /// </summary>
     public class StartServerHandler : BaseHandler
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PlayHandler"/>.
         /// </summary>
-        /// <param name="next"> El próximo "handler". </param>
+        /// <param name="next"> El próximo "Handler". </param>
         public StartServerHandler(BaseHandler next) : base(next)
         {
             Keywords = new string[] { "start_server" };
         }
 
         /// <summary>
-        /// Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "start_server" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message"> El mensaje a procesar. </param>
         /// <param name="response"> La respuesta al mensaje procesado. </param>
@@ -38,12 +43,15 @@ namespace Library.handlers
             List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            if (game != null) {
+            if (game != null)
+            {
                 string tid = message.From.Id.ToString();
-                Player player = UserManager.Instance.GetPlayerById(utils.core.IdType.Telegram, tid);
+                Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
                 Logger.Instance.Debug($"{game.GetAdmin().Username} | {player.Username}");
-                if (game.GetAdmin() == player) {
-                    if (game.GetPlayers().Count == 2) {                 // != 2, just for debug
+                if (game.GetAdmin() == player)
+                {
+                    if (game.GetPlayers().Count == 2)       // !=2 just for debug
+                    {
                         game.SetStatus(GameStatusType.INGAME);
 
                         buttons.Add(new []
@@ -52,19 +60,23 @@ namespace Library.handlers
                         });
 
                         Player otherPlayerIngame = null;
-                        foreach (Player p in game.GetPlayers()) {
+                        foreach (Player p in game.GetPlayers())
+                        {
                             if (p != player) { otherPlayerIngame = p; }
                         }
 
-                        Library.bot.Chat otherPlayerChat = null;
-                        foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
+                        bot.Chat otherPlayerChat = null;
+                        foreach (bot.Chat c in ChatManager.Instance.Chats)
+                        {
                             if (c.User == otherPlayerIngame) { otherPlayerChat = c; }
                         }
 
                         InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                         response = new Response(ResponseType.Keyboard, answr);
                         response.SetKeyboard(inlineKeyboard);
-                    } else {
+                    }
+                    else
+                    {
                         answr = "It was not possible to start the server because is missing one player.";
 
                         buttons.Add(new []
@@ -76,8 +88,10 @@ namespace Library.handlers
                         response = new Response(ResponseType.Keyboard, answr);
                         response.SetKeyboard(inlineKeyboard);
                     }
-                } else {response = new Response(ResponseType.None, "");}
-            } else {response = new Response(ResponseType.None, "");}
+                }
+                else {response = new Response(ResponseType.None, "");}
+            }
+            else {response = new Response(ResponseType.None, "");}
         }
     }
 }

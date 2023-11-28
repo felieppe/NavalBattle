@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Library
         private List<Player> inGamePlayers = new List<Player>();
 
         /// <summary>
-        /// Crea una única instancia de la clase UserManager.
+        /// Inicializa una nueva instancia de la clase <see cref="UserManager"/> si no existe una, de lo contrario devuelve la instancia que existe.
         /// </summary>
         public static UserManager Instance
         {
@@ -42,9 +43,6 @@ namespace Library
             }
         }
 
-        /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="UserManager"/> si no existe una,de lo contrario devuelve la instancia que existe.
-        /// </summary>
         public UserManager()
         {
             List<Player> retrieved = Deserializer.Instance.Deserialize(DataType.Player);
@@ -158,7 +156,7 @@ namespace Library
         /// Obtiene los jugadores guardados.
         /// </summary>
         /// <returns>
-        /// Una lista con elementos de tipo Player.
+        /// Lista con elementos de tipo Player.
         /// </returns>
         public List<Player> GetPlayers()
         {
@@ -169,7 +167,7 @@ namespace Library
         /// Obtiene los jugadores en juego guardados.
         /// </summary>
         /// <returns>
-        /// Una lista con elementos de tipo Player.
+        /// Lista con elementos de tipo Player.
         /// </returns>
         public List<Player> GetInGamePlayers()
         {
@@ -179,9 +177,9 @@ namespace Library
         /// <summary>
         /// Obtiene un jugador mediante su id proporcionado.
         /// </summary>
-        /// <returns>
-        /// Player
-        /// </returns>
+        /// <param name="type"> Tipo de Id. </param>
+        /// <param name="id"> Id del jugador. </param> 
+        /// <returns> Player. </returns>
         public Player GetPlayerById(IdType type, string id)
         {
             switch (type)
@@ -199,7 +197,6 @@ namespace Library
                     }
                     break;
             }
-
             return null;
         }
 

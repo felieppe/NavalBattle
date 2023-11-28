@@ -1,5 +1,10 @@
+//---------------------------------------------------------------------------------
+// <copyright file="Ship.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+
 using System;
-using System.Collections.Generic;
 
 namespace Library
 {
@@ -27,11 +32,6 @@ namespace Library
         public int Length { get; set; }
 
         /// <summary>
-        /// Dueño del barco.
-        /// </summary>
-        private bool Owner;
-
-        /// <summary>
         /// Estado del hundimiento del barco.
         /// </summary>
         /// <value><c>true</c> si el barco está hundido, <c>false</c> en caso contrario.</value>
@@ -42,12 +42,10 @@ namespace Library
         /// </summary>
         /// <param name="name"> Nombre del barco. </param>
         /// <param name="length"> Tamaño del barco. </param>
-        /// <param name="owner"> Dueño del barco. </param>
         public Ship(string name, int length)
         {
             Name = name;
             Length = length;
-            Owner = true;
 
             Guid uuid = Guid.NewGuid();
             ShipId = uuid.ToString();
@@ -80,17 +78,7 @@ namespace Library
         {
             return ShipId;
         }
-
-        /// <summary>
-        /// Devuelve el dueño del barco.
-        /// </summary>
-        /// <returns> Dueño del barco. </returns>
-        public bool GetOwner()
-        {
-            return Owner;
-        }
     }
 }
 
-///Cumple con el principio de responsabilidad única de representar la informacion de un barco y manejar su estado.
-
+///Cumple con el principio de responsabilidad única de representar la información de un barco y manejar su estado.

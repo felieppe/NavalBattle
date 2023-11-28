@@ -87,7 +87,8 @@ namespace Library
         public void RemoveGame(string id)
         {
             Game g = Servers.FirstOrDefault(g => g.GetGameId() == id);
-            if (g != null) {
+            if (g != null)
+            {
                 Servers.Remove(g);
                 Serializer.Instance.Serialize(DataType.Game, MethodType.REMOVE, game: g);
             }           

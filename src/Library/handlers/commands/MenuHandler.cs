@@ -13,7 +13,7 @@ using Library.bot.core;
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "hola".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "/menu".
     /// </summary>
     public class MenuHandler : BaseHandler
     {
@@ -27,7 +27,7 @@ namespace Library.handlers
         }
 
         /// <summary>
-        /// Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/menu" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message"> Mensaje a procesar. </param>
         /// <param name="response"> Respuesta al mensaje procesado. </param>

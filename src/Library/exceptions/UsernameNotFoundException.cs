@@ -8,7 +8,7 @@ using System;
 
 namespace Library.Exceptions
 {   /// <summary>
-    /// Excepción por si no se encuentra el nombre de usuario  
+    /// Excepción por si no se encuentra el nombre de usuario en el archivo de configuración. 
     /// </summary>
     public class UsernameNotFoundException : Exception
     {

@@ -1,4 +1,8 @@
-
+//---------------------------------------------------------------------------------
+// <copyright file="ReturnHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
 
 using Telegram.Bot.Types;
 using Library.handlers.core;
@@ -8,21 +12,21 @@ using Library.bot.core;
 namespace Library.handlers
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+    /// Un "Handler" del patrón Chain of Responsibility que implementa el comando "return".
     /// </summary>
     public class ReturnHandler : BaseHandler
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PlayHandler"/>.
         /// </summary>
-        /// <param name="next"> El próximo "handler". </param>
+        /// <param name="next"> El próximo "Handler". </param>
         public ReturnHandler(BaseHandler next) : base(next)
         {
             Keywords = new string[] { "return" };
         }
 
         /// <summary>
-        /// Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "return" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message"> El mensaje a procesar. </param>
         /// <param name="response"> La respuesta al mensaje procesado. </param>

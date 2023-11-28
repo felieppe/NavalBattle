@@ -33,9 +33,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Imprime el tablero
+        /// Imprime el tablero.
         /// </summary>
-        /// <param name="board">Tablero</param>
+        /// <param name="board"> Tablero. </param>
         public void Print(Board board)
         {
             //Console.Clear();

@@ -1,8 +1,12 @@
+//---------------------------------------------------------------------------------
+// <copyright file="Deserializer.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Library.bot;
 using Library.utils.core;
 using Newtonsoft.Json;
@@ -12,7 +16,7 @@ using Telegram.Bot.Types.Enums;
 namespace Library.utils
 {
      /// <summary>
-    /// Clase que carga informacion.
+    /// Clase que carga información.
     /// </summary>
     public class Deserializer
     {
@@ -22,31 +26,50 @@ namespace Library.utils
         /// <value> Instancia de Deserializer. </value>
         private static Deserializer instance;
 
+        /// <summary>
+        /// Booleano de Debug.
+        /// </summary>
         public bool Debug;
 
-        public static Deserializer Instance {
-            get {
+
+        public static Deserializer Instance
+        {
+            get
+            {
                 if (instance == null) { instance = new Deserializer(); }
                 return instance;
             }
         }
 
-        public Deserializer(bool? debug = false) {
-            this.Debug = (bool) debug;
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="debug"> Booleano de debug. </param>
+        public Deserializer(bool? debug = false)
+        {
+            Debug = (bool) debug;
         }
 
-        public dynamic Deserialize(DataType opt) {
-            if (this.Debug) { return null; }
+        /// <summary>
+        /// Función que deserializa un archivo .json de una partida.
+        /// </summary>
+        /// <param name="opt"></param>
+        /// <returns></returns>
+        public dynamic Deserialize(DataType opt)
+        {
+            if (Debug) { return null; }
             string baseFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\")) + $"/save/{Configuration.Instance.GetUsername()}";
 
-            switch (opt) {
+            switch (opt)
+            {
                 case DataType.Game:
                     string serversFolder = $"{baseFolder}/servers/";
                     string[] files = Directory.GetFiles(serversFolder, "*.json");
 
                     List<Game> games = new List<Game>();
 
-                    foreach (var file in files) {
+                    foreach (var file in files)
+                    {
                         string json = File.ReadAllText(file);
                         JObject obj = JObject.Parse(json);
 
@@ -79,17 +102,21 @@ namespace Library.utils
                         game.SetBoard1(board1);
                         game.SetBoard2(board2);
 
-                        foreach (Coords coord in shipsCoords) {
+                        foreach (Coords coord in shipsCoords)
+                        {
                             game.AddShipCoords(coord.GetShipId(), coord.GetX(), coord.GetY());
                         }
-                        foreach (Ship ship in ships) {
+                        foreach (Ship ship in ships)
+                        {
                             game.AddShip(ship);
                         }
-                        foreach (Player player in players) {
+                        foreach (Player player in players)
+                        {
                             game.AddPlayer(player);
                         }
-                        foreach (var dic in ownership) {
-                            game.AddOwnership(dic.Key, dic.Value);
+                        foreach (var dic in ownership)
+                        {
+                            game.AddOwnerShip(dic.Key, dic.Value);
                         }
 
                         // Adding game to the returnable games list
@@ -104,11 +131,12 @@ namespace Library.utils
 
                     List<Player> playersList = new List<Player>();
                     
-                    foreach (var file in files) {
+                    foreach (var file in files)
+                    {
                         string json = File.ReadAllText(file);
                         JObject obj = JObject.Parse(json);
 
-                        // Retriving player data from JSON object
+                        // Retrieving player data from JSON object
                         string id = obj["id"].ToString();
                         string tid = obj["tid"].ToString();
                         string username = obj["username"].ToString();
@@ -145,18 +173,17 @@ namespace Library.utils
                         // Cloning the chat data to a new instance
                         Chat chat = new Chat(id, type, user);
                         
-                        foreach (string cmd in lastCmds) {
+                        foreach (string cmd in lastCmds)
+                        {
                             chat.AddLastCmd(cmd);
                         }
 
                         // Adding chat to the returnable chat list
                         chats.Add(chat);
                     }
-
                     Logger.Instance.Info($"Has been retrieved {chats.Count} chats!");
                     return chats;
             }
-
             return null;
         } 
     }

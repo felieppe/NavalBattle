@@ -4,7 +4,6 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 
-using System;
 using Library.bot.core;
 using Telegram.Bot.Types.ReplyMarkups;
 
@@ -43,8 +42,9 @@ namespace Library.bot
         {
             if (type != null) { Type = type; }
         }
-        public void SetReturn (string ret) {
-            this.Return = ret;
+        public void SetReturn (string ret)
+        {
+            Return = ret;
         }
 
         /// <summary>
@@ -92,11 +92,12 @@ namespace Library.bot
             return Keyboard;
         }
         /// <summary>
-        /// Devuelve valor return.
+        /// Devuelve valor Return.
         /// </summary>
-        /// <returns>  </returns>
-        public string GetReturn() {
-            return this.Return;
+        /// <returns> Valor Return. </returns>
+        public string GetReturn()
+        {
+            return Return;
         }
     }
 }
