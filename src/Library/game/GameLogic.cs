@@ -39,10 +39,7 @@ namespace Library
         /// Conteo del numero de ataques
         /// </summary>
         private int numberAttack = 1;
-
-        private int sunkShip1;
-        private int sunkShip2;
-
+        
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
