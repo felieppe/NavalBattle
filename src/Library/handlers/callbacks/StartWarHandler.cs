@@ -31,28 +31,32 @@ namespace Library.handlers
         protected override void InternalHandle(Message message, out Response response)
         {
             string serverID = message.Text.Split("start_war-")[1];
-            Logger.Instance.Debug("Want to show the players list of: " + serverID);
 
             Game game = ServerManager.Instance.GetGame(serverID);
             if (game != null) {
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(utils.core.IdType.Telegram, tid);
 
-                /*Player against = null;
-                foreach (Player p in game.GetPlayers()) {
-                    if (p.Id != player.Id) { against = p; }
-                }*/
-
-                string answr = $"You started the war against @WIP. Make your first attack!";
-                game.SetStatus(utils.core.GameStatusType.WAITINGP1);
-
+                string answr = "";
                 List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
-                buttons.Add(new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"Return to the board! ♟", callbackData: $"game-{game.GetGameId()}")
-                });
-                InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
+                if (game.GetPlayers().Count == 2) {
+                    answr = $"You started the war against @WIP. Make your first attack!";
+                    game.SetStatus(utils.core.GameStatusType.WAITINGP1);
 
+                    buttons.Add(new []
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Return to the board! ♟", callbackData: $"game-{game.GetGameId()}")
+                    });
+                } else {
+                    answr = "It was not possible to start the war because is missing one player.";
+
+                    buttons.Add(new []
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Return to the waiting room!", callbackData: $"game-{game.GetGameId()}")
+                    });
+                }
+
+                InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                 response = new Response(ResponseType.Keyboard, answr, ikm: inlineKeyboard);
 
                 /*
