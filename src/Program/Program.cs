@@ -176,18 +176,13 @@ namespace NavalBattle
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
                     switch (msg.Text.Split("-")[0]) {
+                        case "start_war":
                         case "start_server":
-                            Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split("start_server-")[1]);
-
-                            Logger.Instance.Debug("Estoy en start_Server");
+                            Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0])[1]);
 
                             foreach (Player p in game.GetPlayers()) {
-                                Logger.Instance.Debug("player: " + p.GetUsername());
                                 foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
-                                    Logger.Instance.Debug("chat: " + c.Id);
-                                    Logger.Instance.Debug($"{c.User.TelegramId} == {p.GetTelegramId()}");
                                     if (c.User.TelegramId == p.GetTelegramId()) {
-                                        Logger.Instance.Debug("c.User == p");
                                         await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
                                         await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
                                     }
