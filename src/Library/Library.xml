@@ -4,6 +4,12 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.bot.Chat">
+            <summary>
+            Establece el chat entre el bot y el usuario, "Player 1"/"Player 2"
+            Considerando id, type y user 
+            </summary>
+        </member>
         <member name="T:Library.bot.core.ResponseType">
             <summary>
             Tipos de respuestas del bot.
@@ -1044,7 +1050,7 @@
         </member>
         <member name="T:Library.managers.ChatManager">
             <summary>
-            Clase que 
+            Clase que maneja los chats
             </summary>
         </member>
         <member name="F:Library.managers.ChatManager.instance">
@@ -1061,7 +1067,7 @@
         </member>
         <member name="P:Library.managers.ChatManager.Instance">
             <summary>
-            Inicializa una instancia de la clase <see cref="T:Library.managers.ChatManager"/> si no existe una, de lo contrario devuelve esa instancia.
+            Inicializa una instancia de la clase <see cref="T:Library.managers.ChatManager"/> si no existe una, de lo contrario devuelve la instancia que existe.
             </summary>
             <value></value>
         </member>
@@ -1096,12 +1102,7 @@
             </summary>
             <value> Lista de partidas. </value>
         </member>
-        <member name="P:Library.ServerManager.Instance">
-            <summary>
-            Inicializa una instancia de la clase <see cref="T:Library.ServerManager"/> si no existe una, de lo contrario devuelve esa instancia.
-            </summary>
-            <value></value>
-        </member>
+        <!-- Badly formed XML comment ignored for member "P:Library.ServerManager.Instance" -->
         <member name="M:Library.ServerManager.AddGame(Library.Game)">
             <summary>
             Agrega un juego al servidor.
@@ -1151,7 +1152,7 @@
         </member>
         <member name="M:Library.UserManager.#ctor">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.UserManager"/> si no existe una,de lo contrario devuelve la instancia que existe.
             </summary>
         </member>
         <member name="M:Library.UserManager.AddPlayer(Library.Player)">
@@ -1284,6 +1285,28 @@
             Obtiene el valor booleano de Debug 
             </summary>
             <returns> Devuelve el valor booleano de Debug  </returns>
+        </member>
+        <member name="T:Library.utils.Deserializer">
+            <summary>
+            Clase que carga informacion.
+            </summary>
+        </member>
+        <member name="F:Library.utils.Deserializer.instance">
+            <summary>
+            Instancia de Singleton.
+            </summary>
+            <value> Instancia de Deserializer. </value>
+        </member>
+        <member name="T:Library.utils.Serializer">
+            <summary>
+            Clase que guarda informacion.
+            </summary>
+        </member>
+        <member name="F:Library.utils.Serializer.instance">
+            <summary>
+            Instancia de Singleton.
+            </summary>
+            <value> Instancia de Serializer. </value>
         </member>
         <!-- Badly formed XML comment ignored for member "F:Library.Logger.instance" -->
         <member name="F:Library.Logger.Config">
