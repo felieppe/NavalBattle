@@ -70,9 +70,15 @@ namespace Library.handlers
 
                         this.Printer(game, board, buttons, out buttons);
                         break; 
-                }
+                    case GameStatusType.FINISHED:
+                        answr = $"This game has finished! The winner of the game is @{game.Winner.GetUsername()}, thank you for playing.";
 
-                // Chequear si es el ultimo barquito q puede poner el jugador
+                        buttons.Add(new []
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: $"Return to the menu!", callbackData: $"/menu")
+                        });
+                        break;
+                }
 
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                 response = new Response(ResponseType.Keyboard, answr);
