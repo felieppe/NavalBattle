@@ -6,6 +6,7 @@ using Library.handlers.core;
 using Library.bot;
 using Library.bot.core;
 using Library.utils.core;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Library.handlers
 {
@@ -39,7 +40,7 @@ namespace Library.handlers
 
             if (!UserManager.Instance.GetInGamePlayers().Contains(player)) {
                 // Creating game...
-                Game game = new Game(10, 10, 3);
+                Game game = new Game(10, 10, 10);
                 game.SetGameSession($"{author.FirstName} game");
                 game.AddPlayer(player); // Player will be admin of this game.
 
