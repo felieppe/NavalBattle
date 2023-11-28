@@ -9,7 +9,7 @@ using Library.utils.core;
 namespace Library.managers
 {
     /// <summary>
-    /// Clase que 
+    /// Clase que maneja los chats
     /// </summary>
     public class ChatManager
     {
@@ -25,7 +25,7 @@ namespace Library.managers
     
         public List<Chat> Chats {get; private set;}
          /// <summary>
-        /// Inicializa una instancia de la clase <see cref="ChatManager"/> si no existe una, de lo contrario devuelve esa instancia.
+        /// Inicializa una instancia de la clase <see cref="ChatManager"/> si no existe una, de lo contrario devuelve la instancia que existe.
         /// </summary>
         /// <value></value>
 

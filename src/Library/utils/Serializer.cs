@@ -10,8 +10,15 @@ using Newtonsoft.Json.Linq;
 
 namespace Library.utils
 {
+    /// <summary>
+    /// Clase que guarda informacion.
+    /// </summary>
     public class Serializer
     {
+        /// <summary>
+        /// Instancia de Singleton.
+        /// </summary>
+        /// <value> Instancia de Serializer. </value>
         private static Serializer instance;
 
         public bool Debug;

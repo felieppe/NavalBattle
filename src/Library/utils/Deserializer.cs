@@ -11,8 +11,15 @@ using Telegram.Bot.Types.Enums;
 
 namespace Library.utils
 {
+     /// <summary>
+    /// Clase que carga informacion.
+    /// </summary>
     public class Deserializer
     {
+        /// <summary>
+        /// Instancia de Singleton.
+        /// </summary>
+        /// <value> Instancia de Deserializer. </value>
         private static Deserializer instance;
 
         public bool Debug;

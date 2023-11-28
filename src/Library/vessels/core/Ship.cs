@@ -92,3 +92,5 @@ namespace Library
     }
 }
 
+///Cumple con el principio de responsabilidad única de representar la informacion de un barco y manejar su estado.
+
