@@ -29,8 +29,7 @@ namespace Library
         private List<Game> Servers = new List<Game>();
 
         /// <summary>
-        /// Inicializa una instancia de la clase <see cref="ServerManager"/> si no existe una, de lo contrario devuelve esa instancia.
-        /// </summary>
+        /// Inicializa una instancia de la clase <see cref="ServerManager"/> si no existe una, de lo contrario devuelve la instancia que existe.
         /// <value></value>
         public static ServerManager Instance
         {

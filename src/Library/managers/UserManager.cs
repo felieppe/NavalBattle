@@ -43,7 +43,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="UserManager"/>.
+        /// Inicializa una nueva instancia de la clase <see cref="UserManager"/> si no existe una,de lo contrario devuelve la instancia que existe.
         /// </summary>
         public UserManager()
         {
