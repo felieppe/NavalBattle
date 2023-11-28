@@ -90,8 +90,9 @@ namespace NavalBattle
                                                         new StartServerHandler(
                                                             new GameHandler(
                                                                 new PlaceShipHandler(
-                                                                    new StartWarHandler(null)
-            )))))))))))));
+                                                                    new StartWarHandler(
+                                                                        new AttackShipHandler(null)
+            ))))))))))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -186,7 +187,7 @@ namespace NavalBattle
             return Task.CompletedTask;
         }
 
-        private static string[] bypass = {"start_server", "leave_server", "wait_game", "start_war", "place_ship", "return"};
+        private static string[] bypass = {"start_server", "leave_server", "wait_game", "start_war", "place_ship", "attack_ship", "return"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
             if (!bypass.Contains(cmd)) {
