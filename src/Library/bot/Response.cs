@@ -91,6 +91,10 @@ namespace Library.bot
         {
             return Keyboard;
         }
+        /// <summary>
+        /// Devuelve valor return.
+        /// </summary>
+        /// <returns>  </returns>
         public string GetReturn() {
             return this.Return;
         }
