@@ -46,10 +46,9 @@ namespace Library.handlers
 
                 if (player != null)
                 {
-                    game.AddPlayer(player);
-
                     // Redirect a gamemenu-sessionid
-                    if (game.GetPlayers().Contains(player)) {
+                    if (!game.GetPlayers().Contains(player)) {
+                        game.AddPlayer(player);
                         answr = $"You successfully joined the game {game.GetSessionName()}! Please, go to the waiting room.";
 
                         buttons.Add(new []
