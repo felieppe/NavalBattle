@@ -54,41 +54,12 @@ namespace Library.handlers
                     case GameStatusType.INGAME:
                         answr = "This is your board. Please select where do you want to place your ships!";
 
-                        for (int row = 0; row < (game.GetBoard1().GetRows()); row++) {
-                            
-                            List<InlineKeyboardButton> line = new List<InlineKeyboardButton>();
-                            for (int col = 0; col < (game.GetBoard1().GetColumns()); col++) {                               
-                                string buttonText = "";
-                                string callbackData = "none";
-
-                                switch (board.GetBoard()[row][col]) {
-                                    case ' ':
-                                        buttonText = "🌊";
-                                        callbackData = $"place_ship-{game.GetGameId()},{row}/{col}";
-                                        break;
-                                    case 'S':
-                                        buttonText = "🚢";
-                                        callbackData = $"none";
-                                        break;
-                                    default:
-                                        buttonText = game.GetBoard1().GetBoard()[row][col].ToString();
-                                        break;
-                                }
-
-                                if (row == 0 && col == 0) {
-                                    buttonText = "⚫";
-                                    callbackData = "none";
-                                }
-
-                                line.Add(InlineKeyboardButton.WithCallbackData(text: buttonText, callbackData: callbackData));
-                            }
-
-                            buttons.Add(line.ToArray());
-                        }
-
+                        this.Printer(game, board, buttons, out buttons);
                         if (game.GetAdmin() == player) { buttons.Add(new [] { InlineKeyboardButton.WithCallbackData(text: "▶️ WAR! ◀️", callbackData: $"start_war-{game.GetGameId()}") }); }
 
                         break;
+                    case GameStatusType.WAITINGP1:
+                        break; 
                 }
 
                 // Chequear si es el ultimo barquito q puede poner el jugador
@@ -97,6 +68,42 @@ namespace Library.handlers
                 response = new Response(ResponseType.Keyboard, answr);
                 response.SetKeyboard(inlineKeyboard);
             } else {response = new Response(ResponseType.None, "");}
+        }
+
+        private void Printer(Game game, Board board, List<InlineKeyboardButton[]> buttons, out List<InlineKeyboardButton[]> final) {
+            for (int row = 0; row < (game.GetBoard1().GetRows()); row++) {
+                            
+                List<InlineKeyboardButton> line = new List<InlineKeyboardButton>();
+                for (int col = 0; col < (game.GetBoard1().GetColumns()); col++) {                               
+                    string buttonText = "";
+                    string callbackData = "none";
+
+                    switch (board.GetBoard()[row][col]) {
+                        case ' ':
+                            buttonText = "🌊";
+                            callbackData = $"place_ship-{game.GetGameId()},{row}/{col}";
+                            break;
+                        case 'S':
+                            buttonText = "🚢";
+                            callbackData = $"none";
+                            break;
+                        default:
+                            buttonText = game.GetBoard1().GetBoard()[row][col].ToString();
+                            break;
+                    }
+
+                     if (row == 0 && col == 0) {
+                        buttonText = "⚫";
+                        callbackData = "none";
+                    }
+
+                    line.Add(InlineKeyboardButton.WithCallbackData(text: buttonText, callbackData: callbackData));
+                }
+
+                buttons.Add(line.ToArray());
+            }
+
+            final = buttons;
         }
     }
 }
