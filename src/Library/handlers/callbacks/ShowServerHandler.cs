@@ -42,21 +42,21 @@ namespace Library.handlers
                 {
                     // Session name
                     new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"Session name: {game.GetSessionName()}", callbackData: $"none")
-                },
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Session name: {game.GetSessionName()}", callbackData: $"none")
+                    },
 
                     // Players count
                     new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"Players: {game.GetPlayers().Count}/2", callbackData: $"show_server_players-{game.GetGameId()}")
-                },
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"Players: {game.GetPlayers().Count}/2", callbackData: $"show_server_players-{game.GetGameId()}")
+                    },
 
                     // Separator
                     new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"------------------", callbackData: $"join_server-{game.GetGameId()}")
-                }
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"--------------------------", callbackData: $"join_server-{game.GetGameId()}")
+                    }
                 };
 
                 // Join button
