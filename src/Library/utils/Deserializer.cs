@@ -60,6 +60,8 @@ namespace Library.utils
                         // Cloning the game data to a new instance
                         Game game = new Game(rows, columns, totalShips);
                         
+                        //Logger.Instance.Debug("ESTO ES EL PLAYER ADMIN: " + obj["admin"].ToString());
+
                         game.SetGameId(id);
                         game.SetGameSession(name);
                         game.SetStatus(status);
