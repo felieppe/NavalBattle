@@ -25,7 +25,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            this.sub = new Submarine();
+            sub = new Submarine();
         }
 
         /// <summary>
@@ -34,10 +34,10 @@ namespace Tests
         [Test]
         public void InterfaceCastTest()
         {
-            Assert.NotNull(this.sub);
+            Assert.NotNull(sub);
 
             Ship ship;
-            ship = (Ship)this.sub;
+            ship = (Ship)sub;
 
             Assert.True(ship.GetType().ToString() == "Library.Submarine");
         }
@@ -48,11 +48,11 @@ namespace Tests
         [Test]
         public void SetSunkenTest()
         {
-            Assert.NotNull(this.sub);
+            Assert.NotNull(sub);
 
             sub.Sink();
 
-            Assert.True(this.sub.GetSunken());
+            Assert.True(sub.GetSunken());
         }
     }
 }
