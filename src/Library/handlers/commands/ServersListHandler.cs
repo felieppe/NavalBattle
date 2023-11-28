@@ -44,11 +44,13 @@ namespace Library.handlers
             int x = 1;
             foreach (Game server in availableServers)
             {
-                buttons.Add(new []
-                {
-                    InlineKeyboardButton.WithCallbackData(text: $"{x}. {server.GetSessionName()} ({server.GetPlayers().Count}/2)", callbackData: $"show_server-{server.GetGameId()}")
-                });
-                x += 1;
+                if (server.GetStatus() != utils.core.GameStatusType.FINISHED) {
+                    buttons.Add(new []
+                    {
+                        InlineKeyboardButton.WithCallbackData(text: $"{x}. {server.GetSessionName()} ({server.GetPlayers().Count}/2)", callbackData: $"show_server-{server.GetGameId()}")
+                    });
+                    x += 1;
+                }
             }
 
             if (x == 1)

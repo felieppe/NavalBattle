@@ -44,9 +44,11 @@ namespace Library.utils
                         obj["status"] = JsonConvert.SerializeObject(game.GetStatus(), Formatting.Indented);
                         obj["ships_coords"] = JsonConvert.SerializeObject(game.GetShipsCoords(), Formatting.Indented);
                         obj["ships"] = JsonConvert.SerializeObject(game.GetShips(), Formatting.Indented);
+                        obj["ownership"] = JsonConvert.SerializeObject(game.GetOwnership(), Formatting.Indented);
                         obj["total_ships"] = game.GetTotalShips();
                         obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
                         obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
+                        obj["winner"] = JsonConvert.SerializeObject(game.Winner, Formatting.Indented);
                         obj["rows"] = game.rows;
                         obj["columns"] = game.columns;
                         obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);
@@ -92,6 +94,7 @@ namespace Library.utils
                     if (method == MethodType.POST) {
                         obj["id"] = chat.Id;
                         obj["type"] = JsonConvert.SerializeObject(chat.Type, Formatting.Indented);
+                        obj["user"] = JsonConvert.SerializeObject(chat.User, Formatting.Indented);
                         obj["last_commands"] = JsonConvert.SerializeObject(chat.GetLastCommands(), Formatting.Indented);
 
                         using (StreamWriter writer = new StreamWriter(chatFile, false)) {

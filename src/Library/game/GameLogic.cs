@@ -54,7 +54,7 @@ namespace Library
             this.board = board;
             rows = this.board.GetRows();
             columns = this.board.GetColumns();
-            this.game.SetStatus(utils.core.GameStatusType.WAITING);
+            //this.game.SetStatus(utils.core.GameStatusType.WAITING);
         }
 
         /// <summary>
@@ -78,6 +78,7 @@ namespace Library
         public bool PlaceShip(Ship ship, char row, int column, string facing)
         {
             if (!CheckBoundaries(LetterToNumber(row), column)) { return false; }
+            Logger.Instance.Debug("ships count: " + game.GetShips().Count + " | total ships: " + game.GetTotalShips());
             if (game.GetShips().Count >= game.GetTotalShips()) { return false; }
 
             if (board.GetBoard()[column][LetterToNumber(row)] == 'S') { return false; }
@@ -166,27 +167,58 @@ namespace Library
                 DestroyShip(LetterToNumber(row), column);
             }
             numberAttack += 1;
+            
             Turn();
-            foreach (Ship ship in game.GetShips())
-            {
-                if (ship.GetSunken() == true)
-                {
-                    if (ship.GetOwner() == true)
-                    {
-                        sunkShip1 += 1;
+            CheckIfWinner();
+        }
+
+        /// <summary>
+        /// Determina el turno del jugador.
+        /// </summary>
+        private void CheckIfWinner() {
+            List<Ship> ships = game.GetShips();
+            
+            List<Ship> player1_ships = new List<Ship>();
+            List<Ship> player2_ships = new List<Ship>();
+            foreach (Ship ship in ships) {
+                string shipId = ship.GetShipId();
+                foreach (var dic in this.game.GetOwnership()) {
+                    if (dic.Key == shipId) {
+                        Player p = dic.Value;
+                        if (p == game.GetAdmin()) {
+                            player1_ships.Add(ship);
+                        } else { player2_ships.Add(ship); }
                     }
-                    else { sunkShip2 += 1; }
                 }
-                if (sunkShip1 == (game.GetTotalShips() / 2))
-                {
-                    game.SetStatus(utils.core.GameStatusType.FINISHED);
-                    Console.WriteLine("ha finalizado el juego");
+            }
+
+            int player1_sunken = 0;
+            foreach (Ship ship in player1_ships) {
+                if (ship.GetSunken()) { player1_sunken += 1; }
+            }
+            if (player1_ships.Count == player1_sunken) {
+                game.SetStatus(utils.core.GameStatusType.FINISHED);
+                game.SetWinner(game.GetAdmin());
+
+                Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
+                return;
+            }
+
+            int player2_sunken = 0;
+            foreach (Ship ship in player2_ships) {
+                if (ship.GetSunken()) { player2_sunken += 1; }
+            }
+            if (player2_ships.Count == player2_sunken) {
+                game.SetStatus(utils.core.GameStatusType.FINISHED);
+                
+                Player otherPlayer = null;
+                foreach (Player p in game.GetPlayers()) {
+                    if (p != game.GetAdmin()) { otherPlayer = p; }
                 }
-                if (sunkShip2 == (game.GetTotalShips() / 2))
-                {
-                    game.SetStatus(utils.core.GameStatusType.FINISHED);
-                    Console.WriteLine("ha finalizado el juego");
-                }
+
+                game.SetWinner(otherPlayer);
+                Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
+                return;
             }
         }
 

@@ -69,6 +69,26 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.Exceptions.ConfigFileNotExistsException"/>.
             </summary>
         </member>
+        <member name="T:Library.Exceptions.DebugNotFoundException">
+            <summary>
+            Excepción por si no se encuentra información para hacer debug
+            </summary>
+        </member>
+        <member name="T:Library.Exceptions.NameNotFoundException">
+            <summary>
+            Excepcion por si no se encuentra el nombre 
+            </summary>
+        </member>
+        <member name="T:Library.Exceptions.TokenNotFoundException">
+            <summary>
+            Excepción por si no se encuentra el token del bot
+            </summary>
+        </member>
+        <member name="T:Library.Exceptions.UsernameNotFoundException">
+            <summary>
+            Excepción por si no se encuentra el nombre de usuario  
+            </summary>
+        </member>
         <member name="T:Library.Board">
             <summary>
             Clase tablero.
@@ -225,6 +245,12 @@
             </summary>
             <value> Lista con elementos de tipo Ship. </value>
         </member>
+        <member name="F:Library.Game.Ownership">
+            <summary>
+            Lista de barcos ubicados en el tablero del juego.
+            </summary>
+            <value> Lista con elementos de tipo Ship. </value>
+        </member>
         <member name="F:Library.Game.totalShips">
             <summary>
             Conteo de la cantidad de barcos que se pueden colocar
@@ -239,6 +265,11 @@
         <member name="P:Library.Game.Admin">
             <summary>
             Jugador administrador de la partida.
+            </summary>
+        </member>
+        <member name="P:Library.Game.Winner">
+            <summary>
+            Jugador ganador de la partida.
             </summary>
         </member>
         <member name="P:Library.Game.rows">
@@ -295,6 +326,18 @@
             Establece un jugador como administrador de la partida.
             </summary>
             <param name="admin"> Jugador administrador de la partida. </param>
+        </member>
+        <member name="M:Library.Game.SetWinner(Library.Player)">
+            <summary>
+            Establece un jugador como ganador de la partida.
+            </summary>
+            <param name="winner"> Jugador ganador de la partida. </param>
+        </member>
+        <member name="M:Library.Game.AddOwnership(System.String,Library.Player)">
+            <summary>
+            Añade una propiedad a un jugador sobre un barco.
+            </summary>
+            <param name="winner"> Jugador ganador de la partida. </param>
         </member>
         <member name="M:Library.Game.RemovePlayer(Library.Player)">
             <summary>
@@ -365,6 +408,12 @@
             <returns> Coordenadas del barco. </returns>
         </member>
         <member name="M:Library.Game.GetShips">
+            <summary>
+            Devuelve la lista de barcos.
+            </summary>
+            <returns> Lista de barcos. </returns>
+        </member>
+        <member name="M:Library.Game.GetOwnership">
             <summary>
             Devuelve la lista de barcos.
             </summary>
@@ -455,6 +504,11 @@
             <param name="row"> Fila ingresada. </param>
             <param name="column"> Columna ingresada. </param>
         </member>
+        <member name="M:Library.GameLogic.CheckIfWinner">
+            <summary>
+            Determina el turno del jugador.
+            </summary>
+        </member>
         <member name="M:Library.GameLogic.Turn">
             <summary>
             Determina el turno del jugador.
@@ -483,11 +537,14 @@
         </member>
         <member name="M:Library.GameLogic.DestroyShip(System.Int32,System.Int32)">
             <summary>
-            Destruye el barco del tablero.
+            Este método se encarga de buscar y destruir un barco en el tablero de juego en base a una coordenada dada.
             </summary>
             <param name="row"> Fila. </param>
             <param name="column"> Columna. </param>
-            <returns> true/false </returns>
+            <returns> 
+            Devuelve verdadero (true) si se destruye el barco en la coordenada especificada; 
+            de lo contrario, devuelve falso (false). 
+            </returns>
         </member>
         <member name="M:Library.GameLogic.GetNumberAttack">
             <summary>
@@ -565,6 +622,44 @@
             </summary>
             <returns> Username del jugador. </returns>
         </member>
+        <member name="T:Library.handlers.AttackShipHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.AttackShipHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.AttackShipHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.GameHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.GameHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.GameHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
         <member name="T:Library.handlers.JoinServerHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
@@ -596,6 +691,25 @@
             <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.LeaveServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.PlaceShipHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.PlaceShipHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.PlaceShipHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
@@ -653,6 +767,44 @@
             <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.ShowServerPlayersHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.StartServerHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.StartServerHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.StartServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.StartWarHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.StartWarHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.StartWarHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>

@@ -46,6 +46,12 @@ namespace Library
         private List<Ship> ships = new List<Ship>();
 
         /// <summary>
+        /// Lista de barcos ubicados en el tablero del juego.
+        /// </summary>
+        /// <value> Lista con elementos de tipo Ship. </value>
+        private Dictionary<string, Player> Ownership = new Dictionary<string, Player>();
+
+        /// <summary>
         /// Conteo de la cantidad de barcos que se pueden colocar
         /// </summary>
         private int totalShips = 0;
@@ -60,6 +66,11 @@ namespace Library
         /// Jugador administrador de la partida.
         /// </summary>
         public Player Admin { get; private set; }
+
+        /// <summary>
+        /// Jugador ganador de la partida.
+        /// </summary>
+        public Player Winner { get; private set; }
 
         /// <summary>
         /// Filas del tablero.
@@ -86,8 +97,11 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
-            board1 = new Board(rows, columns);
-            board2 = new Board(rows, columns);
+            this.rows = rows;
+            this.columns = columns;
+
+            board1 = new Board(rows/2, columns/2);
+            board2 = new Board(rows/2, columns/2);
             this.totalShips = totalShips;
 
             Guid uuid = Guid.NewGuid();
@@ -158,6 +172,32 @@ namespace Library
             if (!players.Contains(admin))
             {
                 players.Add(admin);
+            }
+        }
+
+        /// <summary>
+        /// Establece un jugador como ganador de la partida.
+        /// </summary>
+        /// <param name="winner"> Jugador ganador de la partida. </param>
+        public void SetWinner(Player winner)
+        {
+            if (winner != null) {
+                if (players.Contains(winner)) {
+                    this.Winner = winner;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Añade una propiedad a un jugador sobre un barco.
+        /// </summary>
+        /// <param name="winner"> Jugador ganador de la partida. </param>
+        public void AddOwnership(string id, Player owner)
+        {
+            if (owner != null) {
+                if (players.Contains(owner)) {
+                    this.Ownership.Add(id, owner);
+                }
             }
         }
 
@@ -280,6 +320,15 @@ namespace Library
         public List<Ship> GetShips()
         {
             return ships;
+        }
+
+        /// <summary>
+        /// Devuelve la lista de barcos.
+        /// </summary>
+        /// <returns> Lista de barcos. </returns>
+        public Dictionary<string, Player> GetOwnership()
+        {
+            return this.Ownership;
         }
 
         /// <summary>

@@ -9,5 +9,10 @@
             Programa de consola de demostración.
             </summary>
         </member>
+        <member name="M:NavalBattle.Program.Main">
+            <summary>
+            Punto de entrada al programa principal.
+            </summary>
+        </member>
     </members>
 </doc>

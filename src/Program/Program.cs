@@ -86,8 +86,13 @@ namespace NavalBattle
                                         new JoinServerHandler(
                                             new CreateHandler(
                                                 new WaitGameHandler(
-                                                    new LeaveServerHandler(null)
-            )))))))));
+                                                    new LeaveServerHandler(
+                                                        new StartServerHandler(
+                                                            new GameHandler(
+                                                                new PlaceShipHandler(
+                                                                    new StartWarHandler(
+                                                                        new AttackShipHandler(null)
+            ))))))))))))));
 
             Bot.StartReceiving(
                 HandleUpdateAsync,
@@ -182,7 +187,7 @@ namespace NavalBattle
             return Task.CompletedTask;
         }
 
-        private static string[] bypass = {"start_server", "leave_server", "wait_game", "return"};
+        private static string[] bypass = {"start_server", "leave_server", "wait_game", "start_war", "place_ship", "attack_ship", "return"};
         private static void CheckIfUserBusy(Message message, out Message final) {
             string cmd = message.Text.Split("-")[0];
             if (!bypass.Contains(cmd)) {
@@ -201,9 +206,11 @@ namespace NavalBattle
                         if (founded != null) {
                             switch (founded.GetStatus()) {
                                 case GameStatusType.INGAME:
-                                    // Redirect to playable game. (WIP)
+                                    // Redirect to playable game
+                                    message.Text = $"game-{founded.GetGameId()}";
                                     break;
                                 case GameStatusType.WAITING:
+                                    // Redirect to session's waiting room
                                     message.Text = $"wait_game-{founded.GetGameId()}";
                                     break;
                             }
