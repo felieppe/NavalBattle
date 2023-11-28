@@ -38,7 +38,6 @@ namespace Library.handlers
             List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
             Game game = ServerManager.Instance.GetGame(serverID);
-            Logger.Instance.Debug("gamE: " + game.GetAdmin().GetId());
             if (game != null) {
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(utils.core.IdType.Telegram, tid);
