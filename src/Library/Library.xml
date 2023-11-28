@@ -650,6 +650,25 @@
             <param name="response"> La respuesta al mensaje procesado. </param>
             <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
         </member>
+        <member name="T:Library.handlers.PlaceShipHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.PlaceShipHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.PlaceShipHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
         <member name="T:Library.handlers.ReturnHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
@@ -719,6 +738,25 @@
             <param name="next"> El próximo "handler". </param>
         </member>
         <member name="M:Library.handlers.StartServerHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
+            <summary>
+            Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message"> El mensaje a procesar. </param>
+            <param name="response"> La respuesta al mensaje procesado. </param>
+            <returns> true si el mensaje fue procesado; false en caso contrario. </returns>
+        </member>
+        <member name="T:Library.handlers.StartWarHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "servers" y "join".
+            </summary>
+        </member>
+        <member name="M:Library.handlers.StartWarHandler.#ctor(Library.handlers.core.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.handlers.PlayHandler"/>.
+            </summary>
+            <param name="next"> El próximo "handler". </param>
+        </member>
+        <member name="M:Library.handlers.StartWarHandler.InternalHandle(Telegram.Bot.Types.Message,Library.bot.Response@)">
             <summary>
             Procesa el mensaje "servers" y retorna true; retorna false en caso contrario.
             </summary>
