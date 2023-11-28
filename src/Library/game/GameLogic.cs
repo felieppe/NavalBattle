@@ -55,7 +55,7 @@ namespace Library
             this.board = board;
             rows = this.board.GetRows();
             columns = this.board.GetColumns();
-            this.game.SetStatus(utils.core.GameStatusType.WAITING);
+            //this.game.SetStatus(utils.core.GameStatusType.WAITING);
         }
 
         /// <summary>
