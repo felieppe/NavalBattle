@@ -1,9 +1,5 @@
-using System.Net.Http;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using Library.handlers.core;
@@ -24,7 +20,7 @@ namespace Library.handlers
         /// <param name="next">El próximo "handler".</param>
         public CreateHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/create" };
+            Keywords = new string[] { "/create" };
         }
 
         /// <summary>
@@ -49,16 +45,19 @@ namespace Library.handlers
 
                 ServerManager.Instance.AddGame(game);
 
-                List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
-                buttons.Add(new []
+                List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>
+                {
+                    new[]
                     {
                         InlineKeyboardButton.WithCallbackData(text: $"Waiting room 🚻", callbackData: $"wait_game-{game.GetGameId()}")
-                    });
+                    }
+                };
                 InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
 
                 response = new Response(ResponseType.Keyboard, answr);
                 response.SetKeyboard(inlineKeyboard);
-            } else { response = new Response(ResponseType.Message, "You already joined a game!"); }
+            }
+            else { response = new Response(ResponseType.Message, "You already joined a game!"); }
         }
     }
 }

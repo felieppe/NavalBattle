@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Telegram.Bot.Requests;
 
 namespace Library
 {
@@ -39,16 +40,14 @@ namespace Library
         /// </summary>
         private int numberAttack = 1;
 
-        /// <summary>
-        /// Verifica que se hayan hundido todos los barcos.
-        /// </summary>
-        private bool allShipsSunk;
+        private int sunkShip1;
+        private int sunkShip2;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="GameLogic"/>.
         /// </summary>
         /// <param name="game"> Juego. </param>
-        /// <param name="board"> Tablero del jugador 1. </param>
+        /// <param name="board"> Tablero. </param>
         public GameLogic(Game game, Board board)
         {
             this.game = game;

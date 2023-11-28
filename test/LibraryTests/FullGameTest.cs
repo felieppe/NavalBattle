@@ -4,6 +4,7 @@
 // </copyright>
 //---------------------------------------------------------------------------------
 using Library;
+using Library.utils;
 using NUnit.Framework;
 
 namespace Tests
@@ -38,6 +39,8 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
+            Deserializer.Instance.Debug = true;
+            Serializer.Instance.Debug = true;
             rows = 12;
             columns = 6;
             cruise1 = new Cruise();

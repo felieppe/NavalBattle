@@ -34,7 +34,7 @@ namespace Library
         /// <param name="y"> Coordenada Y del barco. </param>
         public Coords(string id, int x, int y)
         {
-            this.shipId = id;
+            shipId = id;
             this.x = x;
             this.y = y;
         }

@@ -8,15 +8,26 @@ using Library.utils.core;
 
 namespace Library.managers
 {
+    /// <summary>
+    /// Clase que 
+    /// </summary>
     public class ChatManager
     {
         /// <summary>
         /// Instancia de Singleton
         /// </summary>
-        /// <value> Instancia de ServerManager</value>
+        /// <value> Instancia de ChatManager</value>
         private static ChatManager instance;
-
+        /// <summary>
+        /// Lista de chats.
+        /// </summary>
+        /// <value> Lista de chats</value>
+    
         public List<Chat> Chats {get; private set;}
+         /// <summary>
+        /// Inicializa una instancia de la clase <see cref="ChatManager"/> si no existe una, de lo contrario devuelve esa instancia.
+        /// </summary>
+        /// <value></value>
 
         public static ChatManager Instance
         {
@@ -29,21 +40,30 @@ namespace Library.managers
 
         public ChatManager() {
             List<Chat> retrieved = Deserializer.Instance.Deserialize(DataType.Chat);
-            if (retrieved != null) { this.Chats = retrieved; }
+            if (retrieved != null) { Chats = retrieved; }
         }
+        /// <summary>
+        /// Agrega un chat al servidor
+        /// </summary>
+        /// <param name="id"> Id del juego. </param>
+        /// <returns>  </returns>
 
         public void AddChat(Chat chat) {
             if (chat != null) {
-                if (!this.Chats.Contains(chat)) {
-                    this.Chats.Add(chat);
+                if (!Chats.Contains(chat)) {
+                    Chats.Add(chat);
                     Serializer.Instance.Serialize(DataType.Chat, MethodType.POST, chat: chat);
                 }
             }
         }
-
+        /// <summary>
+        /// Devuelve un chat a partir de la id
+        /// </summary>
+        /// <param name="id"> Id del juego. </param>
+        /// <returns>. </returns>
         public Chat GetChat(long id) {
             Chat chat = null;
-            foreach (Chat c in this.Chats) {
+            foreach (Chat c in Chats) {
                 if (c.Id == id) { chat = c; break; }
             }
 
@@ -51,3 +71,6 @@ namespace Library.managers
         }
     }
 }
+
+///Cumple con el principio de responsabilidad única, la clase tiene una única razón para cambiar que es gestionar la lógica de los chats y no tiene responsabilidades adicionales.
+///Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.
