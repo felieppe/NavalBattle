@@ -198,8 +198,13 @@ namespace Library
             }
             if (player1_ships.Count == player1_sunken) {
                 game.SetStatus(utils.core.GameStatusType.FINISHED);
-                game.SetWinner(game.GetAdmin());
+                
+                Player otherPlayer = null;
+                foreach (Player p in game.GetPlayers()) {
+                    if (p != game.GetAdmin()) { otherPlayer = p; }
+                }
 
+                game.SetWinner(otherPlayer);
                 Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
                 return;
             }
@@ -210,13 +215,8 @@ namespace Library
             }
             if (player2_ships.Count == player2_sunken) {
                 game.SetStatus(utils.core.GameStatusType.FINISHED);
-                
-                Player otherPlayer = null;
-                foreach (Player p in game.GetPlayers()) {
-                    if (p != game.GetAdmin()) { otherPlayer = p; }
-                }
+                game.SetWinner(game.GetAdmin());
 
-                game.SetWinner(otherPlayer);
                 Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
                 return;
             }
