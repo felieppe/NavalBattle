@@ -44,7 +44,7 @@ namespace Library.handlers
                 Player player = UserManager.Instance.GetPlayerById(utils.core.IdType.Telegram, tid);
                 Logger.Instance.Debug($"{game.GetAdmin().Username} | {player.Username}");
                 if (game.GetAdmin() == player) {
-                    if (game.GetPlayers().Count != 2) {                 // != 2, just for debug
+                    if (game.GetPlayers().Count == 2) {                 // != 2, just for debug
                         game.SetStatus(GameStatusType.INGAME);
 
                         buttons.Add(new []
@@ -71,7 +71,18 @@ namespace Library.handlers
                             HAY QUE HACER QUE SE ENVIE EL game- para el otro usuario cargado
 
                         */
-                    } else {response = new Response(ResponseType.None, "");}
+                    } else {
+                        answr = "It was not possible to start the server because is missing one player.";
+
+                        buttons.Add(new []
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: $"Return to the waiting room!", callbackData: $"game-{game.GetGameId()}")
+                        });
+
+                        InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
+                        response = new Response(ResponseType.Keyboard, answr);
+                        response.SetKeyboard(inlineKeyboard);
+                    }
                 } else {response = new Response(ResponseType.None, "");}
             } else {response = new Response(ResponseType.None, "");}
         }
