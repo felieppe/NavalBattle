@@ -65,12 +65,6 @@ namespace Library.handlers
                         InlineKeyboardMarkup inlineKeyboard = buttons.ToArray();
                         response = new Response(ResponseType.Keyboard, answr);
                         response.SetKeyboard(inlineKeyboard);
-
-                        /*
-
-                            HAY QUE HACER QUE SE ENVIE EL game- para el otro usuario cargado
-
-                        */
                     } else {
                         answr = "It was not possible to start the server because is missing one player.";
 
