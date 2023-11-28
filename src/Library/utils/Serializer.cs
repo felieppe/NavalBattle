@@ -140,3 +140,6 @@ namespace Library.utils
         }
     }
 }
+/// Cumple con el principio de responsabilidad única, ya que tiene la responsabilidad de serializar una partida en un archivo .JSON.
+/// Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.
+ 

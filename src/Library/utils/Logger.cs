@@ -10,7 +10,7 @@ using System.IO;
 namespace Library
 {
     /// <summary>
-    /// 
+    /// Clase que 
     /// </summary>
     public class Logger
     {
@@ -133,3 +133,6 @@ namespace Library
         }
     }
 }
+
+/// Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.
+ 
