@@ -512,7 +512,7 @@
         </member>
         <member name="M:Library.GameLogic.CheckIfWinner">
             <summary>
-            Determina el turno del jugador.
+            Determina si hay un ganador en la partida.
             </summary>
         </member>
         <member name="M:Library.GameLogic.Turn">

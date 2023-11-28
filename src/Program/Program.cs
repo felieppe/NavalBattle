@@ -176,9 +176,11 @@ namespace NavalBattle
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
                     switch (msg.Text.Split("-")[0]) {
+                        case "game":
                         case "start_war":
                         case "start_server":
-                            Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0])[1]);
+                            Logger.Instance.Debug($"{msg.Text.Split("-")[0]}-");
+                            Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0] + "-")[1]);
 
                             foreach (Player p in game.GetPlayers()) {
                                 foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
@@ -205,6 +207,7 @@ namespace NavalBattle
         private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
             Logger.Error(exception.Message);
+            Logger.Error(exception.StackTrace);
             return Task.CompletedTask;
         }
 
