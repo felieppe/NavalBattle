@@ -204,9 +204,11 @@ namespace NavalBattle
                         if (founded != null) {
                             switch (founded.GetStatus()) {
                                 case GameStatusType.INGAME:
-                                    // Redirect to playable game. (WIP)
+                                    // Redirect to playable game
+                                    message.Text = $"game-{founded.GetGameId()}";
                                     break;
                                 case GameStatusType.WAITING:
+                                    // Redirect to session's waiting room
                                     message.Text = $"wait_game-{founded.GetGameId()}";
                                     break;
                             }
