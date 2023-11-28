@@ -30,7 +30,9 @@ namespace Library.utils
         /// Booleano de Debug.
         /// </summary>
         public bool Debug;
-
+        /// <summary>
+        /// Inicializa una instancia de la clase <see cref="Deserializer"/> si no existe una, de lo contrario devuelve la instancia que existe.
+        /// </summary>
 
         public static Deserializer Instance
         {

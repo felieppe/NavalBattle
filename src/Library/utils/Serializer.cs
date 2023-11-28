@@ -23,8 +23,15 @@ namespace Library.utils
         /// </summary>
         /// <value> Instancia de Serializer. </value>
         private static Serializer instance;
+        /// <summary>
+        /// Booleano de Debug.
+        /// </summary>
 
         public bool Debug;
+        /// <summary>
+        /// Inicializa una instancia de la clase <see cref="Serializer"/> si no existe una, de lo contrario devuelve la instancia que existe.
+        /// </summary>
+
 
         public static Serializer Instance
         {
