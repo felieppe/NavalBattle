@@ -10,7 +10,7 @@ using System.IO;
 namespace Library
 {
     /// <summary>
-    /// Clase que 
+    /// Clase que imprime mensajes en consola.
     /// </summary>
     public class Logger
     {
