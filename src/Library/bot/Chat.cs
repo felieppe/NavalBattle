@@ -7,7 +7,10 @@ using Library.utils.core;
 using Telegram.Bot.Types.Enums;
 
 namespace Library.bot
-{
+{   /// <summary>
+    /// Establece el chat entre el bot y el usuario, "Player 1"/"Player 2"
+    /// Considerando id, type y user 
+    /// </summary>
     public class Chat : Telegram.Bot.Types.Chat
     {
         public Player User {get; private set;}

@@ -1042,11 +1042,42 @@
             Establece el estado del barco.
             </summary>
         </member>
+        <member name="T:Library.managers.ChatManager">
+            <summary>
+            Clase que 
+            </summary>
+        </member>
         <member name="F:Library.managers.ChatManager.instance">
             <summary>
             Instancia de Singleton
             </summary>
-            <value> Instancia de ServerManager</value>
+            <value> Instancia de ChatManager</value>
+        </member>
+        <member name="P:Library.managers.ChatManager.Chats">
+            <summary>
+            Lista de chats.
+            </summary>
+            <value> Lista de chats</value>
+        </member>
+        <member name="P:Library.managers.ChatManager.Instance">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Library.managers.ChatManager"/> si no existe una, de lo contrario devuelve esa instancia.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.managers.ChatManager.AddChat(Library.bot.Chat)">
+            <summary>
+            Agrega un chat al servidor
+            </summary>
+            <param name="id"> Id del juego. </param>
+            <returns>  </returns>
+        </member>
+        <member name="M:Library.managers.ChatManager.GetChat(System.Int64)">
+            <summary>
+            Devuelve un chat a partir de la id
+            </summary>
+            <param name="id"> Id del juego. </param>
+            <returns>. </returns>
         </member>
         <member name="T:Library.ServerManager">
             <summary>
@@ -1070,11 +1101,6 @@
             Inicializa una instancia de la clase <see cref="T:Library.ServerManager"/> si no existe una, de lo contrario devuelve esa instancia.
             </summary>
             <value></value>
-        </member>
-        <member name="M:Library.ServerManager.#ctor">
-            <summary>
-            
-            </summary>
         </member>
         <member name="M:Library.ServerManager.AddGame(Library.Game)">
             <summary>
