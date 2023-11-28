@@ -173,7 +173,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Determina el turno del jugador.
+        /// Determina si hay un ganador en la partida.
         /// </summary>
         private void CheckIfWinner() {
             List<Ship> ships = game.GetShips();
