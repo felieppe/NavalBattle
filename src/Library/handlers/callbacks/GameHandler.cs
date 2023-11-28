@@ -7,6 +7,7 @@ using Library.bot;
 using Library.bot.core;
 using Library.utils.core;
 using Library.managers;
+using System.Formats.Asn1;
 
 namespace Library.handlers
 {
@@ -59,6 +60,15 @@ namespace Library.handlers
 
                         break;
                     case GameStatusType.WAITINGP1:
+                    case GameStatusType.WAITINGP2:
+                        answr = "Make your attack! Select the coordinate you want to try your luck.";
+
+                        // aca hay q imprimir el tablero enemigo, pero sin mostrar los barcos sin hundir, solo los hundidos, por ello hay q hacer una distincion.
+                        if (game.GetAdmin() == player) {
+                            board = game.GetBoard2();
+                        } else { board = game.GetBoard1(); }
+
+                        this.Printer(game, board, buttons, out buttons);
                         break; 
                 }
 
@@ -81,10 +91,21 @@ namespace Library.handlers
                     switch (board.GetBoard()[row][col]) {
                         case ' ':
                             buttonText = "🌊";
-                            callbackData = $"place_ship-{game.GetGameId()},{row}/{col}";
+                            if (game.GetStatus() == GameStatusType.INGAME) { callbackData = $"place_ship-{game.GetGameId()},{row}/{col}"; } 
+                            else if (game.GetStatus() == GameStatusType.WAITINGP1 || game.GetStatus() == GameStatusType.WAITINGP2) { callbackData = $"attack_ship-{game.GetGameId()},{row}/{col}"; }
                             break;
                         case 'S':
                             buttonText = "🚢";
+                            if (game.GetStatus() == GameStatusType.INGAME) {
+                                buttonText = "🚢";
+                                callbackData = $"none";
+                            } else if (game.GetStatus() == GameStatusType.WAITINGP1 || game.GetStatus() == GameStatusType.WAITINGP2) {
+                                buttonText = "🌊";
+                                callbackData = $"attack_ship-{game.GetGameId()},{row}/{col}";
+                            }
+                            break;
+                        case 'X':
+                            buttonText = "💥";
                             callbackData = $"none";
                             break;
                         default:
