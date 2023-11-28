@@ -104,11 +104,11 @@ namespace Library.handlers
                             break;
                         case 'S':
                             buttonText = "🚢";
-                            if (game.GetStatus() == GameStatusType.INGAME) {
+                            if (game.GetStatus() == GameStatusType.INGAME || game.GetStatus() == GameStatusType.FINISHED) {
                                 buttonText = "🚢";
                                 callbackData = $"none";
                             } else if (game.GetStatus() == GameStatusType.WAITINGP1 || game.GetStatus() == GameStatusType.WAITINGP2) {
-                                buttonText = "💦";
+                                buttonText = "🌊";
                                 callbackData = $"attack_ship-{game.GetGameId()},{row}/{col}";
                             }
                             break;
