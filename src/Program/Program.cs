@@ -176,6 +176,7 @@ namespace NavalBattle
             switch (response.GetType()) {
                 case ResponseType.Keyboard:
                     switch (msg.Text.Split("-")[0]) {
+                        case "game":
                         case "start_war":
                         case "start_server":
                             Logger.Instance.Debug($"{msg.Text.Split("-")[0]}-");
