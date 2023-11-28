@@ -1,11 +1,14 @@
+//---------------------------------------------------------------------------------
+// <copyright file="NameNotFoundException.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library.Exceptions
 {   /// <summary>
-    /// Excepcion por si no se encuentra el nombre 
+    /// Excepción por si no se encuentra el nombre en el archivo de configuración. 
     /// </summary>
     public class NameNotFoundException : Exception
     {

@@ -1,7 +1,10 @@
+//---------------------------------------------------------------------------------
+// <copyright file="TokenNotFoundException.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//---------------------------------------------------------------------------------
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library.Exceptions
 {   /// <summary>

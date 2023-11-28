@@ -17,7 +17,6 @@ namespace Library.Exceptions
         /// Inicializa una nueva instancia de la clase <see cref="ConfigFileNotExistsException"/>.
         /// </summary>
         public ConfigFileNotExistsException() : base() {}
-        
         public ConfigFileNotExistsException(string message) : base(message) { }
         public ConfigFileNotExistsException(string message, Exception innerException) : base(message, innerException) { }
     }

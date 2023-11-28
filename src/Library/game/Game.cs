@@ -181,8 +181,10 @@ namespace Library
         /// <param name="winner"> Jugador ganador de la partida. </param>
         public void SetWinner(Player winner)
         {
-            if (winner != null) {
-                if (players.Contains(winner)) {
+            if (winner != null)
+            {
+                if (players.Contains(winner))
+                {
                     Winner = winner;
                 }
             }
@@ -191,11 +193,14 @@ namespace Library
         /// <summary>
         /// Añade una propiedad a un jugador sobre un barco.
         /// </summary>
-        /// <param name="winner"> Jugador ganador de la partida. </param>
-        public void AddOwnership(string id, Player owner)
+        /// <param name="id"> Id del barco. </param>
+        /// <param name="owner"> Dueño del barco. </param>
+        public void AddOwnerShip(string id, Player owner)
         {
-            if (owner != null) {
-                if (players.Contains(owner)) {
+            if (owner != null)
+            {
+                if (players.Contains(owner))
+                {
                     Ownership.Add(id, owner);
                 }
             }
@@ -204,16 +209,21 @@ namespace Library
         /// <summary>
         /// Elimina un jugador del game.
         /// </summary>
+        /// <param name="rp"> Jugador. </param>
         public void RemovePlayer(Player rp)
         {
-            if (rp != null) { 
+            if (rp != null)
+            { 
                 players.Remove(rp);
                 UserManager.Instance.RemovePlayer(rp);
 
-                if (players.Count == 0) {
+                if (players.Count == 0)
+                {
                     SetStatus(GameStatusType.FINISHED);
                     ServerManager.Instance.RemoveGame(gameId);
-                } else {
+                }
+                else
+                {
                     SetAdmin(players.ToArray()[0]);
                 }
             }
@@ -323,18 +333,18 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve la lista de barcos.
+        /// Devuelve la lista de barcos del jugador.
         /// </summary>
-        /// <returns> Lista de barcos. </returns>
+        /// <returns> Lista de barcos del jugador. </returns>
         public Dictionary<string, Player> GetOwnership()
         {
-            return this.Ownership;
+            return Ownership;
         }
 
         /// <summary>
-        /// Devuelve la cantidad de barcos.
+        /// Devuelve la cantidad total de barcos.
         /// </summary>
-        /// <returns> Cantidad de barcos. </returns>
+        /// <returns> Cantidad de barcos total. </returns>
         public int GetTotalShips()
         {
             return totalShips;
