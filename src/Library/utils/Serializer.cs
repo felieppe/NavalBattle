@@ -47,6 +47,7 @@ namespace Library.utils
                         obj["total_ships"] = game.GetTotalShips();
                         obj["players"] = JsonConvert.SerializeObject(game.GetPlayers(), Formatting.Indented);
                         obj["admin"] = JsonConvert.SerializeObject(game.GetAdmin(), Formatting.Indented);
+                        obj["winner"] = JsonConvert.SerializeObject(game.Winner, Formatting.Indented);
                         obj["rows"] = game.rows;
                         obj["columns"] = game.columns;
                         obj["board_1"] = JsonConvert.SerializeObject(game.GetBoard1(), Formatting.Indented);

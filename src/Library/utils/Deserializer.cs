@@ -52,6 +52,7 @@ namespace Library.utils
                         int totalShips = obj["total_ships"].Value<int>();
                         List<Player> players = JsonConvert.DeserializeObject<List<Player>>(obj["players"].ToString());
                         Player admin = JsonConvert.DeserializeObject<Player>(obj["admin"].ToString());
+                        Player winner = JsonConvert.DeserializeObject<Player>(obj["winner"].ToString());
                         int rows = obj["rows"].Value<int>();
                         int columns = obj["columns"].Value<int>();
                         Board board1 = JsonConvert.DeserializeObject<Board>(obj["board_1"].ToString());
@@ -66,6 +67,7 @@ namespace Library.utils
                         game.SetGameSession(name);
                         game.SetStatus(status);
                         game.SetAdmin(admin);
+                        game.SetWinner(winner);
                         game.SetBoard1(board1);
                         game.SetBoard2(board2);
 

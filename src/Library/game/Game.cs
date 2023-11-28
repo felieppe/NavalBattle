@@ -62,6 +62,11 @@ namespace Library
         public Player Admin { get; private set; }
 
         /// <summary>
+        /// Jugador ganador de la partida.
+        /// </summary>
+        public Player Winner { get; private set; }
+
+        /// <summary>
         /// Filas del tablero.
         /// </summary>
         public int rows { get; private set; }
@@ -161,6 +166,19 @@ namespace Library
             if (!players.Contains(admin))
             {
                 players.Add(admin);
+            }
+        }
+
+        /// <summary>
+        /// Establece un jugador como ganador de la partida.
+        /// </summary>
+        /// <param name="winner"> Jugador ganador de la partida. </param>
+        public void SetWinner(Player winner)
+        {
+            if (winner != null) {
+                if (players.Contains(winner)) {
+                    this.Winner = winner;
+                }
             }
         }
 
