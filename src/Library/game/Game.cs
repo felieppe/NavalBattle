@@ -183,7 +183,7 @@ namespace Library
         {
             if (winner != null) {
                 if (players.Contains(winner)) {
-                    this.Winner = winner;
+                    Winner = winner;
                 }
             }
         }
@@ -196,7 +196,7 @@ namespace Library
         {
             if (owner != null) {
                 if (players.Contains(owner)) {
-                    this.Ownership.Add(id, owner);
+                    Ownership.Add(id, owner);
                 }
             }
         }
@@ -207,14 +207,14 @@ namespace Library
         public void RemovePlayer(Player rp)
         {
             if (rp != null) { 
-                this.players.Remove(rp);
+                players.Remove(rp);
                 UserManager.Instance.RemovePlayer(rp);
 
-                if (this.players.Count == 0) {
-                    this.SetStatus(GameStatusType.FINISHED);
-                    ServerManager.Instance.RemoveGame(this.gameId);
+                if (players.Count == 0) {
+                    SetStatus(GameStatusType.FINISHED);
+                    ServerManager.Instance.RemoveGame(gameId);
                 } else {
-                    this.SetAdmin(this.players.ToArray()[0]);
+                    SetAdmin(players.ToArray()[0]);
                 }
             }
         }
