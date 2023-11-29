@@ -42,18 +42,25 @@ namespace Library.handlers
             List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
 
             Game game = ServerManager.Instance.GetGame(serverID);
+            Logger.Instance.Debug("t1");
             if (game != null)
             {
+                Logger.Instance.Debug("t2");
                 string answr = "";
 
                 string tid = message.From.Id.ToString();
                 Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, tid);
 
+                Logger.Instance.Debug($"debug player: {UserManager.Instance.GetPlayers().ToArray()[0].TelegramId}");
+                Logger.Instance.Debug($"");
+
                 if (player != null)
                 {
+                    Logger.Instance.Debug("t3");
                     // Redirect a gamemenu-sessionid
                     if (!game.GetPlayers().Contains(player))
                     {
+                        Logger.Instance.Debug("t4");
                         game.AddPlayer(player);
                         answr = $"You successfully joined the game {game.GetSessionName()}! Please, go to the waiting room.";
 
@@ -64,6 +71,7 @@ namespace Library.handlers
                     }
                     else
                     {
+                        Logger.Instance.Debug("t5");
                         answr = "Somehow, it was not possible to join you to the game. Go back to the menu.";
                         buttons.Add(new []
                         {
