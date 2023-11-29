@@ -183,12 +183,9 @@ namespace Library
                 string shipId = ship.GetShipId();
                 Logger.Instance.Debug(shipId);
                 foreach (var dic in this.game.GetOwnership()) {
-                    Logger.Instance.Debug($"{dic.Key} | {shipId}");
                     if (dic.Key == shipId) {
-                        Logger.Instance.Debug("dic.key == shipid");
                         Player p = dic.Value;
                         if (p == game.GetAdmin()) {
-                            Logger.Instance.Debug("p == game.getadmin()");
                             player1_ships.Add(ship);
                         } else { player2_ships.Add(ship); }
                     }
@@ -206,10 +203,11 @@ namespace Library
                 
                 Player otherPlayer = null;
                 foreach (Player p in game.GetPlayers()) {
+                    Logger.Instance.Debug("player: " + p.Username);
                     if (p != game.GetAdmin()) { otherPlayer = p; }
                 }
 
-                game.SetWinner(otherPlayer);
+                game.SetWinner(game.GetPlayers().ToArray()[1]);
                 Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
                 return;
             }
