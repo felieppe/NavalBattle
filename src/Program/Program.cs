@@ -182,13 +182,18 @@ namespace NavalBattle
                             Logger.Instance.Debug($"{msg.Text.Split("-")[0]}-");
                             Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0] + "-")[1]);
 
-                            foreach (Player p in game.GetPlayers()) {
-                                foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
-                                    if (c.User.TelegramId == p.GetTelegramId()) {
-                                        await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
-                                        await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                            if (game.GetStatus() == GameStatusType.FINISHED || game.GetStatus() == GameStatusType.INGAME) {
+                                foreach (Player p in game.GetPlayers()) {
+                                    foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
+                                        if (c.User.TelegramId == p.GetTelegramId()) {
+                                            //await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                                            await Bot.SendTextMessageAsync(c.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
+                                        }
                                     }
                                 }
+                            } else {
+                                await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
+                                await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
                             }
                             break;
                         default:
@@ -229,7 +234,10 @@ namespace NavalBattle
 
                         if (founded != null) {
                             switch (founded.GetStatus()) {
+                                case GameStatusType.GETTING_READY:
                                 case GameStatusType.INGAME:
+                                case GameStatusType.WAITINGP2:
+                                case GameStatusType.WAITINGP1:
                                     // Redirect to playable game
                                     message.Text = $"game-{founded.GetGameId()}";
                                     break;

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Library.utils.core;
 
 namespace Library
 {
@@ -158,14 +159,16 @@ namespace Library
         /// <param name="column"> Columna ingresada. </param>
         public void Attack(char row, int column)
         {
-            if (VerifyAttack(LetterToNumber(row), column))
-            {
-                DestroyShip(LetterToNumber(row), column);
+            if (game.GetStatus() != utils.core.GameStatusType.FINISHED) {
+                if (VerifyAttack(LetterToNumber(row), column))
+                {
+                    DestroyShip(LetterToNumber(row), column);
+                    CheckIfWinner();
+                }
+
+                Turn();
+                this.game.SumAttack();
             }
-            numberAttack += 1;
-            
-            Turn();
-            CheckIfWinner();
         }
 
         /// <summary>
@@ -178,6 +181,7 @@ namespace Library
             List<Ship> player2_ships = new List<Ship>();
             foreach (Ship ship in ships) {
                 string shipId = ship.GetShipId();
+                Logger.Instance.Debug(shipId);
                 foreach (var dic in this.game.GetOwnership()) {
                     if (dic.Key == shipId) {
                         Player p = dic.Value;
@@ -192,15 +196,18 @@ namespace Library
             foreach (Ship ship in player1_ships) {
                 if (ship.GetSunken()) { player1_sunken += 1; }
             }
-            if (player1_ships.Count == player1_sunken) {
+
+            Logger.Instance.Debug($"p1_ships.Count: {player1_ships.Count} | player1_sunken: {player1_sunken}");
+            if (player1_ships.Count.Equals(player1_sunken) && player1_sunken != 0) {
                 game.SetStatus(utils.core.GameStatusType.FINISHED);
                 
                 Player otherPlayer = null;
                 foreach (Player p in game.GetPlayers()) {
+                    Logger.Instance.Debug("player: " + p.Username);
                     if (p != game.GetAdmin()) { otherPlayer = p; }
                 }
 
-                game.SetWinner(otherPlayer);
+                game.SetWinner(game.GetPlayers().ToArray()[1]);
                 Logger.Instance.Info($"The winner of the game '{game.GetSessionName()}' is {game.Winner.GetUsername()}");
                 return;
             }
@@ -209,7 +216,9 @@ namespace Library
             foreach (Ship ship in player2_ships) {
                 if (ship.GetSunken()) { player2_sunken += 1; }
             }
-            if (player2_ships.Count == player2_sunken) {
+
+            Logger.Instance.Debug($"p2_ships.Count: {player2_ships.Count} | player2_sunken: {player2_sunken}");
+            if (player2_ships.Count.Equals(player2_sunken) && player2_sunken != 0) {
                 game.SetStatus(utils.core.GameStatusType.FINISHED);
                 game.SetWinner(game.GetAdmin());
 
@@ -223,15 +232,17 @@ namespace Library
         /// </summary>
         public void Turn()
         {
-            if (numberAttack % 2 == 0)
-            {
-                game.SetStatus(utils.core.GameStatusType.WAITINGP2);
-                Console.WriteLine("Turno del Jugador 2.");
-            }
-            else
-            {
-                game.SetStatus(utils.core.GameStatusType.WAITINGP1);
-                Console.WriteLine("Turno del Jugador 1.");
+            if (game.GetStatus() != GameStatusType.FINISHED) {
+                if (this.game.Attacks % 2 == 0)
+                {
+                    game.SetStatus(utils.core.GameStatusType.WAITINGP2);
+                    Logger.Instance.Debug("Turno del Jugador 2.");
+                }
+                else
+                {
+                    game.SetStatus(utils.core.GameStatusType.WAITINGP1);
+                    Logger.Instance.Debug("Turno del Jugador 1.");
+                }
             }
         }
 

@@ -67,6 +67,7 @@ namespace Library.handlers
                 Submarine sub = new Submarine();
 
                 bool placed = gl.PlaceShip(sub, letter, row, "up");
+                game.AddOwnerShip(sub.ShipId, player);
 
                 if (placed)
                 {

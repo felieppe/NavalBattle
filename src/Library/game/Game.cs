@@ -57,6 +57,11 @@ namespace Library
         private int totalShips = 0;
 
         /// <summary>
+        /// Conteo de la cantidad de barcos que se pueden colocar
+        /// </summary>
+        public int Attacks {get; private set;}
+
+        /// <summary>
         /// Lista de jugadores del juego.
         /// </summary>
         /// <value> Lista con elementos de tipo Player. </value>
@@ -97,6 +102,8 @@ namespace Library
         /// </summary>
         public Game(int rows, int columns, int totalShips)
         {
+            this.Attacks = 0;
+
             this.rows = rows;
             this.columns = columns;
 
@@ -266,6 +273,10 @@ namespace Library
         public void AddShip(Ship ship)
         {
             ships.Add(ship);
+        }
+
+        public void SumAttack() {
+            this.Attacks += 1;
         }
 
         /// <summary>
