@@ -18,12 +18,9 @@ using Telegram.Bot.Types.Enums;
 using System.IO;
 using Library.utils.core;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using System.Linq;
 using Library.managers;
 using Library.utils;
-using System.Diagnostics;
-
 
 namespace NavalBattle   
 {
@@ -37,7 +34,8 @@ namespace NavalBattle
         private static TelegramBotClient Bot;
         private static IHandler Handler;
 
-        private static void Setup() {
+        private static void Setup()
+        {
             Bot = new TelegramBotClient(Config.GetToken());
 
             // Save folder setup
@@ -95,12 +93,14 @@ namespace NavalBattle
                                                                         new AttackShipHandler(null)
             ))))))))))))));
 
-            Bot.StartReceiving(
+            Bot.StartReceiving
+            (
                 HandleUpdateAsync,
                 HandleErrorAsync,
                 new ReceiverOptions()
                 {
-                    AllowedUpdates = new UpdateType[] {
+                    AllowedUpdates = new UpdateType[]
+                    {
                         UpdateType.Message, UpdateType.CallbackQuery
                     }
                 },
@@ -117,7 +117,8 @@ namespace NavalBattle
         {
             try
             {
-                switch(update.Type) {
+                switch(update.Type)
+                {
                     case UpdateType.Message:
                         await HandleMessageReceived(botClient, update.Message);
                         break;
@@ -146,7 +147,8 @@ namespace NavalBattle
             switch(response.GetType())
             {
                 case ResponseType.Message:
-                    if (!string.IsNullOrEmpty(response.GetMessage())) {
+                    if (!string.IsNullOrEmpty(response.GetMessage()))
+                    {
                         await Bot.SendTextMessageAsync(message.Chat.Id, response.GetMessage());
                     }
                     break;
@@ -155,15 +157,18 @@ namespace NavalBattle
                     break;
             }
         }
-        private static async Task HandleCallbackReceived(ITelegramBotClient botClient, Update update) {
+        private static async Task HandleCallbackReceived(ITelegramBotClient botClient, Update update)
+        {
             string data = update.CallbackQuery.Data;
             Logger.Info($"Received a callback from {update.CallbackQuery.From.FirstName}: {data}");
 
-            Message msg = new Message();
-            msg.Chat = update.CallbackQuery.Message.Chat;
-            msg.MessageId = update.Id;
-            msg.From = update.CallbackQuery.From;
-            msg.Text = data;
+            Message msg = new Message
+            {
+                Chat = update.CallbackQuery.Message.Chat,
+                MessageId = update.Id,
+                From = update.CallbackQuery.From,
+                Text = data
+            };
 
             CheckIfUserBusy(msg, out msg);
             HandleReturn(msg, out msg);
@@ -173,18 +178,23 @@ namespace NavalBattle
 
             SaveLastCommand(msg, response);
 
-            switch (response.GetType()) {
+            switch (response.GetType())
+            {
                 case ResponseType.Keyboard:
-                    switch (msg.Text.Split("-")[0]) {
+                    switch (msg.Text.Split("-")[0])
+                    {
                         case "game":
                         case "start_war":
                         case "start_server":
                             Logger.Instance.Debug($"{msg.Text.Split("-")[0]}-");
                             Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0] + "-")[1]);
 
-                            foreach (Player p in game.GetPlayers()) {
-                                foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
-                                    if (c.User.TelegramId == p.GetTelegramId()) {
+                            foreach (Player p in game.GetPlayers())
+                            {
+                                foreach (Library.bot.Chat c in ChatManager.Instance.Chats)
+                                {
+                                    if (c.User.TelegramId == p.GetTelegramId())
+                                    {
                                         await Bot.DeleteMessageAsync(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId);
                                         await Bot.SendTextMessageAsync(msg.Chat.Id, response.GetMessage(), replyMarkup: response.GetKeyboard());
                                     }
@@ -212,23 +222,31 @@ namespace NavalBattle
         }
 
         private static string[] bypass = {"start_server", "leave_server", "wait_game", "start_war", "place_ship", "attack_ship", "return"};
-        private static void CheckIfUserBusy(Message message, out Message final) {
+        private static void CheckIfUserBusy(Message message, out Message final)
+        {
             string cmd = message.Text.Split("-")[0];
-            if (!bypass.Contains(cmd)) {
+            if (!bypass.Contains(cmd))
+            {
                 Player player = UserManager.Instance.GetPlayerById(IdType.Telegram, message.From.Id.ToString());
-                if (player != null) {
-                    foreach (Player p in UserManager.Instance.GetInGamePlayers()) {
+                if (player != null)
+                {
+                    foreach (Player p in UserManager.Instance.GetInGamePlayers())
+                    {
                     }
-                    if (UserManager.Instance.GetInGamePlayers().Contains(player)) { 
+                    if (UserManager.Instance.GetInGamePlayers().Contains(player))
+                    { 
                         List<Library.Game> games = ServerManager.Instance.GetListing();
                         
                         Library.Game founded = null;
-                        foreach (Library.Game game in games) {
+                        foreach (Library.Game game in games)
+                        {
                             if (game.GetPlayers().Contains(player)) { founded = game; Logger.Instance.Debug("Game founded!");}
                         }
 
-                        if (founded != null) {
-                            switch (founded.GetStatus()) {
+                        if (founded != null)
+                        {
+                            switch (founded.GetStatus())
+                            {
                                 case GameStatusType.INGAME:
                                     // Redirect to playable game
                                     message.Text = $"game-{founded.GetGameId()}";
@@ -242,32 +260,36 @@ namespace NavalBattle
                     }
                 }
             }
-
             final = message;
         }
 
-        private static void SaveLastCommand(Message message, Response res) {
+        private static void SaveLastCommand(Message message, Response res)
+        {
             if (message.Text.Split("-")[0] == "return") { return; }
-            if (res.GetType() != ResponseType.None) {
+            if (res.GetType() != ResponseType.None)
+            {
                 Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
-                if (chat != null) {
+                if (chat != null)
+                {
                     chat.AddLastCmd(message.Text);
                 }
             }
         }
 
-        private static void HandleReturn(Message message, out Message final) {
-            if (message.Text.Split("-")[0] == "return") {
+        private static void HandleReturn(Message message, out Message final)
+        {
+            if (message.Text.Split("-")[0] == "return")
+            {
                 string whereReturn = message.Text.Split("return-")[1];
                 
                 Library.bot.Chat chat = ChatManager.Instance.GetChat(message.Chat.Id);
                 List<string> lastCommands = chat.GetLastCommands();
 
-                if (lastCommands.ToArray()[0] == whereReturn) {
+                if (lastCommands.ToArray()[0] == whereReturn)
+                {
                     message.Text = whereReturn;
                 }
             }
-            
             final = message;
         }
     }

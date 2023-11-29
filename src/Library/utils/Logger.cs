@@ -29,7 +29,6 @@ namespace Library
         /// <summary>
         /// Crea las carpetas que necesita el Logger para funcionar.
         /// </summary>
-        /// <returns> . </returns>
         private void Setup()
         {
             string folderPath = "../../logs";
