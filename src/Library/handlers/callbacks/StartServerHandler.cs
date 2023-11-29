@@ -52,7 +52,7 @@ namespace Library.handlers
                 {
                     if (game.GetPlayers().Count == 2)       // !=2 just for debug
                     {
-                        game.SetStatus(GameStatusType.GETTING_READY);
+                        game.SetStatus(GameStatusType.STARTING_SERVER);
 
                         buttons.Add(new []
                         {

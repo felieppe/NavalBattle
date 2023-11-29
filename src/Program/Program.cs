@@ -182,7 +182,7 @@ namespace NavalBattle
                             Logger.Instance.Debug($"{msg.Text.Split("-")[0]}-");
                             Library.Game game = ServerManager.Instance.GetGame(msg.Text.Split(msg.Text.Split("-")[0] + "-")[1]);
 
-                            if (game.GetStatus() == GameStatusType.FINISHED || game.GetStatus() == GameStatusType.INGAME) {
+                            if (game.GetStatus() == GameStatusType.FINISHED || game.GetStatus() == GameStatusType.STARTING_SERVER) {
                                 foreach (Player p in game.GetPlayers()) {
                                     foreach (Library.bot.Chat c in ChatManager.Instance.Chats) {
                                         if (c.User.TelegramId == p.GetTelegramId()) {

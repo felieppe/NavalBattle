@@ -54,6 +54,8 @@ namespace Library.handlers
                 }
                 else { board = game.GetBoard2(); }
 
+                if (game.GetStatus() == GameStatusType.STARTING_SERVER) { game.SetStatus(GameStatusType.GETTING_READY); }
+
                 switch (game.GetStatus())
                 {
                     case GameStatusType.GETTING_READY:
