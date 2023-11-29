@@ -54,9 +54,11 @@ namespace Library.handlers
                 }
                 else { board = game.GetBoard2(); }
 
+                if (game.GetStatus() == GameStatusType.STARTING_SERVER) { game.SetStatus(GameStatusType.GETTING_READY); }
+
                 switch (game.GetStatus())
                 {
-                    case GameStatusType.INGAME:
+                    case GameStatusType.GETTING_READY:
                         answr = "This is your board. Please select where do you want to place your ships!";
 
                         Printer(game, board, buttons, out buttons);
@@ -113,12 +115,12 @@ namespace Library.handlers
                     {
                         case ' ':
                             buttonText = "🌊";
-                            if (game.GetStatus() == GameStatusType.INGAME) { callbackData = $"place_ship-{game.GetGameId()},{row}/{col}"; } 
+                            if (game.GetStatus() == GameStatusType.GETTING_READY) { callbackData = $"place_ship-{game.GetGameId()},{row}/{col}"; } 
                             else if (game.GetStatus() == GameStatusType.WAITINGP1 || game.GetStatus() == GameStatusType.WAITINGP2) { callbackData = $"attack_ship-{game.GetGameId()},{row}/{col}"; }
                             break;
                         case 'S':
                             buttonText = "🚢";
-                            if (game.GetStatus() == GameStatusType.INGAME || game.GetStatus() == GameStatusType.FINISHED)
+                            if (game.GetStatus() == GameStatusType.GETTING_READY || game.GetStatus() == GameStatusType.FINISHED)
                             {
                                 buttonText = "🚢";
                                 callbackData = $"none";

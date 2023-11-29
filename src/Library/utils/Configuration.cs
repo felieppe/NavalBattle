@@ -140,3 +140,6 @@ namespace Library
         }
     }
 }
+
+///Cumple con el principio de responsabilidad única, porque solo tiene la responsabilidad de generar la configuracion del Bot.
+/// Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.

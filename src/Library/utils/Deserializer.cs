@@ -30,7 +30,9 @@ namespace Library.utils
         /// Booleano de Debug.
         /// </summary>
         public bool Debug;
-
+        /// <summary>
+        /// Inicializa una instancia de la clase <see cref="Deserializer"/> si no existe una, de lo contrario devuelve la instancia que existe.
+        /// </summary>
 
         public static Deserializer Instance
         {
@@ -188,3 +190,6 @@ namespace Library.utils
         } 
     }
 }
+///Cumple con el principio de responsabilidad única, ya que tiene la responsabilidad de deserializar un archivo .JSON.
+/// Cumple con el patrón Singleton porque solo se puede tener una única instancia de la clase.
+ 

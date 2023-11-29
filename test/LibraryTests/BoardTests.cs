@@ -27,9 +27,9 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            this.rows = 10;
-            this.columns = 10;
-            this.board = new Board(rows, columns);
+            rows = 10;
+            columns = 10;
+            board = new Board(rows, columns);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Tests
                 new char[] {';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
             };
 
-            Assert.AreEqual(expectedBoard, this.board.GetBoard());
+            Assert.AreEqual(expectedBoard, board.GetBoard());
         }
 
         /// <summary>
