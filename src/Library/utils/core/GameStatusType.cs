@@ -11,6 +11,6 @@ namespace Library.utils.core
     /// </summary>
     public enum GameStatusType
     {
-        INGAME, WAITING, GETTING_READY, WAITINGP1, WAITINGP2, FINISHED
+        INGAME, WAITING, STARTING_SERVER, GETTING_READY, WAITINGP1, WAITINGP2, FINISHED
     }
 }
